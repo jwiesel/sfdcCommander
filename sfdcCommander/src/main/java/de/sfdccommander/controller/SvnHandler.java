@@ -26,7 +26,7 @@ import de.sfdccommander.model.CommanderConfig;
 import de.sfdccommander.viewer.SfdcCommander;
 
 /**
- * @author jochen Handles the SVN Repository Connection
+ * @author jochen Handles the SVN Repository Connection.
  */
 public class SvnHandler {
 
