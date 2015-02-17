@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+body {
+    background-color: #f2f2f2;
+}
+
+body, html, .container-fluid, .row.content, .col-md-9, .panel {
+    height: 95.5%;
+}
+
+.contentframe {
+    border: 0 none;
+    border-radius: 10px 10px 10px 10px;
+    height: 100%;
+    width: 100%;
+}

@@ -1,0 +1,271 @@
+@CHARSET "UTF-8";
+a img {
+	border: 0;
+}
+
+.stylepickcolumn {
+    padding-top: 10px;
+    width: 100px;
+}
+
+.stylepick {
+    margin: 1px;
+}
+
+/* Left hand navigation */
+.navigation {
+    vertical-align: top;
+    width: 200px;
+}
+
+.menu {
+    list-style: none outside none;
+    margin-left: 5px;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.menu li {
+    border-radius: 10px 10px 10px 10px;
+    margin-bottom: 5px;
+}
+
+	
+.menu li a {
+	padding: 5px 5px 5px 10px;
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu li a:hover  {
+	border-radius: 10px 10px 10px 10px;
+	color: #30b1a9;
+}
+
+/* Content */
+.contentwrapper {
+    height: 100%;
+    padding: 10px;
+}
+.innerbody {
+    margin: 10px;
+	margin-top: 0px;
+}
+
+/* Entry Lists */
+.staticheader {
+    background-color: #fff;
+    border-bottom: 1px solid #337ab7;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 0;
+    padding-top: 10px;
+    position: fixed;
+    width: 100%;
+	z-index: 1;
+	padding-left: 30px;
+}
+.qnav {
+    padding-top: 8px;
+    position: fixed;
+    z-index: 1;
+}
+.qnav .glyphicon {
+    font-size: 18px;
+}
+.glyphicon-remove {
+    color: #d9534f;
+}
+.glyphicon-ok {
+    color: #5cb85c;
+}
+
+.dynamiccontent {
+    padding-top: 40px;
+}
+
+.entrylist td {
+    padding: 5px 0;
+}
+
+/*------------------------------ OLD ------------------------------*/
+/* Quick Navigation */
+ul.quicknav {
+    background-color: #4F81BD;
+    list-style: none outside none;
+    padding: 10px;
+    width: 300px;
+}
+
+ul.quicknav h3 {
+    border-bottom: 4px solid #FFFFFF;
+    color: #FFFFFF;
+    margin: 0;
+    padding-bottom: 3px;
+}
+
+ul.quicknav li {
+	padding: 3px;
+}
+
+/* Description Quality */
+.nodocu {
+	background-color: #ffc7ce;
+	font-weight: bold;
+	color: #9c0006;
+}
+
+.weakdocu {
+	background-color: #ffeb9c;
+	font-weight: bold;
+	color: #9c6500;
+}
+
+.gooddocu {
+}
+
+/* Table Contents */
+table.datatable {
+    border-bottom: 3px solid #4F81BD;
+}
+
+tr.dataline td {
+	padding: 0 3px 0 3px;
+}
+
+.blue {
+	background-color: #DCE6F1;
+}
+
+tr.dataline:nth-child(2n+2), ul.quicknav li:nth-child(2n+2){
+	background-color: #DCE6F1;
+}
+
+.white {
+	background-color: #ffffff;
+}
+
+tr.dataline:nth-child(2n+3), ul.quicknav li:nth-child(2n+1)  {
+	background-color: #ffffff;
+}
+
+/* Embedded Table */
+.fader {
+	color: #337ab7;
+}
+
+.fader:hover {
+	cursor: pointer;
+}
+
+.embedded {
+	display: none;
+}
+
+/* Table cell icon */
+td.icon {
+	text-align: center;
+}
+
+/* Layout Section */
+
+/* Buttons */
+div.button {
+    background: -moz-linear-gradient(top , #EEEEEE, #CCCCCC);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#EEEEEE), to(#CCCCCC));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEEEEE', endColorstr='#CCCCCC');
+    border-color: #AAAAAA;
+    border-radius: 3px 3px 3px 3px;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin: 3px;
+    padding: 3px;
+    text-align: center;
+}
+
+div.exclude {
+	text-decoration: line-through;
+}
+
+/* Layout Sections */
+table.layoutsection {
+    width: 900px;
+}
+
+tr.layoutheadline {
+    text-align: left;
+}
+
+.layoutheadline th {
+    border-top: 2px solid #DDDDDD;
+    padding-top: 10px;
+}
+
+tr.layoutcontent {
+    vertical-align: top;
+}
+
+tr.layoutcontent.TwoColumnsLeftToRight td {
+    width: 50%;
+}
+
+tr.layoutcontent.TwoColumnsTopToBottom td {
+    width: 50%;
+}
+
+/* Fields */
+div.f-label {
+    float: left;
+	padding: 4px;
+    text-align: right;
+    width: 310px;
+}
+
+div.f-label a {
+	color: 0000A1;
+}
+
+div.field {
+    border-color: #AAAAAA;
+    border-radius: 3px 3px 3px 3px;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    height: 20px;
+    margin: 3px;
+    width: 100px;
+}
+
+.field.Readonly {
+    background-color: #EEEEEE;
+}
+
+.field.Required {
+    border-left: 4px solid #d9534f;
+}
+
+/* Related Lists */
+.relatedlist {
+    background-color: #EEEEEE;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px 3px 3px 3px;
+    width: 900px;
+}
+
+.listheader th {
+    border-top: 3px solid #4F81BD;
+}
+
+.listheader div {
+    float: left;
+    margin: 7px;
+}
+
+.listcolumns td {
+    border: 1px solid #DDDDDD;
+	padding: 0 3px;
+}
