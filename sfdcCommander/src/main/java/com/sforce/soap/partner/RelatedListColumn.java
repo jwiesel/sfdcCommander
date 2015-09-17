@@ -1,1 +1,264 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class RelatedListColumn implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public RelatedListColumn() {  }        /**   * element  : field of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo field__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","field","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean field__is_set = false;  private java.lang.String field;  public java.lang.String getField() {    return field;  }    public void setField(java.lang.String field) {    this.field = field;    field__is_set = true;  }    /**   * element  : format of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo format__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","format","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean format__is_set = false;  private java.lang.String format;  public java.lang.String getFormat() {    return format;  }    public void setFormat(java.lang.String format) {    this.format = format;    format__is_set = true;  }    /**   * element  : label of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo label__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","label","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean label__is_set = false;  private java.lang.String label;  public java.lang.String getLabel() {    return label;  }    public void setLabel(java.lang.String label) {    this.label = label;    label__is_set = true;  }    /**   * element  : name of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo name__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","name","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean name__is_set = false;  private java.lang.String name;  public java.lang.String getName() {    return name;  }    public void setName(java.lang.String name) {    this.name = name;    name__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeString(__out, field__typeInfo, field, field__is_set);    __typeMapper.writeString(__out, format__typeInfo, format, format__is_set);    __typeMapper.writeString(__out, label__typeInfo, label, label__is_set);    __typeMapper.writeString(__out, name__typeInfo, name, name__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, field__typeInfo)) {      setField((java.lang.String)__typeMapper.readString(__in, field__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, format__typeInfo)) {      setFormat((java.lang.String)__typeMapper.readString(__in, format__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, label__typeInfo)) {      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, name__typeInfo)) {      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[RelatedListColumn ");        sb.append(" field=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(field)+"'\n");    sb.append(" format=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(format)+"'\n");    sb.append(" label=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(label)+"'\n");    sb.append(" name=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(name)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * RelatedListColumn.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class RelatedListColumn  implements java.io.Serializable {
+    private java.lang.String field;
+
+    private java.lang.String format;
+
+    private java.lang.String label;
+
+    private java.lang.String lookupId;
+
+    private java.lang.String name;
+
+    public RelatedListColumn() {
+    }
+
+    public RelatedListColumn(
+           java.lang.String field,
+           java.lang.String format,
+           java.lang.String label,
+           java.lang.String lookupId,
+           java.lang.String name) {
+           this.field = field;
+           this.format = format;
+           this.label = label;
+           this.lookupId = lookupId;
+           this.name = name;
+    }
+
+
+    /**
+     * Gets the field value for this RelatedListColumn.
+     * 
+     * @return field
+     */
+    public java.lang.String getField() {
+        return field;
+    }
+
+
+    /**
+     * Sets the field value for this RelatedListColumn.
+     * 
+     * @param field
+     */
+    public void setField(java.lang.String field) {
+        this.field = field;
+    }
+
+
+    /**
+     * Gets the format value for this RelatedListColumn.
+     * 
+     * @return format
+     */
+    public java.lang.String getFormat() {
+        return format;
+    }
+
+
+    /**
+     * Sets the format value for this RelatedListColumn.
+     * 
+     * @param format
+     */
+    public void setFormat(java.lang.String format) {
+        this.format = format;
+    }
+
+
+    /**
+     * Gets the label value for this RelatedListColumn.
+     * 
+     * @return label
+     */
+    public java.lang.String getLabel() {
+        return label;
+    }
+
+
+    /**
+     * Sets the label value for this RelatedListColumn.
+     * 
+     * @param label
+     */
+    public void setLabel(java.lang.String label) {
+        this.label = label;
+    }
+
+
+    /**
+     * Gets the lookupId value for this RelatedListColumn.
+     * 
+     * @return lookupId
+     */
+    public java.lang.String getLookupId() {
+        return lookupId;
+    }
+
+
+    /**
+     * Sets the lookupId value for this RelatedListColumn.
+     * 
+     * @param lookupId
+     */
+    public void setLookupId(java.lang.String lookupId) {
+        this.lookupId = lookupId;
+    }
+
+
+    /**
+     * Gets the name value for this RelatedListColumn.
+     * 
+     * @return name
+     */
+    public java.lang.String getName() {
+        return name;
+    }
+
+
+    /**
+     * Sets the name value for this RelatedListColumn.
+     * 
+     * @param name
+     */
+    public void setName(java.lang.String name) {
+        this.name = name;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof RelatedListColumn)) return false;
+        RelatedListColumn other = (RelatedListColumn) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.field==null && other.getField()==null) || 
+             (this.field!=null &&
+              this.field.equals(other.getField()))) &&
+            ((this.format==null && other.getFormat()==null) || 
+             (this.format!=null &&
+              this.format.equals(other.getFormat()))) &&
+            ((this.label==null && other.getLabel()==null) || 
+             (this.label!=null &&
+              this.label.equals(other.getLabel()))) &&
+            ((this.lookupId==null && other.getLookupId()==null) || 
+             (this.lookupId!=null &&
+              this.lookupId.equals(other.getLookupId()))) &&
+            ((this.name==null && other.getName()==null) || 
+             (this.name!=null &&
+              this.name.equals(other.getName())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getField() != null) {
+            _hashCode += getField().hashCode();
+        }
+        if (getFormat() != null) {
+            _hashCode += getFormat().hashCode();
+        }
+        if (getLabel() != null) {
+            _hashCode += getLabel().hashCode();
+        }
+        if (getLookupId() != null) {
+            _hashCode += getLookupId().hashCode();
+        }
+        if (getName() != null) {
+            _hashCode += getName().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(RelatedListColumn.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "RelatedListColumn"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("field");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "field"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("format");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "format"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("label");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "label"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("lookupId");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "lookupId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("name");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "name"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

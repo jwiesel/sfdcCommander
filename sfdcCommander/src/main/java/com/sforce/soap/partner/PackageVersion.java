@@ -1,1 +1,183 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class PackageVersion implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public PackageVersion() {  }        /**   * element  : majorNumber of type {http://www.w3.org/2001/XMLSchema}int   * java type: int   */  private static final com.sforce.ws.bind.TypeInfo majorNumber__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","majorNumber","http://www.w3.org/2001/XMLSchema","int",1,1,true);  private boolean majorNumber__is_set = false;  private int majorNumber;  public int getMajorNumber() {    return majorNumber;  }    public void setMajorNumber(int majorNumber) {    this.majorNumber = majorNumber;    majorNumber__is_set = true;  }    /**   * element  : minorNumber of type {http://www.w3.org/2001/XMLSchema}int   * java type: int   */  private static final com.sforce.ws.bind.TypeInfo minorNumber__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","minorNumber","http://www.w3.org/2001/XMLSchema","int",1,1,true);  private boolean minorNumber__is_set = false;  private int minorNumber;  public int getMinorNumber() {    return minorNumber;  }    public void setMinorNumber(int minorNumber) {    this.minorNumber = minorNumber;    minorNumber__is_set = true;  }    /**   * element  : namespace of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo namespace__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","namespace","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean namespace__is_set = false;  private java.lang.String namespace;  public java.lang.String getNamespace() {    return namespace;  }    public void setNamespace(java.lang.String namespace) {    this.namespace = namespace;    namespace__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeInt(__out, majorNumber__typeInfo, majorNumber, majorNumber__is_set);    __typeMapper.writeInt(__out, minorNumber__typeInfo, minorNumber, minorNumber__is_set);    __typeMapper.writeString(__out, namespace__typeInfo, namespace, namespace__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, majorNumber__typeInfo)) {      setMajorNumber((int)__typeMapper.readInt(__in, majorNumber__typeInfo, int.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, minorNumber__typeInfo)) {      setMinorNumber((int)__typeMapper.readInt(__in, minorNumber__typeInfo, int.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, namespace__typeInfo)) {      setNamespace((java.lang.String)__typeMapper.readString(__in, namespace__typeInfo, java.lang.String.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[PackageVersion ");        sb.append(" majorNumber=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(majorNumber)+"'\n");    sb.append(" minorNumber=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(minorNumber)+"'\n");    sb.append(" namespace=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(namespace)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * PackageVersion.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class PackageVersion  implements java.io.Serializable {
+    private int majorNumber;
+
+    private int minorNumber;
+
+    private java.lang.String namespace;
+
+    public PackageVersion() {
+    }
+
+    public PackageVersion(
+           int majorNumber,
+           int minorNumber,
+           java.lang.String namespace) {
+           this.majorNumber = majorNumber;
+           this.minorNumber = minorNumber;
+           this.namespace = namespace;
+    }
+
+
+    /**
+     * Gets the majorNumber value for this PackageVersion.
+     * 
+     * @return majorNumber
+     */
+    public int getMajorNumber() {
+        return majorNumber;
+    }
+
+
+    /**
+     * Sets the majorNumber value for this PackageVersion.
+     * 
+     * @param majorNumber
+     */
+    public void setMajorNumber(int majorNumber) {
+        this.majorNumber = majorNumber;
+    }
+
+
+    /**
+     * Gets the minorNumber value for this PackageVersion.
+     * 
+     * @return minorNumber
+     */
+    public int getMinorNumber() {
+        return minorNumber;
+    }
+
+
+    /**
+     * Sets the minorNumber value for this PackageVersion.
+     * 
+     * @param minorNumber
+     */
+    public void setMinorNumber(int minorNumber) {
+        this.minorNumber = minorNumber;
+    }
+
+
+    /**
+     * Gets the namespace value for this PackageVersion.
+     * 
+     * @return namespace
+     */
+    public java.lang.String getNamespace() {
+        return namespace;
+    }
+
+
+    /**
+     * Sets the namespace value for this PackageVersion.
+     * 
+     * @param namespace
+     */
+    public void setNamespace(java.lang.String namespace) {
+        this.namespace = namespace;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof PackageVersion)) return false;
+        PackageVersion other = (PackageVersion) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            this.majorNumber == other.getMajorNumber() &&
+            this.minorNumber == other.getMinorNumber() &&
+            ((this.namespace==null && other.getNamespace()==null) || 
+             (this.namespace!=null &&
+              this.namespace.equals(other.getNamespace())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        _hashCode += getMajorNumber();
+        _hashCode += getMinorNumber();
+        if (getNamespace() != null) {
+            _hashCode += getNamespace().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(PackageVersion.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "PackageVersion"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("majorNumber");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "majorNumber"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("minorNumber");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "minorNumber"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("namespace");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "namespace"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

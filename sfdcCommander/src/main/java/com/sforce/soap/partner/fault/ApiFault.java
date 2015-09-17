@@ -1,1 +1,162 @@
-package com.sforce.soap.partner.fault;/** * Generated class, please do not edit. */public class ApiFault extends com.sforce.ws.SoapFaultException implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public ApiFault() {  }        /**   * element  : exceptionCode of type {urn:fault.partner.soap.sforce.com}ExceptionCode   * java type: com.sforce.soap.partner.fault.ExceptionCode   */  private static final com.sforce.ws.bind.TypeInfo exceptionCode__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:fault.partner.soap.sforce.com","exceptionCode","urn:fault.partner.soap.sforce.com","ExceptionCode",1,1,true);  private boolean exceptionCode__is_set = false;  private com.sforce.soap.partner.fault.ExceptionCode exceptionCode;  public com.sforce.soap.partner.fault.ExceptionCode getExceptionCode() {    return exceptionCode;  }    public void setExceptionCode(com.sforce.soap.partner.fault.ExceptionCode exceptionCode) {    this.exceptionCode = exceptionCode;    exceptionCode__is_set = true;  }    /**   * element  : exceptionMessage of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo exceptionMessage__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:fault.partner.soap.sforce.com","exceptionMessage","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean exceptionMessage__is_set = false;  private java.lang.String exceptionMessage;  public java.lang.String getExceptionMessage() {    return exceptionMessage;  }    public void setExceptionMessage(java.lang.String exceptionMessage) {    this.exceptionMessage = exceptionMessage;    exceptionMessage__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeObject(__out, exceptionCode__typeInfo, exceptionCode, exceptionCode__is_set);    __typeMapper.writeString(__out, exceptionMessage__typeInfo, exceptionMessage, exceptionMessage__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, exceptionCode__typeInfo)) {      setExceptionCode((com.sforce.soap.partner.fault.ExceptionCode)__typeMapper.readObject(__in, exceptionCode__typeInfo, com.sforce.soap.partner.fault.ExceptionCode.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, exceptionMessage__typeInfo)) {      setExceptionMessage((java.lang.String)__typeMapper.readString(__in, exceptionMessage__typeInfo, java.lang.String.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[ApiFault ");        sb.append(" exceptionCode=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(exceptionCode)+"'\n");    sb.append(" exceptionMessage=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(exceptionMessage)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * ApiFault.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner.fault;
+
+public class ApiFault  extends org.apache.axis.AxisFault  implements java.io.Serializable {
+    private com.sforce.soap.partner.fault.ExceptionCode exceptionCode;
+
+    private java.lang.String exceptionMessage;
+
+    public ApiFault() {
+    }
+
+    public ApiFault(
+           com.sforce.soap.partner.fault.ExceptionCode exceptionCode,
+           java.lang.String exceptionMessage) {
+        this.exceptionCode = exceptionCode;
+        this.exceptionMessage = exceptionMessage;
+    }
+
+
+    /**
+     * Gets the exceptionCode value for this ApiFault.
+     * 
+     * @return exceptionCode
+     */
+    public com.sforce.soap.partner.fault.ExceptionCode getExceptionCode() {
+        return exceptionCode;
+    }
+
+
+    /**
+     * Sets the exceptionCode value for this ApiFault.
+     * 
+     * @param exceptionCode
+     */
+    public void setExceptionCode(com.sforce.soap.partner.fault.ExceptionCode exceptionCode) {
+        this.exceptionCode = exceptionCode;
+    }
+
+
+    /**
+     * Gets the exceptionMessage value for this ApiFault.
+     * 
+     * @return exceptionMessage
+     */
+    public java.lang.String getExceptionMessage() {
+        return exceptionMessage;
+    }
+
+
+    /**
+     * Sets the exceptionMessage value for this ApiFault.
+     * 
+     * @param exceptionMessage
+     */
+    public void setExceptionMessage(java.lang.String exceptionMessage) {
+        this.exceptionMessage = exceptionMessage;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof ApiFault)) return false;
+        ApiFault other = (ApiFault) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.exceptionCode==null && other.getExceptionCode()==null) || 
+             (this.exceptionCode!=null &&
+              this.exceptionCode.equals(other.getExceptionCode()))) &&
+            ((this.exceptionMessage==null && other.getExceptionMessage()==null) || 
+             (this.exceptionMessage!=null &&
+              this.exceptionMessage.equals(other.getExceptionMessage())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getExceptionCode() != null) {
+            _hashCode += getExceptionCode().hashCode();
+        }
+        if (getExceptionMessage() != null) {
+            _hashCode += getExceptionMessage().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(ApiFault.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:fault.partner.soap.sforce.com", "ApiFault"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("exceptionCode");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:fault.partner.soap.sforce.com", "exceptionCode"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:fault.partner.soap.sforce.com", "ExceptionCode"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("exceptionMessage");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:fault.partner.soap.sforce.com", "exceptionMessage"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+
+    /**
+     * Writes the exception data to the faultDetails
+     */
+    public void writeDetails(javax.xml.namespace.QName qname, org.apache.axis.encoding.SerializationContext context) throws java.io.IOException {
+        context.serialize(qname, null, this);
+    }
+}

@@ -10,13 +10,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.rmi.RemoteException;
 
 import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeGlobalSObjectResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
 import com.sforce.soap.partner.Field;
-import com.sforce.soap.partner.PartnerConnection;
-import com.sforce.ws.ConnectionException;
+import com.sforce.soap.partner.SoapBindingStub;
+import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
 import de.sfdccommander.controller.connection.SfdcConnectionPool;
 import de.sfdccommander.controller.helper.CharacterEncoder;
@@ -31,7 +32,7 @@ public class ObjectExporter {
 
     private final CommanderConfig tmpConfig;
 
-    static PartnerConnection connection;
+    static SoapBindingStub binding;
 
     private SfdcCommander commander;
 
@@ -45,48 +46,29 @@ public class ObjectExporter {
         commander = SfdcCommander.getInstance();
         connPool = SfdcConnectionPool.getInstance();
 
-        // ConnectorConfig connectorConfig = new ConnectorConfig();
-        // connectorConfig.setUsername(tmpConfig.getSfUsername());
-        // connectorConfig.setPassword(tmpConfig.getSfPassword());
-        // connectorConfig.setAuthEndpoint(tmpConfig.getSfServerurl()
-        // + "/services/Soap/u/26.0");
-        // if (!tmpConfig.getHttpProxyPort().equals("")) {
-        // connectorConfig.setProxy(tmpConfig.getHttpProxyHost(),
-        // Integer.parseInt(tmpConfig.getHttpProxyPort()));
-        // }
-        // // connectorConfig.setTraceMessage(true);
-        // // connectorConfig.setPrettyPrintXml(true);
+        binding = connPool.getBinding(tmpConfig);
 
+        DescribeGlobalResult global;
         try {
-
-            // connection = Connector.newConnection(connectorConfig);
-
-            // // display some current settings
-            // commander.notify("Auth EndPoint: "
-            // + connectorConfig.getAuthEndpoint());
-            // commander.notify("Service EndPoint: "
-            // + connectorConfig.getServiceEndpoint());
-            // commander.notify("Username: " + connectorConfig.getUsername());
-            // commander.notify("SessionId: " + connectorConfig.getSessionId());
-            connection = connPool.getConnection(tmpConfig);
-
-            DescribeGlobalResult global;
-            global = connection.describeGlobal();
+            global = binding.describeGlobal();
             for (DescribeGlobalSObjectResult objectGlobalResult : global
                     .getSobjects()) {
                 renderObjectXml(objectGlobalResult);
             }
-        } catch (ConnectionException e1) {
-            commander.notify(e1.getMessage());
+        } catch (UnexpectedErrorFault e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
 
     }
 
-    public void renderObjectXml(DescribeGlobalSObjectResult aObject)
-            throws ConnectionException {
+    public void renderObjectXml(DescribeGlobalSObjectResult aObject) {
         SfdcCommander commander = SfdcCommander.getInstance();
-        File objectFile = new File(tmpConfig.getSfSystemname() + "/objects/"
-                + aObject.getName() + ".object");
+        File objectFile = new File(tmpConfig.getSfSystemname()
+                + "/unpackaged/objects/" + aObject.getName() + ".object");
 
         if (objectFile.exists()) {
             try {
@@ -105,7 +87,7 @@ public class ObjectExporter {
                         originalFile.length() - 17);
 
                 // Add salesforce standard fields
-                DescribeSObjectResult tmpDescribeSObject = connection
+                DescribeSObjectResult tmpDescribeSObject = binding
                         .describeSObject(aObject.getName());
                 commander.notify("Generating enhanced XML for object: "
                         + tmpDescribeSObject.getName());
@@ -114,7 +96,7 @@ public class ObjectExporter {
                 writer.write(cuttedFile);
                 for (Field field : tmpDescribeSObject.getFields()) {
                     if (!field.isCustom()) {
-                        if (!field.getType().name().equals("picklist")) {
+                        if (!field.getType().toString().equals("picklist")) {
                             writer.write(renderField(field));
                         }
                     }
@@ -134,26 +116,26 @@ public class ObjectExporter {
 
         fieldXml.append("<fields>\r\n");
 
-        fieldXml.append("<fullName>"
-                + CharacterEncoder.encode(aField.getName()) + "</fullName>\r\n");
+        fieldXml.append("<fullName>" + CharacterEncoder.encode(aField.getName())
+                + "</fullName>\r\n");
         fieldXml.append("<label>" + CharacterEncoder.encode(aField.getLabel())
                 + "</label>\r\n");
         fieldXml.append("<required>true</required>\r\n");
-        fieldXml.append("<externalId>" + aField.getExternalId()
-                + "</externalId>\r\n");
-        fieldXml.append("<unique>" + aField.getUnique() + "</unique>\r\n");
+        fieldXml.append(
+                "<externalId>" + aField.getExternalId() + "</externalId>\r\n");
+        fieldXml.append("<unique>" + aField.isUnique() + "</unique>\r\n");
         fieldXml.append("<type>" + aField.getType() + "</type>\r\n");
         if (aField.getScale() != 0) {
             fieldXml.append("<scale>" + aField.getScale() + "</scale>\r\n");
         }
         if (aField.getPrecision() != 0) {
-            fieldXml.append("<precision>" + aField.getPrecision()
-                    + "</precision>\r\n");
+            fieldXml.append(
+                    "<precision>" + aField.getPrecision() + "</precision>\r\n");
         }
         if (aField.getLength() != 0) {
             fieldXml.append("<length>" + aField.getLength() + "</length>\r\n");
         }
-        if (aField.getReferenceTo().length > 0) {
+        if (aField.getReferenceTo() != null) {
             fieldXml.append("<referenceTo>"
                     + CharacterEncoder.encode(aField.getReferenceTo()[0])
                     + "</referenceTo>\r\n");
@@ -167,7 +149,8 @@ public class ObjectExporter {
             fieldXml.append("<inlineHelpText>" + aField.getInlineHelpText()
                     + "</inlineHelpText>\r\n");
         }
-        fieldXml.append("<description>Standard Field: Please review the salesforce.com documentation</description>\r\n");
+        fieldXml.append(
+                "<description>Standard Field: Please review the salesforce.com documentation</description>\r\n");
 
         fieldXml.append("</fields>\r\n");
         return fieldXml.toString();

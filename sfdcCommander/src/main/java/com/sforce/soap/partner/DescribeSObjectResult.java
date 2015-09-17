@@ -1,1 +1,1191 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class DescribeSObjectResult implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public DescribeSObjectResult() {  }        /**   * element  : activateable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo activateable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","activateable","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean activateable__is_set = false;  private boolean activateable;  public boolean getActivateable() {    return activateable;  }    public boolean isActivateable() {    return activateable;  }    public void setActivateable(boolean activateable) {    this.activateable = activateable;    activateable__is_set = true;  }    /**   * element  : childRelationships of type {urn:partner.soap.sforce.com}ChildRelationship   * java type: com.sforce.soap.partner.ChildRelationship[]   */  private static final com.sforce.ws.bind.TypeInfo childRelationships__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","childRelationships","urn:partner.soap.sforce.com","ChildRelationship",0,-1,true);  private boolean childRelationships__is_set = false;  private com.sforce.soap.partner.ChildRelationship[] childRelationships = new com.sforce.soap.partner.ChildRelationship[0];  public com.sforce.soap.partner.ChildRelationship[] getChildRelationships() {    return childRelationships;  }    public void setChildRelationships(com.sforce.soap.partner.ChildRelationship[] childRelationships) {    this.childRelationships = childRelationships;    childRelationships__is_set = true;  }    /**   * element  : createable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo createable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","createable","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean createable__is_set = false;  private boolean createable;  public boolean getCreateable() {    return createable;  }    public boolean isCreateable() {    return createable;  }    public void setCreateable(boolean createable) {    this.createable = createable;    createable__is_set = true;  }    /**   * element  : custom of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo custom__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","custom","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean custom__is_set = false;  private boolean custom;  public boolean getCustom() {    return custom;  }    public boolean isCustom() {    return custom;  }    public void setCustom(boolean custom) {    this.custom = custom;    custom__is_set = true;  }    /**   * element  : customSetting of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo customSetting__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","customSetting","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean customSetting__is_set = false;  private boolean customSetting;  public boolean getCustomSetting() {    return customSetting;  }    public boolean isCustomSetting() {    return customSetting;  }    public void setCustomSetting(boolean customSetting) {    this.customSetting = customSetting;    customSetting__is_set = true;  }    /**   * element  : deletable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo deletable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","deletable","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean deletable__is_set = false;  private boolean deletable;  public boolean getDeletable() {    return deletable;  }    public boolean isDeletable() {    return deletable;  }    public void setDeletable(boolean deletable) {    this.deletable = deletable;    deletable__is_set = true;  }    /**   * element  : deprecatedAndHidden of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo deprecatedAndHidden__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","deprecatedAndHidden","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean deprecatedAndHidden__is_set = false;  private boolean deprecatedAndHidden;  public boolean getDeprecatedAndHidden() {    return deprecatedAndHidden;  }    public boolean isDeprecatedAndHidden() {    return deprecatedAndHidden;  }    public void setDeprecatedAndHidden(boolean deprecatedAndHidden) {    this.deprecatedAndHidden = deprecatedAndHidden;    deprecatedAndHidden__is_set = true;  }    /**   * element  : feedEnabled of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo feedEnabled__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","feedEnabled","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean feedEnabled__is_set = false;  private boolean feedEnabled;  public boolean getFeedEnabled() {    return feedEnabled;  }    public boolean isFeedEnabled() {    return feedEnabled;  }    public void setFeedEnabled(boolean feedEnabled) {    this.feedEnabled = feedEnabled;    feedEnabled__is_set = true;  }    /**   * element  : fields of type {urn:partner.soap.sforce.com}Field   * java type: com.sforce.soap.partner.Field[]   */  private static final com.sforce.ws.bind.TypeInfo fields__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","fields","urn:partner.soap.sforce.com","Field",0,-1,true);  private boolean fields__is_set = false;  private com.sforce.soap.partner.Field[] fields = new com.sforce.soap.partner.Field[0];  public com.sforce.soap.partner.Field[] getFields() {    return fields;  }    public void setFields(com.sforce.soap.partner.Field[] fields) {    this.fields = fields;    fields__is_set = true;  }    /**   * element  : keyPrefix of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo keyPrefix__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","keyPrefix","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean keyPrefix__is_set = false;  private java.lang.String keyPrefix;  public java.lang.String getKeyPrefix() {    return keyPrefix;  }    public void setKeyPrefix(java.lang.String keyPrefix) {    this.keyPrefix = keyPrefix;    keyPrefix__is_set = true;  }    /**   * element  : label of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo label__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","label","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean label__is_set = false;  private java.lang.String label;  public java.lang.String getLabel() {    return label;  }    public void setLabel(java.lang.String label) {    this.label = label;    label__is_set = true;  }    /**   * element  : labelPlural of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo labelPlural__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","labelPlural","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean labelPlural__is_set = false;  private java.lang.String labelPlural;  public java.lang.String getLabelPlural() {    return labelPlural;  }    public void setLabelPlural(java.lang.String labelPlural) {    this.labelPlural = labelPlural;    labelPlural__is_set = true;  }    /**   * element  : layoutable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo layoutable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","layoutable","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean layoutable__is_set = false;  private boolean layoutable;  public boolean getLayoutable() {    return layoutable;  }    public boolean isLayoutable() {    return layoutable;  }    public void setLayoutable(boolean layoutable) {    this.layoutable = layoutable;    layoutable__is_set = true;  }    /**   * element  : mergeable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo mergeable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","mergeable","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean mergeable__is_set = false;  private boolean mergeable;  public boolean getMergeable() {    return mergeable;  }    public boolean isMergeable() {    return mergeable;  }    public void setMergeable(boolean mergeable) {    this.mergeable = mergeable;    mergeable__is_set = true;  }    /**   * element  : name of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo name__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","name","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean name__is_set = false;  private java.lang.String name;  public java.lang.String getName() {    return name;  }    public void setName(java.lang.String name) {    this.name = name;    name__is_set = true;  }    /**   * element  : queryable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo queryable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","queryable","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean queryable__is_set = false;  private boolean queryable;  public boolean getQueryable() {    return queryable;  }    public boolean isQueryable() {    return queryable;  }    public void setQueryable(boolean queryable) {    this.queryable = queryable;    queryable__is_set = true;  }    /**   * element  : recordTypeInfos of type {urn:partner.soap.sforce.com}RecordTypeInfo   * java type: com.sforce.soap.partner.RecordTypeInfo[]   */  private static final com.sforce.ws.bind.TypeInfo recordTypeInfos__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","recordTypeInfos","urn:partner.soap.sforce.com","RecordTypeInfo",0,-1,true);  private boolean recordTypeInfos__is_set = false;  private com.sforce.soap.partner.RecordTypeInfo[] recordTypeInfos = new com.sforce.soap.partner.RecordTypeInfo[0];  public com.sforce.soap.partner.RecordTypeInfo[] getRecordTypeInfos() {    return recordTypeInfos;  }    public void setRecordTypeInfos(com.sforce.soap.partner.RecordTypeInfo[] recordTypeInfos) {    this.recordTypeInfos = recordTypeInfos;    recordTypeInfos__is_set = true;  }    /**   * element  : replicateable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo replicateable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","replicateable","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean replicateable__is_set = false;  private boolean replicateable;  public boolean getReplicateable() {    return replicateable;  }    public boolean isReplicateable() {    return replicateable;  }    public void setReplicateable(boolean replicateable) {    this.replicateable = replicateable;    replicateable__is_set = true;  }    /**   * element  : retrieveable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo retrieveable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","retrieveable","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean retrieveable__is_set = false;  private boolean retrieveable;  public boolean getRetrieveable() {    return retrieveable;  }    public boolean isRetrieveable() {    return retrieveable;  }    public void setRetrieveable(boolean retrieveable) {    this.retrieveable = retrieveable;    retrieveable__is_set = true;  }    /**   * element  : searchable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo searchable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","searchable","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean searchable__is_set = false;  private boolean searchable;  public boolean getSearchable() {    return searchable;  }    public boolean isSearchable() {    return searchable;  }    public void setSearchable(boolean searchable) {    this.searchable = searchable;    searchable__is_set = true;  }    /**   * element  : triggerable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo triggerable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","triggerable","http://www.w3.org/2001/XMLSchema","boolean",0,1,true);  private boolean triggerable__is_set = false;  private boolean triggerable;  public boolean getTriggerable() {    return triggerable;  }    public boolean isTriggerable() {    return triggerable;  }    public void setTriggerable(boolean triggerable) {    this.triggerable = triggerable;    triggerable__is_set = true;  }    /**   * element  : undeletable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo undeletable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","undeletable","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean undeletable__is_set = false;  private boolean undeletable;  public boolean getUndeletable() {    return undeletable;  }    public boolean isUndeletable() {    return undeletable;  }    public void setUndeletable(boolean undeletable) {    this.undeletable = undeletable;    undeletable__is_set = true;  }    /**   * element  : updateable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo updateable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","updateable","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean updateable__is_set = false;  private boolean updateable;  public boolean getUpdateable() {    return updateable;  }    public boolean isUpdateable() {    return updateable;  }    public void setUpdateable(boolean updateable) {    this.updateable = updateable;    updateable__is_set = true;  }    /**   * element  : urlDetail of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo urlDetail__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","urlDetail","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean urlDetail__is_set = false;  private java.lang.String urlDetail;  public java.lang.String getUrlDetail() {    return urlDetail;  }    public void setUrlDetail(java.lang.String urlDetail) {    this.urlDetail = urlDetail;    urlDetail__is_set = true;  }    /**   * element  : urlEdit of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo urlEdit__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","urlEdit","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean urlEdit__is_set = false;  private java.lang.String urlEdit;  public java.lang.String getUrlEdit() {    return urlEdit;  }    public void setUrlEdit(java.lang.String urlEdit) {    this.urlEdit = urlEdit;    urlEdit__is_set = true;  }    /**   * element  : urlNew of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo urlNew__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","urlNew","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean urlNew__is_set = false;  private java.lang.String urlNew;  public java.lang.String getUrlNew() {    return urlNew;  }    public void setUrlNew(java.lang.String urlNew) {    this.urlNew = urlNew;    urlNew__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeBoolean(__out, activateable__typeInfo, activateable, activateable__is_set);    __typeMapper.writeObject(__out, childRelationships__typeInfo, childRelationships, childRelationships__is_set);    __typeMapper.writeBoolean(__out, createable__typeInfo, createable, createable__is_set);    __typeMapper.writeBoolean(__out, custom__typeInfo, custom, custom__is_set);    __typeMapper.writeBoolean(__out, customSetting__typeInfo, customSetting, customSetting__is_set);    __typeMapper.writeBoolean(__out, deletable__typeInfo, deletable, deletable__is_set);    __typeMapper.writeBoolean(__out, deprecatedAndHidden__typeInfo, deprecatedAndHidden, deprecatedAndHidden__is_set);    __typeMapper.writeBoolean(__out, feedEnabled__typeInfo, feedEnabled, feedEnabled__is_set);    __typeMapper.writeObject(__out, fields__typeInfo, fields, fields__is_set);    __typeMapper.writeString(__out, keyPrefix__typeInfo, keyPrefix, keyPrefix__is_set);    __typeMapper.writeString(__out, label__typeInfo, label, label__is_set);    __typeMapper.writeString(__out, labelPlural__typeInfo, labelPlural, labelPlural__is_set);    __typeMapper.writeBoolean(__out, layoutable__typeInfo, layoutable, layoutable__is_set);    __typeMapper.writeBoolean(__out, mergeable__typeInfo, mergeable, mergeable__is_set);    __typeMapper.writeString(__out, name__typeInfo, name, name__is_set);    __typeMapper.writeBoolean(__out, queryable__typeInfo, queryable, queryable__is_set);    __typeMapper.writeObject(__out, recordTypeInfos__typeInfo, recordTypeInfos, recordTypeInfos__is_set);    __typeMapper.writeBoolean(__out, replicateable__typeInfo, replicateable, replicateable__is_set);    __typeMapper.writeBoolean(__out, retrieveable__typeInfo, retrieveable, retrieveable__is_set);    __typeMapper.writeBoolean(__out, searchable__typeInfo, searchable, searchable__is_set);    __typeMapper.writeBoolean(__out, triggerable__typeInfo, triggerable, triggerable__is_set);    __typeMapper.writeBoolean(__out, undeletable__typeInfo, undeletable, undeletable__is_set);    __typeMapper.writeBoolean(__out, updateable__typeInfo, updateable, updateable__is_set);    __typeMapper.writeString(__out, urlDetail__typeInfo, urlDetail, urlDetail__is_set);    __typeMapper.writeString(__out, urlEdit__typeInfo, urlEdit, urlEdit__is_set);    __typeMapper.writeString(__out, urlNew__typeInfo, urlNew, urlNew__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, activateable__typeInfo)) {      setActivateable((boolean)__typeMapper.readBoolean(__in, activateable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, childRelationships__typeInfo)) {      setChildRelationships((com.sforce.soap.partner.ChildRelationship[])__typeMapper.readObject(__in, childRelationships__typeInfo, com.sforce.soap.partner.ChildRelationship[].class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, createable__typeInfo)) {      setCreateable((boolean)__typeMapper.readBoolean(__in, createable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, custom__typeInfo)) {      setCustom((boolean)__typeMapper.readBoolean(__in, custom__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, customSetting__typeInfo)) {      setCustomSetting((boolean)__typeMapper.readBoolean(__in, customSetting__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, deletable__typeInfo)) {      setDeletable((boolean)__typeMapper.readBoolean(__in, deletable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, deprecatedAndHidden__typeInfo)) {      setDeprecatedAndHidden((boolean)__typeMapper.readBoolean(__in, deprecatedAndHidden__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, feedEnabled__typeInfo)) {      setFeedEnabled((boolean)__typeMapper.readBoolean(__in, feedEnabled__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, fields__typeInfo)) {      setFields((com.sforce.soap.partner.Field[])__typeMapper.readObject(__in, fields__typeInfo, com.sforce.soap.partner.Field[].class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, keyPrefix__typeInfo)) {      setKeyPrefix((java.lang.String)__typeMapper.readString(__in, keyPrefix__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, label__typeInfo)) {      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, labelPlural__typeInfo)) {      setLabelPlural((java.lang.String)__typeMapper.readString(__in, labelPlural__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, layoutable__typeInfo)) {      setLayoutable((boolean)__typeMapper.readBoolean(__in, layoutable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, mergeable__typeInfo)) {      setMergeable((boolean)__typeMapper.readBoolean(__in, mergeable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, name__typeInfo)) {      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, queryable__typeInfo)) {      setQueryable((boolean)__typeMapper.readBoolean(__in, queryable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, recordTypeInfos__typeInfo)) {      setRecordTypeInfos((com.sforce.soap.partner.RecordTypeInfo[])__typeMapper.readObject(__in, recordTypeInfos__typeInfo, com.sforce.soap.partner.RecordTypeInfo[].class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, replicateable__typeInfo)) {      setReplicateable((boolean)__typeMapper.readBoolean(__in, replicateable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, retrieveable__typeInfo)) {      setRetrieveable((boolean)__typeMapper.readBoolean(__in, retrieveable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, searchable__typeInfo)) {      setSearchable((boolean)__typeMapper.readBoolean(__in, searchable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, triggerable__typeInfo)) {      setTriggerable((boolean)__typeMapper.readBoolean(__in, triggerable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, undeletable__typeInfo)) {      setUndeletable((boolean)__typeMapper.readBoolean(__in, undeletable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, updateable__typeInfo)) {      setUpdateable((boolean)__typeMapper.readBoolean(__in, updateable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, urlDetail__typeInfo)) {      setUrlDetail((java.lang.String)__typeMapper.readString(__in, urlDetail__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, urlEdit__typeInfo)) {      setUrlEdit((java.lang.String)__typeMapper.readString(__in, urlEdit__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, urlNew__typeInfo)) {      setUrlNew((java.lang.String)__typeMapper.readString(__in, urlNew__typeInfo, java.lang.String.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[DescribeSObjectResult ");        sb.append(" activateable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(activateable)+"'\n");    sb.append(" childRelationships=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(childRelationships)+"'\n");    sb.append(" createable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(createable)+"'\n");    sb.append(" custom=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(custom)+"'\n");    sb.append(" customSetting=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(customSetting)+"'\n");    sb.append(" deletable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(deletable)+"'\n");    sb.append(" deprecatedAndHidden=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(deprecatedAndHidden)+"'\n");    sb.append(" feedEnabled=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(feedEnabled)+"'\n");    sb.append(" fields=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(fields)+"'\n");    sb.append(" keyPrefix=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(keyPrefix)+"'\n");    sb.append(" label=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(label)+"'\n");    sb.append(" labelPlural=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(labelPlural)+"'\n");    sb.append(" layoutable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(layoutable)+"'\n");    sb.append(" mergeable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(mergeable)+"'\n");    sb.append(" name=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(name)+"'\n");    sb.append(" queryable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(queryable)+"'\n");    sb.append(" recordTypeInfos=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(recordTypeInfos)+"'\n");    sb.append(" replicateable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(replicateable)+"'\n");    sb.append(" retrieveable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(retrieveable)+"'\n");    sb.append(" searchable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(searchable)+"'\n");    sb.append(" triggerable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(triggerable)+"'\n");    sb.append(" undeletable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(undeletable)+"'\n");    sb.append(" updateable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(updateable)+"'\n");    sb.append(" urlDetail=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(urlDetail)+"'\n");    sb.append(" urlEdit=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(urlEdit)+"'\n");    sb.append(" urlNew=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(urlNew)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * DescribeSObjectResult.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class DescribeSObjectResult  implements java.io.Serializable {
+    private com.sforce.soap.partner.ActionOverride[] actionOverrides;
+
+    private boolean activateable;
+
+    private com.sforce.soap.partner.ChildRelationship[] childRelationships;
+
+    private boolean compactLayoutable;
+
+    private boolean createable;
+
+    private boolean custom;
+
+    private boolean customSetting;
+
+    private boolean deletable;
+
+    private boolean deprecatedAndHidden;
+
+    private boolean feedEnabled;
+
+    private com.sforce.soap.partner.Field[] fields;
+
+    private java.lang.String keyPrefix;
+
+    private java.lang.String label;
+
+    private java.lang.String labelPlural;
+
+    private boolean layoutable;
+
+    private boolean mergeable;
+
+    private java.lang.String name;
+
+    private com.sforce.soap.partner.NamedLayoutInfo[] namedLayoutInfos;
+
+    private boolean queryable;
+
+    private com.sforce.soap.partner.RecordTypeInfo[] recordTypeInfos;
+
+    private boolean replicateable;
+
+    private boolean retrieveable;
+
+    private java.lang.Boolean searchLayoutable;
+
+    private boolean searchable;
+
+    private java.lang.Boolean triggerable;
+
+    private boolean undeletable;
+
+    private boolean updateable;
+
+    private java.lang.String urlDetail;
+
+    private java.lang.String urlEdit;
+
+    private java.lang.String urlNew;
+
+    public DescribeSObjectResult() {
+    }
+
+    public DescribeSObjectResult(
+           com.sforce.soap.partner.ActionOverride[] actionOverrides,
+           boolean activateable,
+           com.sforce.soap.partner.ChildRelationship[] childRelationships,
+           boolean compactLayoutable,
+           boolean createable,
+           boolean custom,
+           boolean customSetting,
+           boolean deletable,
+           boolean deprecatedAndHidden,
+           boolean feedEnabled,
+           com.sforce.soap.partner.Field[] fields,
+           java.lang.String keyPrefix,
+           java.lang.String label,
+           java.lang.String labelPlural,
+           boolean layoutable,
+           boolean mergeable,
+           java.lang.String name,
+           com.sforce.soap.partner.NamedLayoutInfo[] namedLayoutInfos,
+           boolean queryable,
+           com.sforce.soap.partner.RecordTypeInfo[] recordTypeInfos,
+           boolean replicateable,
+           boolean retrieveable,
+           java.lang.Boolean searchLayoutable,
+           boolean searchable,
+           java.lang.Boolean triggerable,
+           boolean undeletable,
+           boolean updateable,
+           java.lang.String urlDetail,
+           java.lang.String urlEdit,
+           java.lang.String urlNew) {
+           this.actionOverrides = actionOverrides;
+           this.activateable = activateable;
+           this.childRelationships = childRelationships;
+           this.compactLayoutable = compactLayoutable;
+           this.createable = createable;
+           this.custom = custom;
+           this.customSetting = customSetting;
+           this.deletable = deletable;
+           this.deprecatedAndHidden = deprecatedAndHidden;
+           this.feedEnabled = feedEnabled;
+           this.fields = fields;
+           this.keyPrefix = keyPrefix;
+           this.label = label;
+           this.labelPlural = labelPlural;
+           this.layoutable = layoutable;
+           this.mergeable = mergeable;
+           this.name = name;
+           this.namedLayoutInfos = namedLayoutInfos;
+           this.queryable = queryable;
+           this.recordTypeInfos = recordTypeInfos;
+           this.replicateable = replicateable;
+           this.retrieveable = retrieveable;
+           this.searchLayoutable = searchLayoutable;
+           this.searchable = searchable;
+           this.triggerable = triggerable;
+           this.undeletable = undeletable;
+           this.updateable = updateable;
+           this.urlDetail = urlDetail;
+           this.urlEdit = urlEdit;
+           this.urlNew = urlNew;
+    }
+
+
+    /**
+     * Gets the actionOverrides value for this DescribeSObjectResult.
+     * 
+     * @return actionOverrides
+     */
+    public com.sforce.soap.partner.ActionOverride[] getActionOverrides() {
+        return actionOverrides;
+    }
+
+
+    /**
+     * Sets the actionOverrides value for this DescribeSObjectResult.
+     * 
+     * @param actionOverrides
+     */
+    public void setActionOverrides(com.sforce.soap.partner.ActionOverride[] actionOverrides) {
+        this.actionOverrides = actionOverrides;
+    }
+
+    public com.sforce.soap.partner.ActionOverride getActionOverrides(int i) {
+        return this.actionOverrides[i];
+    }
+
+    public void setActionOverrides(int i, com.sforce.soap.partner.ActionOverride _value) {
+        this.actionOverrides[i] = _value;
+    }
+
+
+    /**
+     * Gets the activateable value for this DescribeSObjectResult.
+     * 
+     * @return activateable
+     */
+    public boolean isActivateable() {
+        return activateable;
+    }
+
+
+    /**
+     * Sets the activateable value for this DescribeSObjectResult.
+     * 
+     * @param activateable
+     */
+    public void setActivateable(boolean activateable) {
+        this.activateable = activateable;
+    }
+
+
+    /**
+     * Gets the childRelationships value for this DescribeSObjectResult.
+     * 
+     * @return childRelationships
+     */
+    public com.sforce.soap.partner.ChildRelationship[] getChildRelationships() {
+        return childRelationships;
+    }
+
+
+    /**
+     * Sets the childRelationships value for this DescribeSObjectResult.
+     * 
+     * @param childRelationships
+     */
+    public void setChildRelationships(com.sforce.soap.partner.ChildRelationship[] childRelationships) {
+        this.childRelationships = childRelationships;
+    }
+
+    public com.sforce.soap.partner.ChildRelationship getChildRelationships(int i) {
+        return this.childRelationships[i];
+    }
+
+    public void setChildRelationships(int i, com.sforce.soap.partner.ChildRelationship _value) {
+        this.childRelationships[i] = _value;
+    }
+
+
+    /**
+     * Gets the compactLayoutable value for this DescribeSObjectResult.
+     * 
+     * @return compactLayoutable
+     */
+    public boolean isCompactLayoutable() {
+        return compactLayoutable;
+    }
+
+
+    /**
+     * Sets the compactLayoutable value for this DescribeSObjectResult.
+     * 
+     * @param compactLayoutable
+     */
+    public void setCompactLayoutable(boolean compactLayoutable) {
+        this.compactLayoutable = compactLayoutable;
+    }
+
+
+    /**
+     * Gets the createable value for this DescribeSObjectResult.
+     * 
+     * @return createable
+     */
+    public boolean isCreateable() {
+        return createable;
+    }
+
+
+    /**
+     * Sets the createable value for this DescribeSObjectResult.
+     * 
+     * @param createable
+     */
+    public void setCreateable(boolean createable) {
+        this.createable = createable;
+    }
+
+
+    /**
+     * Gets the custom value for this DescribeSObjectResult.
+     * 
+     * @return custom
+     */
+    public boolean isCustom() {
+        return custom;
+    }
+
+
+    /**
+     * Sets the custom value for this DescribeSObjectResult.
+     * 
+     * @param custom
+     */
+    public void setCustom(boolean custom) {
+        this.custom = custom;
+    }
+
+
+    /**
+     * Gets the customSetting value for this DescribeSObjectResult.
+     * 
+     * @return customSetting
+     */
+    public boolean isCustomSetting() {
+        return customSetting;
+    }
+
+
+    /**
+     * Sets the customSetting value for this DescribeSObjectResult.
+     * 
+     * @param customSetting
+     */
+    public void setCustomSetting(boolean customSetting) {
+        this.customSetting = customSetting;
+    }
+
+
+    /**
+     * Gets the deletable value for this DescribeSObjectResult.
+     * 
+     * @return deletable
+     */
+    public boolean isDeletable() {
+        return deletable;
+    }
+
+
+    /**
+     * Sets the deletable value for this DescribeSObjectResult.
+     * 
+     * @param deletable
+     */
+    public void setDeletable(boolean deletable) {
+        this.deletable = deletable;
+    }
+
+
+    /**
+     * Gets the deprecatedAndHidden value for this DescribeSObjectResult.
+     * 
+     * @return deprecatedAndHidden
+     */
+    public boolean isDeprecatedAndHidden() {
+        return deprecatedAndHidden;
+    }
+
+
+    /**
+     * Sets the deprecatedAndHidden value for this DescribeSObjectResult.
+     * 
+     * @param deprecatedAndHidden
+     */
+    public void setDeprecatedAndHidden(boolean deprecatedAndHidden) {
+        this.deprecatedAndHidden = deprecatedAndHidden;
+    }
+
+
+    /**
+     * Gets the feedEnabled value for this DescribeSObjectResult.
+     * 
+     * @return feedEnabled
+     */
+    public boolean isFeedEnabled() {
+        return feedEnabled;
+    }
+
+
+    /**
+     * Sets the feedEnabled value for this DescribeSObjectResult.
+     * 
+     * @param feedEnabled
+     */
+    public void setFeedEnabled(boolean feedEnabled) {
+        this.feedEnabled = feedEnabled;
+    }
+
+
+    /**
+     * Gets the fields value for this DescribeSObjectResult.
+     * 
+     * @return fields
+     */
+    public com.sforce.soap.partner.Field[] getFields() {
+        return fields;
+    }
+
+
+    /**
+     * Sets the fields value for this DescribeSObjectResult.
+     * 
+     * @param fields
+     */
+    public void setFields(com.sforce.soap.partner.Field[] fields) {
+        this.fields = fields;
+    }
+
+    public com.sforce.soap.partner.Field getFields(int i) {
+        return this.fields[i];
+    }
+
+    public void setFields(int i, com.sforce.soap.partner.Field _value) {
+        this.fields[i] = _value;
+    }
+
+
+    /**
+     * Gets the keyPrefix value for this DescribeSObjectResult.
+     * 
+     * @return keyPrefix
+     */
+    public java.lang.String getKeyPrefix() {
+        return keyPrefix;
+    }
+
+
+    /**
+     * Sets the keyPrefix value for this DescribeSObjectResult.
+     * 
+     * @param keyPrefix
+     */
+    public void setKeyPrefix(java.lang.String keyPrefix) {
+        this.keyPrefix = keyPrefix;
+    }
+
+
+    /**
+     * Gets the label value for this DescribeSObjectResult.
+     * 
+     * @return label
+     */
+    public java.lang.String getLabel() {
+        return label;
+    }
+
+
+    /**
+     * Sets the label value for this DescribeSObjectResult.
+     * 
+     * @param label
+     */
+    public void setLabel(java.lang.String label) {
+        this.label = label;
+    }
+
+
+    /**
+     * Gets the labelPlural value for this DescribeSObjectResult.
+     * 
+     * @return labelPlural
+     */
+    public java.lang.String getLabelPlural() {
+        return labelPlural;
+    }
+
+
+    /**
+     * Sets the labelPlural value for this DescribeSObjectResult.
+     * 
+     * @param labelPlural
+     */
+    public void setLabelPlural(java.lang.String labelPlural) {
+        this.labelPlural = labelPlural;
+    }
+
+
+    /**
+     * Gets the layoutable value for this DescribeSObjectResult.
+     * 
+     * @return layoutable
+     */
+    public boolean isLayoutable() {
+        return layoutable;
+    }
+
+
+    /**
+     * Sets the layoutable value for this DescribeSObjectResult.
+     * 
+     * @param layoutable
+     */
+    public void setLayoutable(boolean layoutable) {
+        this.layoutable = layoutable;
+    }
+
+
+    /**
+     * Gets the mergeable value for this DescribeSObjectResult.
+     * 
+     * @return mergeable
+     */
+    public boolean isMergeable() {
+        return mergeable;
+    }
+
+
+    /**
+     * Sets the mergeable value for this DescribeSObjectResult.
+     * 
+     * @param mergeable
+     */
+    public void setMergeable(boolean mergeable) {
+        this.mergeable = mergeable;
+    }
+
+
+    /**
+     * Gets the name value for this DescribeSObjectResult.
+     * 
+     * @return name
+     */
+    public java.lang.String getName() {
+        return name;
+    }
+
+
+    /**
+     * Sets the name value for this DescribeSObjectResult.
+     * 
+     * @param name
+     */
+    public void setName(java.lang.String name) {
+        this.name = name;
+    }
+
+
+    /**
+     * Gets the namedLayoutInfos value for this DescribeSObjectResult.
+     * 
+     * @return namedLayoutInfos
+     */
+    public com.sforce.soap.partner.NamedLayoutInfo[] getNamedLayoutInfos() {
+        return namedLayoutInfos;
+    }
+
+
+    /**
+     * Sets the namedLayoutInfos value for this DescribeSObjectResult.
+     * 
+     * @param namedLayoutInfos
+     */
+    public void setNamedLayoutInfos(com.sforce.soap.partner.NamedLayoutInfo[] namedLayoutInfos) {
+        this.namedLayoutInfos = namedLayoutInfos;
+    }
+
+    public com.sforce.soap.partner.NamedLayoutInfo getNamedLayoutInfos(int i) {
+        return this.namedLayoutInfos[i];
+    }
+
+    public void setNamedLayoutInfos(int i, com.sforce.soap.partner.NamedLayoutInfo _value) {
+        this.namedLayoutInfos[i] = _value;
+    }
+
+
+    /**
+     * Gets the queryable value for this DescribeSObjectResult.
+     * 
+     * @return queryable
+     */
+    public boolean isQueryable() {
+        return queryable;
+    }
+
+
+    /**
+     * Sets the queryable value for this DescribeSObjectResult.
+     * 
+     * @param queryable
+     */
+    public void setQueryable(boolean queryable) {
+        this.queryable = queryable;
+    }
+
+
+    /**
+     * Gets the recordTypeInfos value for this DescribeSObjectResult.
+     * 
+     * @return recordTypeInfos
+     */
+    public com.sforce.soap.partner.RecordTypeInfo[] getRecordTypeInfos() {
+        return recordTypeInfos;
+    }
+
+
+    /**
+     * Sets the recordTypeInfos value for this DescribeSObjectResult.
+     * 
+     * @param recordTypeInfos
+     */
+    public void setRecordTypeInfos(com.sforce.soap.partner.RecordTypeInfo[] recordTypeInfos) {
+        this.recordTypeInfos = recordTypeInfos;
+    }
+
+    public com.sforce.soap.partner.RecordTypeInfo getRecordTypeInfos(int i) {
+        return this.recordTypeInfos[i];
+    }
+
+    public void setRecordTypeInfos(int i, com.sforce.soap.partner.RecordTypeInfo _value) {
+        this.recordTypeInfos[i] = _value;
+    }
+
+
+    /**
+     * Gets the replicateable value for this DescribeSObjectResult.
+     * 
+     * @return replicateable
+     */
+    public boolean isReplicateable() {
+        return replicateable;
+    }
+
+
+    /**
+     * Sets the replicateable value for this DescribeSObjectResult.
+     * 
+     * @param replicateable
+     */
+    public void setReplicateable(boolean replicateable) {
+        this.replicateable = replicateable;
+    }
+
+
+    /**
+     * Gets the retrieveable value for this DescribeSObjectResult.
+     * 
+     * @return retrieveable
+     */
+    public boolean isRetrieveable() {
+        return retrieveable;
+    }
+
+
+    /**
+     * Sets the retrieveable value for this DescribeSObjectResult.
+     * 
+     * @param retrieveable
+     */
+    public void setRetrieveable(boolean retrieveable) {
+        this.retrieveable = retrieveable;
+    }
+
+
+    /**
+     * Gets the searchLayoutable value for this DescribeSObjectResult.
+     * 
+     * @return searchLayoutable
+     */
+    public java.lang.Boolean getSearchLayoutable() {
+        return searchLayoutable;
+    }
+
+
+    /**
+     * Sets the searchLayoutable value for this DescribeSObjectResult.
+     * 
+     * @param searchLayoutable
+     */
+    public void setSearchLayoutable(java.lang.Boolean searchLayoutable) {
+        this.searchLayoutable = searchLayoutable;
+    }
+
+
+    /**
+     * Gets the searchable value for this DescribeSObjectResult.
+     * 
+     * @return searchable
+     */
+    public boolean isSearchable() {
+        return searchable;
+    }
+
+
+    /**
+     * Sets the searchable value for this DescribeSObjectResult.
+     * 
+     * @param searchable
+     */
+    public void setSearchable(boolean searchable) {
+        this.searchable = searchable;
+    }
+
+
+    /**
+     * Gets the triggerable value for this DescribeSObjectResult.
+     * 
+     * @return triggerable
+     */
+    public java.lang.Boolean getTriggerable() {
+        return triggerable;
+    }
+
+
+    /**
+     * Sets the triggerable value for this DescribeSObjectResult.
+     * 
+     * @param triggerable
+     */
+    public void setTriggerable(java.lang.Boolean triggerable) {
+        this.triggerable = triggerable;
+    }
+
+
+    /**
+     * Gets the undeletable value for this DescribeSObjectResult.
+     * 
+     * @return undeletable
+     */
+    public boolean isUndeletable() {
+        return undeletable;
+    }
+
+
+    /**
+     * Sets the undeletable value for this DescribeSObjectResult.
+     * 
+     * @param undeletable
+     */
+    public void setUndeletable(boolean undeletable) {
+        this.undeletable = undeletable;
+    }
+
+
+    /**
+     * Gets the updateable value for this DescribeSObjectResult.
+     * 
+     * @return updateable
+     */
+    public boolean isUpdateable() {
+        return updateable;
+    }
+
+
+    /**
+     * Sets the updateable value for this DescribeSObjectResult.
+     * 
+     * @param updateable
+     */
+    public void setUpdateable(boolean updateable) {
+        this.updateable = updateable;
+    }
+
+
+    /**
+     * Gets the urlDetail value for this DescribeSObjectResult.
+     * 
+     * @return urlDetail
+     */
+    public java.lang.String getUrlDetail() {
+        return urlDetail;
+    }
+
+
+    /**
+     * Sets the urlDetail value for this DescribeSObjectResult.
+     * 
+     * @param urlDetail
+     */
+    public void setUrlDetail(java.lang.String urlDetail) {
+        this.urlDetail = urlDetail;
+    }
+
+
+    /**
+     * Gets the urlEdit value for this DescribeSObjectResult.
+     * 
+     * @return urlEdit
+     */
+    public java.lang.String getUrlEdit() {
+        return urlEdit;
+    }
+
+
+    /**
+     * Sets the urlEdit value for this DescribeSObjectResult.
+     * 
+     * @param urlEdit
+     */
+    public void setUrlEdit(java.lang.String urlEdit) {
+        this.urlEdit = urlEdit;
+    }
+
+
+    /**
+     * Gets the urlNew value for this DescribeSObjectResult.
+     * 
+     * @return urlNew
+     */
+    public java.lang.String getUrlNew() {
+        return urlNew;
+    }
+
+
+    /**
+     * Sets the urlNew value for this DescribeSObjectResult.
+     * 
+     * @param urlNew
+     */
+    public void setUrlNew(java.lang.String urlNew) {
+        this.urlNew = urlNew;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof DescribeSObjectResult)) return false;
+        DescribeSObjectResult other = (DescribeSObjectResult) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.actionOverrides==null && other.getActionOverrides()==null) || 
+             (this.actionOverrides!=null &&
+              java.util.Arrays.equals(this.actionOverrides, other.getActionOverrides()))) &&
+            this.activateable == other.isActivateable() &&
+            ((this.childRelationships==null && other.getChildRelationships()==null) || 
+             (this.childRelationships!=null &&
+              java.util.Arrays.equals(this.childRelationships, other.getChildRelationships()))) &&
+            this.compactLayoutable == other.isCompactLayoutable() &&
+            this.createable == other.isCreateable() &&
+            this.custom == other.isCustom() &&
+            this.customSetting == other.isCustomSetting() &&
+            this.deletable == other.isDeletable() &&
+            this.deprecatedAndHidden == other.isDeprecatedAndHidden() &&
+            this.feedEnabled == other.isFeedEnabled() &&
+            ((this.fields==null && other.getFields()==null) || 
+             (this.fields!=null &&
+              java.util.Arrays.equals(this.fields, other.getFields()))) &&
+            ((this.keyPrefix==null && other.getKeyPrefix()==null) || 
+             (this.keyPrefix!=null &&
+              this.keyPrefix.equals(other.getKeyPrefix()))) &&
+            ((this.label==null && other.getLabel()==null) || 
+             (this.label!=null &&
+              this.label.equals(other.getLabel()))) &&
+            ((this.labelPlural==null && other.getLabelPlural()==null) || 
+             (this.labelPlural!=null &&
+              this.labelPlural.equals(other.getLabelPlural()))) &&
+            this.layoutable == other.isLayoutable() &&
+            this.mergeable == other.isMergeable() &&
+            ((this.name==null && other.getName()==null) || 
+             (this.name!=null &&
+              this.name.equals(other.getName()))) &&
+            ((this.namedLayoutInfos==null && other.getNamedLayoutInfos()==null) || 
+             (this.namedLayoutInfos!=null &&
+              java.util.Arrays.equals(this.namedLayoutInfos, other.getNamedLayoutInfos()))) &&
+            this.queryable == other.isQueryable() &&
+            ((this.recordTypeInfos==null && other.getRecordTypeInfos()==null) || 
+             (this.recordTypeInfos!=null &&
+              java.util.Arrays.equals(this.recordTypeInfos, other.getRecordTypeInfos()))) &&
+            this.replicateable == other.isReplicateable() &&
+            this.retrieveable == other.isRetrieveable() &&
+            ((this.searchLayoutable==null && other.getSearchLayoutable()==null) || 
+             (this.searchLayoutable!=null &&
+              this.searchLayoutable.equals(other.getSearchLayoutable()))) &&
+            this.searchable == other.isSearchable() &&
+            ((this.triggerable==null && other.getTriggerable()==null) || 
+             (this.triggerable!=null &&
+              this.triggerable.equals(other.getTriggerable()))) &&
+            this.undeletable == other.isUndeletable() &&
+            this.updateable == other.isUpdateable() &&
+            ((this.urlDetail==null && other.getUrlDetail()==null) || 
+             (this.urlDetail!=null &&
+              this.urlDetail.equals(other.getUrlDetail()))) &&
+            ((this.urlEdit==null && other.getUrlEdit()==null) || 
+             (this.urlEdit!=null &&
+              this.urlEdit.equals(other.getUrlEdit()))) &&
+            ((this.urlNew==null && other.getUrlNew()==null) || 
+             (this.urlNew!=null &&
+              this.urlNew.equals(other.getUrlNew())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getActionOverrides() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getActionOverrides());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getActionOverrides(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        _hashCode += (isActivateable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getChildRelationships() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getChildRelationships());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getChildRelationships(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        _hashCode += (isCompactLayoutable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isCreateable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isCustom() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isCustomSetting() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isDeletable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isDeprecatedAndHidden() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isFeedEnabled() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getFields() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getFields());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getFields(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        if (getKeyPrefix() != null) {
+            _hashCode += getKeyPrefix().hashCode();
+        }
+        if (getLabel() != null) {
+            _hashCode += getLabel().hashCode();
+        }
+        if (getLabelPlural() != null) {
+            _hashCode += getLabelPlural().hashCode();
+        }
+        _hashCode += (isLayoutable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isMergeable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getName() != null) {
+            _hashCode += getName().hashCode();
+        }
+        if (getNamedLayoutInfos() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getNamedLayoutInfos());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getNamedLayoutInfos(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        _hashCode += (isQueryable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getRecordTypeInfos() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getRecordTypeInfos());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getRecordTypeInfos(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        _hashCode += (isReplicateable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isRetrieveable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getSearchLayoutable() != null) {
+            _hashCode += getSearchLayoutable().hashCode();
+        }
+        _hashCode += (isSearchable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getTriggerable() != null) {
+            _hashCode += getTriggerable().hashCode();
+        }
+        _hashCode += (isUndeletable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isUpdateable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getUrlDetail() != null) {
+            _hashCode += getUrlDetail().hashCode();
+        }
+        if (getUrlEdit() != null) {
+            _hashCode += getUrlEdit().hashCode();
+        }
+        if (getUrlNew() != null) {
+            _hashCode += getUrlNew().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(DescribeSObjectResult.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeSObjectResult"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("actionOverrides");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "actionOverrides"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "ActionOverride"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("activateable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "activateable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("childRelationships");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "childRelationships"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "ChildRelationship"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("compactLayoutable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "compactLayoutable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("createable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "createable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("custom");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "custom"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("customSetting");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "customSetting"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("deletable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "deletable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("deprecatedAndHidden");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "deprecatedAndHidden"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("feedEnabled");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "feedEnabled"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("fields");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "fields"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "Field"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("keyPrefix");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "keyPrefix"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("label");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "label"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("labelPlural");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "labelPlural"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("layoutable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "layoutable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("mergeable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "mergeable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("name");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "name"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("namedLayoutInfos");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "namedLayoutInfos"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "NamedLayoutInfo"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("queryable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "queryable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("recordTypeInfos");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "recordTypeInfos"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "RecordTypeInfo"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("replicateable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "replicateable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("retrieveable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "retrieveable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("searchLayoutable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "searchLayoutable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("searchable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "searchable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("triggerable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "triggerable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("undeletable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "undeletable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("updateable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "updateable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("urlDetail");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "urlDetail"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("urlEdit");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "urlEdit"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("urlNew");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "urlNew"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

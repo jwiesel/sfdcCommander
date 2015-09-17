@@ -3,14 +3,19 @@
  */
 package de.sfdccommander.controller.connection;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sforce.soap.partner.Connector;
-import com.sforce.soap.partner.GetUserInfoResult;
-import com.sforce.soap.partner.PartnerConnection;
-import com.sforce.ws.ConnectionException;
-import com.sforce.ws.ConnectorConfig;
+import javax.xml.rpc.ServiceException;
+
+import com.sforce.soap._2006._04.metadata.SessionHeader;
+import com.sforce.soap.partner.LoginResult;
+import com.sforce.soap.partner.SforceServiceLocator;
+import com.sforce.soap.partner.SoapBindingStub;
+import com.sforce.soap.partner.fault.InvalidIdFault;
+import com.sforce.soap.partner.fault.LoginFault;
+import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
 import de.sfdccommander.model.CommanderConfig;
 import de.sfdccommander.viewer.SfdcCommander;
@@ -29,7 +34,7 @@ public final class SfdcConnectionPool {
     /**
      * List of sessions in pool.
      */
-    private final List<PartnerConnection> connections;
+    private final List<SoapBindingStub> bindings;
 
     private final SfdcCommander commander;
 
@@ -37,7 +42,7 @@ public final class SfdcConnectionPool {
      * Default constructor.
      */
     private SfdcConnectionPool() {
-        connections = new ArrayList<PartnerConnection>();
+        bindings = new ArrayList<SoapBindingStub>();
         commander = SfdcCommander.getInstance();
     }
 
@@ -51,61 +56,62 @@ public final class SfdcConnectionPool {
      * @throws ServerManagerException
      *             if issue with srvrmgr occurs
      */
-    public PartnerConnection getConnection(final CommanderConfig aConfig)
-            throws ConnectionException {
-        PartnerConnection connection = null;
+    public SoapBindingStub getBinding(final CommanderConfig aConfig) {
+        SoapBindingStub binding = null;
+        SforceServiceLocator salesForceSL = new SforceServiceLocator();
 
-        for (PartnerConnection actConnection : connections) {
+        boolean equals = false;
+        for (SoapBindingStub actBinding : bindings) {
             // Compare Parameters
-            boolean equals = false;
-            if (actConnection.getConfig().getUsername()
-                    .equals(aConfig.getSfUsername())) {
-                if (actConnection.getConfig().getPassword()
-                        .equals(aConfig.getSfPassword())) {
-                    if (actConnection
-                            .getConfig()
-                            .getAuthEndpoint()
-                            .equals(aConfig.getSfServerurl()
-                                    + "/services/Soap/u/26.0")) {
-                        // TODO: Proxy Check einbauen
-                        equals = true;
-                    }
+            if (actBinding.getUsername().equals(aConfig.getSfUsername())) {
+                if (actBinding.getPassword().equals(aConfig.getSfPassword())) {
+                    equals = true;
                 }
             }
             if (equals) {
-                connection = actConnection;
+                binding = actBinding;
+                break;
             }
         }
-        if (connection == null) {
-            ConnectorConfig connectorConfig = new ConnectorConfig();
-            connectorConfig.setUsername(aConfig.getSfUsername());
-            connectorConfig.setPassword(aConfig.getSfPassword());
-            connectorConfig.setAuthEndpoint(aConfig.getSfServerurl()
-                    + "/services/Soap/u/26.0");
-            if (!aConfig.getHttpProxyPort().equals("")) {
-                connectorConfig.setProxy(aConfig.getHttpProxyHost(),
-                        Integer.parseInt(aConfig.getHttpProxyPort()));
+        if (binding == null) {
+            try {
+                binding = (SoapBindingStub) salesForceSL.getSoap();
+                binding.setTimeout(60000);
+                LoginResult lr;
+                lr = binding.login(aConfig.getSfUsername(),
+                        aConfig.getSfPassword());
+
+                SessionHeader sh = new SessionHeader();
+                sh.setSessionId(lr.getSessionId());
+                binding._setProperty(SoapBindingStub.ENDPOINT_ADDRESS_PROPERTY,
+                        lr.getServerUrl());
+                binding.setHeader(
+                        salesForceSL.getServiceName().getNamespaceURI(),
+                        "SessionHeader", sh);
+                if (lr.isPasswordExpired()) {
+                    commander.notify(
+                            "An error has occurred. Your password has expired.");
+                }
+            } catch (LoginFault e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (UnexpectedErrorFault e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (InvalidIdFault e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (RemoteException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (ServiceException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
-            // connectorConfig.setTraceMessage(true);
-            // connectorConfig.setPrettyPrintXml(true);
 
-            PartnerConnection newConnection = Connector
-                    .newConnection(connectorConfig);
-
-            GetUserInfoResult tmpUserInfo = newConnection.getUserInfo();
-
-            // display some current settings
-            commander.notify("Auth EndPoint: "
-                    + connectorConfig.getAuthEndpoint());
-            commander.notify("Service EndPoint: "
-                    + connectorConfig.getServiceEndpoint());
-            commander.notify("Username: " + tmpUserInfo.getUserName());
-            commander.notify("SessionId: " + connectorConfig.getSessionId());
-
-            connections.add(newConnection);
-            connection = newConnection;
+            bindings.add(binding);
         }
-        return connection;
+        return binding;
     }
 
     /**

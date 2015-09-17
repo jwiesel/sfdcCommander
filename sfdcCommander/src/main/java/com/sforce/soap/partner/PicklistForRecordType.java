@@ -1,1 +1,173 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class PicklistForRecordType implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public PicklistForRecordType() {  }        /**   * element  : picklistName of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo picklistName__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","picklistName","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean picklistName__is_set = false;  private java.lang.String picklistName;  public java.lang.String getPicklistName() {    return picklistName;  }    public void setPicklistName(java.lang.String picklistName) {    this.picklistName = picklistName;    picklistName__is_set = true;  }    /**   * element  : picklistValues of type {urn:partner.soap.sforce.com}PicklistEntry   * java type: com.sforce.soap.partner.PicklistEntry[]   */  private static final com.sforce.ws.bind.TypeInfo picklistValues__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","picklistValues","urn:partner.soap.sforce.com","PicklistEntry",0,-1,true);  private boolean picklistValues__is_set = false;  private com.sforce.soap.partner.PicklistEntry[] picklistValues = new com.sforce.soap.partner.PicklistEntry[0];  public com.sforce.soap.partner.PicklistEntry[] getPicklistValues() {    return picklistValues;  }    public void setPicklistValues(com.sforce.soap.partner.PicklistEntry[] picklistValues) {    this.picklistValues = picklistValues;    picklistValues__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeString(__out, picklistName__typeInfo, picklistName, picklistName__is_set);    __typeMapper.writeObject(__out, picklistValues__typeInfo, picklistValues, picklistValues__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, picklistName__typeInfo)) {      setPicklistName((java.lang.String)__typeMapper.readString(__in, picklistName__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, picklistValues__typeInfo)) {      setPicklistValues((com.sforce.soap.partner.PicklistEntry[])__typeMapper.readObject(__in, picklistValues__typeInfo, com.sforce.soap.partner.PicklistEntry[].class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[PicklistForRecordType ");        sb.append(" picklistName=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(picklistName)+"'\n");    sb.append(" picklistValues=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(picklistValues)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * PicklistForRecordType.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class PicklistForRecordType  implements java.io.Serializable {
+    private java.lang.String picklistName;
+
+    private com.sforce.soap.partner.PicklistEntry[] picklistValues;
+
+    public PicklistForRecordType() {
+    }
+
+    public PicklistForRecordType(
+           java.lang.String picklistName,
+           com.sforce.soap.partner.PicklistEntry[] picklistValues) {
+           this.picklistName = picklistName;
+           this.picklistValues = picklistValues;
+    }
+
+
+    /**
+     * Gets the picklistName value for this PicklistForRecordType.
+     * 
+     * @return picklistName
+     */
+    public java.lang.String getPicklistName() {
+        return picklistName;
+    }
+
+
+    /**
+     * Sets the picklistName value for this PicklistForRecordType.
+     * 
+     * @param picklistName
+     */
+    public void setPicklistName(java.lang.String picklistName) {
+        this.picklistName = picklistName;
+    }
+
+
+    /**
+     * Gets the picklistValues value for this PicklistForRecordType.
+     * 
+     * @return picklistValues
+     */
+    public com.sforce.soap.partner.PicklistEntry[] getPicklistValues() {
+        return picklistValues;
+    }
+
+
+    /**
+     * Sets the picklistValues value for this PicklistForRecordType.
+     * 
+     * @param picklistValues
+     */
+    public void setPicklistValues(com.sforce.soap.partner.PicklistEntry[] picklistValues) {
+        this.picklistValues = picklistValues;
+    }
+
+    public com.sforce.soap.partner.PicklistEntry getPicklistValues(int i) {
+        return this.picklistValues[i];
+    }
+
+    public void setPicklistValues(int i, com.sforce.soap.partner.PicklistEntry _value) {
+        this.picklistValues[i] = _value;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof PicklistForRecordType)) return false;
+        PicklistForRecordType other = (PicklistForRecordType) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.picklistName==null && other.getPicklistName()==null) || 
+             (this.picklistName!=null &&
+              this.picklistName.equals(other.getPicklistName()))) &&
+            ((this.picklistValues==null && other.getPicklistValues()==null) || 
+             (this.picklistValues!=null &&
+              java.util.Arrays.equals(this.picklistValues, other.getPicklistValues())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getPicklistName() != null) {
+            _hashCode += getPicklistName().hashCode();
+        }
+        if (getPicklistValues() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPicklistValues());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPicklistValues(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(PicklistForRecordType.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "PicklistForRecordType"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("picklistName");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "picklistName"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("picklistValues");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "picklistValues"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "PicklistEntry"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

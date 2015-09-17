@@ -1,1 +1,309 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class RecordTypeMapping implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public RecordTypeMapping() {  }        /**   * element  : available of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo available__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","available","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean available__is_set = false;  private boolean available;  public boolean getAvailable() {    return available;  }    public boolean isAvailable() {    return available;  }    public void setAvailable(boolean available) {    this.available = available;    available__is_set = true;  }    /**   * element  : defaultRecordTypeMapping of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo defaultRecordTypeMapping__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","defaultRecordTypeMapping","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean defaultRecordTypeMapping__is_set = false;  private boolean defaultRecordTypeMapping;  public boolean getDefaultRecordTypeMapping() {    return defaultRecordTypeMapping;  }    public boolean isDefaultRecordTypeMapping() {    return defaultRecordTypeMapping;  }    public void setDefaultRecordTypeMapping(boolean defaultRecordTypeMapping) {    this.defaultRecordTypeMapping = defaultRecordTypeMapping;    defaultRecordTypeMapping__is_set = true;  }    /**   * element  : layoutId of type {urn:partner.soap.sforce.com}ID   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo layoutId__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","layoutId","urn:partner.soap.sforce.com","ID",1,1,true);  private boolean layoutId__is_set = false;  private java.lang.String layoutId;  public java.lang.String getLayoutId() {    return layoutId;  }    public void setLayoutId(java.lang.String layoutId) {    this.layoutId = layoutId;    layoutId__is_set = true;  }    /**   * element  : name of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo name__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","name","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean name__is_set = false;  private java.lang.String name;  public java.lang.String getName() {    return name;  }    public void setName(java.lang.String name) {    this.name = name;    name__is_set = true;  }    /**   * element  : picklistsForRecordType of type {urn:partner.soap.sforce.com}PicklistForRecordType   * java type: com.sforce.soap.partner.PicklistForRecordType[]   */  private static final com.sforce.ws.bind.TypeInfo picklistsForRecordType__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","picklistsForRecordType","urn:partner.soap.sforce.com","PicklistForRecordType",0,-1,true);  private boolean picklistsForRecordType__is_set = false;  private com.sforce.soap.partner.PicklistForRecordType[] picklistsForRecordType = new com.sforce.soap.partner.PicklistForRecordType[0];  public com.sforce.soap.partner.PicklistForRecordType[] getPicklistsForRecordType() {    return picklistsForRecordType;  }    public void setPicklistsForRecordType(com.sforce.soap.partner.PicklistForRecordType[] picklistsForRecordType) {    this.picklistsForRecordType = picklistsForRecordType;    picklistsForRecordType__is_set = true;  }    /**   * element  : recordTypeId of type {urn:partner.soap.sforce.com}ID   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo recordTypeId__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","recordTypeId","urn:partner.soap.sforce.com","ID",1,1,true);  private boolean recordTypeId__is_set = false;  private java.lang.String recordTypeId;  public java.lang.String getRecordTypeId() {    return recordTypeId;  }    public void setRecordTypeId(java.lang.String recordTypeId) {    this.recordTypeId = recordTypeId;    recordTypeId__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeBoolean(__out, available__typeInfo, available, available__is_set);    __typeMapper.writeBoolean(__out, defaultRecordTypeMapping__typeInfo, defaultRecordTypeMapping, defaultRecordTypeMapping__is_set);    __typeMapper.writeString(__out, layoutId__typeInfo, layoutId, layoutId__is_set);    __typeMapper.writeString(__out, name__typeInfo, name, name__is_set);    __typeMapper.writeObject(__out, picklistsForRecordType__typeInfo, picklistsForRecordType, picklistsForRecordType__is_set);    __typeMapper.writeString(__out, recordTypeId__typeInfo, recordTypeId, recordTypeId__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, available__typeInfo)) {      setAvailable((boolean)__typeMapper.readBoolean(__in, available__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, defaultRecordTypeMapping__typeInfo)) {      setDefaultRecordTypeMapping((boolean)__typeMapper.readBoolean(__in, defaultRecordTypeMapping__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, layoutId__typeInfo)) {      setLayoutId((java.lang.String)__typeMapper.readString(__in, layoutId__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, name__typeInfo)) {      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, picklistsForRecordType__typeInfo)) {      setPicklistsForRecordType((com.sforce.soap.partner.PicklistForRecordType[])__typeMapper.readObject(__in, picklistsForRecordType__typeInfo, com.sforce.soap.partner.PicklistForRecordType[].class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, recordTypeId__typeInfo)) {      setRecordTypeId((java.lang.String)__typeMapper.readString(__in, recordTypeId__typeInfo, java.lang.String.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[RecordTypeMapping ");        sb.append(" available=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(available)+"'\n");    sb.append(" defaultRecordTypeMapping=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(defaultRecordTypeMapping)+"'\n");    sb.append(" layoutId=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(layoutId)+"'\n");    sb.append(" name=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(name)+"'\n");    sb.append(" picklistsForRecordType=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(picklistsForRecordType)+"'\n");    sb.append(" recordTypeId=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(recordTypeId)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * RecordTypeMapping.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class RecordTypeMapping  implements java.io.Serializable {
+    private boolean available;
+
+    private boolean defaultRecordTypeMapping;
+
+    private java.lang.String layoutId;
+
+    private java.lang.String name;
+
+    private com.sforce.soap.partner.PicklistForRecordType[] picklistsForRecordType;
+
+    private java.lang.String recordTypeId;
+
+    public RecordTypeMapping() {
+    }
+
+    public RecordTypeMapping(
+           boolean available,
+           boolean defaultRecordTypeMapping,
+           java.lang.String layoutId,
+           java.lang.String name,
+           com.sforce.soap.partner.PicklistForRecordType[] picklistsForRecordType,
+           java.lang.String recordTypeId) {
+           this.available = available;
+           this.defaultRecordTypeMapping = defaultRecordTypeMapping;
+           this.layoutId = layoutId;
+           this.name = name;
+           this.picklistsForRecordType = picklistsForRecordType;
+           this.recordTypeId = recordTypeId;
+    }
+
+
+    /**
+     * Gets the available value for this RecordTypeMapping.
+     * 
+     * @return available
+     */
+    public boolean isAvailable() {
+        return available;
+    }
+
+
+    /**
+     * Sets the available value for this RecordTypeMapping.
+     * 
+     * @param available
+     */
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+
+    /**
+     * Gets the defaultRecordTypeMapping value for this RecordTypeMapping.
+     * 
+     * @return defaultRecordTypeMapping
+     */
+    public boolean isDefaultRecordTypeMapping() {
+        return defaultRecordTypeMapping;
+    }
+
+
+    /**
+     * Sets the defaultRecordTypeMapping value for this RecordTypeMapping.
+     * 
+     * @param defaultRecordTypeMapping
+     */
+    public void setDefaultRecordTypeMapping(boolean defaultRecordTypeMapping) {
+        this.defaultRecordTypeMapping = defaultRecordTypeMapping;
+    }
+
+
+    /**
+     * Gets the layoutId value for this RecordTypeMapping.
+     * 
+     * @return layoutId
+     */
+    public java.lang.String getLayoutId() {
+        return layoutId;
+    }
+
+
+    /**
+     * Sets the layoutId value for this RecordTypeMapping.
+     * 
+     * @param layoutId
+     */
+    public void setLayoutId(java.lang.String layoutId) {
+        this.layoutId = layoutId;
+    }
+
+
+    /**
+     * Gets the name value for this RecordTypeMapping.
+     * 
+     * @return name
+     */
+    public java.lang.String getName() {
+        return name;
+    }
+
+
+    /**
+     * Sets the name value for this RecordTypeMapping.
+     * 
+     * @param name
+     */
+    public void setName(java.lang.String name) {
+        this.name = name;
+    }
+
+
+    /**
+     * Gets the picklistsForRecordType value for this RecordTypeMapping.
+     * 
+     * @return picklistsForRecordType
+     */
+    public com.sforce.soap.partner.PicklistForRecordType[] getPicklistsForRecordType() {
+        return picklistsForRecordType;
+    }
+
+
+    /**
+     * Sets the picklistsForRecordType value for this RecordTypeMapping.
+     * 
+     * @param picklistsForRecordType
+     */
+    public void setPicklistsForRecordType(com.sforce.soap.partner.PicklistForRecordType[] picklistsForRecordType) {
+        this.picklistsForRecordType = picklistsForRecordType;
+    }
+
+    public com.sforce.soap.partner.PicklistForRecordType getPicklistsForRecordType(int i) {
+        return this.picklistsForRecordType[i];
+    }
+
+    public void setPicklistsForRecordType(int i, com.sforce.soap.partner.PicklistForRecordType _value) {
+        this.picklistsForRecordType[i] = _value;
+    }
+
+
+    /**
+     * Gets the recordTypeId value for this RecordTypeMapping.
+     * 
+     * @return recordTypeId
+     */
+    public java.lang.String getRecordTypeId() {
+        return recordTypeId;
+    }
+
+
+    /**
+     * Sets the recordTypeId value for this RecordTypeMapping.
+     * 
+     * @param recordTypeId
+     */
+    public void setRecordTypeId(java.lang.String recordTypeId) {
+        this.recordTypeId = recordTypeId;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof RecordTypeMapping)) return false;
+        RecordTypeMapping other = (RecordTypeMapping) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            this.available == other.isAvailable() &&
+            this.defaultRecordTypeMapping == other.isDefaultRecordTypeMapping() &&
+            ((this.layoutId==null && other.getLayoutId()==null) || 
+             (this.layoutId!=null &&
+              this.layoutId.equals(other.getLayoutId()))) &&
+            ((this.name==null && other.getName()==null) || 
+             (this.name!=null &&
+              this.name.equals(other.getName()))) &&
+            ((this.picklistsForRecordType==null && other.getPicklistsForRecordType()==null) || 
+             (this.picklistsForRecordType!=null &&
+              java.util.Arrays.equals(this.picklistsForRecordType, other.getPicklistsForRecordType()))) &&
+            ((this.recordTypeId==null && other.getRecordTypeId()==null) || 
+             (this.recordTypeId!=null &&
+              this.recordTypeId.equals(other.getRecordTypeId())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        _hashCode += (isAvailable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isDefaultRecordTypeMapping() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getLayoutId() != null) {
+            _hashCode += getLayoutId().hashCode();
+        }
+        if (getName() != null) {
+            _hashCode += getName().hashCode();
+        }
+        if (getPicklistsForRecordType() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPicklistsForRecordType());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPicklistsForRecordType(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        if (getRecordTypeId() != null) {
+            _hashCode += getRecordTypeId().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(RecordTypeMapping.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "RecordTypeMapping"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("available");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "available"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("defaultRecordTypeMapping");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "defaultRecordTypeMapping"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("layoutId");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "layoutId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("name");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "name"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("picklistsForRecordType");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "picklistsForRecordType"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "PicklistForRecordType"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("recordTypeId");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "recordTypeId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

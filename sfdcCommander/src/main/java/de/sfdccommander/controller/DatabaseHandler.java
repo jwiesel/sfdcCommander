@@ -4,22 +4,22 @@
 package de.sfdccommander.controller;
 
 import java.io.File;
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeGlobalSObjectResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
-import com.sforce.soap.partner.PartnerConnection;
+import com.sforce.soap.partner.Field;
 import com.sforce.soap.partner.QueryResult;
+import com.sforce.soap.partner.SoapBindingStub;
+import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 import com.sforce.soap.partner.sobject.SObject;
-import com.sforce.ws.ConnectionException;
 
 import de.sfdccommander.controller.connection.SfdcConnectionPool;
 import de.sfdccommander.model.CommanderConfig;
@@ -37,7 +37,7 @@ public class DatabaseHandler {
 
     private SfdcConnectionPool connPool;
 
-    static PartnerConnection sfdcConnection;
+    static SoapBindingStub sfBinding;
 
     public DatabaseHandler(CommanderConfig aConfig) {
         config = aConfig;
@@ -51,23 +51,22 @@ public class DatabaseHandler {
         commander.notify("Generating Backup for Organization: "
                 + config.getSfSystemname());
 
-        File backupFolder = new File(config.getBackupPath()
-                + config.getSfSystemname());
+        File backupFolder = new File(
+                config.getBackupPath() + config.getSfSystemname());
         backupFolder.mkdirs();
         try {
             Class.forName("org.sqlite.JDBC");
-            Connection dbConnection = DriverManager
-                    .getConnection("jdbc:sqlite:"
-                            + backupFolder.getAbsolutePath() + File.separator
-                            + config.getSfSystemname() + "_" + sdf.format(date)
-                            + ".sqlite");
+            Connection dbConnection = DriverManager.getConnection(
+                    "jdbc:sqlite:" + backupFolder.getAbsolutePath()
+                            + File.separator + config.getSfSystemname() + "_"
+                            + sdf.format(date) + ".sqlite");
 
             connPool = SfdcConnectionPool.getInstance();
-            sfdcConnection = connPool.getConnection(config);
+            sfBinding = connPool.getBinding(config);
 
             // run the different examples
             DescribeGlobalResult global;
-            global = sfdcConnection.describeGlobal();
+            global = sfBinding.describeGlobal();
             String createTableStatement;
             String dropTableStatement;
             String soqlSelect;
@@ -77,22 +76,22 @@ public class DatabaseHandler {
             for (DescribeGlobalSObjectResult objectGlobalResult : global
                     .getSobjects()) {
                 // create tables and download data
-                DescribeSObjectResult tmpDescribeSObject = sfdcConnection
+                DescribeSObjectResult tmpDescribeSObject = sfBinding
                         .describeSObject(objectGlobalResult.getName());
-                if (tmpDescribeSObject.getQueryable()) {
-                    if (!tmpDescribeSObject.getName().equals(
-                            "ContentDocumentLink")
-                            && !tmpDescribeSObject.getName().equals(
-                                    "UserProfileFeed")
-                            && !tmpDescribeSObject.getName().equals(
-                                    "UserRecordAccess")
+                if (tmpDescribeSObject.isQueryable()) {
+                    if (!tmpDescribeSObject.getName()
+                            .equals("ContentDocumentLink")
+                            && !tmpDescribeSObject.getName()
+                                    .equals("UserProfileFeed")
+                            && !tmpDescribeSObject.getName()
+                                    .equals("UserRecordAccess")
                             && !tmpDescribeSObject.getName().equals("Vote")) {
-                        commander.notify("Object: "
-                                + tmpDescribeSObject.getName());
+                        commander.notify(
+                                "Object: " + tmpDescribeSObject.getName());
                         commander.notify("Preparing database table.");
-                        List<String> fields = getFieldList(tmpDescribeSObject);
-                        dropTableStatement = generateDropTableStatement(tmpDescribeSObject
-                                .getName());
+                        Field[] fields = tmpDescribeSObject.getFields();
+                        dropTableStatement = generateDropTableStatement(
+                                tmpDescribeSObject.getName());
                         tmpStatement.execute(dropTableStatement);
                         createTableStatement = generateCreateTableStatement(
                                 tmpDescribeSObject.getName(), fields);
@@ -101,10 +100,11 @@ public class DatabaseHandler {
                                 tmpDescribeSObject.getName(), fields);
                         commander.notify("Downloading data...");
                         commander.notify("");
-                        QueryResult queryResults = sfdcConnection
+                        QueryResult queryResults = sfBinding
                                 .queryAll(soqlSelect);
                         if (queryResults.getSize() > 0) {
-                            for (SObject tmpSObject : queryResults.getRecords()) {
+                            for (SObject tmpSObject : queryResults
+                                    .getRecords()) {
                                 insertStatement = generateInsertStatementForSObject(
                                         tmpSObject,
                                         tmpDescribeSObject.getName(), fields);
@@ -125,19 +125,22 @@ public class DatabaseHandler {
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } catch (ConnectionException e) {
+        } catch (UnexpectedErrorFault e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (RemoteException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
     private String generateCreateTableStatement(String aObjectName,
-            List<String> aFieldList) {
+            Field[] aFields) {
         StringBuffer createStatement = new StringBuffer();
         createStatement.append("CREATE TABLE `" + aObjectName + "` (");
-        for (String field : aFieldList) {
+        for (Field field : aFields) {
             // TODO Change type or remove method
-            createStatement.append("`" + field + "` "
+            createStatement.append("`" + field.getName() + "` "
                     + convertSfdcFieldType("text") + ",");
         }
         createStatement.setLength(createStatement.length() - 1);
@@ -160,11 +163,11 @@ public class DatabaseHandler {
     }
 
     private String generateSOQLSelectQuery(String aObjectName,
-            List<String> aFieldList) {
+            Field[] aFields) {
         StringBuffer soqlQuery = new StringBuffer();
         soqlQuery.append("SELECT ");
-        for (String field : aFieldList) {
-            soqlQuery.append(field + ", ");
+        for (Field field : aFields) {
+            soqlQuery.append(field.getName() + ", ");
         }
         soqlQuery.setLength(soqlQuery.length() - 2);
         soqlQuery.append(" FROM " + aObjectName);
@@ -173,18 +176,23 @@ public class DatabaseHandler {
     }
 
     private String generateInsertStatementForSObject(SObject aSObject,
-            String aObjectName, List<String> aFieldList) {
+            String aObjectName, Field[] aFields) {
         StringBuffer insertStatement = new StringBuffer();
         insertStatement.append("INSERT INTO `" + aObjectName + "` (");
         // Field List
-        for (String field : aFieldList) {
-            insertStatement.append("`" + field + "`, ");
+        for (Field field : aFields) {
+            insertStatement.append("`" + field.getName() + "`, ");
         }
         insertStatement.setLength(insertStatement.length() - 2);
         // Values
         insertStatement.append(") VALUES (");
-        for (String field : aFieldList) {
-            String test = (aSObject.getField(field) + "").replace("\'", "\'\'");
+        // for (Field field : aFields) {
+        // String test = (aSObject.getField(field) + "").replace("\'", "\'\'");
+        // insertStatement.append("'" + test + "', ");
+        // }
+        for (int i = 0; i < aFields.length; i++) {
+            String test = (aSObject.get_any()[i].getValue() + "").replace("\'",
+                    "\'\'");
             insertStatement.append("'" + test + "', ");
         }
         insertStatement.setLength(insertStatement.length() - 2);
@@ -193,11 +201,4 @@ public class DatabaseHandler {
         return insertStatement.toString();
     }
 
-    private List<String> getFieldList(DescribeSObjectResult aObject) {
-        List<String> fieldList = new ArrayList<String>();
-        for (int i = 0; i < aObject.getFields().length; i++) {
-            fieldList.add(aObject.getFields()[i].getName());
-        }
-        return fieldList;
-    }
 }

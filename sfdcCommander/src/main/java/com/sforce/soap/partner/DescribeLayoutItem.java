@@ -1,1 +1,301 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class DescribeLayoutItem implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public DescribeLayoutItem() {  }        /**   * element  : editable of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo editable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","editable","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean editable__is_set = false;  private boolean editable;  public boolean getEditable() {    return editable;  }    public boolean isEditable() {    return editable;  }    public void setEditable(boolean editable) {    this.editable = editable;    editable__is_set = true;  }    /**   * element  : label of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo label__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","label","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean label__is_set = false;  private java.lang.String label;  public java.lang.String getLabel() {    return label;  }    public void setLabel(java.lang.String label) {    this.label = label;    label__is_set = true;  }    /**   * element  : layoutComponents of type {urn:partner.soap.sforce.com}DescribeLayoutComponent   * java type: com.sforce.soap.partner.DescribeLayoutComponent[]   */  private static final com.sforce.ws.bind.TypeInfo layoutComponents__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","layoutComponents","urn:partner.soap.sforce.com","DescribeLayoutComponent",0,-1,true);  private boolean layoutComponents__is_set = false;  private com.sforce.soap.partner.DescribeLayoutComponent[] layoutComponents = new com.sforce.soap.partner.DescribeLayoutComponent[0];  public com.sforce.soap.partner.DescribeLayoutComponent[] getLayoutComponents() {    return layoutComponents;  }    public void setLayoutComponents(com.sforce.soap.partner.DescribeLayoutComponent[] layoutComponents) {    this.layoutComponents = layoutComponents;    layoutComponents__is_set = true;  }    /**   * element  : placeholder of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo placeholder__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","placeholder","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean placeholder__is_set = false;  private boolean placeholder;  public boolean getPlaceholder() {    return placeholder;  }    public boolean isPlaceholder() {    return placeholder;  }    public void setPlaceholder(boolean placeholder) {    this.placeholder = placeholder;    placeholder__is_set = true;  }    /**   * element  : required of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo required__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","required","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean required__is_set = false;  private boolean required;  public boolean getRequired() {    return required;  }    public boolean isRequired() {    return required;  }    public void setRequired(boolean required) {    this.required = required;    required__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeBoolean(__out, editable__typeInfo, editable, editable__is_set);    __typeMapper.writeString(__out, label__typeInfo, label, label__is_set);    __typeMapper.writeObject(__out, layoutComponents__typeInfo, layoutComponents, layoutComponents__is_set);    __typeMapper.writeBoolean(__out, placeholder__typeInfo, placeholder, placeholder__is_set);    __typeMapper.writeBoolean(__out, required__typeInfo, required, required__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, editable__typeInfo)) {      setEditable((boolean)__typeMapper.readBoolean(__in, editable__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, label__typeInfo)) {      setLabel((java.lang.String)__typeMapper.readString(__in, label__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, layoutComponents__typeInfo)) {      setLayoutComponents((com.sforce.soap.partner.DescribeLayoutComponent[])__typeMapper.readObject(__in, layoutComponents__typeInfo, com.sforce.soap.partner.DescribeLayoutComponent[].class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, placeholder__typeInfo)) {      setPlaceholder((boolean)__typeMapper.readBoolean(__in, placeholder__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, required__typeInfo)) {      setRequired((boolean)__typeMapper.readBoolean(__in, required__typeInfo, boolean.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[DescribeLayoutItem ");        sb.append(" editable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(editable)+"'\n");    sb.append(" label=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(label)+"'\n");    sb.append(" layoutComponents=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(layoutComponents)+"'\n");    sb.append(" placeholder=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(placeholder)+"'\n");    sb.append(" required=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(required)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * DescribeLayoutItem.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class DescribeLayoutItem  implements java.io.Serializable {
+    private boolean editableForNew;
+
+    private boolean editableForUpdate;
+
+    private java.lang.String label;
+
+    private com.sforce.soap.partner.DescribeLayoutComponent[] layoutComponents;
+
+    private boolean placeholder;
+
+    private boolean required;
+
+    public DescribeLayoutItem() {
+    }
+
+    public DescribeLayoutItem(
+           boolean editableForNew,
+           boolean editableForUpdate,
+           java.lang.String label,
+           com.sforce.soap.partner.DescribeLayoutComponent[] layoutComponents,
+           boolean placeholder,
+           boolean required) {
+           this.editableForNew = editableForNew;
+           this.editableForUpdate = editableForUpdate;
+           this.label = label;
+           this.layoutComponents = layoutComponents;
+           this.placeholder = placeholder;
+           this.required = required;
+    }
+
+
+    /**
+     * Gets the editableForNew value for this DescribeLayoutItem.
+     * 
+     * @return editableForNew
+     */
+    public boolean isEditableForNew() {
+        return editableForNew;
+    }
+
+
+    /**
+     * Sets the editableForNew value for this DescribeLayoutItem.
+     * 
+     * @param editableForNew
+     */
+    public void setEditableForNew(boolean editableForNew) {
+        this.editableForNew = editableForNew;
+    }
+
+
+    /**
+     * Gets the editableForUpdate value for this DescribeLayoutItem.
+     * 
+     * @return editableForUpdate
+     */
+    public boolean isEditableForUpdate() {
+        return editableForUpdate;
+    }
+
+
+    /**
+     * Sets the editableForUpdate value for this DescribeLayoutItem.
+     * 
+     * @param editableForUpdate
+     */
+    public void setEditableForUpdate(boolean editableForUpdate) {
+        this.editableForUpdate = editableForUpdate;
+    }
+
+
+    /**
+     * Gets the label value for this DescribeLayoutItem.
+     * 
+     * @return label
+     */
+    public java.lang.String getLabel() {
+        return label;
+    }
+
+
+    /**
+     * Sets the label value for this DescribeLayoutItem.
+     * 
+     * @param label
+     */
+    public void setLabel(java.lang.String label) {
+        this.label = label;
+    }
+
+
+    /**
+     * Gets the layoutComponents value for this DescribeLayoutItem.
+     * 
+     * @return layoutComponents
+     */
+    public com.sforce.soap.partner.DescribeLayoutComponent[] getLayoutComponents() {
+        return layoutComponents;
+    }
+
+
+    /**
+     * Sets the layoutComponents value for this DescribeLayoutItem.
+     * 
+     * @param layoutComponents
+     */
+    public void setLayoutComponents(com.sforce.soap.partner.DescribeLayoutComponent[] layoutComponents) {
+        this.layoutComponents = layoutComponents;
+    }
+
+    public com.sforce.soap.partner.DescribeLayoutComponent getLayoutComponents(int i) {
+        return this.layoutComponents[i];
+    }
+
+    public void setLayoutComponents(int i, com.sforce.soap.partner.DescribeLayoutComponent _value) {
+        this.layoutComponents[i] = _value;
+    }
+
+
+    /**
+     * Gets the placeholder value for this DescribeLayoutItem.
+     * 
+     * @return placeholder
+     */
+    public boolean isPlaceholder() {
+        return placeholder;
+    }
+
+
+    /**
+     * Sets the placeholder value for this DescribeLayoutItem.
+     * 
+     * @param placeholder
+     */
+    public void setPlaceholder(boolean placeholder) {
+        this.placeholder = placeholder;
+    }
+
+
+    /**
+     * Gets the required value for this DescribeLayoutItem.
+     * 
+     * @return required
+     */
+    public boolean isRequired() {
+        return required;
+    }
+
+
+    /**
+     * Sets the required value for this DescribeLayoutItem.
+     * 
+     * @param required
+     */
+    public void setRequired(boolean required) {
+        this.required = required;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof DescribeLayoutItem)) return false;
+        DescribeLayoutItem other = (DescribeLayoutItem) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            this.editableForNew == other.isEditableForNew() &&
+            this.editableForUpdate == other.isEditableForUpdate() &&
+            ((this.label==null && other.getLabel()==null) || 
+             (this.label!=null &&
+              this.label.equals(other.getLabel()))) &&
+            ((this.layoutComponents==null && other.getLayoutComponents()==null) || 
+             (this.layoutComponents!=null &&
+              java.util.Arrays.equals(this.layoutComponents, other.getLayoutComponents()))) &&
+            this.placeholder == other.isPlaceholder() &&
+            this.required == other.isRequired();
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        _hashCode += (isEditableForNew() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isEditableForUpdate() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getLabel() != null) {
+            _hashCode += getLabel().hashCode();
+        }
+        if (getLayoutComponents() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getLayoutComponents());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getLayoutComponents(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        _hashCode += (isPlaceholder() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isRequired() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(DescribeLayoutItem.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeLayoutItem"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("editableForNew");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "editableForNew"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("editableForUpdate");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "editableForUpdate"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("label");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "label"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("layoutComponents");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "layoutComponents"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeLayoutComponent"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("placeholder");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "placeholder"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("required");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "required"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

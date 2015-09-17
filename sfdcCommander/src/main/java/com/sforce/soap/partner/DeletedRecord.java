@@ -1,1 +1,155 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class DeletedRecord implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public DeletedRecord() {  }        /**   * element  : deletedDate of type {http://www.w3.org/2001/XMLSchema}dateTime   * java type: java.util.Calendar   */  private static final com.sforce.ws.bind.TypeInfo deletedDate__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","deletedDate","http://www.w3.org/2001/XMLSchema","dateTime",1,1,true);  private boolean deletedDate__is_set = false;  private java.util.Calendar deletedDate;  public java.util.Calendar getDeletedDate() {    return deletedDate;  }    public void setDeletedDate(java.util.Calendar deletedDate) {    this.deletedDate = deletedDate;    deletedDate__is_set = true;  }    /**   * element  : id of type {urn:partner.soap.sforce.com}ID   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo id__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","id","urn:partner.soap.sforce.com","ID",1,1,true);  private boolean id__is_set = false;  private java.lang.String id;  public java.lang.String getId() {    return id;  }    public void setId(java.lang.String id) {    this.id = id;    id__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeObject(__out, deletedDate__typeInfo, deletedDate, deletedDate__is_set);    __typeMapper.writeString(__out, id__typeInfo, id, id__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, deletedDate__typeInfo)) {      setDeletedDate((java.util.Calendar)__typeMapper.readObject(__in, deletedDate__typeInfo, java.util.Calendar.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, id__typeInfo)) {      setId((java.lang.String)__typeMapper.readString(__in, id__typeInfo, java.lang.String.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[DeletedRecord ");        sb.append(" deletedDate=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(deletedDate)+"'\n");    sb.append(" id=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(id)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * DeletedRecord.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class DeletedRecord  implements java.io.Serializable {
+    private java.util.Calendar deletedDate;
+
+    private java.lang.String id;
+
+    public DeletedRecord() {
+    }
+
+    public DeletedRecord(
+           java.util.Calendar deletedDate,
+           java.lang.String id) {
+           this.deletedDate = deletedDate;
+           this.id = id;
+    }
+
+
+    /**
+     * Gets the deletedDate value for this DeletedRecord.
+     * 
+     * @return deletedDate
+     */
+    public java.util.Calendar getDeletedDate() {
+        return deletedDate;
+    }
+
+
+    /**
+     * Sets the deletedDate value for this DeletedRecord.
+     * 
+     * @param deletedDate
+     */
+    public void setDeletedDate(java.util.Calendar deletedDate) {
+        this.deletedDate = deletedDate;
+    }
+
+
+    /**
+     * Gets the id value for this DeletedRecord.
+     * 
+     * @return id
+     */
+    public java.lang.String getId() {
+        return id;
+    }
+
+
+    /**
+     * Sets the id value for this DeletedRecord.
+     * 
+     * @param id
+     */
+    public void setId(java.lang.String id) {
+        this.id = id;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof DeletedRecord)) return false;
+        DeletedRecord other = (DeletedRecord) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.deletedDate==null && other.getDeletedDate()==null) || 
+             (this.deletedDate!=null &&
+              this.deletedDate.equals(other.getDeletedDate()))) &&
+            ((this.id==null && other.getId()==null) || 
+             (this.id!=null &&
+              this.id.equals(other.getId())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getDeletedDate() != null) {
+            _hashCode += getDeletedDate().hashCode();
+        }
+        if (getId() != null) {
+            _hashCode += getId().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(DeletedRecord.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DeletedRecord"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("deletedDate");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "deletedDate"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "dateTime"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("id");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "id"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

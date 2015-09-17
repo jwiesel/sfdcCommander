@@ -1,1 +1,159 @@
-package com.sforce.soap.partner.fault;/** * Generated class, please do not edit. */public class ApiQueryFault extends com.sforce.soap.partner.fault.ApiFault {  /**   * Constructor   */  public ApiQueryFault() {  }        /**   * element  : row of type {http://www.w3.org/2001/XMLSchema}int   * java type: int   */  private static final com.sforce.ws.bind.TypeInfo row__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:fault.partner.soap.sforce.com","row","http://www.w3.org/2001/XMLSchema","int",1,1,true);  private boolean row__is_set = false;  private int row;  public int getRow() {    return row;  }    public void setRow(int row) {    this.row = row;    row__is_set = true;  }    /**   * element  : column of type {http://www.w3.org/2001/XMLSchema}int   * java type: int   */  private static final com.sforce.ws.bind.TypeInfo column__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:fault.partner.soap.sforce.com","column","http://www.w3.org/2001/XMLSchema","int",1,1,true);  private boolean column__is_set = false;  private int column;  public int getColumn() {    return column;  }    public void setColumn(int column) {    this.column = column;    column__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());    __typeMapper.writeXsiType(__out, "urn:fault.partner.soap.sforce.com", "ApiQueryFault");    writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {   super.writeFields(__out, __typeMapper);    __typeMapper.writeInt(__out, row__typeInfo, row, row__is_set);    __typeMapper.writeInt(__out, column__typeInfo, column, column__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {   super.loadFields(__in, __typeMapper);    __in.peekTag();    if (__typeMapper.verifyElement(__in, row__typeInfo)) {      setRow((int)__typeMapper.readInt(__in, row__typeInfo, int.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, column__typeInfo)) {      setColumn((int)__typeMapper.readInt(__in, column__typeInfo, int.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[ApiQueryFault ");    sb.append(super.toString());    sb.append(" row=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(row)+"'\n");    sb.append(" column=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(column)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * ApiQueryFault.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner.fault;
+
+public class ApiQueryFault  extends com.sforce.soap.partner.fault.ApiFault  implements java.io.Serializable {
+    private int row;
+
+    private int column;
+
+    public ApiQueryFault() {
+    }
+
+    public ApiQueryFault(
+           com.sforce.soap.partner.fault.ExceptionCode exceptionCode,
+           java.lang.String exceptionMessage,
+           int row,
+           int column) {
+        super(
+            exceptionCode,
+            exceptionMessage);
+        this.row = row;
+        this.column = column;
+    }
+
+
+    /**
+     * Gets the row value for this ApiQueryFault.
+     * 
+     * @return row
+     */
+    public int getRow() {
+        return row;
+    }
+
+
+    /**
+     * Sets the row value for this ApiQueryFault.
+     * 
+     * @param row
+     */
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+
+    /**
+     * Gets the column value for this ApiQueryFault.
+     * 
+     * @return column
+     */
+    public int getColumn() {
+        return column;
+    }
+
+
+    /**
+     * Sets the column value for this ApiQueryFault.
+     * 
+     * @param column
+     */
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof ApiQueryFault)) return false;
+        ApiQueryFault other = (ApiQueryFault) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = super.equals(obj) && 
+            this.row == other.getRow() &&
+            this.column == other.getColumn();
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = super.hashCode();
+        _hashCode += getRow();
+        _hashCode += getColumn();
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(ApiQueryFault.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:fault.partner.soap.sforce.com", "ApiQueryFault"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("row");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:fault.partner.soap.sforce.com", "row"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("column");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:fault.partner.soap.sforce.com", "column"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+
+    /**
+     * Writes the exception data to the faultDetails
+     */
+    public void writeDetails(javax.xml.namespace.QName qname, org.apache.axis.encoding.SerializationContext context) throws java.io.IOException {
+        context.serialize(qname, null, this);
+    }
+}

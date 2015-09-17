@@ -1,1 +1,205 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class DescribeGlobalResult implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public DescribeGlobalResult() {  }        /**   * element  : encoding of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo encoding__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","encoding","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean encoding__is_set = false;  private java.lang.String encoding;  public java.lang.String getEncoding() {    return encoding;  }    public void setEncoding(java.lang.String encoding) {    this.encoding = encoding;    encoding__is_set = true;  }    /**   * element  : maxBatchSize of type {http://www.w3.org/2001/XMLSchema}int   * java type: int   */  private static final com.sforce.ws.bind.TypeInfo maxBatchSize__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","maxBatchSize","http://www.w3.org/2001/XMLSchema","int",1,1,true);  private boolean maxBatchSize__is_set = false;  private int maxBatchSize;  public int getMaxBatchSize() {    return maxBatchSize;  }    public void setMaxBatchSize(int maxBatchSize) {    this.maxBatchSize = maxBatchSize;    maxBatchSize__is_set = true;  }    /**   * element  : sobjects of type {urn:partner.soap.sforce.com}DescribeGlobalSObjectResult   * java type: com.sforce.soap.partner.DescribeGlobalSObjectResult[]   */  private static final com.sforce.ws.bind.TypeInfo sobjects__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","sobjects","urn:partner.soap.sforce.com","DescribeGlobalSObjectResult",0,-1,true);  private boolean sobjects__is_set = false;  private com.sforce.soap.partner.DescribeGlobalSObjectResult[] sobjects = new com.sforce.soap.partner.DescribeGlobalSObjectResult[0];  public com.sforce.soap.partner.DescribeGlobalSObjectResult[] getSobjects() {    return sobjects;  }    public void setSobjects(com.sforce.soap.partner.DescribeGlobalSObjectResult[] sobjects) {    this.sobjects = sobjects;    sobjects__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeString(__out, encoding__typeInfo, encoding, encoding__is_set);    __typeMapper.writeInt(__out, maxBatchSize__typeInfo, maxBatchSize, maxBatchSize__is_set);    __typeMapper.writeObject(__out, sobjects__typeInfo, sobjects, sobjects__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, encoding__typeInfo)) {      setEncoding((java.lang.String)__typeMapper.readString(__in, encoding__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, maxBatchSize__typeInfo)) {      setMaxBatchSize((int)__typeMapper.readInt(__in, maxBatchSize__typeInfo, int.class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, sobjects__typeInfo)) {      setSobjects((com.sforce.soap.partner.DescribeGlobalSObjectResult[])__typeMapper.readObject(__in, sobjects__typeInfo, com.sforce.soap.partner.DescribeGlobalSObjectResult[].class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[DescribeGlobalResult ");        sb.append(" encoding=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(encoding)+"'\n");    sb.append(" maxBatchSize=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(maxBatchSize)+"'\n");    sb.append(" sobjects=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(sobjects)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * DescribeGlobalResult.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class DescribeGlobalResult  implements java.io.Serializable {
+    private java.lang.String encoding;
+
+    private int maxBatchSize;
+
+    private com.sforce.soap.partner.DescribeGlobalSObjectResult[] sobjects;
+
+    public DescribeGlobalResult() {
+    }
+
+    public DescribeGlobalResult(
+           java.lang.String encoding,
+           int maxBatchSize,
+           com.sforce.soap.partner.DescribeGlobalSObjectResult[] sobjects) {
+           this.encoding = encoding;
+           this.maxBatchSize = maxBatchSize;
+           this.sobjects = sobjects;
+    }
+
+
+    /**
+     * Gets the encoding value for this DescribeGlobalResult.
+     * 
+     * @return encoding
+     */
+    public java.lang.String getEncoding() {
+        return encoding;
+    }
+
+
+    /**
+     * Sets the encoding value for this DescribeGlobalResult.
+     * 
+     * @param encoding
+     */
+    public void setEncoding(java.lang.String encoding) {
+        this.encoding = encoding;
+    }
+
+
+    /**
+     * Gets the maxBatchSize value for this DescribeGlobalResult.
+     * 
+     * @return maxBatchSize
+     */
+    public int getMaxBatchSize() {
+        return maxBatchSize;
+    }
+
+
+    /**
+     * Sets the maxBatchSize value for this DescribeGlobalResult.
+     * 
+     * @param maxBatchSize
+     */
+    public void setMaxBatchSize(int maxBatchSize) {
+        this.maxBatchSize = maxBatchSize;
+    }
+
+
+    /**
+     * Gets the sobjects value for this DescribeGlobalResult.
+     * 
+     * @return sobjects
+     */
+    public com.sforce.soap.partner.DescribeGlobalSObjectResult[] getSobjects() {
+        return sobjects;
+    }
+
+
+    /**
+     * Sets the sobjects value for this DescribeGlobalResult.
+     * 
+     * @param sobjects
+     */
+    public void setSobjects(com.sforce.soap.partner.DescribeGlobalSObjectResult[] sobjects) {
+        this.sobjects = sobjects;
+    }
+
+    public com.sforce.soap.partner.DescribeGlobalSObjectResult getSobjects(int i) {
+        return this.sobjects[i];
+    }
+
+    public void setSobjects(int i, com.sforce.soap.partner.DescribeGlobalSObjectResult _value) {
+        this.sobjects[i] = _value;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof DescribeGlobalResult)) return false;
+        DescribeGlobalResult other = (DescribeGlobalResult) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.encoding==null && other.getEncoding()==null) || 
+             (this.encoding!=null &&
+              this.encoding.equals(other.getEncoding()))) &&
+            this.maxBatchSize == other.getMaxBatchSize() &&
+            ((this.sobjects==null && other.getSobjects()==null) || 
+             (this.sobjects!=null &&
+              java.util.Arrays.equals(this.sobjects, other.getSobjects())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getEncoding() != null) {
+            _hashCode += getEncoding().hashCode();
+        }
+        _hashCode += getMaxBatchSize();
+        if (getSobjects() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getSobjects());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getSobjects(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(DescribeGlobalResult.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeGlobalResult"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("encoding");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "encoding"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("maxBatchSize");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "maxBatchSize"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("sobjects");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "sobjects"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeGlobalSObjectResult"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

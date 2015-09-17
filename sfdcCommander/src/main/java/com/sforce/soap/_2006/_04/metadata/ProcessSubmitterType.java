@@ -1,0 +1,90 @@
+/**
+ * ProcessSubmitterType.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap._2006._04.metadata;
+
+public class ProcessSubmitterType implements java.io.Serializable {
+    private java.lang.String _value_;
+    private static java.util.HashMap _table_ = new java.util.HashMap();
+
+    // Constructor
+    protected ProcessSubmitterType(java.lang.String value) {
+        _value_ = value;
+        _table_.put(_value_,this);
+    }
+
+    public static final java.lang.String _group = "group";
+    public static final java.lang.String _role = "role";
+    public static final java.lang.String _user = "user";
+    public static final java.lang.String _roleSubordinates = "roleSubordinates";
+    public static final java.lang.String _roleSubordinatesInternal = "roleSubordinatesInternal";
+    public static final java.lang.String _owner = "owner";
+    public static final java.lang.String _creator = "creator";
+    public static final java.lang.String _partnerUser = "partnerUser";
+    public static final java.lang.String _customerPortalUser = "customerPortalUser";
+    public static final java.lang.String _portalRole = "portalRole";
+    public static final java.lang.String _portalRoleSubordinates = "portalRoleSubordinates";
+    public static final java.lang.String _allInternalUsers = "allInternalUsers";
+    public static final ProcessSubmitterType group = new ProcessSubmitterType(_group);
+    public static final ProcessSubmitterType role = new ProcessSubmitterType(_role);
+    public static final ProcessSubmitterType user = new ProcessSubmitterType(_user);
+    public static final ProcessSubmitterType roleSubordinates = new ProcessSubmitterType(_roleSubordinates);
+    public static final ProcessSubmitterType roleSubordinatesInternal = new ProcessSubmitterType(_roleSubordinatesInternal);
+    public static final ProcessSubmitterType owner = new ProcessSubmitterType(_owner);
+    public static final ProcessSubmitterType creator = new ProcessSubmitterType(_creator);
+    public static final ProcessSubmitterType partnerUser = new ProcessSubmitterType(_partnerUser);
+    public static final ProcessSubmitterType customerPortalUser = new ProcessSubmitterType(_customerPortalUser);
+    public static final ProcessSubmitterType portalRole = new ProcessSubmitterType(_portalRole);
+    public static final ProcessSubmitterType portalRoleSubordinates = new ProcessSubmitterType(_portalRoleSubordinates);
+    public static final ProcessSubmitterType allInternalUsers = new ProcessSubmitterType(_allInternalUsers);
+    public java.lang.String getValue() { return _value_;}
+    public static ProcessSubmitterType fromValue(java.lang.String value)
+          throws java.lang.IllegalArgumentException {
+        ProcessSubmitterType enumeration = (ProcessSubmitterType)
+            _table_.get(value);
+        if (enumeration==null) throw new java.lang.IllegalArgumentException();
+        return enumeration;
+    }
+    public static ProcessSubmitterType fromString(java.lang.String value)
+          throws java.lang.IllegalArgumentException {
+        return fromValue(value);
+    }
+    public boolean equals(java.lang.Object obj) {return (obj == this);}
+    public int hashCode() { return toString().hashCode();}
+    public java.lang.String toString() { return _value_;}
+    public java.lang.Object readResolve() throws java.io.ObjectStreamException { return fromValue(_value_);}
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new org.apache.axis.encoding.ser.EnumSerializer(
+            _javaType, _xmlType);
+    }
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new org.apache.axis.encoding.ser.EnumDeserializer(
+            _javaType, _xmlType);
+    }
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(ProcessSubmitterType.class);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ProcessSubmitterType"));
+    }
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+}

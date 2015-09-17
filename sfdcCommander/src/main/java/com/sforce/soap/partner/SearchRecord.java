@@ -1,1 +1,156 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class SearchRecord implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public SearchRecord() {  }        /**   * element  : record of type {urn:sobject.partner.soap.sforce.com}sObject   * java type: com.sforce.soap.partner.sobject.SObject   */  private static final com.sforce.ws.bind.TypeInfo record__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","record","urn:sobject.partner.soap.sforce.com","sObject",1,1,true);  private boolean record__is_set = false;  private com.sforce.soap.partner.sobject.SObject record;  public com.sforce.soap.partner.sobject.SObject getRecord() {    return record;  }    public void setRecord(com.sforce.soap.partner.sobject.SObject record) {    this.record = record;    record__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeObject(__out, record__typeInfo, record, record__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, record__typeInfo)) {      setRecord((com.sforce.soap.partner.sobject.SObject)__typeMapper.readObject(__in, record__typeInfo, com.sforce.soap.partner.sobject.SObject.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[SearchRecord ");        sb.append(" record=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(record)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * SearchRecord.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class SearchRecord  implements java.io.Serializable {
+    private com.sforce.soap.partner.sobject.SObject record;
+
+    private com.sforce.soap.partner.SearchSnippet snippet;
+
+    public SearchRecord() {
+    }
+
+    public SearchRecord(
+           com.sforce.soap.partner.sobject.SObject record,
+           com.sforce.soap.partner.SearchSnippet snippet) {
+           this.record = record;
+           this.snippet = snippet;
+    }
+
+
+    /**
+     * Gets the record value for this SearchRecord.
+     * 
+     * @return record
+     */
+    public com.sforce.soap.partner.sobject.SObject getRecord() {
+        return record;
+    }
+
+
+    /**
+     * Sets the record value for this SearchRecord.
+     * 
+     * @param record
+     */
+    public void setRecord(com.sforce.soap.partner.sobject.SObject record) {
+        this.record = record;
+    }
+
+
+    /**
+     * Gets the snippet value for this SearchRecord.
+     * 
+     * @return snippet
+     */
+    public com.sforce.soap.partner.SearchSnippet getSnippet() {
+        return snippet;
+    }
+
+
+    /**
+     * Sets the snippet value for this SearchRecord.
+     * 
+     * @param snippet
+     */
+    public void setSnippet(com.sforce.soap.partner.SearchSnippet snippet) {
+        this.snippet = snippet;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof SearchRecord)) return false;
+        SearchRecord other = (SearchRecord) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.record==null && other.getRecord()==null) || 
+             (this.record!=null &&
+              this.record.equals(other.getRecord()))) &&
+            ((this.snippet==null && other.getSnippet()==null) || 
+             (this.snippet!=null &&
+              this.snippet.equals(other.getSnippet())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getRecord() != null) {
+            _hashCode += getRecord().hashCode();
+        }
+        if (getSnippet() != null) {
+            _hashCode += getSnippet().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(SearchRecord.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "SearchRecord"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("record");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "record"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:sobject.partner.soap.sforce.com", "sObject"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("snippet");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "snippet"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "SearchSnippet"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

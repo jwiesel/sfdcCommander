@@ -1,1 +1,237 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class UpsertResult implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public UpsertResult() {  }        /**   * element  : created of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo created__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","created","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean created__is_set = false;  private boolean created;  public boolean getCreated() {    return created;  }    public boolean isCreated() {    return created;  }    public void setCreated(boolean created) {    this.created = created;    created__is_set = true;  }    /**   * element  : errors of type {urn:partner.soap.sforce.com}Error   * java type: com.sforce.soap.partner.Error[]   */  private static final com.sforce.ws.bind.TypeInfo errors__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","errors","urn:partner.soap.sforce.com","Error",0,-1,true);  private boolean errors__is_set = false;  private com.sforce.soap.partner.Error[] errors = new com.sforce.soap.partner.Error[0];  public com.sforce.soap.partner.Error[] getErrors() {    return errors;  }    public void setErrors(com.sforce.soap.partner.Error[] errors) {    this.errors = errors;    errors__is_set = true;  }    /**   * element  : id of type {urn:partner.soap.sforce.com}ID   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo id__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","id","urn:partner.soap.sforce.com","ID",1,1,true);  private boolean id__is_set = false;  private java.lang.String id;  public java.lang.String getId() {    return id;  }    public void setId(java.lang.String id) {    this.id = id;    id__is_set = true;  }    /**   * element  : success of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo success__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","success","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean success__is_set = false;  private boolean success;  public boolean getSuccess() {    return success;  }    public boolean isSuccess() {    return success;  }    public void setSuccess(boolean success) {    this.success = success;    success__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeBoolean(__out, created__typeInfo, created, created__is_set);    __typeMapper.writeObject(__out, errors__typeInfo, errors, errors__is_set);    __typeMapper.writeString(__out, id__typeInfo, id, id__is_set);    __typeMapper.writeBoolean(__out, success__typeInfo, success, success__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, created__typeInfo)) {      setCreated((boolean)__typeMapper.readBoolean(__in, created__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, errors__typeInfo)) {      setErrors((com.sforce.soap.partner.Error[])__typeMapper.readObject(__in, errors__typeInfo, com.sforce.soap.partner.Error[].class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, id__typeInfo)) {      setId((java.lang.String)__typeMapper.readString(__in, id__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, success__typeInfo)) {      setSuccess((boolean)__typeMapper.readBoolean(__in, success__typeInfo, boolean.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[UpsertResult ");        sb.append(" created=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(created)+"'\n");    sb.append(" errors=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(errors)+"'\n");    sb.append(" id=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(id)+"'\n");    sb.append(" success=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(success)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * UpsertResult.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class UpsertResult  implements java.io.Serializable {
+    private boolean created;
+
+    private com.sforce.soap.partner.Error[] errors;
+
+    private java.lang.String id;
+
+    private boolean success;
+
+    public UpsertResult() {
+    }
+
+    public UpsertResult(
+           boolean created,
+           com.sforce.soap.partner.Error[] errors,
+           java.lang.String id,
+           boolean success) {
+           this.created = created;
+           this.errors = errors;
+           this.id = id;
+           this.success = success;
+    }
+
+
+    /**
+     * Gets the created value for this UpsertResult.
+     * 
+     * @return created
+     */
+    public boolean isCreated() {
+        return created;
+    }
+
+
+    /**
+     * Sets the created value for this UpsertResult.
+     * 
+     * @param created
+     */
+    public void setCreated(boolean created) {
+        this.created = created;
+    }
+
+
+    /**
+     * Gets the errors value for this UpsertResult.
+     * 
+     * @return errors
+     */
+    public com.sforce.soap.partner.Error[] getErrors() {
+        return errors;
+    }
+
+
+    /**
+     * Sets the errors value for this UpsertResult.
+     * 
+     * @param errors
+     */
+    public void setErrors(com.sforce.soap.partner.Error[] errors) {
+        this.errors = errors;
+    }
+
+    public com.sforce.soap.partner.Error getErrors(int i) {
+        return this.errors[i];
+    }
+
+    public void setErrors(int i, com.sforce.soap.partner.Error _value) {
+        this.errors[i] = _value;
+    }
+
+
+    /**
+     * Gets the id value for this UpsertResult.
+     * 
+     * @return id
+     */
+    public java.lang.String getId() {
+        return id;
+    }
+
+
+    /**
+     * Sets the id value for this UpsertResult.
+     * 
+     * @param id
+     */
+    public void setId(java.lang.String id) {
+        this.id = id;
+    }
+
+
+    /**
+     * Gets the success value for this UpsertResult.
+     * 
+     * @return success
+     */
+    public boolean isSuccess() {
+        return success;
+    }
+
+
+    /**
+     * Sets the success value for this UpsertResult.
+     * 
+     * @param success
+     */
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof UpsertResult)) return false;
+        UpsertResult other = (UpsertResult) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            this.created == other.isCreated() &&
+            ((this.errors==null && other.getErrors()==null) || 
+             (this.errors!=null &&
+              java.util.Arrays.equals(this.errors, other.getErrors()))) &&
+            ((this.id==null && other.getId()==null) || 
+             (this.id!=null &&
+              this.id.equals(other.getId()))) &&
+            this.success == other.isSuccess();
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        _hashCode += (isCreated() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getErrors() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getErrors());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getErrors(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        if (getId() != null) {
+            _hashCode += getId().hashCode();
+        }
+        _hashCode += (isSuccess() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(UpsertResult.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "UpsertResult"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("created");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "created"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("errors");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "errors"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "Error"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("id");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "id"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("success");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "success"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

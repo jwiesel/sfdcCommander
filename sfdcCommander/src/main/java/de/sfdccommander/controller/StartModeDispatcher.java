@@ -11,7 +11,6 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import org.apache.log4j.Logger;
-import org.apache.tools.ant.BuildException;
 
 import de.sfdccommander.model.CommanderConfig;
 import de.sfdccommander.viewer.SfdcCommander;
@@ -76,8 +75,7 @@ public class StartModeDispatcher {
 
         if (tmpArgs.length == 0) {
             // Start UI Mode
-            commander
-                    .notify(NO_UI_MODE);
+            commander.notify(NO_UI_MODE);
             try {
                 String cn = UIManager.getSystemLookAndFeelClassName();
                 UIManager.setLookAndFeel(cn);
@@ -90,10 +88,7 @@ public class StartModeDispatcher {
             } catch (UnsupportedLookAndFeelException e) {
                 Logger.getLogger(this.getClass()).error(SYSTEM_LOOK_NOT_LOADED);
             }
-            JOptionPane
-                    .showMessageDialog(
-                            null,
-                            NO_UI_MODE);
+            JOptionPane.showMessageDialog(null, NO_UI_MODE);
         } else if (tmpArgs.length == 2) {
             // check parameters for command line mode
             commander.notify("sfdcCommander");
@@ -128,24 +123,16 @@ public class StartModeDispatcher {
             } else if (command.equals(VERSIONIZE)) {
                 // Extract and put config from Salesforce under version control
                 MetadataExporter exporter = new MetadataExporter(config);
-                try {
-                    exporter.getEntities();
-                } catch (BuildException be) {
-                    commander.notify(be.getMessage());
-                }
+                exporter.getEntities();
             } else if (command.equals(RENDER)) {
                 // Extract and render salesforce configuration
                 MetadataExporter exporter = new MetadataExporter(config);
                 ObjectExporter objExporter = new ObjectExporter(config);
-                try {
-                    // TODO: kommentar entfernen!
-                    exporter.getEntities();
-                    objExporter.exportObjects();
-                    HtmlRenderer renderer = new HtmlRenderer(config);
-                    renderer.generateOutput();
-                } catch (BuildException be) {
-                    commander.logException(be.getMessage(), be);
-                }
+                // TODO: kommentar entfernen!
+                exporter.getEntities();
+                objExporter.exportObjects();
+                HtmlRenderer renderer = new HtmlRenderer(config);
+                renderer.generateOutput();
             } else if (command.equals(RENDERXLS)) {
                 // Extract and render salesforce configuration to MS Excel
                 XlsRenderer renderer = new XlsRenderer(config);
@@ -173,34 +160,30 @@ public class StartModeDispatcher {
         SfdcCommander commander = SfdcCommander.getInstance();
         commander.notify("sfdcCommander: Help page");
         commander.notify("");
-        commander
-                .notify("Syntax: java -jar sfdcCommander <command> <propertiesFilePath>");
+        commander.notify(
+                "Syntax: java -jar sfdcCommander <command> <propertiesFilePath>");
         commander.notify("");
         commander.notify("Commands: <command>");
-        commander
-                .notify("The command which should be executed by sfdcCommander");
+        commander.notify(
+                "The command which should be executed by sfdcCommander");
         commander.notify(EXPORT_SRC
                 + ": Extract salesforce.com configuration to local harddrive.");
-        commander
-                .notify(EXPORT_DATA
-                        + ": Backup salesforce.com data in a local database to avoid data loss due to faulty data deletions.");
-        commander
-                .notify(RENDER
-                        + ": Extract salesforce.com configuration and render the entities to get a system overview.");
-        commander
-                .notify(RENDERXLS
-                        + ": Extract salesforce.com schema and render the entities to MS Excel to get a system overview.");
-        commander
-                .notify(VERSIONIZE
-                        + ": Extract salesforce configuration and put it under version control");
-        commander
-                .notify("-deploy: Extract salesforce.com configuration and deploy it to another salesforce org.");
+        commander.notify(EXPORT_DATA
+                + ": Backup salesforce.com data in a local database to avoid data loss due to faulty data deletions.");
+        commander.notify(RENDER
+                + ": Extract salesforce.com configuration and render the entities to get a system overview.");
+        commander.notify(RENDERXLS
+                + ": Extract salesforce.com schema and render the entities to MS Excel to get a system overview.");
+        commander.notify(VERSIONIZE
+                + ": Extract salesforce configuration and put it under version control");
+        commander.notify(
+                "-deploy: Extract salesforce.com configuration and deploy it to another salesforce org.");
         commander.notify("");
         commander.notify("Properties File: <propertiesFilePath>");
-        commander
-                .notify("The properties that sfdcCommander should use for command execution.");
+        commander.notify(
+                "The properties that sfdcCommander should use for command execution.");
         commander.notify("");
-        commander
-                .notify("Example: 'java -jar sfdcCommander -extract c:\\commander.properties'");
+        commander.notify(
+                "Example: 'java -jar sfdcCommander -extract c:\\commander.properties'");
     }
 }

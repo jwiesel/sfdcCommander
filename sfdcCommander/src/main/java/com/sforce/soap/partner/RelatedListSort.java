@@ -1,1 +1,151 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class RelatedListSort implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public RelatedListSort() {  }        /**   * element  : ascending of type {http://www.w3.org/2001/XMLSchema}boolean   * java type: boolean   */  private static final com.sforce.ws.bind.TypeInfo ascending__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","ascending","http://www.w3.org/2001/XMLSchema","boolean",1,1,true);  private boolean ascending__is_set = false;  private boolean ascending;  public boolean getAscending() {    return ascending;  }    public boolean isAscending() {    return ascending;  }    public void setAscending(boolean ascending) {    this.ascending = ascending;    ascending__is_set = true;  }    /**   * element  : column of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo column__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","column","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean column__is_set = false;  private java.lang.String column;  public java.lang.String getColumn() {    return column;  }    public void setColumn(java.lang.String column) {    this.column = column;    column__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeBoolean(__out, ascending__typeInfo, ascending, ascending__is_set);    __typeMapper.writeString(__out, column__typeInfo, column, column__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, ascending__typeInfo)) {      setAscending((boolean)__typeMapper.readBoolean(__in, ascending__typeInfo, boolean.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, column__typeInfo)) {      setColumn((java.lang.String)__typeMapper.readString(__in, column__typeInfo, java.lang.String.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[RelatedListSort ");        sb.append(" ascending=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(ascending)+"'\n");    sb.append(" column=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(column)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * RelatedListSort.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class RelatedListSort  implements java.io.Serializable {
+    private boolean ascending;
+
+    private java.lang.String column;
+
+    public RelatedListSort() {
+    }
+
+    public RelatedListSort(
+           boolean ascending,
+           java.lang.String column) {
+           this.ascending = ascending;
+           this.column = column;
+    }
+
+
+    /**
+     * Gets the ascending value for this RelatedListSort.
+     * 
+     * @return ascending
+     */
+    public boolean isAscending() {
+        return ascending;
+    }
+
+
+    /**
+     * Sets the ascending value for this RelatedListSort.
+     * 
+     * @param ascending
+     */
+    public void setAscending(boolean ascending) {
+        this.ascending = ascending;
+    }
+
+
+    /**
+     * Gets the column value for this RelatedListSort.
+     * 
+     * @return column
+     */
+    public java.lang.String getColumn() {
+        return column;
+    }
+
+
+    /**
+     * Sets the column value for this RelatedListSort.
+     * 
+     * @param column
+     */
+    public void setColumn(java.lang.String column) {
+        this.column = column;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof RelatedListSort)) return false;
+        RelatedListSort other = (RelatedListSort) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            this.ascending == other.isAscending() &&
+            ((this.column==null && other.getColumn()==null) || 
+             (this.column!=null &&
+              this.column.equals(other.getColumn())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        _hashCode += (isAscending() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getColumn() != null) {
+            _hashCode += getColumn().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(RelatedListSort.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "RelatedListSort"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("ascending");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "ascending"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("column");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "column"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

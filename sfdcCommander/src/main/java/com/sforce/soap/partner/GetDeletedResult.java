@@ -1,1 +1,209 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class GetDeletedResult implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public GetDeletedResult() {  }        /**   * element  : deletedRecords of type {urn:partner.soap.sforce.com}DeletedRecord   * java type: com.sforce.soap.partner.DeletedRecord[]   */  private static final com.sforce.ws.bind.TypeInfo deletedRecords__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","deletedRecords","urn:partner.soap.sforce.com","DeletedRecord",0,-1,true);  private boolean deletedRecords__is_set = false;  private com.sforce.soap.partner.DeletedRecord[] deletedRecords = new com.sforce.soap.partner.DeletedRecord[0];  public com.sforce.soap.partner.DeletedRecord[] getDeletedRecords() {    return deletedRecords;  }    public void setDeletedRecords(com.sforce.soap.partner.DeletedRecord[] deletedRecords) {    this.deletedRecords = deletedRecords;    deletedRecords__is_set = true;  }    /**   * element  : earliestDateAvailable of type {http://www.w3.org/2001/XMLSchema}dateTime   * java type: java.util.Calendar   */  private static final com.sforce.ws.bind.TypeInfo earliestDateAvailable__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","earliestDateAvailable","http://www.w3.org/2001/XMLSchema","dateTime",1,1,true);  private boolean earliestDateAvailable__is_set = false;  private java.util.Calendar earliestDateAvailable;  public java.util.Calendar getEarliestDateAvailable() {    return earliestDateAvailable;  }    public void setEarliestDateAvailable(java.util.Calendar earliestDateAvailable) {    this.earliestDateAvailable = earliestDateAvailable;    earliestDateAvailable__is_set = true;  }    /**   * element  : latestDateCovered of type {http://www.w3.org/2001/XMLSchema}dateTime   * java type: java.util.Calendar   */  private static final com.sforce.ws.bind.TypeInfo latestDateCovered__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","latestDateCovered","http://www.w3.org/2001/XMLSchema","dateTime",1,1,true);  private boolean latestDateCovered__is_set = false;  private java.util.Calendar latestDateCovered;  public java.util.Calendar getLatestDateCovered() {    return latestDateCovered;  }    public void setLatestDateCovered(java.util.Calendar latestDateCovered) {    this.latestDateCovered = latestDateCovered;    latestDateCovered__is_set = true;  }    /**   * element  : sforceReserved of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo sforceReserved__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","sforceReserved","http://www.w3.org/2001/XMLSchema","string",0,1,true);  private boolean sforceReserved__is_set = false;  private java.lang.String sforceReserved;  public java.lang.String getSforceReserved() {    return sforceReserved;  }    public void setSforceReserved(java.lang.String sforceReserved) {    this.sforceReserved = sforceReserved;    sforceReserved__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeObject(__out, deletedRecords__typeInfo, deletedRecords, deletedRecords__is_set);    __typeMapper.writeObject(__out, earliestDateAvailable__typeInfo, earliestDateAvailable, earliestDateAvailable__is_set);    __typeMapper.writeObject(__out, latestDateCovered__typeInfo, latestDateCovered, latestDateCovered__is_set);    __typeMapper.writeString(__out, sforceReserved__typeInfo, sforceReserved, sforceReserved__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.isElement(__in, deletedRecords__typeInfo)) {      setDeletedRecords((com.sforce.soap.partner.DeletedRecord[])__typeMapper.readObject(__in, deletedRecords__typeInfo, com.sforce.soap.partner.DeletedRecord[].class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, earliestDateAvailable__typeInfo)) {      setEarliestDateAvailable((java.util.Calendar)__typeMapper.readObject(__in, earliestDateAvailable__typeInfo, java.util.Calendar.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, latestDateCovered__typeInfo)) {      setLatestDateCovered((java.util.Calendar)__typeMapper.readObject(__in, latestDateCovered__typeInfo, java.util.Calendar.class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, sforceReserved__typeInfo)) {      setSforceReserved((java.lang.String)__typeMapper.readString(__in, sforceReserved__typeInfo, java.lang.String.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[GetDeletedResult ");        sb.append(" deletedRecords=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(deletedRecords)+"'\n");    sb.append(" earliestDateAvailable=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(earliestDateAvailable)+"'\n");    sb.append(" latestDateCovered=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(latestDateCovered)+"'\n");    sb.append(" sforceReserved=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(sforceReserved)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * GetDeletedResult.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class GetDeletedResult  implements java.io.Serializable {
+    private com.sforce.soap.partner.DeletedRecord[] deletedRecords;
+
+    private java.util.Calendar earliestDateAvailable;
+
+    private java.util.Calendar latestDateCovered;
+
+    public GetDeletedResult() {
+    }
+
+    public GetDeletedResult(
+           com.sforce.soap.partner.DeletedRecord[] deletedRecords,
+           java.util.Calendar earliestDateAvailable,
+           java.util.Calendar latestDateCovered) {
+           this.deletedRecords = deletedRecords;
+           this.earliestDateAvailable = earliestDateAvailable;
+           this.latestDateCovered = latestDateCovered;
+    }
+
+
+    /**
+     * Gets the deletedRecords value for this GetDeletedResult.
+     * 
+     * @return deletedRecords
+     */
+    public com.sforce.soap.partner.DeletedRecord[] getDeletedRecords() {
+        return deletedRecords;
+    }
+
+
+    /**
+     * Sets the deletedRecords value for this GetDeletedResult.
+     * 
+     * @param deletedRecords
+     */
+    public void setDeletedRecords(com.sforce.soap.partner.DeletedRecord[] deletedRecords) {
+        this.deletedRecords = deletedRecords;
+    }
+
+    public com.sforce.soap.partner.DeletedRecord getDeletedRecords(int i) {
+        return this.deletedRecords[i];
+    }
+
+    public void setDeletedRecords(int i, com.sforce.soap.partner.DeletedRecord _value) {
+        this.deletedRecords[i] = _value;
+    }
+
+
+    /**
+     * Gets the earliestDateAvailable value for this GetDeletedResult.
+     * 
+     * @return earliestDateAvailable
+     */
+    public java.util.Calendar getEarliestDateAvailable() {
+        return earliestDateAvailable;
+    }
+
+
+    /**
+     * Sets the earliestDateAvailable value for this GetDeletedResult.
+     * 
+     * @param earliestDateAvailable
+     */
+    public void setEarliestDateAvailable(java.util.Calendar earliestDateAvailable) {
+        this.earliestDateAvailable = earliestDateAvailable;
+    }
+
+
+    /**
+     * Gets the latestDateCovered value for this GetDeletedResult.
+     * 
+     * @return latestDateCovered
+     */
+    public java.util.Calendar getLatestDateCovered() {
+        return latestDateCovered;
+    }
+
+
+    /**
+     * Sets the latestDateCovered value for this GetDeletedResult.
+     * 
+     * @param latestDateCovered
+     */
+    public void setLatestDateCovered(java.util.Calendar latestDateCovered) {
+        this.latestDateCovered = latestDateCovered;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof GetDeletedResult)) return false;
+        GetDeletedResult other = (GetDeletedResult) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.deletedRecords==null && other.getDeletedRecords()==null) || 
+             (this.deletedRecords!=null &&
+              java.util.Arrays.equals(this.deletedRecords, other.getDeletedRecords()))) &&
+            ((this.earliestDateAvailable==null && other.getEarliestDateAvailable()==null) || 
+             (this.earliestDateAvailable!=null &&
+              this.earliestDateAvailable.equals(other.getEarliestDateAvailable()))) &&
+            ((this.latestDateCovered==null && other.getLatestDateCovered()==null) || 
+             (this.latestDateCovered!=null &&
+              this.latestDateCovered.equals(other.getLatestDateCovered())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getDeletedRecords() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getDeletedRecords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getDeletedRecords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        if (getEarliestDateAvailable() != null) {
+            _hashCode += getEarliestDateAvailable().hashCode();
+        }
+        if (getLatestDateCovered() != null) {
+            _hashCode += getLatestDateCovered().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(GetDeletedResult.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "GetDeletedResult"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("deletedRecords");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "deletedRecords"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DeletedRecord"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("earliestDateAvailable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "earliestDateAvailable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "dateTime"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("latestDateCovered");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "latestDateCovered"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "dateTime"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

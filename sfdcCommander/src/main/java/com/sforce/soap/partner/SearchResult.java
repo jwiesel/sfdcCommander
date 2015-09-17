@@ -1,1 +1,173 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class SearchResult implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public SearchResult() {  }        /**   * element  : searchRecords of type {urn:partner.soap.sforce.com}SearchRecord   * java type: com.sforce.soap.partner.SearchRecord[]   */  private static final com.sforce.ws.bind.TypeInfo searchRecords__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","searchRecords","urn:partner.soap.sforce.com","SearchRecord",0,-1,true);  private boolean searchRecords__is_set = false;  private com.sforce.soap.partner.SearchRecord[] searchRecords = new com.sforce.soap.partner.SearchRecord[0];  public com.sforce.soap.partner.SearchRecord[] getSearchRecords() {    return searchRecords;  }    public void setSearchRecords(com.sforce.soap.partner.SearchRecord[] searchRecords) {    this.searchRecords = searchRecords;    searchRecords__is_set = true;  }    /**   * element  : sforceReserved of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo sforceReserved__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","sforceReserved","http://www.w3.org/2001/XMLSchema","string",0,1,true);  private boolean sforceReserved__is_set = false;  private java.lang.String sforceReserved;  public java.lang.String getSforceReserved() {    return sforceReserved;  }    public void setSforceReserved(java.lang.String sforceReserved) {    this.sforceReserved = sforceReserved;    sforceReserved__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeObject(__out, searchRecords__typeInfo, searchRecords, searchRecords__is_set);    __typeMapper.writeString(__out, sforceReserved__typeInfo, sforceReserved, sforceReserved__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.isElement(__in, searchRecords__typeInfo)) {      setSearchRecords((com.sforce.soap.partner.SearchRecord[])__typeMapper.readObject(__in, searchRecords__typeInfo, com.sforce.soap.partner.SearchRecord[].class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, sforceReserved__typeInfo)) {      setSforceReserved((java.lang.String)__typeMapper.readString(__in, sforceReserved__typeInfo, java.lang.String.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[SearchResult ");        sb.append(" searchRecords=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(searchRecords)+"'\n");    sb.append(" sforceReserved=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(sforceReserved)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * SearchResult.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class SearchResult  implements java.io.Serializable {
+    private java.lang.String queryId;
+
+    private com.sforce.soap.partner.SearchRecord[] searchRecords;
+
+    public SearchResult() {
+    }
+
+    public SearchResult(
+           java.lang.String queryId,
+           com.sforce.soap.partner.SearchRecord[] searchRecords) {
+           this.queryId = queryId;
+           this.searchRecords = searchRecords;
+    }
+
+
+    /**
+     * Gets the queryId value for this SearchResult.
+     * 
+     * @return queryId
+     */
+    public java.lang.String getQueryId() {
+        return queryId;
+    }
+
+
+    /**
+     * Sets the queryId value for this SearchResult.
+     * 
+     * @param queryId
+     */
+    public void setQueryId(java.lang.String queryId) {
+        this.queryId = queryId;
+    }
+
+
+    /**
+     * Gets the searchRecords value for this SearchResult.
+     * 
+     * @return searchRecords
+     */
+    public com.sforce.soap.partner.SearchRecord[] getSearchRecords() {
+        return searchRecords;
+    }
+
+
+    /**
+     * Sets the searchRecords value for this SearchResult.
+     * 
+     * @param searchRecords
+     */
+    public void setSearchRecords(com.sforce.soap.partner.SearchRecord[] searchRecords) {
+        this.searchRecords = searchRecords;
+    }
+
+    public com.sforce.soap.partner.SearchRecord getSearchRecords(int i) {
+        return this.searchRecords[i];
+    }
+
+    public void setSearchRecords(int i, com.sforce.soap.partner.SearchRecord _value) {
+        this.searchRecords[i] = _value;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof SearchResult)) return false;
+        SearchResult other = (SearchResult) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.queryId==null && other.getQueryId()==null) || 
+             (this.queryId!=null &&
+              this.queryId.equals(other.getQueryId()))) &&
+            ((this.searchRecords==null && other.getSearchRecords()==null) || 
+             (this.searchRecords!=null &&
+              java.util.Arrays.equals(this.searchRecords, other.getSearchRecords())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getQueryId() != null) {
+            _hashCode += getQueryId().hashCode();
+        }
+        if (getSearchRecords() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getSearchRecords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getSearchRecords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(SearchResult.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "SearchResult"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("queryId");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "queryId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("searchRecords");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "searchRecords"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "SearchRecord"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

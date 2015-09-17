@@ -1,1 +1,317 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class DescribeSoftphoneLayoutCallType implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public DescribeSoftphoneLayoutCallType() {  }        /**   * element  : infoFields of type {urn:partner.soap.sforce.com}DescribeSoftphoneLayoutInfoField   * java type: com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField[]   */  private static final com.sforce.ws.bind.TypeInfo infoFields__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","infoFields","urn:partner.soap.sforce.com","DescribeSoftphoneLayoutInfoField",1,-1,true);  private boolean infoFields__is_set = false;  private com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField[] infoFields = new com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField[0];  public com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField[] getInfoFields() {    return infoFields;  }    public void setInfoFields(com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField[] infoFields) {    this.infoFields = infoFields;    infoFields__is_set = true;  }    /**   * element  : name of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo name__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","name","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean name__is_set = false;  private java.lang.String name;  public java.lang.String getName() {    return name;  }    public void setName(java.lang.String name) {    this.name = name;    name__is_set = true;  }    /**   * element  : screenPopOptions of type {urn:partner.soap.sforce.com}DescribeSoftphoneScreenPopOption   * java type: com.sforce.soap.partner.DescribeSoftphoneScreenPopOption[]   */  private static final com.sforce.ws.bind.TypeInfo screenPopOptions__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","screenPopOptions","urn:partner.soap.sforce.com","DescribeSoftphoneScreenPopOption",0,-1,true);  private boolean screenPopOptions__is_set = false;  private com.sforce.soap.partner.DescribeSoftphoneScreenPopOption[] screenPopOptions = new com.sforce.soap.partner.DescribeSoftphoneScreenPopOption[0];  public com.sforce.soap.partner.DescribeSoftphoneScreenPopOption[] getScreenPopOptions() {    return screenPopOptions;  }    public void setScreenPopOptions(com.sforce.soap.partner.DescribeSoftphoneScreenPopOption[] screenPopOptions) {    this.screenPopOptions = screenPopOptions;    screenPopOptions__is_set = true;  }    /**   * element  : screenPopsOpenWithin of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo screenPopsOpenWithin__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","screenPopsOpenWithin","http://www.w3.org/2001/XMLSchema","string",0,1,true);  private boolean screenPopsOpenWithin__is_set = false;  private java.lang.String screenPopsOpenWithin;  public java.lang.String getScreenPopsOpenWithin() {    return screenPopsOpenWithin;  }    public void setScreenPopsOpenWithin(java.lang.String screenPopsOpenWithin) {    this.screenPopsOpenWithin = screenPopsOpenWithin;    screenPopsOpenWithin__is_set = true;  }    /**   * element  : sections of type {urn:partner.soap.sforce.com}DescribeSoftphoneLayoutSection   * java type: com.sforce.soap.partner.DescribeSoftphoneLayoutSection[]   */  private static final com.sforce.ws.bind.TypeInfo sections__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","sections","urn:partner.soap.sforce.com","DescribeSoftphoneLayoutSection",0,-1,true);  private boolean sections__is_set = false;  private com.sforce.soap.partner.DescribeSoftphoneLayoutSection[] sections = new com.sforce.soap.partner.DescribeSoftphoneLayoutSection[0];  public com.sforce.soap.partner.DescribeSoftphoneLayoutSection[] getSections() {    return sections;  }    public void setSections(com.sforce.soap.partner.DescribeSoftphoneLayoutSection[] sections) {    this.sections = sections;    sections__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeObject(__out, infoFields__typeInfo, infoFields, infoFields__is_set);    __typeMapper.writeString(__out, name__typeInfo, name, name__is_set);    __typeMapper.writeObject(__out, screenPopOptions__typeInfo, screenPopOptions, screenPopOptions__is_set);    __typeMapper.writeString(__out, screenPopsOpenWithin__typeInfo, screenPopsOpenWithin, screenPopsOpenWithin__is_set);    __typeMapper.writeObject(__out, sections__typeInfo, sections, sections__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, infoFields__typeInfo)) {      setInfoFields((com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField[])__typeMapper.readObject(__in, infoFields__typeInfo, com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField[].class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, name__typeInfo)) {      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, screenPopOptions__typeInfo)) {      setScreenPopOptions((com.sforce.soap.partner.DescribeSoftphoneScreenPopOption[])__typeMapper.readObject(__in, screenPopOptions__typeInfo, com.sforce.soap.partner.DescribeSoftphoneScreenPopOption[].class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, screenPopsOpenWithin__typeInfo)) {      setScreenPopsOpenWithin((java.lang.String)__typeMapper.readString(__in, screenPopsOpenWithin__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.isElement(__in, sections__typeInfo)) {      setSections((com.sforce.soap.partner.DescribeSoftphoneLayoutSection[])__typeMapper.readObject(__in, sections__typeInfo, com.sforce.soap.partner.DescribeSoftphoneLayoutSection[].class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[DescribeSoftphoneLayoutCallType ");        sb.append(" infoFields=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(infoFields)+"'\n");    sb.append(" name=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(name)+"'\n");    sb.append(" screenPopOptions=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(screenPopOptions)+"'\n");    sb.append(" screenPopsOpenWithin=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(screenPopsOpenWithin)+"'\n");    sb.append(" sections=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(sections)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * DescribeSoftphoneLayoutCallType.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class DescribeSoftphoneLayoutCallType  implements java.io.Serializable {
+    private com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField[] infoFields;
+
+    private java.lang.String name;
+
+    private com.sforce.soap.partner.DescribeSoftphoneScreenPopOption[] screenPopOptions;
+
+    private java.lang.String screenPopsOpenWithin;
+
+    private com.sforce.soap.partner.DescribeSoftphoneLayoutSection[] sections;
+
+    public DescribeSoftphoneLayoutCallType() {
+    }
+
+    public DescribeSoftphoneLayoutCallType(
+           com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField[] infoFields,
+           java.lang.String name,
+           com.sforce.soap.partner.DescribeSoftphoneScreenPopOption[] screenPopOptions,
+           java.lang.String screenPopsOpenWithin,
+           com.sforce.soap.partner.DescribeSoftphoneLayoutSection[] sections) {
+           this.infoFields = infoFields;
+           this.name = name;
+           this.screenPopOptions = screenPopOptions;
+           this.screenPopsOpenWithin = screenPopsOpenWithin;
+           this.sections = sections;
+    }
+
+
+    /**
+     * Gets the infoFields value for this DescribeSoftphoneLayoutCallType.
+     * 
+     * @return infoFields
+     */
+    public com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField[] getInfoFields() {
+        return infoFields;
+    }
+
+
+    /**
+     * Sets the infoFields value for this DescribeSoftphoneLayoutCallType.
+     * 
+     * @param infoFields
+     */
+    public void setInfoFields(com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField[] infoFields) {
+        this.infoFields = infoFields;
+    }
+
+    public com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField getInfoFields(int i) {
+        return this.infoFields[i];
+    }
+
+    public void setInfoFields(int i, com.sforce.soap.partner.DescribeSoftphoneLayoutInfoField _value) {
+        this.infoFields[i] = _value;
+    }
+
+
+    /**
+     * Gets the name value for this DescribeSoftphoneLayoutCallType.
+     * 
+     * @return name
+     */
+    public java.lang.String getName() {
+        return name;
+    }
+
+
+    /**
+     * Sets the name value for this DescribeSoftphoneLayoutCallType.
+     * 
+     * @param name
+     */
+    public void setName(java.lang.String name) {
+        this.name = name;
+    }
+
+
+    /**
+     * Gets the screenPopOptions value for this DescribeSoftphoneLayoutCallType.
+     * 
+     * @return screenPopOptions
+     */
+    public com.sforce.soap.partner.DescribeSoftphoneScreenPopOption[] getScreenPopOptions() {
+        return screenPopOptions;
+    }
+
+
+    /**
+     * Sets the screenPopOptions value for this DescribeSoftphoneLayoutCallType.
+     * 
+     * @param screenPopOptions
+     */
+    public void setScreenPopOptions(com.sforce.soap.partner.DescribeSoftphoneScreenPopOption[] screenPopOptions) {
+        this.screenPopOptions = screenPopOptions;
+    }
+
+    public com.sforce.soap.partner.DescribeSoftphoneScreenPopOption getScreenPopOptions(int i) {
+        return this.screenPopOptions[i];
+    }
+
+    public void setScreenPopOptions(int i, com.sforce.soap.partner.DescribeSoftphoneScreenPopOption _value) {
+        this.screenPopOptions[i] = _value;
+    }
+
+
+    /**
+     * Gets the screenPopsOpenWithin value for this DescribeSoftphoneLayoutCallType.
+     * 
+     * @return screenPopsOpenWithin
+     */
+    public java.lang.String getScreenPopsOpenWithin() {
+        return screenPopsOpenWithin;
+    }
+
+
+    /**
+     * Sets the screenPopsOpenWithin value for this DescribeSoftphoneLayoutCallType.
+     * 
+     * @param screenPopsOpenWithin
+     */
+    public void setScreenPopsOpenWithin(java.lang.String screenPopsOpenWithin) {
+        this.screenPopsOpenWithin = screenPopsOpenWithin;
+    }
+
+
+    /**
+     * Gets the sections value for this DescribeSoftphoneLayoutCallType.
+     * 
+     * @return sections
+     */
+    public com.sforce.soap.partner.DescribeSoftphoneLayoutSection[] getSections() {
+        return sections;
+    }
+
+
+    /**
+     * Sets the sections value for this DescribeSoftphoneLayoutCallType.
+     * 
+     * @param sections
+     */
+    public void setSections(com.sforce.soap.partner.DescribeSoftphoneLayoutSection[] sections) {
+        this.sections = sections;
+    }
+
+    public com.sforce.soap.partner.DescribeSoftphoneLayoutSection getSections(int i) {
+        return this.sections[i];
+    }
+
+    public void setSections(int i, com.sforce.soap.partner.DescribeSoftphoneLayoutSection _value) {
+        this.sections[i] = _value;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof DescribeSoftphoneLayoutCallType)) return false;
+        DescribeSoftphoneLayoutCallType other = (DescribeSoftphoneLayoutCallType) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.infoFields==null && other.getInfoFields()==null) || 
+             (this.infoFields!=null &&
+              java.util.Arrays.equals(this.infoFields, other.getInfoFields()))) &&
+            ((this.name==null && other.getName()==null) || 
+             (this.name!=null &&
+              this.name.equals(other.getName()))) &&
+            ((this.screenPopOptions==null && other.getScreenPopOptions()==null) || 
+             (this.screenPopOptions!=null &&
+              java.util.Arrays.equals(this.screenPopOptions, other.getScreenPopOptions()))) &&
+            ((this.screenPopsOpenWithin==null && other.getScreenPopsOpenWithin()==null) || 
+             (this.screenPopsOpenWithin!=null &&
+              this.screenPopsOpenWithin.equals(other.getScreenPopsOpenWithin()))) &&
+            ((this.sections==null && other.getSections()==null) || 
+             (this.sections!=null &&
+              java.util.Arrays.equals(this.sections, other.getSections())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getInfoFields() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getInfoFields());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getInfoFields(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        if (getName() != null) {
+            _hashCode += getName().hashCode();
+        }
+        if (getScreenPopOptions() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getScreenPopOptions());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getScreenPopOptions(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        if (getScreenPopsOpenWithin() != null) {
+            _hashCode += getScreenPopsOpenWithin().hashCode();
+        }
+        if (getSections() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getSections());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getSections(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(DescribeSoftphoneLayoutCallType.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeSoftphoneLayoutCallType"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("infoFields");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "infoFields"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeSoftphoneLayoutInfoField"));
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("name");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "name"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("screenPopOptions");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "screenPopOptions"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeSoftphoneScreenPopOption"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("screenPopsOpenWithin");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "screenPopsOpenWithin"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("sections");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "sections"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeSoftphoneLayoutSection"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

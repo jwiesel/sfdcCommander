@@ -1,1 +1,155 @@
-package com.sforce.soap.partner;/** * Generated class, please do not edit. */public class DescribeSearchScopeOrderResult implements com.sforce.ws.bind.XMLizable {  /**   * Constructor   */  public DescribeSearchScopeOrderResult() {  }        /**   * element  : keyPrefix of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo keyPrefix__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","keyPrefix","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean keyPrefix__is_set = false;  private java.lang.String keyPrefix;  public java.lang.String getKeyPrefix() {    return keyPrefix;  }    public void setKeyPrefix(java.lang.String keyPrefix) {    this.keyPrefix = keyPrefix;    keyPrefix__is_set = true;  }    /**   * element  : name of type {http://www.w3.org/2001/XMLSchema}string   * java type: java.lang.String   */  private static final com.sforce.ws.bind.TypeInfo name__typeInfo =    new com.sforce.ws.bind.TypeInfo("urn:partner.soap.sforce.com","name","http://www.w3.org/2001/XMLSchema","string",1,1,true);  private boolean name__is_set = false;  private java.lang.String name;  public java.lang.String getName() {    return name;  }    public void setName(java.lang.String name) {    this.name = name;    name__is_set = true;  }    /**   */  public void write(javax.xml.namespace.QName __element,      com.sforce.ws.parser.XmlOutputStream __out, com.sforce.ws.bind.TypeMapper __typeMapper)      throws java.io.IOException {    __out.writeStartTag(__element.getNamespaceURI(), __element.getLocalPart());        writeFields(__out, __typeMapper);    __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());  }  protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException {       __typeMapper.writeString(__out, keyPrefix__typeInfo, keyPrefix, keyPrefix__is_set);    __typeMapper.writeString(__out, name__typeInfo, name, name__is_set);  }  public void load(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {    __typeMapper.consumeStartTag(__in);    loadFields(__in, __typeMapper);    __typeMapper.consumeEndTag(__in);  }  protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,      com.sforce.ws.bind.TypeMapper __typeMapper) throws java.io.IOException, com.sforce.ws.ConnectionException {       __in.peekTag();    if (__typeMapper.verifyElement(__in, keyPrefix__typeInfo)) {      setKeyPrefix((java.lang.String)__typeMapper.readString(__in, keyPrefix__typeInfo, java.lang.String.class));    }    __in.peekTag();    if (__typeMapper.verifyElement(__in, name__typeInfo)) {      setName((java.lang.String)__typeMapper.readString(__in, name__typeInfo, java.lang.String.class));    }  }  public String toString() {    java.lang.StringBuilder sb = new java.lang.StringBuilder();    sb.append("[DescribeSearchScopeOrderResult ");        sb.append(" keyPrefix=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(keyPrefix)+"'\n");    sb.append(" name=");    sb.append("'"+com.sforce.ws.util.Verbose.toString(name)+"'\n");    sb.append("]\n");    return sb.toString();  }}
+/**
+ * DescribeSearchScopeOrderResult.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.sforce.soap.partner;
+
+public class DescribeSearchScopeOrderResult  implements java.io.Serializable {
+    private java.lang.String keyPrefix;
+
+    private java.lang.String name;
+
+    public DescribeSearchScopeOrderResult() {
+    }
+
+    public DescribeSearchScopeOrderResult(
+           java.lang.String keyPrefix,
+           java.lang.String name) {
+           this.keyPrefix = keyPrefix;
+           this.name = name;
+    }
+
+
+    /**
+     * Gets the keyPrefix value for this DescribeSearchScopeOrderResult.
+     * 
+     * @return keyPrefix
+     */
+    public java.lang.String getKeyPrefix() {
+        return keyPrefix;
+    }
+
+
+    /**
+     * Sets the keyPrefix value for this DescribeSearchScopeOrderResult.
+     * 
+     * @param keyPrefix
+     */
+    public void setKeyPrefix(java.lang.String keyPrefix) {
+        this.keyPrefix = keyPrefix;
+    }
+
+
+    /**
+     * Gets the name value for this DescribeSearchScopeOrderResult.
+     * 
+     * @return name
+     */
+    public java.lang.String getName() {
+        return name;
+    }
+
+
+    /**
+     * Sets the name value for this DescribeSearchScopeOrderResult.
+     * 
+     * @param name
+     */
+    public void setName(java.lang.String name) {
+        this.name = name;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof DescribeSearchScopeOrderResult)) return false;
+        DescribeSearchScopeOrderResult other = (DescribeSearchScopeOrderResult) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.keyPrefix==null && other.getKeyPrefix()==null) || 
+             (this.keyPrefix!=null &&
+              this.keyPrefix.equals(other.getKeyPrefix()))) &&
+            ((this.name==null && other.getName()==null) || 
+             (this.name!=null &&
+              this.name.equals(other.getName())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getKeyPrefix() != null) {
+            _hashCode += getKeyPrefix().hashCode();
+        }
+        if (getName() != null) {
+            _hashCode += getName().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(DescribeSearchScopeOrderResult.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeSearchScopeOrderResult"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("keyPrefix");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "keyPrefix"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("name");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "name"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

@@ -1,55 +1,95 @@
+/**
+ * UnexpectedErrorFault.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
 package com.sforce.soap.partner.fault;
 
-/** * Generated class, please do not edit. */
-public class UnexpectedErrorFault extends
-        com.sforce.soap.partner.fault.ApiFault {
-    /** * Constructor */
+public class UnexpectedErrorFault  extends com.sforce.soap.partner.fault.ApiFault  implements java.io.Serializable {
     public UnexpectedErrorFault() {
     }
 
-    /**   */
-    @Override
-    public void write(javax.xml.namespace.QName __element,
-            com.sforce.ws.parser.XmlOutputStream __out,
-            com.sforce.ws.bind.TypeMapper __typeMapper)
-            throws java.io.IOException {
-        __out.writeStartTag(__element.getNamespaceURI(),
-                __element.getLocalPart());
-        __typeMapper.writeXsiType(__out, "urn:fault.partner.soap.sforce.com",
-                "UnexpectedErrorFault");
-        writeFields(__out, __typeMapper);
-        __out.writeEndTag(__element.getNamespaceURI(), __element.getLocalPart());
+    public UnexpectedErrorFault(
+           com.sforce.soap.partner.fault.ExceptionCode exceptionCode,
+           java.lang.String exceptionMessage) {
+        super(
+            exceptionCode,
+            exceptionMessage);
     }
 
-    @Override
-    protected void writeFields(com.sforce.ws.parser.XmlOutputStream __out,
-            com.sforce.ws.bind.TypeMapper __typeMapper)
-            throws java.io.IOException {
-        super.writeFields(__out, __typeMapper);
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof UnexpectedErrorFault)) return false;
+        UnexpectedErrorFault other = (UnexpectedErrorFault) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = super.equals(obj);
+        __equalsCalc = null;
+        return _equals;
     }
 
-    @Override
-    public void load(com.sforce.ws.parser.XmlInputStream __in,
-            com.sforce.ws.bind.TypeMapper __typeMapper)
-            throws java.io.IOException, com.sforce.ws.ConnectionException {
-        __typeMapper.consumeStartTag(__in);
-        loadFields(__in, __typeMapper);
-        __typeMapper.consumeEndTag(__in);
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = super.hashCode();
+        __hashCodeCalc = false;
+        return _hashCode;
     }
 
-    @Override
-    protected void loadFields(com.sforce.ws.parser.XmlInputStream __in,
-            com.sforce.ws.bind.TypeMapper __typeMapper)
-            throws java.io.IOException, com.sforce.ws.ConnectionException {
-        super.loadFields(__in, __typeMapper);
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(UnexpectedErrorFault.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:fault.partner.soap.sforce.com", "UnexpectedErrorFault"));
     }
 
-    @Override
-    public String toString() {
-        java.lang.StringBuilder sb = new java.lang.StringBuilder();
-        sb.append("[UnexpectedErrorFault ");
-        sb.append(super.toString());
-        sb.append("]\n");
-        return sb.toString();
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+
+    /**
+     * Writes the exception data to the faultDetails
+     */
+    public void writeDetails(javax.xml.namespace.QName qname, org.apache.axis.encoding.SerializationContext context) throws java.io.IOException {
+        context.serialize(qname, null, this);
     }
 }

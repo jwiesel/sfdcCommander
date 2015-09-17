@@ -57,8 +57,8 @@ public class HtmlRenderer {
         File transformerFolder = new File("config/transformer");
 
         // prepare HTML output folder
-        File outputFolder = new File(config.getRenderPath() + "/"
-                + config.getSfSystemname());
+        File outputFolder = new File(
+                config.getRenderPath() + "/" + config.getSfSystemname());
         if (outputFolder.exists()) {
             deleteDirectory(outputFolder);
         }
@@ -71,8 +71,9 @@ public class HtmlRenderer {
 
             for (String folder : helperFolder) {
                 try {
-                    copyFolder(new File(transformerFolder.getAbsolutePath()
-                            + "/" + folder),
+                    copyFolder(
+                            new File(transformerFolder.getAbsolutePath() + "/"
+                                    + folder),
                             new File(outputFolder.getAbsolutePath() + "/"
                                     + folder));
                 } catch (IOException e) {
@@ -82,8 +83,8 @@ public class HtmlRenderer {
             }
 
             // copy documents if available
-            File documentsFolder = new File(config.getSfSystemname()
-                    + "/documents");
+            File documentsFolder = new File(
+                    config.getSfSystemname() + "/unpackaged/documents");
             if (documentsFolder.exists()) {
                 commander.notify("Copying documents");
                 try {
@@ -107,8 +108,8 @@ public class HtmlRenderer {
                 tmpOutputFolder.mkdirs();
 
                 // get folder with sfdc source files
-                File sourceFolder = new File(config.getSfSystemname() + "/"
-                        + tmpTransformerName);
+                File sourceFolder = new File(config.getSfSystemname()
+                        + "/unpackaged/" + tmpTransformerName);
 
                 File targetFolder;
 
@@ -121,20 +122,18 @@ public class HtmlRenderer {
                     if (!tmpTransformerName.equals("lists")) {
                         commander.notify("Generating output for "
                                 + transformer.getName());
-                        targetFolder = new File(config.getSfSystemname()
-                                + "/lists");
+                        targetFolder = new File(
+                                config.getSfSystemname() + "/unpackaged/lists");
                         targetFolder.mkdirs();
                         generateFileList(tmpTransformerName, sourceFolder,
                                 targetFolder);
                         // generate html files
                         for (File xmlFile : sourceFolder
                                 .listFiles(new XmlFileNameFilter())) {
-                            render(transformer,
-                                    xmlFile,
+                            render(transformer, xmlFile,
                                     new File(tmpOutputFolder.getAbsolutePath()
                                             + "/"
-                                            + xmlFile.getName().substring(
-                                                    0,
+                                            + xmlFile.getName().substring(0,
                                                     xmlFile.getName()
                                                             .lastIndexOf("."))
                                             + ".html"));
@@ -161,27 +160,27 @@ public class HtmlRenderer {
                 }
             }
             // Generate Lists
-            File listFolder = new File(config.getSfSystemname() + "/lists");
+            File listFolder = new File(
+                    config.getSfSystemname() + "/unpackaged/lists");
             generateFileList("lists", listFolder,
                     new File(config.getSfSystemname()));
-            File listTransformer = new File(transformerFolder.getAbsolutePath()
-                    + "/lists.xslt");
+            File listTransformer = new File(
+                    transformerFolder.getAbsolutePath() + "/lists.xslt");
             for (File xmlFile : listFolder.listFiles()) {
-                render(listTransformer,
-                        xmlFile,
-                        new File(outputFolder.getAbsolutePath()
-                                + "/lists/"
+                render(listTransformer, xmlFile,
+                        new File(outputFolder.getAbsolutePath() + "/lists/"
                                 + xmlFile.getName().substring(0,
                                         xmlFile.getName().lastIndexOf("."))
-                                + ".html"));
+                        + ".html"));
             }
 
             // Generate Index
             File indexTransformer = new File(
                     transformerFolder.getAbsolutePath() + "/index.xsl");
-            File indexSource = new File(config.getSfSystemname() + "/lists.xml");
-            File indexOutput = new File(outputFolder.getAbsolutePath()
-                    + "/index.html");
+            File indexSource = new File(
+                    config.getSfSystemname() + "/lists.xml");
+            File indexOutput = new File(
+                    outputFolder.getAbsolutePath() + "/index.html");
             render(indexTransformer, indexSource, indexOutput);
             commander.notify("Output generated");
         }
@@ -207,8 +206,8 @@ public class HtmlRenderer {
             transformer = tfactory.newTransformer(new StreamSource(xslFile));
 
             // Transform the source XML to System.out.
-            transformer.transform(new StreamSource(xmlFile), new StreamResult(
-                    fos));
+            transformer.transform(new StreamSource(xmlFile),
+                    new StreamResult(fos));
             fos.close();
         } catch (TransformerConfigurationException e) {
             // TODO Auto-generated catch block
@@ -241,13 +240,14 @@ public class HtmlRenderer {
 
             fos.write(("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n")
                     .getBytes());
-            fos.write(("<" + entity + " xmlns=\"http://soap.sforce.com/2006/04/metadata\">\r\n")
-                    .getBytes());
+            fos.write(("<" + entity
+                    + " xmlns=\"http://soap.sforce.com/2006/04/metadata\">\r\n")
+                            .getBytes());
 
             String actLine;
             for (File recordFile : sourceFolder.listFiles()) {
-                if (!recordFile.getAbsolutePath().equals(
-                        allRecordsFile.getAbsolutePath())) {
+                if (!recordFile.getAbsolutePath()
+                        .equals(allRecordsFile.getAbsolutePath())) {
                     InputStreamReader isr = new InputStreamReader(
                             new FileInputStream(recordFile));
                     BufferedReader br = new BufferedReader(isr);
@@ -255,12 +255,11 @@ public class HtmlRenderer {
                     // Read first line with xml version
                     actLine = br.readLine();
                     while ((actLine = br.readLine()) != null) {
-                        if (actLine
-                                .contains(" xmlns=\"http://soap.sforce.com/2006/04/metadata\"")) {
-                            fos.write(actLine
-                                    .replace(
-                                            " xmlns=\"http://soap.sforce.com/2006/04/metadata\"",
-                                            "").concat("\r\n").getBytes());
+                        if (actLine.contains(
+                                " xmlns=\"http://soap.sforce.com/2006/04/metadata\"")) {
+                            fos.write(actLine.replace(
+                                    " xmlns=\"http://soap.sforce.com/2006/04/metadata\"",
+                                    "").concat("\r\n").getBytes());
                         } else {
                             fos.write(actLine.concat("\r\n").getBytes());
                         }
@@ -284,20 +283,22 @@ public class HtmlRenderer {
     public void generateFileList(final String entity, final File sourceFolder,
             final File targetFolder) {
         try {
-            File output = new File(targetFolder.getAbsolutePath() + "/"
-                    + entity + ".xml");
+            File output = new File(
+                    targetFolder.getAbsolutePath() + "/" + entity + ".xml");
             FileOutputStream fos = new FileOutputStream(output);
 
             fos.write(("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n")
                     .getBytes());
-            fos.write(("<Files xmlns=\"http://soap.sforce.com/2006/04/metadata\">\r\n")
-                    .getBytes());
+            fos.write(
+                    ("<Files xmlns=\"http://soap.sforce.com/2006/04/metadata\">\r\n")
+                            .getBytes());
             fos.write(("<entity>" + entity + "</entity>\r\n").getBytes());
             fos.write(("<system>" + config.getSfSystemname() + "</system>\r\n")
                     .getBytes());
 
             String cutFileName;
-            for (File actFile : sourceFolder.listFiles(new XmlFileNameFilter())) {
+            for (File actFile : sourceFolder
+                    .listFiles(new XmlFileNameFilter())) {
                 cutFileName = actFile.getName().substring(0,
                         actFile.getName().lastIndexOf("."));
                 fos.write(("<file>" + cutFileName + "</file>\r\n").getBytes());
@@ -348,8 +349,8 @@ public class HtmlRenderer {
             if (force) {
                 dest.delete();
             } else {
-                throw new IOException("Cannot overwrite existing file: "
-                        + dest.toString());
+                throw new IOException(
+                        "Cannot overwrite existing file: " + dest.toString());
             }
         }
         byte[] buffer = new byte[bufSize];
@@ -401,8 +402,8 @@ public class HtmlRenderer {
             // if directory not exists, create it
             if (!dest.exists()) {
                 dest.mkdir();
-                System.out.println("Directory copied from " + src + "  to "
-                        + dest);
+                System.out.println(
+                        "Directory copied from " + src + "  to " + dest);
             }
 
             // list all the directory contents
