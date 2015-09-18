@@ -27,26 +27,6 @@ public class CommanderConfig {
     /**
      * 
      */
-    public static final String SF_SERVERURL = "sf.serverurl";
-
-    /**
-     * 
-     */
-    public static final String SF_PACKAGE = "sf.package";
-
-    /**
-     * 
-     */
-    public static final String SF_POLL_WAIT_MILLIS = "sf.pollwaitmillis";
-
-    /**
-     * 
-     */
-    public static final String SF_TIMEOUT_SECONDS = "sf.timeoutseconds";
-
-    /**
-     * 
-     */
     public static final String HTTP_PROXY_HOST = "http.proxyHost";
 
     /**
@@ -102,11 +82,6 @@ public class CommanderConfig {
     /**
      * 
      */
-    public static final String SF_TARGET_SERVERURL = "target.serverurl";
-
-    /**
-     * 
-     */
     private String sfSystemname;
     /**
      * 
@@ -116,18 +91,6 @@ public class CommanderConfig {
      * 
      */
     private String sfPassword;
-    /**
-     * 
-     */
-    private String sfServerurl;
-    /**
-     * 
-     */
-    private String sfPackage;
-    /**
-     * 
-     */
-    private String sfTimeoutSeconds;
     /**
      * 
      */
@@ -173,10 +136,6 @@ public class CommanderConfig {
      * 
      */
     private String sfTargetPassword;
-    /**
-     * 
-     */
-    private String sfTargetServerurl;
 
     /**
      * @return the sfSystemname
@@ -221,36 +180,6 @@ public class CommanderConfig {
      */
     public final void setSfPassword(final String aSfPassword) {
         sfPassword = aSfPassword;
-    }
-
-    /**
-     * @return the sfServerurl
-     */
-    public final String getSfServerurl() {
-        return sfServerurl;
-    }
-
-    /**
-     * @param aSfServerurl
-     *            the sfServerurl to set
-     */
-    public final void setSfServerurl(final String aSfServerurl) {
-        sfServerurl = aSfServerurl;
-    }
-
-    /**
-     * @return the sfPackage
-     */
-    public final String getSfPackage() {
-        return sfPackage;
-    }
-
-    /**
-     * @param aSfPackage
-     *            the sfPackage to set
-     */
-    public final void setSfPackage(final String aSfPackage) {
-        sfPackage = aSfPackage;
     }
 
     /**
@@ -356,36 +285,6 @@ public class CommanderConfig {
      */
     public final void setSfTargetPassword(final String aSfTargetPassword) {
         sfTargetPassword = aSfTargetPassword;
-    }
-
-    /**
-     * @return the sfTargetServerurl
-     */
-    public final String getSfTargetServerurl() {
-        return sfTargetServerurl;
-    }
-
-    /**
-     * @param aSfTargetServerurl
-     *            the sfTargetServerurl to set
-     */
-    public final void setSfTargetServerurl(final String aSfTargetServerurl) {
-        sfTargetServerurl = aSfTargetServerurl;
-    }
-
-    /**
-     * @return the sfTimeoutSeconds
-     */
-    public final String getSfTimeoutSeconds() {
-        return sfTimeoutSeconds;
-    }
-
-    /**
-     * @param aSfTimeoutSeconds
-     *            the sfTimeoutSeconds to set
-     */
-    public final void setSfTimeoutSeconds(String aSfTimeoutSeconds) {
-        sfTimeoutSeconds = aSfTimeoutSeconds;
     }
 
     /**

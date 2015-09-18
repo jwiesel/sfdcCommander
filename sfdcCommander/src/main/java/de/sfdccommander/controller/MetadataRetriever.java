@@ -3,11 +3,10 @@ package de.sfdccommander.controller;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URLDecoder;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
@@ -17,16 +16,11 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
 import com.sforce.soap._2006._04.metadata.AsyncResult;
+import com.sforce.soap._2006._04.metadata.DescribeMetadataObject;
+import com.sforce.soap._2006._04.metadata.DescribeMetadataResult;
+import com.sforce.soap._2006._04.metadata.FileProperties;
+import com.sforce.soap._2006._04.metadata.ListMetadataQuery;
 import com.sforce.soap._2006._04.metadata.MetadataBindingStub;
 import com.sforce.soap._2006._04.metadata.MetadataServiceLocator;
 import com.sforce.soap._2006._04.metadata.PackageTypeMembers;
@@ -39,12 +33,12 @@ import com.sforce.soap.partner.LoginResult;
 import com.sforce.soap.partner.SforceServiceLocator;
 import com.sforce.soap.partner.SoapBindingStub;
 
+import de.sfdccommander.viewer.SfdcCommander;
+
 public class MetadataRetriever {
 
     // Binding for the metadata WSDL used for making metadata API calls
-    private MetadataBindingStub metadataConnection;
-
-    private String manifest;
+    private MetadataBindingStub metaBinding;
 
     private String systemName;
 
@@ -66,10 +60,10 @@ public class MetadataRetriever {
         RetrieveRequest retrieveRequest = new RetrieveRequest();
         // The version in package.xml overrides the version in RetrieveRequest
         retrieveRequest.setApiVersion(API_VERSION);
-        setUnpackaged(retrieveRequest);
+        retrieveRequest.setUnpackaged(buildPackage());
 
         // Start the retrieve operation
-        AsyncResult asyncResult = metadataConnection.retrieve(retrieveRequest);
+        AsyncResult asyncResult = metaBinding.retrieve(retrieveRequest);
         String asyncResultId = asyncResult.getId();
 
         // Wait for the retrieve to complete
@@ -86,8 +80,7 @@ public class MetadataRetriever {
                                 + "of metadata components, check that the time allowed "
                                 + "by MAX_NUM_POLL_REQUESTS is sufficient.");
             }
-            result = metadataConnection.checkRetrieveStatus(asyncResultId,
-                    true);
+            result = metaBinding.checkRetrieveStatus(asyncResultId, true);
             System.out.println("Retrieve Status: " + result.getStatus());
         } while (!result.isDone());
 
@@ -99,7 +92,8 @@ public class MetadataRetriever {
             StringBuilder buf = new StringBuilder();
             if (result.getMessages() != null) {
                 for (RetrieveMessage rm : result.getMessages()) {
-                    buf.append(rm.getFileName() + " - " + rm.getProblem());
+                    buf.append(rm.getFileName() + " - " + rm.getProblem()
+                            + "\r\n");
                 }
             }
             if (buf.length() > 0) {
@@ -142,69 +136,42 @@ public class MetadataRetriever {
         }
     }
 
-    private void setUnpackaged(RetrieveRequest request) throws Exception {
-        // Edit the path, if necessary, if your package.xml file is located
-        // elsewhere
-        File unpackedManifest = new File(manifest);
-        System.out.println(
-                "Manifest file: " + unpackedManifest.getAbsolutePath());
+    private com.sforce.soap._2006._04.metadata._package buildPackage()
+            throws RemoteException {
+        SfdcCommander commander = SfdcCommander.getInstance();
+        commander.notify("Gathering Metadata from your Org.");
+        List<PackageTypeMembers> pd = new ArrayList<PackageTypeMembers>();
+        // foreach type
+        // get Name and members as String[]
+        // add to pdi
+        // add to pd
+        DescribeMetadataResult metadataResult = metaBinding
+                .describeMetadata(API_VERSION);
+        for (DescribeMetadataObject objectType : metadataResult
+                .getMetadataObjects()) {
+            PackageTypeMembers pdi = new PackageTypeMembers();
+            pdi.setName(objectType.getXmlName());
 
-        if (!unpackedManifest.exists() || !unpackedManifest.isFile())
-            throw new Exception("Should provide a valid retrieve manifest "
-                    + "for unpackaged content. " + "Looking for "
-                    + unpackedManifest.getAbsolutePath());
-
-        // Note that we populate the _package object by parsing a manifest file
-        // here.
-        // You could populate the _package based on any source for your
-        // particular application.
-        com.sforce.soap._2006._04.metadata._package p = parsePackage(
-                unpackedManifest);
-        request.setUnpackaged(p);
-    }
-
-    private com.sforce.soap._2006._04.metadata._package parsePackage(File file)
-            throws Exception {
-        try {
-            InputStream is = new FileInputStream(file);
-            List<PackageTypeMembers> pd = new ArrayList<PackageTypeMembers>();
-            DocumentBuilder db = DocumentBuilderFactory.newInstance()
-                    .newDocumentBuilder();
-            Element d = db.parse(is).getDocumentElement();
-            for (Node c = d.getFirstChild(); c != null; c = c
-                    .getNextSibling()) {
-                if (c instanceof Element) {
-                    Element ce = (Element) c;
-                    //
-                    NodeList namee = ce.getElementsByTagName("name");
-                    if (namee.getLength() == 0) {
-                        // not
-                        continue;
-                    }
-                    String name = namee.item(0).getTextContent();
-                    NodeList m = ce.getElementsByTagName("members");
-                    List<String> members = new ArrayList<String>();
-                    for (int i = 0; i < m.getLength(); i++) {
-                        Node mm = m.item(i);
-                        members.add(mm.getTextContent());
-                    }
-                    PackageTypeMembers pdi = new PackageTypeMembers();
-                    pdi.setName(name);
-                    pdi.setMembers(members.toArray(new String[members.size()]));
-                    pd.add(pdi);
+            ListMetadataQuery[] queries = new ListMetadataQuery[1];
+            queries[0] = new ListMetadataQuery();
+            queries[0].setType(objectType.getXmlName());
+            FileProperties[] tmpListMetadata = metaBinding.listMetadata(queries,
+                    API_VERSION);
+            if (tmpListMetadata != null) {
+                List<String> members = new ArrayList<String>();
+                for (FileProperties member : tmpListMetadata) {
+                    members.add(URLDecoder.decode(member.getFullName()));
                 }
+                pdi.setMembers(members.toArray(new String[members.size()]));
             }
-            com.sforce.soap._2006._04.metadata._package r = new com.sforce.soap._2006._04.metadata._package();
-            r.setTypes(pd.toArray(new PackageTypeMembers[pd.size()]));
-            r.setVersion(API_VERSION + "");
-            return r;
-        } catch (ParserConfigurationException pce) {
-            throw new Exception("Cannot create XML parser", pce);
-        } catch (IOException ioe) {
-            throw new Exception(ioe);
-        } catch (SAXException se) {
-            throw new Exception(se);
+            pd.add(pdi);
         }
+
+        com.sforce.soap._2006._04.metadata._package r = new com.sforce.soap._2006._04.metadata._package();
+        r.setTypes(pd.toArray(new PackageTypeMembers[pd.size()]));
+        r.setVersion(API_VERSION + "");
+        return r;
+
     }
 
     private void createMetadataConnection(final String username,
@@ -232,40 +199,12 @@ public class MetadataRetriever {
             metaBinding.setHeader(metaDataSL.getServiceName().getNamespaceURI(),
                     "SessionHeader", sh);
 
-            System.out.println(metaBinding.describeMetadata(API_VERSION));
-
-            this.metadataConnection = metaBinding;
+            this.metaBinding = metaBinding;
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-    }
-
-    // The sample client application retrieves the user's login credentials.
-    // Helper function for retrieving user input from the console
-    String getUserInput(String prompt) {
-        System.out.print(prompt);
-        try {
-            return rdr.readLine();
-        } catch (IOException ex) {
-            return null;
-        }
-    }
-
-    /**
-     * @return the manifest
-     */
-    public String getManifest() {
-        return manifest;
-    }
-
-    /**
-     * @param aManifest
-     *            the manifest to set
-     */
-    public void setManifest(String aManifest) {
-        manifest = aManifest;
     }
 
     /**

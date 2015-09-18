@@ -3,25 +3,37 @@
  */
 package de.sfdccommander.controller;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.rmi.RemoteException;
+import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.xml.sax.SAXException;
 
 import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeGlobalSObjectResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
 import com.sforce.soap.partner.Field;
 import com.sforce.soap.partner.SoapBindingStub;
+import com.sforce.soap.partner.fault.InvalidSObjectFault;
 import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
 import de.sfdccommander.controller.connection.SfdcConnectionPool;
-import de.sfdccommander.controller.helper.CharacterEncoder;
 import de.sfdccommander.model.CommanderConfig;
+import de.sfdccommander.model.CustomObjectFieldMap;
 import de.sfdccommander.viewer.SfdcCommander;
 
 /**
@@ -72,87 +84,75 @@ public class ObjectExporter {
 
         if (objectFile.exists()) {
             try {
-                // Read file with MetadataInfo
-                InputStreamReader isr = new InputStreamReader(
-                        new FileInputStream(objectFile), "UTF-8");
-                BufferedReader br = new BufferedReader(isr);
-                String actLine;
-                StringBuffer originalFile = new StringBuffer();
-                while ((actLine = br.readLine()) != null) {
-                    originalFile.append(actLine + "\r\n");
-                }
-                br.close();
-                isr.close();
-                String cuttedFile = originalFile.substring(0,
-                        originalFile.length() - 17);
+                // read xml-file
+                DocumentBuilderFactory dbFactory = DocumentBuilderFactory
+                        .newInstance();
+                DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                Document doc = dBuilder.parse(objectFile);
+                Element customObjectElement = doc.getDocumentElement();
 
                 // Add salesforce standard fields
                 DescribeSObjectResult tmpDescribeSObject = binding
                         .describeSObject(aObject.getName());
                 commander.notify("Generating enhanced XML for object: "
                         + tmpDescribeSObject.getName());
-                OutputStreamWriter writer = new OutputStreamWriter(
-                        new FileOutputStream(objectFile), "UTF-8");
-                writer.write(cuttedFile);
                 for (Field field : tmpDescribeSObject.getFields()) {
                     if (!field.isCustom()) {
                         if (!field.getType().toString().equals("picklist")) {
-                            writer.write(renderField(field));
+                            customObjectElement
+                                    .appendChild(getFieldElement(doc, field));
                         }
                     }
                 }
-                writer.write(("</CustomObject>"));
-                writer.close();
+                // update xml-file
+                TransformerFactory transformerFactory = TransformerFactory
+                        .newInstance();
+                Transformer transformer = transformerFactory.newTransformer();
+                transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+                DOMSource source = new DOMSource(doc);
 
-            } catch (IOException ioe) {
-                commander.logException("Failed to enhance file.", ioe);
+                StreamResult result = new StreamResult(objectFile);
+                transformer.transform(source, result);
+
+            } catch (ParserConfigurationException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (SAXException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (TransformerConfigurationException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (TransformerException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (InvalidSObjectFault e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (UnexpectedErrorFault e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (RemoteException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
 
     }
 
-    private String renderField(Field aField) {
-        StringBuffer fieldXml = new StringBuffer();
+    private Element getFieldElement(Document aDoc, Field aField) {
+        Element field = aDoc.createElement("fields");
 
-        fieldXml.append("<fields>\r\n");
-
-        fieldXml.append("<fullName>" + CharacterEncoder.encode(aField.getName())
-                + "</fullName>\r\n");
-        fieldXml.append("<label>" + CharacterEncoder.encode(aField.getLabel())
-                + "</label>\r\n");
-        fieldXml.append("<required>true</required>\r\n");
-        fieldXml.append(
-                "<externalId>" + aField.getExternalId() + "</externalId>\r\n");
-        fieldXml.append("<unique>" + aField.isUnique() + "</unique>\r\n");
-        fieldXml.append("<type>" + aField.getType() + "</type>\r\n");
-        if (aField.getScale() != 0) {
-            fieldXml.append("<scale>" + aField.getScale() + "</scale>\r\n");
+        CustomObjectFieldMap map = new CustomObjectFieldMap(aField);
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            Element element = aDoc.createElement(entry.getKey());
+            element.appendChild(aDoc.createTextNode(entry.getValue()));
+            field.appendChild(element);
         }
-        if (aField.getPrecision() != 0) {
-            fieldXml.append(
-                    "<precision>" + aField.getPrecision() + "</precision>\r\n");
-        }
-        if (aField.getLength() != 0) {
-            fieldXml.append("<length>" + aField.getLength() + "</length>\r\n");
-        }
-        if (aField.getReferenceTo() != null) {
-            fieldXml.append("<referenceTo>"
-                    + CharacterEncoder.encode(aField.getReferenceTo()[0])
-                    + "</referenceTo>\r\n");
-        }
-        if (aField.getRelationshipName() != null) {
-            fieldXml.append("<relationshipName>"
-                    + CharacterEncoder.encode(aField.getRelationshipName())
-                    + "</relationshipName>\r\n");
-        }
-        if (aField.getInlineHelpText() != null) {
-            fieldXml.append("<inlineHelpText>" + aField.getInlineHelpText()
-                    + "</inlineHelpText>\r\n");
-        }
-        fieldXml.append(
-                "<description>Standard Field: Please review the salesforce.com documentation</description>\r\n");
-
-        fieldXml.append("</fields>\r\n");
-        return fieldXml.toString();
+        return field;
     }
+
 }

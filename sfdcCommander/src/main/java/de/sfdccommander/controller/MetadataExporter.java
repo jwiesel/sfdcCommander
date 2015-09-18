@@ -38,13 +38,12 @@ public class MetadataExporter {
         MetadataRetriever retriever;
         retriever = new MetadataRetriever(tmpConfig.getSfTargetUsername(),
                 tmpConfig.getSfPassword());
-        retriever.setManifest(tmpConfig.getSfPackage());
         retriever.setSystemName(tmpConfig.getSfSystemname());
         try {
             retriever.retrieveZip();
             // Export ZIP
-            ZipFile source = new ZipFile(tmpConfig.getSfSystemname() + ".zip");
-            source.extractAll(tmpConfig.getSfSystemname());
+            ZipFile sourceZip = new ZipFile(tmpConfig.getSfSystemname() + ".zip");
+            sourceZip.extractAll(tmpConfig.getSfSystemname());
             File sourceFile = new File(tmpConfig.getSfSystemname() + ".zip");
             sourceFile.delete();
         } catch (RemoteException e) {

@@ -43,46 +43,39 @@ public class CommanderPropertiesHandler {
             fis = new FileInputStream(tmpPropFile);
             properties.load(fis);
         } catch (FileNotFoundException e) {
-            Logger.getLogger(this.getClass()).error(
-                    "Could not find " + tmpPropFile, e);
+            Logger.getLogger(this.getClass())
+                    .error("Could not find " + tmpPropFile, e);
         } catch (IOException e) {
-            Logger.getLogger(this.getClass()).error(
-                    "Could not open " + tmpPropFile, e);
+            Logger.getLogger(this.getClass())
+                    .error("Could not open " + tmpPropFile, e);
         }
 
-        config.setSfSystemname(properties
-                .getProperty(CommanderConfig.SF_SYSTEMNAME));
-        config.setSfUsername(properties
-                .getProperty(CommanderConfig.SF_USERNAME));
-        config.setSfPassword(properties
-                .getProperty(CommanderConfig.SF_PASSWORD));
-        config.setSfServerurl(properties
-                .getProperty(CommanderConfig.SF_SERVERURL));
-        config.setSfPackage(properties.getProperty(CommanderConfig.SF_PACKAGE));
-        config.setSvnRepository(properties
-                .getProperty(CommanderConfig.SVN_REPOSITORY));
+        config.setSfSystemname(
+                properties.getProperty(CommanderConfig.SF_SYSTEMNAME));
+        config.setSfUsername(
+                properties.getProperty(CommanderConfig.SF_USERNAME));
+        config.setSfPassword(
+                properties.getProperty(CommanderConfig.SF_PASSWORD));
+        config.setSvnRepository(
+                properties.getProperty(CommanderConfig.SVN_REPOSITORY));
         config.setSvnUser(properties.getProperty(CommanderConfig.SVN_USER));
-        config.setSvnPassword(properties
-                .getProperty(CommanderConfig.SVN_PASSWORD));
-        config.setRenderPath(properties
-                .getProperty(CommanderConfig.RENDER_PATH));
-        config.setBackupPath(properties
-                .getProperty(CommanderConfig.BACKUP_PATH));
+        config.setSvnPassword(
+                properties.getProperty(CommanderConfig.SVN_PASSWORD));
+        config.setRenderPath(
+                properties.getProperty(CommanderConfig.RENDER_PATH));
+        config.setBackupPath(
+                properties.getProperty(CommanderConfig.BACKUP_PATH));
         config.setXlsPath(properties.getProperty(CommanderConfig.XLS_PATH));
-        config.setSfTargetSystemname(properties
-                .getProperty(CommanderConfig.SF_TARGET_SYSTEMNAME));
-        config.setSfTargetUsername(properties
-                .getProperty(CommanderConfig.SF_TARGET_USERNAME));
-        config.setSfTargetPassword(properties
-                .getProperty(CommanderConfig.SF_TARGET_PASSWORD));
-        config.setSfTargetServerurl(properties
-                .getProperty(CommanderConfig.SF_TARGET_SERVERURL));
-        config.setSfTimeoutSeconds(properties
-                .getProperty(CommanderConfig.SF_TIMEOUT_SECONDS));
-        config.setHttpProxyHost(properties
-                .getProperty(CommanderConfig.HTTP_PROXY_HOST));
-        config.setHttpProxyPort(properties
-                .getProperty(CommanderConfig.HTTP_PROXY_PORT));
+        config.setSfTargetSystemname(
+                properties.getProperty(CommanderConfig.SF_TARGET_SYSTEMNAME));
+        config.setSfTargetUsername(
+                properties.getProperty(CommanderConfig.SF_TARGET_USERNAME));
+        config.setSfTargetPassword(
+                properties.getProperty(CommanderConfig.SF_TARGET_PASSWORD));
+        config.setHttpProxyHost(
+                properties.getProperty(CommanderConfig.HTTP_PROXY_HOST));
+        config.setHttpProxyPort(
+                properties.getProperty(CommanderConfig.HTTP_PROXY_PORT));
         return config;
     }
 }
