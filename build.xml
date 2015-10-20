@@ -7,15 +7,14 @@
   <!-- *************************** -->
   <!-- Variables:                  -->
 
-  <property name="root.dir"  value="sfdcCommander" />
-  <property name="src.dir"  value="${root.dir}/src" />
-  <property name="test.dir" value="${root.dir}/test" />
-  <property name="bin.dir"  value="${root.dir}/bin" />
-  <property name="lib.dir"  value="${root.dir}/lib" /> 
-  <property name="etc.dir"  value="${root.dir}/etc" />
+  <property name="src.dir"  value="src" />
+  <property name="test.dir" value="test" />
+  <property name="bin.dir"  value="bin" />
+  <property name="lib.dir"  value="lib" /> 
+  <property name="etc.dir"  value="etc" />
   
-  <property name="dist.dir" value="${root.dir}/dist"/>
-  <property name="doc.dir" value="${root.dir}/doc" />
+  <property name="dist.dir" value="dist"/>
+  <property name="doc.dir" value="doc" />
   <property name="api.dir" value="${doc.dir}/api" />
 
   <!-- ************************************************************-->
