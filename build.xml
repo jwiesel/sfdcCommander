@@ -12,7 +12,7 @@
   <property name="bin.dir"  value="bin" />
   <property name="lib.dir"  value="lib" /> 
   <property name="etc.dir"  value="etc" />
-  
+
   <property name="dist.dir" value="dist"/>
   <property name="doc.dir" value="doc" />
   <property name="api.dir" value="${doc.dir}/api" />
