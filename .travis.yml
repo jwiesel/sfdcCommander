@@ -1,9 +1,6 @@
 language: java
 
-before_script:
-  - cd sfdcCommander
-
-install: mvn install -DskipTests=true -Dgpg.skip=true
+install: mvn install -DskipTests=true -Dgpg.skip=true -f sfdcCommander/pom.xml
 
 jdk:
   - oraclejdk8
