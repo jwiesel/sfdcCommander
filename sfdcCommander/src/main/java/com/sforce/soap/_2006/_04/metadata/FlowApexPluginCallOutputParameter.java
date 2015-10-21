@@ -7,28 +7,29 @@
 
 package com.sforce.soap._2006._04.metadata;
 
-public class FlowApexPluginCallOutputParameter  implements java.io.Serializable {
+public class FlowApexPluginCallOutputParameter implements java.io.Serializable {
     private java.lang.String assignToReference;
 
     private java.lang.String name;
 
-    private com.sforce.soap._2006._04.metadata.FlowMetadataValue[] flowBaseElement;  // attribute
+    private com.sforce.soap._2006._04.metadata.FlowMetadataValue[] flowBaseElement; // attribute
+
+    private FlowMetadataValue[] param1;
 
     public FlowApexPluginCallOutputParameter() {
     }
 
     public FlowApexPluginCallOutputParameter(
-           com.sforce.soap._2006._04.metadata.FlowMetadataValue[] param1,
-           java.lang.String assignToReference,
-           java.lang.String name) {
+            com.sforce.soap._2006._04.metadata.FlowMetadataValue[] param1,
+            java.lang.String assignToReference, java.lang.String name) {
         this.param1 = param1;
         this.assignToReference = assignToReference;
         this.name = name;
     }
 
-
     /**
-     * Gets the assignToReference value for this FlowApexPluginCallOutputParameter.
+     * Gets the assignToReference value for this
+     * FlowApexPluginCallOutputParameter.
      * 
      * @return assignToReference
      */
@@ -36,16 +37,15 @@ public class FlowApexPluginCallOutputParameter  implements java.io.Serializable 
         return assignToReference;
     }
 
-
     /**
-     * Sets the assignToReference value for this FlowApexPluginCallOutputParameter.
+     * Sets the assignToReference value for this
+     * FlowApexPluginCallOutputParameter.
      * 
      * @param assignToReference
      */
     public void setAssignToReference(java.lang.String assignToReference) {
         this.assignToReference = assignToReference;
     }
-
 
     /**
      * Gets the name value for this FlowApexPluginCallOutputParameter.
@@ -56,7 +56,6 @@ public class FlowApexPluginCallOutputParameter  implements java.io.Serializable 
         return name;
     }
 
-
     /**
      * Sets the name value for this FlowApexPluginCallOutputParameter.
      * 
@@ -66,9 +65,9 @@ public class FlowApexPluginCallOutputParameter  implements java.io.Serializable 
         this.name = name;
     }
 
-
     /**
-     * Gets the flowBaseElement value for this FlowApexPluginCallOutputParameter.
+     * Gets the flowBaseElement value for this
+     * FlowApexPluginCallOutputParameter.
      * 
      * @return flowBaseElement
      */
@@ -76,42 +75,54 @@ public class FlowApexPluginCallOutputParameter  implements java.io.Serializable 
         return flowBaseElement;
     }
 
-
     /**
-     * Sets the flowBaseElement value for this FlowApexPluginCallOutputParameter.
+     * Sets the flowBaseElement value for this
+     * FlowApexPluginCallOutputParameter.
      * 
      * @param flowBaseElement
      */
-    public void setFlowBaseElement(com.sforce.soap._2006._04.metadata.FlowMetadataValue[] flowBaseElement) {
+    public void setFlowBaseElement(
+            com.sforce.soap._2006._04.metadata.FlowMetadataValue[] flowBaseElement) {
         this.flowBaseElement = flowBaseElement;
     }
 
     private java.lang.Object __equalsCalc = null;
+
+    @Override
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof FlowApexPluginCallOutputParameter)) return false;
+        if (!(obj instanceof FlowApexPluginCallOutputParameter))
+            return false;
         FlowApexPluginCallOutputParameter other = (FlowApexPluginCallOutputParameter) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null)
+            return false;
+        if (this == obj)
+            return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.assignToReference==null && other.getAssignToReference()==null) || 
-             (this.assignToReference!=null &&
-              this.assignToReference.equals(other.getAssignToReference()))) &&
-            ((this.name==null && other.getName()==null) || 
-             (this.name!=null &&
-              this.name.equals(other.getName()))) &&
-            ((this.flowBaseElement==null && other.getFlowBaseElement()==null) || 
-             (this.flowBaseElement!=null &&
-              java.util.Arrays.equals(this.flowBaseElement, other.getFlowBaseElement())));
+        _equals = super.equals(obj)
+                && ((this.assignToReference == null
+                        && other.getAssignToReference() == null)
+                        || (this.assignToReference != null
+                                && this.assignToReference
+                                        .equals(other.getAssignToReference())))
+                && ((this.name == null && other.getName() == null)
+                        || (this.name != null
+                                && this.name.equals(other.getName())))
+                && ((this.flowBaseElement == null
+                        && other.getFlowBaseElement() == null)
+                        || (this.flowBaseElement != null
+                                && java.util.Arrays.equals(this.flowBaseElement,
+                                        other.getFlowBaseElement())));
         __equalsCalc = null;
         return _equals;
     }
 
     private boolean __hashCodeCalc = false;
+
+    @Override
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
@@ -125,12 +136,11 @@ public class FlowApexPluginCallOutputParameter  implements java.io.Serializable 
             _hashCode += getName().hashCode();
         }
         if (getFlowBaseElement() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getFlowBaseElement());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getFlowBaseElement(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
+            for (int i = 0; i < java.lang.reflect.Array
+                    .getLength(getFlowBaseElement()); i++) {
+                java.lang.Object obj = java.lang.reflect.Array
+                        .get(getFlowBaseElement(), i);
+                if (obj != null && !obj.getClass().isArray()) {
                     _hashCode += obj.hashCode();
                 }
             }
@@ -140,21 +150,28 @@ public class FlowApexPluginCallOutputParameter  implements java.io.Serializable 
     }
 
     // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(FlowApexPluginCallOutputParameter.class, true);
+    private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+            FlowApexPluginCallOutputParameter.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FlowApexPluginCallOutputParameter"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName(
+                "http://soap.sforce.com/2006/04/metadata",
+                "FlowApexPluginCallOutputParameter"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("assignToReference");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "assignToReference"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new javax.xml.namespace.QName(
+                "http://soap.sforce.com/2006/04/metadata",
+                "assignToReference"));
+        elemField.setXmlType(new javax.xml.namespace.QName(
+                "http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("name");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "name"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new javax.xml.namespace.QName(
+                "http://soap.sforce.com/2006/04/metadata", "name"));
+        elemField.setXmlType(new javax.xml.namespace.QName(
+                "http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
@@ -170,24 +187,20 @@ public class FlowApexPluginCallOutputParameter  implements java.io.Serializable 
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType, java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+                _xmlType, typeDesc);
     }
 
     /**
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType, java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+                _xmlType, typeDesc);
     }
 
 }
