@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 
@@ -43,8 +43,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 			</head>
 			<body>
 				<div class="innerbody">
-					<div class="staticheader"><script>document.write(decodeURIComponent(decodeURIComponent('<xsl:value-of select='$trigger' />')));</script></div>
-					<div class="qnav"><a href="javascript:history.back()"><i class="glyphicon glyphicon-circle-arrow-left"></i></a></div>
+					<xsl:call-template name="get-content-header"><xsl:with-param name="file" select="$trigger" /></xsl:call-template>
 					<div class="dynamiccontent">
 						<xsl:for-each select="sfdc:ApexTrigger">
 							<p>

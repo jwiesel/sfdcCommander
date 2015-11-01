@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 
@@ -21,8 +21,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 			<body>
 				<xsl:for-each select="sfdc:CustomApplication">
 				<div class="innerbody">
-						<div class="staticheader"><script>document.write(decodeURIComponent(decodeURIComponent('<xsl:value-of select="$file"/>')));</script></div>
-						<div class="qnav"><a href="javascript:history.back()"><i class="glyphicon glyphicon-circle-arrow-left"></i></a></div>
+						<xsl:call-template name="get-content-header"><xsl:with-param name="file" select="$file" /></xsl:call-template>
 						<div class="dynamiccontent">
 							<p>
 								<b>Label: </b><xsl:value-of select="sfdc:label"/><br />
@@ -48,7 +47,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 														<xsl:value-of select="."/>
 													</xsl:when>
 													<xsl:otherwise>
-														<a><xsl:attribute name="href"><xsl:value-of select="concat('../tabs/', ., '.html')"/></xsl:attribute><xsl:value-of select="."/></a>
+														<a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=tabs&amp;entity=', encode-for-uri(.))"/></xsl:attribute><xsl:value-of select="."/></a>
 													</xsl:otherwise>
 												</xsl:choose>
 											</td>

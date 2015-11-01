@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 
@@ -22,12 +22,12 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 					<div class="innerbody">
 					
 						<xsl:variable name="entity" select="sfdc:entity" /> 
-						<div class="staticheader"><xsl:value-of select="$entity"/></div>
+						<xsl:call-template name="get-content-header"><xsl:with-param name="file" select="$entity" /></xsl:call-template>
 						<div class="dynamiccontent">
 							<table class="table table-striped table-hover">
 								<xsl:for-each select="sfdc:file">
 									<tr>
-										<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../', $entity, '/' ,encode-for-uri(.) , '.html')"/></xsl:attribute><script>document.write(decodeURIComponent('<xsl:value-of select="." />'));</script></a></td>
+										<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=', $entity, '&amp;entity=', encode-for-uri(.))"/></xsl:attribute><xsl:value-of  disable-output-escaping="yes" select="." /></a></td>
 									</tr>
 								</xsl:for-each>
 							</table>

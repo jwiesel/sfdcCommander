@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 
@@ -22,8 +22,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 			<body>
 				<xsl:for-each select="sfdc:CustomObject">
 					<div class="innerbody">
-						<div class="staticheader"><script>document.write(decodeURIComponent(decodeURIComponent('<xsl:value-of select="$file"/>')));</script></div>
-						<div class="qnav"><a href="javascript:history.back()"><i class="glyphicon glyphicon-circle-arrow-left"></i></a></div>
+						<xsl:call-template name="get-content-header"><xsl:with-param name="file" select="$file" /></xsl:call-template>
 						<div class="dynamiccontent">
 							<h3><xsl:if test="sfdc:label!=''"><xsl:value-of select="sfdc:label"/></xsl:if><xsl:if test="sfdc:pluralLabel!=''"> / <xsl:value-of select="sfdc:pluralLabel"/></xsl:if></h3>
 							
@@ -33,7 +32,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 									<xsl:if test="count(sfdc:fields)>0"><li><a href="#fields">Fields</a></li></xsl:if>
 									<xsl:if test="count(sfdc:recordTypes)>0"><li><a href="#recordtypes">Record Types</a></li></xsl:if>
 									<xsl:if test="count(sfdc:validationRules)>0"><li><a href="#validationrules">Validation Rules</a></li></xsl:if>
-									<li><a><xsl:attribute name="href"><xsl:value-of select="concat('../workflows/', $object,'.html')"/></xsl:attribute>Workflows</a></li>
+									<li><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=workflows&amp;entity=', $object)"/></xsl:attribute>Workflows</a></li>
 									<xsl:if test="count(sfdc:actionOverrides)>0"><li><a href="#actionoverrides">Action Overrides</a></li></xsl:if>
 									<xsl:if test="count(sfdc:searchLayouts)>0"><li><a href="#searchlayouts">Search Layouts</a></li></xsl:if>
 									<xsl:if test="count(sfdc:listViews)>0"><li><a href="#listviews">List Views</a></li></xsl:if>
@@ -207,7 +206,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 							</xsl:if>
 							
 							<h3>Workflows</h3>
-							<a><xsl:attribute name="href"><xsl:value-of select="concat('../workflows/', $object,'.html')"/></xsl:attribute>View Object Workflows</a>
+							<a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=workflows&amp;entity=', $object)"/></xsl:attribute>View Object Workflows</a>
 							
 							<xsl:if test="count(sfdc:actionOverrides)>0">
 							<h3><a name="actionoverrides">Action Overrides</a></h3>

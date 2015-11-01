@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 
@@ -21,8 +21,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 			<body>
 				<xsl:for-each select="sfdc:PermissionSet">
 					<div class="innerbody">
-						<div class="staticheader"><script>document.write(decodeURIComponent(decodeURIComponent('<xsl:value-of select='$file' />')));</script></div>
-						<div class="qnav"><a href="javascript:history.back()"><i class="glyphicon glyphicon-circle-arrow-left"></i></a></div>
+						<xsl:call-template name="get-content-header"><xsl:with-param name="file" select="$file" /></xsl:call-template>
 						<div class="dynamiccontent">
 							<p>
 								<ul class="nav nav-pills">
@@ -65,7 +64,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 									</tr>
 									<xsl:for-each select="sfdc:pageAccesses">
 										<tr>
-											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../pages/', sfdc:apexPage,'.page-meta.html')"/></xsl:attribute><xsl:value-of select="sfdc:apexPage"/></a></td>
+											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=pages&amp;entity=', sfdc:apexPage,'.page-meta')"/></xsl:attribute><xsl:value-of select="sfdc:apexPage"/></a></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:enabled" /><xsl:with-param name="title" select="'Enabled?'" /></xsl:call-template></td>
 										</tr>
 									</xsl:for-each>

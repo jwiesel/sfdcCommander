@@ -112,6 +112,7 @@ public class ObjectExporter {
                 DOMSource source = new DOMSource(doc);
 
                 StreamResult result = new StreamResult(objectFile);
+                // StreamResult result = new StreamResult(System.out);
                 transformer.transform(source, result);
 
             } catch (ParserConfigurationException e) {

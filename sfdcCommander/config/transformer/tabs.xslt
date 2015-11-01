@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 
@@ -26,7 +26,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 						<div class="qnav"><a href="javascript:history.back()"><i class="glyphicon glyphicon-circle-arrow-left"></i></a></div>
 						<div class="dynamiccontent">
 							<p>
-								<xsl:if test="sfdc:customObject='true'"><b>Custom Object: </b><a><xsl:attribute name="href"><xsl:value-of select="concat('../objects/',$tab,'.html')"/></xsl:attribute><xsl:value-of select="$tab"/></a><br /></xsl:if>
+								<xsl:if test="sfdc:customObject='true'"><b>Custom Object: </b><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=objects&amp;entity=',$tab)"/></xsl:attribute><xsl:value-of select="$tab"/></a><br /></xsl:if>
 								<xsl:if test="count(sfdc:scontrol)>0"><b>sControl: </b><xsl:value-of select="sfdc:scontrol"/><br /></xsl:if>
 								<xsl:if test="count(sfdc:label)>0"><b>Label: </b><xsl:value-of select="sfdc:label"/><br /></xsl:if>
 								<xsl:if test="count(sfdc:motif)>0"><b>Motif: </b><xsl:value-of select="sfdc:motif"/><br /></xsl:if>

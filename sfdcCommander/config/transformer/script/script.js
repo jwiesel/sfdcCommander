@@ -10,29 +10,18 @@ function init(){
 	  $('[data-toggle="tooltip"]').tooltip()
 	});
 	
-	$('.togglesidebar').click(function(){
-		//TODO
-	});
-	
-	$('#original').click(function (){
-		$('link#style').attr('href','css/styles.css');
-		var iframe = $('.contentframe');
-		$('link#styleiframe', iframe.contents()).attr('href','../css/styles.css');
-	});
-	$('#green').click(function (){
-		$('link#style').attr('href','css/styles-green.css');
-		var iframe = $('.contentframe');
-		$('link#styleiframe', iframe.contents()).attr('href','../css/styles-green.css');
-	});
-	$('#grey').click(function (){
-		$('link#style').attr('href','css/styles-grey.css');
-		var iframe = $('.contentframe');
-		$('link#styleiframe', iframe.contents()).attr('href','../css/styles-grey.css');
-	});
-	if($('link#style').attr('href')=='css/styles-green.css') {
-		$('#green').trigger('click');
-	}
-	if($('link#style').attr('href')=='css/styles-grey.css') {
-		$('#grey').trigger('click');
-	}
 }
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};

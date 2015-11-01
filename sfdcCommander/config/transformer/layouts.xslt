@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 
@@ -22,8 +22,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 			<body>
 				<xsl:for-each select="sfdc:Layout">
 					<div class="innerbody">
-						<div class="staticheader"><script>document.write(decodeURIComponent(decodeURIComponent('<xsl:value-of select="$file"/>')));</script></div>
-						<div class="qnav"><a href="javascript:history.back()"><i class="glyphicon glyphicon-circle-arrow-left"></i></a></div>
+						<xsl:call-template name="get-content-header"><xsl:with-param name="file" select="$file" /></xsl:call-template>
 						<div class="dynamiccontent">
 							<p>
 								<ul class="nav nav-pills">
@@ -78,7 +77,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 											<td>
 												<xsl:for-each select="sfdc:layoutItems">
 													<xsl:if test="sfdc:field!=''">
-														<div class="f-label"><a><xsl:attribute name="href"><xsl:value-of select="concat('../objects/',$object,'.html#f_',sfdc:field)"/></xsl:attribute><xsl:value-of select="sfdc:field"/></a></div>
+														<div class="f-label"><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=objects&amp;entity=',$object,'#f_',sfdc:field)"/></xsl:attribute><xsl:value-of select="sfdc:field"/></a></div>
 														<div><xsl:attribute name="class"><xsl:value-of select="concat('field ', sfdc:behavior)"/></xsl:attribute></div>
 													</xsl:if>
 													

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 
@@ -21,8 +21,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 			<body>
 				<xsl:for-each select="sfdc:Profile">
 					<div class="innerbody">
-						<div class="staticheader"><script>document.write(decodeURIComponent(decodeURIComponent('<xsl:value-of select='$file' />')));</script></div>
-						<div class="qnav"><a href="javascript:history.back()"><i class="glyphicon glyphicon-circle-arrow-left"></i></a></div>
+						<xsl:call-template name="get-content-header"><xsl:with-param name="file" select="$file" /></xsl:call-template>
 						<div class="dynamiccontent">
 							<p>
 								<ul class="nav nav-pills">
@@ -78,7 +77,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 									</tr>
 									<xsl:for-each select="sfdc:objectPermissions">
 										<tr>
-											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../objects/',sfdc:object,'.html')"/></xsl:attribute><xsl:value-of select="sfdc:object"/></a></td>
+											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=objects&amp;entity=',sfdc:object)"/></xsl:attribute><xsl:value-of select="sfdc:object"/></a></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:allowCreate" /><xsl:with-param name="title" select="'Allow Create?'" /></xsl:call-template></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:allowRead" /><xsl:with-param name="title" select="'Allow Read?'" /></xsl:call-template></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:allowEdit" /><xsl:with-param name="title" select="'Allow Edit?'" /></xsl:call-template></td>
@@ -103,7 +102,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 										<tr>
 											<xsl:variable name="robject"><xsl:value-of select="substring-before(sfdc:recordType,'.')"/></xsl:variable>
 											<xsl:variable name="rtype"><xsl:value-of select="substring-after(sfdc:recordType,'.')"/></xsl:variable>
-											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../objects/',$robject,'.html#r_',$rtype)"/></xsl:attribute><xsl:value-of select="sfdc:recordType"/></a></td>
+											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=objects&amp;entity=',$robject,'#r_',$rtype)"/></xsl:attribute><xsl:value-of select="sfdc:recordType"/></a></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:visible" /><xsl:with-param name="title" select="'Visible?'" /></xsl:call-template></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:default" /><xsl:with-param name="title" select="'Default?'" /></xsl:call-template></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:personAccountDefault" /><xsl:with-param name="title" select="'personAccountDefault?'" /></xsl:call-template></td>
@@ -121,7 +120,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 									</tr>
 									<xsl:for-each select="sfdc:layoutAssignments">
 										<tr>
-											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../layouts/',sfdc:layout,'.html')"/></xsl:attribute><xsl:value-of select="sfdc:layout"/></a></td>
+											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=layouts&amp;entity=',sfdc:layout)"/></xsl:attribute><xsl:value-of select="sfdc:layout"/></a></td>
 											<td><xsl:value-of select="sfdc:recordType"/></td>
 										</tr>
 									</xsl:for-each>
@@ -140,7 +139,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 										<tr>
 											<xsl:variable name="object"><xsl:value-of select="substring-before(sfdc:field,'.')"/></xsl:variable>
 											<xsl:variable name="field"><xsl:value-of select="substring-after(sfdc:field,'.')"/></xsl:variable>
-											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../objects/',$object,'.html#f_',$field)"/></xsl:attribute><xsl:value-of select="sfdc:field"/></a></td>
+											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=objects&amp;entity=',$object,'#f_',$field)"/></xsl:attribute><xsl:value-of select="sfdc:field"/></a></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:readable" /><xsl:with-param name="title" select="'Readable?'" /></xsl:call-template></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:editable" /><xsl:with-param name="title" select="'Editable?'" /></xsl:call-template></td>
 										</tr>

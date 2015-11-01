@@ -19,15 +19,29 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 				<xsl:call-template name="get-header"></xsl:call-template>
 			</head>
 			<body>
-				<xsl:for-each select="sfdc:RemoteSiteSetting">
-					<div class="innerbody">
+				<xsl:for-each select="sfdc:AppMenu">
+				<div class="innerbody">
 						<xsl:call-template name="get-content-header"><xsl:with-param name="file" select="$file" /></xsl:call-template>
 						<div class="dynamiccontent">
-							<p>
-								<b>URL: </b><xsl:value-of select="sfdc:url"/><br />
-								<b>Active?: </b><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:isActive" /></xsl:call-template><br />
-								<b>Disable Protocol Security?: </b><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:disableProtocolSecurity" /></xsl:call-template><br />
-							</p>
+							<xsl:if test="count(sfdc:appMenuItems)>0">
+								<h3><a name="tab">App Menu Items</a></h3>
+								<table class="table table-striped table-hover">
+									<tr class="headline">
+										<th>Name</th>
+										<th>Type</th>
+									</tr>
+									<xsl:for-each select="sfdc:appMenuItems">
+										<tr>
+											<td>
+												<xsl:value-of select="sfdc:name"/>
+											</td>
+											<td>
+												<xsl:value-of select="sfdc:type"/>
+											</td>
+										</tr>
+									</xsl:for-each>
+								</table>
+							</xsl:if>
 						</div>
 					</div>
 				</xsl:for-each>
