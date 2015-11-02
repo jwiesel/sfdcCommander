@@ -26,9 +26,9 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 							<p>
 								<ul class="nav nav-pills">
 									<h3>Quick Navigation</h3>
-									<xsl:if test="count(sfdc:networkAccess)>0"><li><a href="#networkaccess">Network Access</a></li></xsl:if>
-									<xsl:if test="count(sfdc:passwordPolicies)>0"><li><a href="#passwordpolicies">Password Policies</a></li></xsl:if>
-									<xsl:if test="count(sfdc:sessionSettings)>0"><li><a href="#sessionsettings">sessionSettings</a></li></xsl:if>
+									<xsl:if test="count(sfdc:networkAccess)>0"><li><a target="_self" href="#networkaccess">Network Access</a></li></xsl:if>
+									<xsl:if test="count(sfdc:passwordPolicies)>0"><li><a target="_self" href="#passwordpolicies">Password Policies</a></li></xsl:if>
+									<xsl:if test="count(sfdc:sessionSettings)>0"><li><a target="_self" href="#sessionsettings">sessionSettings</a></li></xsl:if>
 								</ul>
 							</p>
 							

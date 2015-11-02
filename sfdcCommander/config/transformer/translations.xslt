@@ -26,12 +26,12 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 							<p>
 								<ul class="nav nav-pills">
 									<h3>Quick Navigation</h3>
-									<xsl:if test="count(sfdc:customApplications)>0"><li><a href="#customapplications">Custom Applications</a></li></xsl:if>
-									<xsl:if test="count(sfdc:customTabs)>0"><li><a href="#customtabs">Custom Tabs</a></li></xsl:if>
-									<xsl:if test="count(sfdc:customLabels)>0"><li><a href="#customlabels">Custom Labels</a></li></xsl:if>
-									<xsl:if test="count(sfdc:customPageWebLinks)>0"><li><a href="#custompageweblinks">Custom Page WebLinks</a></li></xsl:if>
-									<xsl:if test="count(sfdc:scontrols)>0"><li><a href="#scontrols">sControls</a></li></xsl:if>
-									<xsl:if test="count(sfdc:reportTypes)>0"><li><a href="#reporttypes">Report Types</a></li></xsl:if>
+									<xsl:if test="count(sfdc:customApplications)>0"><li><a target="_self" href="#customapplications">Custom Applications</a></li></xsl:if>
+									<xsl:if test="count(sfdc:customTabs)>0"><li><a target="_self" href="#customtabs">Custom Tabs</a></li></xsl:if>
+									<xsl:if test="count(sfdc:customLabels)>0"><li><a target="_self" href="#customlabels">Custom Labels</a></li></xsl:if>
+									<xsl:if test="count(sfdc:customPageWebLinks)>0"><li><a target="_self" href="#custompageweblinks">Custom Page WebLinks</a></li></xsl:if>
+									<xsl:if test="count(sfdc:scontrols)>0"><li><a target="_self" href="#scontrols">sControls</a></li></xsl:if>
+									<xsl:if test="count(sfdc:reportTypes)>0"><li><a target="_self" href="#reporttypes">Report Types</a></li></xsl:if>
 								</ul>
 							</p>
 							

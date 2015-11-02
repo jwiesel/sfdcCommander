@@ -31,7 +31,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 								<h4>Rule Entries</h4>
 								<table class="table table-striped table-hover">
 									<tr class="headline">
-										<th>businessHoursSource</th>
+										<th>Business Hours Source</th>
 										<th>Criteria Items</th>
 										<th>Escalation Action</th>
 										<th>Escalation Start Time</th>
@@ -56,13 +56,15 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 												</table>
 											</td>
 											<td>
-												<b>Assigned To: </b><xsl:value-of select="sfdc:assignedTo"/>
-												<b>Assigned To Template: </b><xsl:value-of select="sfdc:assignedToTemplate"/>
-												<b>Assigned To Type: </b><xsl:value-of select="sfdc:assignedToType"/>
-												<b>Minutes To Escalation: </b><xsl:value-of select="sfdc:minutesToEscalation"/>
-												<b>Notify Case Owner: </b><xsl:value-of select="sfdc:notifyCaseOwner"/>
-												<b>Notify To: </b><xsl:value-of select="sfdc:notifyTo"/>
-												<b>Notify To Template: </b><xsl:value-of select="sfdc:notifyToTemplate"/>
+												<xsl:for-each select="sfdc:escalationAction">
+													<b>Assigned To: </b><xsl:value-of select="sfdc:assignedTo"/><br />
+													<b>Assigned To Template: </b><xsl:value-of select="sfdc:assignedToTemplate"/><br />
+													<b>Assigned To Type: </b><xsl:value-of select="sfdc:assignedToType"/><br />
+													<b>Minutes To Escalation: </b><xsl:value-of select="sfdc:minutesToEscalation"/><br />
+													<b>Notify Case Owner: </b><xsl:value-of select="sfdc:notifyCaseOwner"/><br />
+													<b>Notify To: </b><xsl:value-of select="sfdc:notifyTo"/><br />
+													<b>Notify To Template: </b><xsl:value-of select="sfdc:notifyToTemplate"/>
+												</xsl:for-each>
 											</td>
 											<td><xsl:value-of select="sfdc:escalationStartTime"/></td>
 										</tr>

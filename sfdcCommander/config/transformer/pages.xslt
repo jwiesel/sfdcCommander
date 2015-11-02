@@ -49,6 +49,8 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 							<p>
 								<b>Label: </b><xsl:value-of select="sfdc:label"/><br />
 								<b>API Version: </b><xsl:value-of select="sfdc:apiVersion"/><br />
+								<b>Available In Touch?: </b><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:availableInTouch" /></xsl:call-template><br />
+								<b>Confirmation Token Required?: </b><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:confirmationTokenRequired" /></xsl:call-template><br />
 								<b>Description: </b><span><xsl:call-template name="highlight-description"><xsl:with-param name="field" select="sfdc:description" /></xsl:call-template></span>
 
 								<pre class="code"></pre>

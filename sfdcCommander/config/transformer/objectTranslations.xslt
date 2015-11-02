@@ -112,7 +112,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 											<td><xsl:value-of select="sfdc:layout"/></td>
 											<td>
 												<xsl:if test="count(sfdc:sections)>0">
-													<table class="embedded_visible">
+													<table class="embedded_visible table table-striped">
 														<tr>
 															<th>Name</th>
 															<th>Label</th>

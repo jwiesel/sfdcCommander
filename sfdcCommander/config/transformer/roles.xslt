@@ -29,7 +29,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 									<th>Name</th>
 									<th>Description</th>
 									<th>Parent Role</th>
-									<th>mayForecastManagerShare???</th>
+									<th>May Forecast Manager Share</th>
 									<th>Case Access Level</th>
 									<th>Contact Access Level</th>
 									<th>Opportunity Access Level</th>

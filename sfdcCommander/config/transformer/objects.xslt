@@ -29,14 +29,14 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 							<p>
 								<ul class="nav nav-pills">
 									<h3>Quick Navigation</h3>
-									<xsl:if test="count(sfdc:fields)>0"><li><a href="#fields">Fields</a></li></xsl:if>
-									<xsl:if test="count(sfdc:recordTypes)>0"><li><a href="#recordtypes">Record Types</a></li></xsl:if>
-									<xsl:if test="count(sfdc:validationRules)>0"><li><a href="#validationrules">Validation Rules</a></li></xsl:if>
-									<li><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=workflows&amp;entity=', $object)"/></xsl:attribute>Workflows</a></li>
-									<xsl:if test="count(sfdc:actionOverrides)>0"><li><a href="#actionoverrides">Action Overrides</a></li></xsl:if>
-									<xsl:if test="count(sfdc:searchLayouts)>0"><li><a href="#searchlayouts">Search Layouts</a></li></xsl:if>
-									<xsl:if test="count(sfdc:listViews)>0"><li><a href="#listviews">List Views</a></li></xsl:if>
-									<xsl:if test="count(sfdc:webLinks)>0"><li><a href="#weblinks">Web Links</a></li></xsl:if>
+									<xsl:if test="count(sfdc:fields)>0"><li><a target="_self" href="#fields">Fields</a></li></xsl:if>
+									<xsl:if test="count(sfdc:recordTypes)>0"><li><a target="_self" href="#recordtypes">Record Types</a></li></xsl:if>
+									<xsl:if test="count(sfdc:validationRules)>0"><li><a target="_self" href="#validationrules">Validation Rules</a></li></xsl:if>
+									<li><a target="_self"><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=workflows&amp;entity=', $object)"/></xsl:attribute>Workflows</a></li>
+									<xsl:if test="count(sfdc:actionOverrides)>0"><li><a target="_self" href="#actionoverrides">Action Overrides</a></li></xsl:if>
+									<xsl:if test="count(sfdc:searchLayouts)>0"><li><a target="_self" href="#searchlayouts">Search Layouts</a></li></xsl:if>
+									<xsl:if test="count(sfdc:listViews)>0"><li><a target="_self" href="#listviews">List Views</a></li></xsl:if>
+									<xsl:if test="count(sfdc:webLinks)>0"><li><a target="_self" href="#weblinks">Web Links</a></li></xsl:if>
 								</ul>
 							</p>
 							
@@ -232,10 +232,10 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 							<h3><a name="searchlayouts">Search Layouts</a></h3>
 							<table class="table table-striped table-hover">
 							<tr class="headline">
-							<th>customTabListAdditionalFields???</th>
-							<th>lookupDialogsAdditionalFields???</th>
-							<th>searchFilterFields???</th>
-							<th>searchResultsAdditionalFields???</th>
+							<th>Custom Tab List Additional Fields</th>
+							<th>Lookup Dialogs Additional Fields</th>
+							<th>Search Filter Fields</th>
+							<th>Search Results Additional Fields</th>
 							</tr>
 							<xsl:for-each select="sfdc:searchLayouts">
 								<tr>

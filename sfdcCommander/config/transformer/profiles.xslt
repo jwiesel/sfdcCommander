@@ -26,17 +26,39 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 							<p>
 								<ul class="nav nav-pills">
 									<h3>Quick Navigation</h3>
-									<xsl:if test="count(sfdc:tabVisibilities)>0"><li><a href="#tabvisibilities">Tab Visibilities</a></li></xsl:if>
-									<xsl:if test="count(sfdc:objectPermissions)>0"><li><a href="#objectpermissions">Object Permissions</a></li></xsl:if>
-									<xsl:if test="count(sfdc:recordTypeVisibilities)>0"><li><a href="#recordtypevisibilities">Record Type Visibilities</a></li></xsl:if>
-									<xsl:if test="count(sfdc:layoutAssignments)>0"><li><a href="#layoutassignments">Layout Assignments</a></li></xsl:if>
-									<xsl:if test="count(sfdc:fieldPermissions)>0"><li><a href="#fieldpermissions">Field Permissions</a></li></xsl:if>
+									<xsl:if test="count(sfdc:applicationVisibilities)>0"><li><a target="_self" href="#applicationvisibilities">Application Visibilities</a></li></xsl:if>
+									<xsl:if test="count(sfdc:tabVisibilities)>0"><li><a target="_self" href="#tabvisibilities">Tab Visibilities</a></li></xsl:if>
+									<xsl:if test="count(sfdc:objectPermissions)>0"><li><a target="_self" href="#objectpermissions">Object Permissions</a></li></xsl:if>
+									<xsl:if test="count(sfdc:recordTypeVisibilities)>0"><li><a target="_self" href="#recordtypevisibilities">Record Type Visibilities</a></li></xsl:if>
+									<xsl:if test="count(sfdc:layoutAssignments)>0"><li><a target="_self" href="#layoutassignments">Layout Assignments</a></li></xsl:if>
+									<xsl:if test="count(sfdc:pageAccesses)>0"><li><a target="_self" href="#pageaccesses">Page Accesses</a></li></xsl:if>
+									<xsl:if test="count(sfdc:fieldPermissions)>0"><li><a target="_self" href="#fieldpermissions">Field Permissions</a></li></xsl:if>
+									<xsl:if test="count(sfdc:userPermissions)>0"><li><a target="_self" href="#userpermissions">User Permissions</a></li></xsl:if>
 								</ul>
 							</p>
 							
 							<p>
 								<b>User License: </b><xsl:value-of select="sfdc:userLicense"/><br />
+								<b>Custom?: </b><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:custom" /></xsl:call-template>
 							</p>
+							
+							<xsl:if test="count(sfdc:applicationVisibilities)>0">
+								<h3><a name="applicationvisibilities">Application Visibilities</a></h3>
+								<table class="table table-striped table-hover">
+									<tr class="headline">
+										<th>Application</th>
+										<th>Default?</th>
+										<th>Visible?</th>
+									</tr>
+									<xsl:for-each select="sfdc:applicationVisibilities">
+										<tr>
+											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=applications&amp;entity=', sfdc:application)"/></xsl:attribute><xsl:value-of select="sfdc:application"/></a></td>
+											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:default" /><xsl:with-param name="title" select="'Default?'" /></xsl:call-template></td>
+											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:visible" /><xsl:with-param name="title" select="'Visible?'" /></xsl:call-template></td>
+										</tr>
+									</xsl:for-each>
+								</table>
+							</xsl:if>
 							
 							<xsl:if test="count(sfdc:tabVisibilities)>0">
 								<h3><a name="tabvisibilities">Tab Visibilities</a></h3>
@@ -127,6 +149,22 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 								</table>
 							</xsl:if>
 							
+							<xsl:if test="count(sfdc:pageAccesses)>0">
+								<h3><a name="pageaccesses">Page Accesses</a></h3>
+								<table class="table table-striped table-hover">
+									<tr class="headline">
+										<th>Apex Page</th>
+										<th>Enabled?</th>
+									</tr>
+									<xsl:for-each select="sfdc:pageAccesses">
+										<tr>
+											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=pages&amp;entity=', sfdc:apexPage,'.page-meta')"/></xsl:attribute><xsl:value-of select="sfdc:apexPage"/></a></td>
+											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:enabled" /><xsl:with-param name="title" select="'Enabled?'" /></xsl:call-template></td>
+										</tr>
+									</xsl:for-each>
+								</table>
+							</xsl:if>
+							
 							<xsl:if test="count(sfdc:fieldPermissions)>0">
 								<h3><a name="fieldpermissions">Field Permissions</a></h3>
 								<table class="table table-striped table-hover">
@@ -142,6 +180,22 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=objects&amp;entity=',$object,'#f_',$field)"/></xsl:attribute><xsl:value-of select="sfdc:field"/></a></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:readable" /><xsl:with-param name="title" select="'Readable?'" /></xsl:call-template></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:editable" /><xsl:with-param name="title" select="'Editable?'" /></xsl:call-template></td>
+										</tr>
+									</xsl:for-each>
+								</table>
+							</xsl:if>
+							
+							<xsl:if test="count(sfdc:userPermissions)>0">
+								<h3><a name="userpermissions">User Permissions</a></h3>
+								<table class="table table-striped table-hover">
+									<tr class="headline">
+										<th>Field</th>
+										<th>Enabled?</th>
+									</tr>
+									<xsl:for-each select="sfdc:userPermissions">
+										<tr>
+											<td><xsl:value-of select="sfdc:name"/></td>
+											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:enabled" /><xsl:with-param name="title" select="'Enabled?'" /></xsl:call-template></td>
 										</tr>
 									</xsl:for-each>
 								</table>

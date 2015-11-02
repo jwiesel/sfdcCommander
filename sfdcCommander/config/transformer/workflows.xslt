@@ -27,10 +27,10 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 							<p>
 								<ul class="nav nav-pills">
 									<h3>Quick Navigation</h3>
-									<xsl:if test="count(sfdc:rules)>0"><li><a href="#rules">Rules</a></li></xsl:if>
-									<xsl:if test="count(sfdc:fieldUpdates)>0"><li><a href="#fieldupdates">Field Updates</a></li></xsl:if>
-									<xsl:if test="count(sfdc:alerts)>0"><li><a href="#alerts">Alerts</a></li></xsl:if>
-									<xsl:if test="count(sfdc:tasks)>0"><li><a href="#tasks">Tasks</a></li></xsl:if>
+									<xsl:if test="count(sfdc:rules)>0"><li><a target="_self" href="#rules">Rules</a></li></xsl:if>
+									<xsl:if test="count(sfdc:fieldUpdates)>0"><li><a target="_self" href="#fieldupdates">Field Updates</a></li></xsl:if>
+									<xsl:if test="count(sfdc:alerts)>0"><li><a target="_self" href="#alerts">Alerts</a></li></xsl:if>
+									<xsl:if test="count(sfdc:tasks)>0"><li><a target="_self" href="#tasks">Tasks</a></li></xsl:if>
 								</ul>
 							</p>
 							<xsl:if test="count(sfdc:rules)=0 and count(sfdc:fieldUpdates)=0 and count(sfdc:alerts)=0 and count(sfdc:tasks)=0">

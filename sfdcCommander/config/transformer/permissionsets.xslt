@@ -26,10 +26,13 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 							<p>
 								<ul class="nav nav-pills">
 									<h3>Quick Navigation</h3>
-									<xsl:if test="count(sfdc:classAccesses)>0"><li><a href="#classaccesses">Class Accesses</a></li></xsl:if>
-									<xsl:if test="count(sfdc:pageAccesses)>0"><li><a href="#pageaccesses">Page Accesses</a></li></xsl:if>
-									<xsl:if test="count(sfdc:userPermissions)>0"><li><a href="#userpermissions">User Permissions</a></li></xsl:if>
-									<xsl:if test="count(sfdc:fieldPermissions)>0"><li><a href="#fieldpermissions">Field Permissions</a></li></xsl:if>
+									<xsl:if test="count(sfdc:applicationVisibilities)>0"><li><a target="_self" href="#applicationvisibilities">Application Visibilities</a></li></xsl:if>
+									<xsl:if test="count(sfdc:tabSettings)>0"><li><a target="_self" href="#tabsettings">Tab Settings</a></li></xsl:if>
+									<xsl:if test="count(sfdc:classAccesses)>0"><li><a target="_self" href="#classaccesses">Class Accesses</a></li></xsl:if>
+									<xsl:if test="count(sfdc:pageAccesses)>0"><li><a target="_self" href="#pageaccesses">Page Accesses</a></li></xsl:if>
+									<xsl:if test="count(sfdc:userPermissions)>0"><li><a target="_self" href="#userpermissions">User Permissions</a></li></xsl:if>
+									<xsl:if test="count(sfdc:recordTypeVisibilities)>0"><li><a target="_self" href="#recordtypevisibilities">RecordType Visibilities</a></li></xsl:if>
+									<xsl:if test="count(sfdc:fieldPermissions)>0"><li><a target="_self" href="#fieldpermissions">Field Permissions</a></li></xsl:if>
 								</ul>
 							</p>
 							
@@ -38,6 +41,38 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 								<b>User License: </b><xsl:value-of select="sfdc:userLicense"/><br />
 								<b>Description: </b><span><xsl:call-template name="highlight-description"><xsl:with-param name="field" select="sfdc:description" /></xsl:call-template></span>
 							</p>
+							
+							<xsl:if test="count(sfdc:applicationVisibilities)>0">
+								<h3><a name="applicationvisibilities">Application Visibilities</a></h3>
+								<table class="table table-striped table-hover">
+									<tr class="headline">
+										<th>Application</th>
+										<th>Visible?</th>
+									</tr>
+									<xsl:for-each select="sfdc:applicationVisibilities">
+										<tr>
+											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=applications&amp;entity=', sfdc:application)"/></xsl:attribute><xsl:value-of select="sfdc:application"/></a></td>
+											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:visible" /><xsl:with-param name="title" select="'Visible?'" /></xsl:call-template></td>
+										</tr>
+									</xsl:for-each>
+								</table>
+							</xsl:if>
+							
+							<xsl:if test="count(sfdc:tabSettings)>0">
+								<h3><a name="tabsettings">Tab Settings</a></h3>
+								<table class="table table-striped table-hover">
+									<tr class="headline">
+										<th>Tab</th>
+										<th>Visibility</th>
+									</tr>
+									<xsl:for-each select="sfdc:tabSettings">
+										<tr>
+											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=tabs&amp;entity=', sfdc:tab)"/></xsl:attribute><xsl:value-of select="sfdc:tab"/></a></td>
+											<td><xsl:value-of select="sfdc:visibility"/></td>
+										</tr>
+									</xsl:for-each>
+								</table>
+							</xsl:if>
 							
 							<xsl:if test="count(sfdc:classAccesses)>0">
 								<h3><a name="classaccesses">Class Accesses</a></h3>
@@ -82,6 +117,22 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 										<tr>
 											<td><xsl:value-of select="sfdc:name"/></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:enabled" /><xsl:with-param name="title" select="'Enabled?'" /></xsl:call-template></td>
+										</tr>
+									</xsl:for-each>
+								</table>
+							</xsl:if>
+							
+							<xsl:if test="count(sfdc:recordTypeVisibilities)>0">
+								<h3><a name="recordtypevisibilities">RecordType Visibilities</a></h3>
+								<table class="table table-striped table-hover">
+									<tr class="headline">
+										<th>RecordType</th>
+										<th>Visible?</th>
+									</tr>
+									<xsl:for-each select="sfdc:recordTypeVisibilities">
+										<tr>
+											<td><xsl:value-of select="sfdc:recordType"/></td>
+											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:visible" /><xsl:with-param name="title" select="'Enabled?'" /></xsl:call-template></td>
 										</tr>
 									</xsl:for-each>
 								</table>
