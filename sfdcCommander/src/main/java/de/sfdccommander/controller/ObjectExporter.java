@@ -21,6 +21,8 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import com.sforce.soap.partner.DescribeGlobalResult;
@@ -109,6 +111,7 @@ public class ObjectExporter {
                         .newInstance();
                 Transformer transformer = transformerFactory.newTransformer();
                 transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+                addXmlNamespace(doc.getDocumentElement());
                 DOMSource source = new DOMSource(doc);
 
                 StreamResult result = new StreamResult(objectFile);
@@ -154,6 +157,20 @@ public class ObjectExporter {
             field.appendChild(element);
         }
         return field;
+    }
+
+    public static void addXmlNamespace(Node node) {
+        NodeList nodeList = node.getChildNodes();
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            Node currentNode = nodeList.item(i);
+            if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
+                // calls this method for all the children which is Element
+                Element element = (Element) currentNode;
+                element.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns",
+                        "http://soap.sforce.com/2006/04/metadata");
+                addXmlNamespace(currentNode);
+            }
+        }
     }
 
 }
