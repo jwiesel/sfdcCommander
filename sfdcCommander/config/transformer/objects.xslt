@@ -53,7 +53,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 									<b>Name Field: </b><xsl:value-of select="sfdc:label"/><br />
 								</xsl:for-each>
 							</p>
-							
+							<xsl:call-template name="get-fadertoggle"></xsl:call-template>
 							<xsl:if test="count(sfdc:fields)>0">
 							<h3><a name="fields">Fields</a></h3>
 							<table class="table table-striped table-hover">

@@ -23,6 +23,12 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 				</script>
 				<link rel="stylesheet" href="css/wrapper.css" type="text/css" id="styleiframe" />
 				<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" id="style" />
+				<link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico" />
+				<meta property="og:image" content="images/Tile.png" />
+				<meta property="og:image:type" content="image/png" />
+				<meta content="512" property="og:image:width" />
+				<meta content="512" property="og:image:height" />
+				<meta name="msapplication-TileImage" content="images/Tile.png" />
 				<meta charset="utf-8" />
 				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -53,7 +59,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 							</div>
 						</div>
 						<div class="row content">
-							<div class="col-md-3">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 								<xsl:variable name="entity" select="sfdc:entity" />
 								<div class="panel panel-primary">
 									<div class="panel-heading">
@@ -75,7 +81,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 									</div>
 								</div>
 							</div>
-							<div class="col-md-9">
+							<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
 								<div class="panel panel-primary">
 									<iframe class="contentframe" name="content" onLoad="init();"><xsl:attribute name="src"><xsl:value-of select="concat('lists/' ,sfdc:file[1] , '.html')"/></xsl:attribute>
 										<p>Your browser does not support iframes</p>

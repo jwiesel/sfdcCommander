@@ -151,6 +151,9 @@ tr.dataline:nth-child(2n+3), ul.quicknav li:nth-child(2n+1)  {
 }
 
 /* Embedded Table */
+.togglefader:hover {
+	cursor: pointer;
+}
 .fader {
 	color: #337ab7;
 }

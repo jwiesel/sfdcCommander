@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+.qnav {
+    display: none;
+}
+
+.staticheader {
+    font-size: 30px;
+    margin-bottom: 10px;
+    padding-left: 0;
+    position: relative;
+}
+
+.dynamiccontent {
+    padding-top: 0;
+}
+
+ul.nav.nav-pills {
+    display: none;
+}

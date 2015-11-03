@@ -79,7 +79,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 						</xsl:for-each>
 						
 						<xsl:for-each select="sfdc:AddressSettings">
-
+							<xsl:call-template name="get-fadertoggle"></xsl:call-template>
 							<xsl:for-each select="sfdc:countriesAndStates">
 								<h3><a name="countriesAndStates">Countries &amp; States</a></h3>
 								<table class="table table-striped table-hover">

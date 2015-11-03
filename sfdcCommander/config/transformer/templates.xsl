@@ -12,9 +12,9 @@
 		<script>
 			$(document).ready(function(){init();});
 		</script>
-		<link rel="stylesheet" href="../css/content.css" type="text/css" />
-		<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css"
-			id="style" />
+		<link rel="stylesheet" href="../css/content.css" type="text/css" media="screen, print"/>
+		<link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="screen, print" />
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,15 +27,31 @@
 		<div class="qnav">
 			<a href="javascript:history.back()">
 				<i class="glyphicon glyphicon-circle-arrow-left"></i>
-			</a> 
+			</a><xsl:text> </xsl:text> 
 			<a rel="nofollow"
-				onclick="w = window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); w.focus(); w.print(); return false;"
+				onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;"
 				title="Print">
 				<xsl:attribute name="href"><xsl:call-template name="substring-before-last">
 						<xsl:with-param name="string" select="$file" />
 						<xsl:with-param name="delimiter" select="'.'" />
 					</xsl:call-template>.html</xsl:attribute>
 				<span class="glyphicon glyphicon-print"></span>
+			</a>
+		</div>
+	</xsl:template>
+	
+	<xsl:template name="get-fadertoggle">
+		<script>
+			$(document).ready(function(){
+				$('.togglefader').click(function() {
+					$('.fader').click();
+				});
+			});
+		</script>
+		<div class="text-right">
+			<a name="" class="togglefader">
+				<span class="glyphicon glyphicon-plus"></span><xsl:text> </xsl:text>
+				<span class="glyphicon glyphicon-minus"></span>
 			</a>
 		</div>
 	</xsl:template>
