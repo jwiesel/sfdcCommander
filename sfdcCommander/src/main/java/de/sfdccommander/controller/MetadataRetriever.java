@@ -3,6 +3,7 @@ package de.sfdccommander.controller;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,6 +16,8 @@ import java.nio.channels.WritableByteChannel;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.rpc.ServiceException;
 
 import com.sforce.soap._2006._04.metadata.AsyncResult;
 import com.sforce.soap._2006._04.metadata.DescribeMetadataObject;
@@ -32,7 +35,11 @@ import com.sforce.soap._2006._04.metadata.SessionHeader;
 import com.sforce.soap.partner.LoginResult;
 import com.sforce.soap.partner.SforceServiceLocator;
 import com.sforce.soap.partner.SoapBindingStub;
+import com.sforce.soap.partner.fault.InvalidIdFault;
+import com.sforce.soap.partner.fault.LoginFault;
+import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
+import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.viewer.SfdcCommander;
 
 public class MetadataRetriever {
@@ -52,69 +59,98 @@ public class MetadataRetriever {
 
     private static final double API_VERSION = 34.0;
 
-    public MetadataRetriever(String username, String password) {
+    private SfdcCommander commander;
+
+    public MetadataRetriever(String username, String password)
+            throws CommanderException {
         createMetadataConnection(username, password);
+        commander = SfdcCommander.getInstance();
     }
 
-    public void retrieveZip() throws RemoteException, Exception {
+    public void retrieveZip() throws CommanderException {
         RetrieveRequest retrieveRequest = new RetrieveRequest();
         // The version in package.xml overrides the version in RetrieveRequest
         retrieveRequest.setApiVersion(API_VERSION);
         retrieveRequest.setUnpackaged(buildPackage());
+        try {
 
-        // Start the retrieve operation
-        AsyncResult asyncResult = metaBinding.retrieve(retrieveRequest);
-        String asyncResultId = asyncResult.getId();
+            // Start the retrieve operation
+            AsyncResult asyncResult = metaBinding.retrieve(retrieveRequest);
+            String asyncResultId = asyncResult.getId();
 
-        // Wait for the retrieve to complete
-        int poll = 0;
-        long waitTimeMilliSecs = ONE_SECOND;
-        RetrieveResult result = null;
-        do {
-            Thread.sleep(waitTimeMilliSecs);
-            // Double the wait time for the next iteration
-            waitTimeMilliSecs *= 2;
-            if (poll++ > MAX_NUM_POLL_REQUESTS) {
-                throw new Exception(
-                        "Request timed out.  If this is a large set "
-                                + "of metadata components, check that the time allowed "
-                                + "by MAX_NUM_POLL_REQUESTS is sufficient.");
-            }
-            result = metaBinding.checkRetrieveStatus(asyncResultId, true);
-            System.out.println("Retrieve Status: " + result.getStatus());
-        } while (!result.isDone());
-
-        if (result.getStatus() == RetrieveStatus.Failed) {
-            throw new Exception(result.getErrorStatusCode() + " msg: "
-                    + result.getErrorMessage());
-        } else if (result.getStatus() == RetrieveStatus.Succeeded) {
-            // Print out any warning messages
-            StringBuilder buf = new StringBuilder();
-            if (result.getMessages() != null) {
-                for (RetrieveMessage rm : result.getMessages()) {
-                    buf.append(rm.getFileName() + " - " + rm.getProblem()
-                            + "\r\n");
+            // Wait for the retrieve to complete
+            int poll = 0;
+            long waitTimeMilliSecs = ONE_SECOND;
+            RetrieveResult result = null;
+            do {
+                Thread.sleep(waitTimeMilliSecs);
+                // Double the wait time for the next iteration
+                waitTimeMilliSecs *= 2;
+                if (poll++ > MAX_NUM_POLL_REQUESTS) {
+                    throw new CommanderException(
+                            "Request timed out.  If this is a large set "
+                                    + "of metadata components, check that the time allowed "
+                                    + "by MAX_NUM_POLL_REQUESTS is sufficient.");
                 }
-            }
-            if (buf.length() > 0) {
-                System.out.println("Retrieve warnings:\n" + buf);
-            }
+                result = metaBinding.checkRetrieveStatus(asyncResultId, true);
+                commander.info("Retrieve Status: " + result.getStatus());
+            } while (!result.isDone());
 
-            // Write the zip to the file system
-            System.out.println("Writing results to zip file");
-            ByteArrayInputStream bais = new ByteArrayInputStream(
-                    result.getZipFile());
-            File resultsFile = new File(systemName + ".zip");
-            FileOutputStream os = new FileOutputStream(resultsFile);
+            if (result.getStatus() == RetrieveStatus.Failed) {
+                throw new CommanderException(result.getErrorStatusCode()
+                        + " msg: " + result.getErrorMessage());
+            } else if (result.getStatus() == RetrieveStatus.Succeeded) {
+                // Print out any warning messages
+                StringBuilder buf = new StringBuilder();
+                if (result.getMessages() != null) {
+                    for (RetrieveMessage rm : result.getMessages()) {
+                        buf.append(rm.getFileName() + " - " + rm.getProblem()
+                                + "\r\n");
+                    }
+                }
+                if (buf.length() > 0) {
+                    commander.info("Retrieve warnings:\n" + buf);
+                }
+
+                // Write the zip to the file system
+                File resultsFile = new File(systemName + ".zip");
+                writeZip(result.getZipFile(), resultsFile);
+
+            }
+        } catch (RemoteException e) {
+            throw new CommanderException("Could not retrieve metadata.", e);
+
+        } catch (InterruptedException e) {
+            throw new CommanderException(
+                    "Metdata download request has been interrupted.", e);
+        }
+    }
+
+    private void writeZip(byte[] content, File zipFile)
+            throws CommanderException {
+        commander.info("Writing results to zip file");
+        ByteArrayInputStream bais = new ByteArrayInputStream(content);
+        FileOutputStream os = null;
+        try {
+            os = new FileOutputStream(zipFile);
+            ReadableByteChannel src = Channels.newChannel(bais);
+            FileChannel dest = os.getChannel();
+            copy(src, dest);
+
+            commander.info("Results written to " + zipFile.getAbsolutePath());
+        } catch (FileNotFoundException e) {
+            throw new CommanderException(
+                    "Could not find zip-file: " + zipFile.getAbsolutePath(), e);
+        } catch (IOException e) {
+            throw new CommanderException(
+                    "Could not write zip-File: " + zipFile.getAbsolutePath(),
+                    e);
+        } finally {
             try {
-                ReadableByteChannel src = Channels.newChannel(bais);
-                FileChannel dest = os.getChannel();
-                copy(src, dest);
-
-                System.out.println(
-                        "Results written to " + resultsFile.getAbsolutePath());
-            } finally {
                 os.close();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
     }
@@ -137,34 +173,35 @@ public class MetadataRetriever {
     }
 
     private com.sforce.soap._2006._04.metadata._package buildPackage()
-            throws RemoteException {
+            throws CommanderException {
         SfdcCommander commander = SfdcCommander.getInstance();
-        commander.notify("Gathering Metadata from your Org.");
+        commander.info("Gathering Metadata from your Org...");
         List<PackageTypeMembers> pd = new ArrayList<PackageTypeMembers>();
-        // foreach type
-        // get Name and members as String[]
-        // add to pdi
-        // add to pd
-        DescribeMetadataResult metadataResult = metaBinding
-                .describeMetadata(API_VERSION);
-        for (DescribeMetadataObject objectType : metadataResult
-                .getMetadataObjects()) {
-            PackageTypeMembers pdi = new PackageTypeMembers();
-            pdi.setName(objectType.getXmlName());
+        try {
+            DescribeMetadataResult metadataResult = metaBinding
+                    .describeMetadata(API_VERSION);
+            for (DescribeMetadataObject objectType : metadataResult
+                    .getMetadataObjects()) {
+                PackageTypeMembers pdi = new PackageTypeMembers();
+                pdi.setName(objectType.getXmlName());
 
-            ListMetadataQuery[] queries = new ListMetadataQuery[1];
-            queries[0] = new ListMetadataQuery();
-            queries[0].setType(objectType.getXmlName());
-            FileProperties[] tmpListMetadata = metaBinding.listMetadata(queries,
-                    API_VERSION);
-            if (tmpListMetadata != null) {
-                List<String> members = new ArrayList<String>();
-                for (FileProperties member : tmpListMetadata) {
-                    members.add(URLDecoder.decode(member.getFullName()));
+                ListMetadataQuery[] queries = new ListMetadataQuery[1];
+                queries[0] = new ListMetadataQuery();
+                queries[0].setType(objectType.getXmlName());
+                FileProperties[] tmpListMetadata = metaBinding
+                        .listMetadata(queries, API_VERSION);
+                if (tmpListMetadata != null) {
+                    List<String> members = new ArrayList<String>();
+                    for (FileProperties member : tmpListMetadata) {
+                        members.add(URLDecoder.decode(member.getFullName()));
+                    }
+                    pdi.setMembers(members.toArray(new String[members.size()]));
                 }
-                pdi.setMembers(members.toArray(new String[members.size()]));
+                pd.add(pdi);
             }
-            pd.add(pdi);
+        } catch (RemoteException e) {
+            throw new CommanderException(
+                    "Could not describe metadata to build package.xml", e);
         }
 
         com.sforce.soap._2006._04.metadata._package r = new com.sforce.soap._2006._04.metadata._package();
@@ -175,7 +212,7 @@ public class MetadataRetriever {
     }
 
     private void createMetadataConnection(final String username,
-            final String password) {
+            final String password) throws CommanderException {
 
         MetadataServiceLocator metaDataSL = new MetadataServiceLocator();
         SforceServiceLocator salesForceSL = new SforceServiceLocator();
@@ -201,8 +238,23 @@ public class MetadataRetriever {
 
             this.metaBinding = metaBinding;
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (ServiceException e) {
+            throw new CommanderException(
+                    "Could not connection to salesforce-API.", e);
+        } catch (LoginFault e) {
+            throw new CommanderException(
+                    "Login failed. Please check your username, password and security token and ensure your user is not locked.",
+                    e);
+        } catch (UnexpectedErrorFault e) {
+            throw new CommanderException(
+                    "Login failed due to an unexcepted error. Please check the log file for details.",
+                    e);
+        } catch (InvalidIdFault e) {
+            throw new CommanderException("Login failed. Invalid username.", e);
+        } catch (RemoteException e) {
+            throw new CommanderException(
+                    "Login failed due to a remote issue. Please check the log-file for details.",
+                    e);
         }
 
     }

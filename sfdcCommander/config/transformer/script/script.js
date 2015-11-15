@@ -11,6 +11,10 @@ function init(){
 	});
 	
 }
+function resizeIframe() {
+	$('.contentframe').height(0);
+	$('.contentframe').height($('.contentframe body').prop("scrollHeight"));   
+}
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),

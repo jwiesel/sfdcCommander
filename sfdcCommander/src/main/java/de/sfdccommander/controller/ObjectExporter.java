@@ -96,7 +96,7 @@ public class ObjectExporter {
                 // Add salesforce standard fields
                 DescribeSObjectResult tmpDescribeSObject = binding
                         .describeSObject(aObject.getName());
-                commander.notify("Generating enhanced XML for object: "
+                commander.info("Generating enhanced XML for object: "
                         + tmpDescribeSObject.getName());
                 for (Field field : tmpDescribeSObject.getFields()) {
                     if (!field.isCustom()) {

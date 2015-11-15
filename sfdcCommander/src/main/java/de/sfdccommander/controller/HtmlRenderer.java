@@ -86,7 +86,7 @@ public class HtmlRenderer {
             File documentsFolder = new File(
                     config.getSfSystemname() + "/unpackaged/documents");
             if (documentsFolder.exists()) {
-                commander.notify("Copying documents");
+                commander.info("Copying documents");
                 try {
                     copyFolder(documentsFolder, outputFolder);
                 } catch (IOException e) {
@@ -120,7 +120,7 @@ public class HtmlRenderer {
                         mergeFiles(tmpTransformerName, sourceFolder);
                     }
                     if (!tmpTransformerName.equals("lists")) {
-                        commander.notify("Generating output for "
+                        commander.info("Generating output for "
                                 + transformer.getName());
                         targetFolder = new File(
                                 config.getSfSystemname() + "/unpackaged/lists");
@@ -182,7 +182,7 @@ public class HtmlRenderer {
             File indexOutput = new File(
                     outputFolder.getAbsolutePath() + "/index.html");
             render(indexTransformer, indexSource, indexOutput);
-            commander.notify("Output generated");
+            commander.info("Output generated");
         }
     }
 

@@ -89,7 +89,7 @@ public final class SfdcConnectionPool {
                         salesForceSL.getServiceName().getNamespaceURI(),
                         "SessionHeader", sh);
                 if (lr.isPasswordExpired()) {
-                    commander.notify(
+                    commander.info(
                             "An error has occurred. Your password has expired.");
                 }
             } catch (LoginFault e) {

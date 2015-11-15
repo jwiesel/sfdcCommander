@@ -31,7 +31,7 @@ public class XmlComparer {
     }
 
     public void compareXml(FileReader firstXml, FileReader secondXml) {
-        commander.notify("Comparing Orgs");
+        commander.info("Comparing Orgs");
         Diff diff = null;
         try {
             diff = new Diff(firstXml, secondXml);
@@ -44,19 +44,19 @@ public class XmlComparer {
                 if (actDiff.getId() != DifferenceConstants.CHILD_NODELIST_SEQUENCE_ID) {
                     if (actDiff.getControlNodeDetail().getXpathLocation() == null) {
                         // added node
-                        commander.notify("Node of Type '"
+                        commander.info("Node of Type '"
                                 + actDiff.getTestNodeDetail().getNode()
                                         .getNodeName()
                                 + "' added at '"
                                 + actDiff.getTestNodeDetail().getNode()
                                         .getParentNode().getNodeName() + "'");
-                        commander.notify("Details:");
+                        commander.info("Details:");
                         NodeList tmpChildNodes = actDiff.getTestNodeDetail()
                                 .getNode().getChildNodes();
                         for (int i = 0; i < tmpChildNodes.getLength(); i++) {
                             if (!tmpChildNodes.item(i).getNodeName()
                                     .equals(IGNORE_NODE)) {
-                                commander.notify(tmpChildNodes.item(i)
+                                commander.info(tmpChildNodes.item(i)
                                         .getNodeName()
                                         + " : "
                                         + tmpChildNodes.item(i)
@@ -66,13 +66,13 @@ public class XmlComparer {
 
                     } else if (actDiff.getTestNodeDetail().getXpathLocation() == null) {
                         // removed node
-                        commander.notify("Node removed:"
+                        commander.info("Node removed:"
                                 + actDiff.getControlNodeDetail().getNode()
                                         .getNodeName());
 
                     } else {
                         // changed node
-                        commander.notify("Node changed:"
+                        commander.info("Node changed:"
                                 + actDiff.getControlNodeDetail().getNode()
                                         .getParentNode().getNodeName()
                                 + " : From: "
@@ -85,7 +85,7 @@ public class XmlComparer {
                 }
 
             }
-            commander.notify("Comparison completed");
+            commander.info("Comparison completed");
         } catch (SAXException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

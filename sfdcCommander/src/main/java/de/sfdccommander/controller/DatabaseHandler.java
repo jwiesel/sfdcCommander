@@ -48,7 +48,7 @@ public class DatabaseHandler {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
 
-        commander.notify("Generating Backup for Organization: "
+        commander.info("Generating Backup for Organization: "
                 + config.getSfSystemname());
 
         File backupFolder = new File(
@@ -86,9 +86,9 @@ public class DatabaseHandler {
                             && !tmpDescribeSObject.getName()
                                     .equals("UserRecordAccess")
                             && !tmpDescribeSObject.getName().equals("Vote")) {
-                        commander.notify(
+                        commander.info(
                                 "Object: " + tmpDescribeSObject.getName());
-                        commander.notify("Preparing database table.");
+                        commander.info("Preparing database table.");
                         Field[] fields = tmpDescribeSObject.getFields();
                         dropTableStatement = generateDropTableStatement(
                                 tmpDescribeSObject.getName());
@@ -98,8 +98,8 @@ public class DatabaseHandler {
                         tmpStatement.execute(createTableStatement);
                         soqlSelect = generateSOQLSelectQuery(
                                 tmpDescribeSObject.getName(), fields);
-                        commander.notify("Downloading data...");
-                        commander.notify("");
+                        commander.info("Downloading data...");
+                        commander.info("");
                         QueryResult queryResults = sfBinding
                                 .queryAll(soqlSelect);
                         if (queryResults.getSize() > 0) {
@@ -117,7 +117,7 @@ public class DatabaseHandler {
             tmpStatement.close();
             dbConnection.close();
 
-            commander.notify("Backup sucessfully created.");
+            commander.info("Backup sucessfully created.");
 
         } catch (ClassNotFoundException e) {
             // TODO Auto-generated catch block

@@ -5,6 +5,7 @@ package de.sfdccommander.controller;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Arrays;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -18,6 +19,7 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.log4j.Logger;
 
+import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.CommanderConfig;
 import de.sfdccommander.viewer.SfdcCommander;
 
@@ -116,14 +118,12 @@ public class StartModeDispatcher {
                 "Compare system configurations.");
 
         SfdcCommander commander = SfdcCommander.getInstance();
-        Logger.getLogger(this.getClass()).info("Parameters entered:");
-        for (String arg : tmpArgs) {
-            Logger.getLogger(this.getClass()).debug(arg);
-        }
+        commander.info("sfdcCommander");
+        commander.debug("Parameters entered:" + Arrays.toString(tmpArgs));
 
         if (tmpArgs.length == 0) {
             // Start UI Mode
-            commander.notify(NO_UI_MODE);
+            commander.info(NO_UI_MODE);
             try {
                 String cn = UIManager.getSystemLookAndFeelClassName();
                 UIManager.setLookAndFeel(cn);
@@ -139,7 +139,6 @@ public class StartModeDispatcher {
             JOptionPane.showMessageDialog(null, NO_UI_MODE);
         } else {
             // check parameters for command line mode
-            commander.notify("sfdcCommander");
             CommandLineParser parser = new BasicParser();
             CommandLine cmd = null;
             try {
@@ -149,68 +148,76 @@ public class StartModeDispatcher {
                     displayCliHelp();
                 }
                 if (cmd.hasOption("c")) {
-                    CommanderPropertiesHandler propHandler = new CommanderPropertiesHandler(
-                            cmd.getOptionValue(CONFIG));
-                    CommanderConfig config = propHandler.loadProperties();
-                    if (!config.getHttpProxyHost().equals("")) {
-                        System.setProperty(CommanderConfig.HTTP_PROXY_HOST,
-                                config.getHttpProxyHost());
-                    }
-                    if (!config.getHttpProxyPort().equals("")) {
-                        System.setProperty(CommanderConfig.HTTP_PROXY_PORT,
-                                config.getHttpProxyPort());
-                    }
-                    if (cmd.hasOption("s")) {
-                        // Extract salesforce config
-                        MetadataExporter exporter = new MetadataExporter(
-                                config);
-                        exporter.getEntities();
-
-                    } else if (cmd.hasOption("o")) {
-                        XmlComparer comparer = new XmlComparer();
-                        // TODO Test only
-                        try {
-                            comparer.compareXml(
-                                    new FileReader("AccountOld.object"),
-                                    new FileReader("AccountNew.object"));
-                        } catch (FileNotFoundException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
+                    try {
+                        CommanderPropertiesHandler propHandler = new CommanderPropertiesHandler(
+                                cmd.getOptionValue(CONFIG));
+                        CommanderConfig config = propHandler.loadProperties();
+                        if (!config.getHttpProxyHost().equals("")) {
+                            System.setProperty(CommanderConfig.HTTP_PROXY_HOST,
+                                    config.getHttpProxyHost());
                         }
-                    } else if (cmd.hasOption("v")) {
-                        // Extract and put config from Salesforce under version
-                        // control
-                        MetadataExporter exporter = new MetadataExporter(
-                                config);
-                        exporter.getEntities();
-                    } else if (cmd.hasOption("r")) {
-                        // Extract and render salesforce configuration
-                        MetadataExporter exporter = new MetadataExporter(
-                                config);
-                        ObjectExporter objExporter = new ObjectExporter(config);
-                        exporter.getEntities();
-                        objExporter.exportObjects();
-                        HtmlRenderer renderer = new HtmlRenderer(config);
-                        renderer.generateOutput();
-                    } else if (cmd.hasOption("x")) {
-                        // Extract and render salesforce configuration to MS
-                        // Excel
-                        XlsRenderer renderer = new XlsRenderer(config);
-                        renderer.generatePartnerOutput();
-                    } else if (cmd.hasOption("d")) {
-                        DatabaseHandler dbHandler = new DatabaseHandler(config);
-                        dbHandler.backupOrganization();
-                    } else {
-                        commander.notify("Missing command");
-                        displayCliHelp();
+                        if (!config.getHttpProxyPort().equals("")) {
+                            System.setProperty(CommanderConfig.HTTP_PROXY_PORT,
+                                    config.getHttpProxyPort());
+                        }
+                        if (cmd.hasOption("s")) {
+                            // Extract salesforce config
+                            MetadataExporter exporter = new MetadataExporter(
+                                    config);
+                            exporter.getEntities();
+
+                        } else if (cmd.hasOption("o")) {
+                            XmlComparer comparer = new XmlComparer();
+                            // TODO Test only
+                            try {
+                                comparer.compareXml(
+                                        new FileReader("AccountOld.object"),
+                                        new FileReader("AccountNew.object"));
+                            } catch (FileNotFoundException e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                            }
+                        } else if (cmd.hasOption("v")) {
+                            // Extract and put config from Salesforce under
+                            // version
+                            // control
+                            MetadataExporter exporter = new MetadataExporter(
+                                    config);
+                            exporter.getEntities();
+                        } else if (cmd.hasOption("r")) {
+                            // Extract and render salesforce configuration
+                            MetadataExporter exporter = new MetadataExporter(
+                                    config);
+                            ObjectExporter objExporter = new ObjectExporter(
+                                    config);
+                            exporter.getEntities();
+                            objExporter.exportObjects();
+                            HtmlRenderer renderer = new HtmlRenderer(config);
+                            renderer.generateOutput();
+                        } else if (cmd.hasOption("x")) {
+                            // Extract and render salesforce configuration to MS
+                            // Excel
+                            XlsRenderer renderer = new XlsRenderer(config);
+                            renderer.generatePartnerOutput();
+                        } else if (cmd.hasOption("d")) {
+                            DatabaseHandler dbHandler = new DatabaseHandler(
+                                    config);
+                            dbHandler.backupOrganization();
+                        } else {
+                            commander.info("Missing command");
+                            displayCliHelp();
+                        }
+                    } catch (CommanderException e) {
+                        commander.error(e.getMessage(), e);
+
                     }
                 } else {
-                    commander.notify("Missing parameter c");
+                    commander.info("Missing parameter c");
                     displayCliHelp();
                 }
 
             } catch (ParseException e) {
-                // TODO: auto generated
+                commander.error("Could not parse command line parameters", e);
                 displayCliHelp();
             }
         }

@@ -67,7 +67,7 @@ public class SfdcCommander {
      * @param message
      *            The Notification message.
      */
-    public final void notify(final String message) {
+    public final void info(final String message) {
         System.out.println(message);
         getLogger().info(message);
     }
@@ -76,7 +76,7 @@ public class SfdcCommander {
      * @param message
      *            The Error message.
      */
-    public final void logException(final String message,
+    public final void error(final String message,
             final Throwable anException) {
         System.out.println(message);
         getLogger().error(message, anException);

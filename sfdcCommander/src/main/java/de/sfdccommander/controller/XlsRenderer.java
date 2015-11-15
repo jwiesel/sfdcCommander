@@ -102,7 +102,7 @@ public class XlsRenderer {
         }
         outputFolder.mkdirs();
 
-        commander.notify("Generating XLS output.");
+        commander.info("Generating XLS output.");
 
         binding = connPool.getBinding(tmpConfig);
 
@@ -114,7 +114,7 @@ public class XlsRenderer {
                     .getSobjects()) {
                 renderObjectXls(objectGlobalResult, outputFolder);
             }
-            commander.notify("XLS output successfully generated.");
+            commander.info("XLS output successfully generated.");
         } catch (UnexpectedErrorFault e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -133,7 +133,7 @@ public class XlsRenderer {
     public final void renderObjectXls(final DescribeGlobalSObjectResult aObject,
             final File outputFolder) {
 
-        commander.notify("Generating xls for object: " + aObject.getName());
+        commander.info("Generating xls for object: " + aObject.getName());
 
         DescribeSObjectResult tmpDescribeSObject;
         try {
@@ -226,7 +226,7 @@ public class XlsRenderer {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         } catch (IOException e) {
-            commander.notify(e.getMessage());
+            commander.info(e.getMessage());
         }
     }
 

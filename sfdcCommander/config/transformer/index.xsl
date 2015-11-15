@@ -37,13 +37,15 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 				<script type="text/javascript">
 				<![CDATA[
 				$(document).ready(function(){
-					if(getUrlParameter('category') != undefined && getUrlParameter('entity') != undefined) {
+					if((getUrlParameter('category') != undefined) && (getUrlParameter('entity') != undefined)) {
 						//Update iframe content
 						console.log(window.location.hash.substring(1));
 						if(window.location.hash.substring(1) != '') {
 							$('.contentframe').attr('src', getUrlParameter('category') + '/' + getUrlParameter('entity') + '.html#' + window.location.hash.substring(1));
+							resizeIframe();
 						} else {
 							$('.contentframe').attr('src', getUrlParameter('category') + '/' + getUrlParameter('entity') + '.html');
+							resizeIframe();
 						}
 					}
 				});

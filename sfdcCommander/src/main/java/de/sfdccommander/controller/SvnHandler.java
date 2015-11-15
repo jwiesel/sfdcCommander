@@ -61,9 +61,9 @@ public class SvnHandler {
 
             updateClient.doUpdate(svnPath, SVNRevision.HEAD, SVNDepth.INFINITY,
                     true, true);
-            commander.notify("SVN Update successfully processed.");
+            commander.info("SVN Update successfully processed.");
         } catch (SVNException e) {
-            commander.notify(e.getMessage());
+            commander.info(e.getMessage());
             error = true;
         }
         return error;
@@ -102,10 +102,10 @@ public class SvnHandler {
                     SVNWCUtil.createDefaultOptions(true));
             commitClient.doCommit(paths, false, aComment, props, null, false,
                     true, SVNDepth.INFINITY);
-            commander.notify("Projectfile successfully commited.");
+            commander.info("Projectfile successfully commited.");
 
         } catch (SVNException e) {
-            commander.notify(e.getMessage());
+            commander.info(e.getMessage());
             error = true;
         }
 
@@ -136,10 +136,10 @@ public class SvnHandler {
                 updateClient.setIgnoreExternals(false);
                 updateClient.doCheckout(url, svnPath, SVNRevision.HEAD,
                         SVNRevision.HEAD, SVNDepth.INFINITY, true);
-                commander.notify("SVN Checkout successfully processed.");
+                commander.info("SVN Checkout successfully processed.");
 
             } catch (SVNException e) {
-                commander.notify(e.getErrorMessage().getFullMessage());
+                commander.info(e.getErrorMessage().getFullMessage());
                 error = true;
             }
 
@@ -174,7 +174,7 @@ public class SvnHandler {
             repository.setAuthenticationManager(authManager);
         } catch (SVNException e) {
             // handle exception
-            commander.notify(e.getMessage());
+            commander.info(e.getMessage());
         }
         return authManager;
     }
