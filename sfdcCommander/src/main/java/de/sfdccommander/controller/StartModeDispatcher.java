@@ -27,19 +27,7 @@ import de.sfdccommander.viewer.SfdcCommander;
  * @author jochen
  * 
  */
-/**
- * @author jochen
- *
- */
 
-/**
- * @author jochen
- *
- */
-/**
- * @author jochen
- *
- */
 public class StartModeDispatcher {
 
     private static final String NO_UI_MODE = "The UI-Mode of sfdcCommander is not yet available. Please execute the application via command-line with parameter '-help'.";
@@ -174,8 +162,7 @@ public class StartModeDispatcher {
                                         new FileReader("AccountOld.object"),
                                         new FileReader("AccountNew.object"));
                             } catch (FileNotFoundException e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
+                                // TODO: Add application logic
                             }
                         } else if (cmd.hasOption("v")) {
                             // Extract and put config from Salesforce under

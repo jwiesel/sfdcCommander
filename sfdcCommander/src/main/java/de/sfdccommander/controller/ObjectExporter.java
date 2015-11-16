@@ -34,6 +34,7 @@ import com.sforce.soap.partner.fault.InvalidSObjectFault;
 import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
 import de.sfdccommander.controller.connection.SfdcConnectionPool;
+import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.CommanderConfig;
 import de.sfdccommander.model.CustomObjectFieldMap;
 import de.sfdccommander.viewer.SfdcCommander;
@@ -56,7 +57,7 @@ public class ObjectExporter {
         tmpConfig = aConfig;
     }
 
-    public void exportObjects() {
+    public void exportObjects() throws CommanderException {
         commander = SfdcCommander.getInstance();
         connPool = SfdcConnectionPool.getInstance();
 
@@ -70,16 +71,19 @@ public class ObjectExporter {
                 renderObjectXml(objectGlobalResult);
             }
         } catch (UnexpectedErrorFault e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(
+                    "Could not describe metadata to enhance metadata with standard fields.",
+                    e);
         } catch (RemoteException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(
+                    "Could not describe metadata to enhance metadata with standard fields.",
+                    e);
         }
 
     }
 
-    public void renderObjectXml(DescribeGlobalSObjectResult aObject) {
+    public void renderObjectXml(DescribeGlobalSObjectResult aObject)
+            throws CommanderException {
         SfdcCommander commander = SfdcCommander.getInstance();
         File objectFile = new File(tmpConfig.getSfSystemname()
                 + "/unpackaged/objects/" + aObject.getName() + ".object");
@@ -119,29 +123,38 @@ public class ObjectExporter {
                 transformer.transform(source, result);
 
             } catch (ParserConfigurationException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException(
+                        "Could not configure parser to read "
+                                + objectFile.getAbsolutePath(),
+                        e);
             } catch (SAXException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException(
+                        "Could not parse " + objectFile.getAbsolutePath(), e);
             } catch (TransformerConfigurationException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException(
+                        "Could not configure transformer to extend "
+                                + objectFile.getAbsolutePath(),
+                        e);
             } catch (TransformerException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException("Could not update file: "
+                        + objectFile.getAbsolutePath(), e);
             } catch (InvalidSObjectFault e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException(
+                        "Salesforce-Object invalid: " + aObject.getName(), e);
             } catch (UnexpectedErrorFault e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException(
+                        "Could not describe Salesforce-Object: "
+                                + aObject.getName(),
+                        e);
             } catch (RemoteException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException(
+                        "Could not describe Salesforce-Object: "
+                                + aObject.getName(),
+                        e);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException(
+                        "Could not open file: " + objectFile.getAbsolutePath(),
+                        e);
             }
         }
 

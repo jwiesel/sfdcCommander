@@ -59,7 +59,7 @@ public class MetadataRetriever {
 
     private static final double API_VERSION = 34.0;
 
-    private SfdcCommander commander;
+    private final SfdcCommander commander;
 
     public MetadataRetriever(String username, String password)
             throws CommanderException {
@@ -149,8 +149,8 @@ public class MetadataRetriever {
             try {
                 os.close();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException(
+                        "Could not close zip-file after creation.", e);
             }
         }
     }
@@ -250,7 +250,7 @@ public class MetadataRetriever {
                     "Login failed due to an unexcepted error. Please check the log file for details.",
                     e);
         } catch (InvalidIdFault e) {
-            throw new CommanderException("Login failed. Invalid username.", e);
+            throw new CommanderException("Login failed. Invalid Id.", e);
         } catch (RemoteException e) {
             throw new CommanderException(
                     "Login failed due to a remote issue. Please check the log-file for details.",

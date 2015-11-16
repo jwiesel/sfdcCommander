@@ -26,6 +26,7 @@ import com.sforce.soap.partner.fault.InvalidSObjectFault;
 import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
 import de.sfdccommander.controller.connection.SfdcConnectionPool;
+import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.CommanderConfig;
 import de.sfdccommander.viewer.SfdcCommander;
 
@@ -91,7 +92,7 @@ public class XlsRenderer {
         return (path.delete());
     }
 
-    public void generatePartnerOutput() {
+    public void generatePartnerOutput() throws CommanderException {
         connPool = SfdcConnectionPool.getInstance();
 
         // prepare XLS output folder
@@ -116,11 +117,13 @@ public class XlsRenderer {
             }
             commander.info("XLS output successfully generated.");
         } catch (UnexpectedErrorFault e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(
+                    "Could not describe salesforce metadata to render object-schema as xls-file.",
+                    e);
         } catch (RemoteException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(
+                    "Could not describe salesforce metadata to render object-schema as xls-file.",
+                    e);
         }
 
     }
@@ -128,10 +131,10 @@ public class XlsRenderer {
     /**
      * @param aObject
      * @param outputFolder
-     * @throws ConnectionException
+     * @throws CommanderException
      */
     public final void renderObjectXls(final DescribeGlobalSObjectResult aObject,
-            final File outputFolder) {
+            final File outputFolder) throws CommanderException {
 
         commander.info("Generating xls for object: " + aObject.getName());
 
@@ -216,15 +219,21 @@ public class XlsRenderer {
 
             saveFile(wb, outputFolder.getAbsolutePath() + "/"
                     + tmpDescribeSObject.getName() + ".xls");
-        } catch (InvalidSObjectFault e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        } catch (UnexpectedErrorFault e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        } catch (RemoteException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
+        } catch (InvalidSObjectFault e) {
+            throw new CommanderException(
+                    "Could not describe salesforce object as it seems to be invalid: "
+                            + aObject.getName(),
+                    e);
+        } catch (UnexpectedErrorFault e) {
+            throw new CommanderException(
+                    "Could not describe salesforce object: "
+                            + aObject.getName(),
+                    e);
+        } catch (RemoteException e) {
+            throw new CommanderException(
+                    "Could not describe salesforce object: "
+                            + aObject.getName(),
+                    e);
         } catch (IOException e) {
             commander.info(e.getMessage());
         }

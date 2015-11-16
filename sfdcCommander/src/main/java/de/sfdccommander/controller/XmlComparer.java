@@ -15,6 +15,7 @@ import org.custommonkey.xmlunit.examples.RecursiveElementNameAndTextQualifier;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.viewer.SfdcCommander;
 
 /**
@@ -30,45 +31,52 @@ public class XmlComparer {
         commander = SfdcCommander.getInstance();
     }
 
-    public void compareXml(FileReader firstXml, FileReader secondXml) {
+    public void compareXml(FileReader firstXml, FileReader secondXml)
+            throws CommanderException {
         commander.info("Comparing Orgs");
         Diff diff = null;
         try {
             diff = new Diff(firstXml, secondXml);
             // Ignore Order
-            diff.overrideElementQualifier(new RecursiveElementNameAndTextQualifier());
-            diff.overrideDifferenceListener(new IgnoreNamedElementsDifferenceListener());
+            diff.overrideElementQualifier(
+                    new RecursiveElementNameAndTextQualifier());
+            diff.overrideDifferenceListener(
+                    new IgnoreNamedElementsDifferenceListener());
             DetailedDiff detailedDiff = new DetailedDiff(diff);
             List<Difference> diffList = detailedDiff.getAllDifferences();
             for (Difference actDiff : diffList) {
-                if (actDiff.getId() != DifferenceConstants.CHILD_NODELIST_SEQUENCE_ID) {
-                    if (actDiff.getControlNodeDetail().getXpathLocation() == null) {
+                if (actDiff
+                        .getId() != DifferenceConstants.CHILD_NODELIST_SEQUENCE_ID) {
+                    if (actDiff.getControlNodeDetail()
+                            .getXpathLocation() == null) {
                         // added node
-                        commander.info("Node of Type '"
-                                + actDiff.getTestNodeDetail().getNode()
-                                        .getNodeName()
-                                + "' added at '"
-                                + actDiff.getTestNodeDetail().getNode()
-                                        .getParentNode().getNodeName() + "'");
+                        commander
+                                .info("Node of Type '"
+                                        + actDiff.getTestNodeDetail().getNode()
+                                                .getNodeName()
+                                        + "' added at '"
+                                        + actDiff.getTestNodeDetail().getNode()
+                                                .getParentNode().getNodeName()
+                                        + "'");
                         commander.info("Details:");
                         NodeList tmpChildNodes = actDiff.getTestNodeDetail()
                                 .getNode().getChildNodes();
                         for (int i = 0; i < tmpChildNodes.getLength(); i++) {
                             if (!tmpChildNodes.item(i).getNodeName()
                                     .equals(IGNORE_NODE)) {
-                                commander.info(tmpChildNodes.item(i)
-                                        .getNodeName()
-                                        + " : "
-                                        + tmpChildNodes.item(i)
-                                                .getTextContent());
+                                commander.info(
+                                        tmpChildNodes.item(i).getNodeName()
+                                                + " : " + tmpChildNodes.item(i)
+                                                        .getTextContent());
                             }
                         }
 
-                    } else if (actDiff.getTestNodeDetail().getXpathLocation() == null) {
+                    } else if (actDiff.getTestNodeDetail()
+                            .getXpathLocation() == null) {
                         // removed node
-                        commander.info("Node removed:"
-                                + actDiff.getControlNodeDetail().getNode()
-                                        .getNodeName());
+                        commander.info(
+                                "Node removed:" + actDiff.getControlNodeDetail()
+                                        .getNode().getNodeName());
 
                     } else {
                         // changed node
@@ -78,20 +86,18 @@ public class XmlComparer {
                                 + " : From: "
                                 + actDiff.getControlNodeDetail().getNode()
                                         .getTextContent()
-                                + " : To: "
-                                + actDiff.getTestNodeDetail().getNode()
-                                        .getTextContent());
+                                + " : To: " + actDiff.getTestNodeDetail()
+                                        .getNode().getTextContent());
                     }
                 }
 
             }
             commander.info("Comparison completed");
         } catch (SAXException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException("Could not generate diff", e);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(
+                    "Could not open files to generate diff.", e);
         }
 
     }

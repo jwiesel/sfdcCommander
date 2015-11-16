@@ -22,6 +22,7 @@ import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 import com.sforce.soap.partner.sobject.SObject;
 
 import de.sfdccommander.controller.connection.SfdcConnectionPool;
+import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.CommanderConfig;
 import de.sfdccommander.viewer.SfdcCommander;
 
@@ -43,7 +44,7 @@ public class DatabaseHandler {
         config = aConfig;
     }
 
-    public void backupOrganization() {
+    public void backupOrganization() throws CommanderException {
         commander = SfdcCommander.getInstance();
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
@@ -120,17 +121,15 @@ public class DatabaseHandler {
             commander.info("Backup sucessfully created.");
 
         } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(
+                    "Could not find class org.sqlite.JDBC to backup org to SQLITE.",
+                    e);
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(e);
         } catch (UnexpectedErrorFault e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(e);
         } catch (RemoteException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(e);
         }
     }
 

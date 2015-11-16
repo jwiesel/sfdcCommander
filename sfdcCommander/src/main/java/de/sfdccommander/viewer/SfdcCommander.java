@@ -76,9 +76,8 @@ public class SfdcCommander {
      * @param message
      *            The Error message.
      */
-    public final void error(final String message,
-            final Throwable anException) {
-        System.out.println(message);
+    public final void error(final String message, final Throwable anException) {
+        System.out.println("Error: " + message);
         getLogger().error(message, anException);
     }
 

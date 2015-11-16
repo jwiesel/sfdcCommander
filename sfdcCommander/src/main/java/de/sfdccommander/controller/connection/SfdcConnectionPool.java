@@ -17,6 +17,7 @@ import com.sforce.soap.partner.fault.InvalidIdFault;
 import com.sforce.soap.partner.fault.LoginFault;
 import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
+import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.CommanderConfig;
 import de.sfdccommander.viewer.SfdcCommander;
 
@@ -52,11 +53,13 @@ public final class SfdcConnectionPool {
      * @param config
      *            parameters for session
      * @return either new or existing session based on parameters
+     * @throws CommanderException
      * @throws ConnectionException
      * @throws ServerManagerException
      *             if issue with srvrmgr occurs
      */
-    public SoapBindingStub getBinding(final CommanderConfig aConfig) {
+    public SoapBindingStub getBinding(final CommanderConfig aConfig)
+            throws CommanderException {
         SoapBindingStub binding = null;
         SforceServiceLocator salesForceSL = new SforceServiceLocator();
 
@@ -93,20 +96,22 @@ public final class SfdcConnectionPool {
                             "An error has occurred. Your password has expired.");
                 }
             } catch (LoginFault e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException(
+                        "Login failed. Please check your username, password and security token and ensure your user is not locked.",
+                        e);
             } catch (UnexpectedErrorFault e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException(
+                        "Login failed due to an unexcepted error. Please check the log file for details.",
+                        e);
             } catch (InvalidIdFault e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException("Login failed. Invalid Id.", e);
             } catch (RemoteException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException(
+                        "Login failed due to a remote issue. Please check the log-file for details.",
+                        e);
             } catch (ServiceException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new CommanderException(
+                        "Could not connect to SOAP-API. Wrong URL?", e);
             }
 
             bindings.add(binding);

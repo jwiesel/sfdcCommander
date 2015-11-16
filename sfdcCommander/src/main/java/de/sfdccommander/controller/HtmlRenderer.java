@@ -21,6 +21,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 import de.sfdccommander.controller.helper.CodeFileNameFilter;
+import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.controller.helper.XmlFileNameFilter;
 import de.sfdccommander.controller.helper.XsltFileNameFilter;
 import de.sfdccommander.model.CommanderConfig;
@@ -50,7 +51,7 @@ public class HtmlRenderer {
         this.config = aConfig;
     }
 
-    public void generateOutput() {
+    public void generateOutput() throws CommanderException {
         commander = SfdcCommander.getInstance();
         File[] transformFiles;
 
@@ -77,8 +78,10 @@ public class HtmlRenderer {
                             new File(outputFolder.getAbsolutePath() + "/"
                                     + folder));
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    throw new CommanderException("Could not copy folder "
+                            + transformerFolder.getAbsolutePath() + "/" + folder
+                            + " to " + outputFolder.getAbsolutePath() + "/"
+                            + folder);
                 }
             }
 
@@ -90,8 +93,9 @@ public class HtmlRenderer {
                 try {
                     copyFolder(documentsFolder, outputFolder);
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    throw new CommanderException("Could not copy folder "
+                            + documentsFolder.getAbsolutePath() + " to "
+                            + outputFolder.getAbsolutePath());
                 }
             }
 
@@ -150,8 +154,13 @@ public class HtmlRenderer {
                                 try {
                                     copyFile(codeFile, codeTargetFile, 1, true);
                                 } catch (IOException e) {
-                                    // TODO Auto-generated catch block
-                                    e.printStackTrace();
+                                    throw new CommanderException(
+                                            "Could not copy file "
+                                                    + codeFile.getAbsolutePath()
+                                                    + " to "
+                                                    + codeTargetFile
+                                                            .getAbsolutePath(),
+                                            e);
                                 }
                             }
                         }
@@ -193,9 +202,10 @@ public class HtmlRenderer {
      *            data file for rendering.
      * @param htmlFile
      *            output file for rendering.
+     * @throws CommanderException
      */
     public final void render(final File xslFile, final File xmlFile,
-            final File htmlFile) {
+            final File htmlFile) throws CommanderException {
 
         TransformerFactory tfactory = TransformerFactory.newInstance();
         try {
@@ -210,17 +220,19 @@ public class HtmlRenderer {
                     new StreamResult(fos));
             fos.close();
         } catch (TransformerConfigurationException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException("Could not configure transformer "
+                    + xslFile.getAbsolutePath(), e);
         } catch (TransformerException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(
+                    "Could not transform file " + xmlFile.getAbsolutePath(), e);
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(
+                    "Could not create new file " + htmlFile.getAbsolutePath()
+                            + ". another blocked file or folder might already exist.",
+                    e);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(
+                    "Could not save file " + htmlFile.getAbsolutePath(), e);
         }
     }
 
@@ -229,8 +241,10 @@ public class HtmlRenderer {
      *            entity for merge process.
      * @param sourceFolder
      *            source folder for merge process.
+     * @throws CommanderException
      */
-    public final void mergeFiles(final String entity, final File sourceFolder) {
+    public final void mergeFiles(final String entity, final File sourceFolder)
+            throws CommanderException {
 
         File allRecordsFile = new File(sourceFolder.getAbsolutePath() + "/"
                 + "all_" + entity + ".xml");
@@ -272,18 +286,23 @@ public class HtmlRenderer {
             fos.write(("</" + entity + ">").getBytes());
             fos.close();
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(
+                    "Could not find either " + allRecordsFile.getAbsolutePath()
+                            + " or one of the entity files.",
+                    e);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new CommanderException(
+                    "Could not write " + allRecordsFile.getAbsolutePath()
+                            + " or read one of the entity files.",
+                    e);
         }
     }
 
     public void generateFileList(final String entity, final File sourceFolder,
-            final File targetFolder) {
+            final File targetFolder) throws CommanderException {
+        File output = null;
         try {
-            File output = new File(
+            output = new File(
                     targetFolder.getAbsolutePath() + "/" + entity + ".xml");
             FileOutputStream fos = new FileOutputStream(output);
 
@@ -306,8 +325,10 @@ public class HtmlRenderer {
 
             fos.write(("</Files>").getBytes());
             fos.close();
-        } catch (IOException ioe) {
-            // TODO:
+        } catch (IOException e) {
+            throw new CommanderException(
+                    "Could not generate file-list " + output.getAbsolutePath(),
+                    e);
         }
 
     }

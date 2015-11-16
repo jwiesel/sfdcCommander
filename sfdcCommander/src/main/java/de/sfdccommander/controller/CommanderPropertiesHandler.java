@@ -9,8 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
-
+import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.CommanderConfig;
 
 /**
@@ -34,8 +33,9 @@ public class CommanderPropertiesHandler {
 
     /**
      * @return CommanderConfiguration for task execution.
+     * @throws CommanderException
      */
-    public final CommanderConfig loadProperties() {
+    public final CommanderConfig loadProperties() throws CommanderException {
         Properties properties = new Properties();
         CommanderConfig config = new CommanderConfig();
         InputStream fis = null;
@@ -43,11 +43,11 @@ public class CommanderPropertiesHandler {
             fis = new FileInputStream(tmpPropFile);
             properties.load(fis);
         } catch (FileNotFoundException e) {
-            Logger.getLogger(this.getClass())
-                    .error("Could not find " + tmpPropFile, e);
+            throw new CommanderException(
+                    "Could not find configuration file: " + tmpPropFile, e);
         } catch (IOException e) {
-            Logger.getLogger(this.getClass())
-                    .error("Could not open " + tmpPropFile, e);
+            throw new CommanderException(
+                    "Could not open configuration file: " + tmpPropFile, e);
         }
 
         config.setSfSystemname(
