@@ -7,7 +7,7 @@ import java.io.File;
 import java.rmi.RemoteException;
 
 import de.sfdccommander.controller.helper.CommanderException;
-import de.sfdccommander.model.CommanderConfig;
+import de.sfdccommander.model.SfdcConfig;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 
@@ -20,14 +20,14 @@ public class MetadataExporter {
     /**
      * 
      */
-    private final CommanderConfig tmpConfig;
+    private final SfdcConfig config;
 
     /**
      * @param aConfig
      *            SFDC Config to get Metadata.
      */
-    public MetadataExporter(final CommanderConfig aConfig) {
-        tmpConfig = aConfig;
+    public MetadataExporter(final SfdcConfig aConfig) {
+        config = aConfig;
     }
 
     /**
@@ -40,16 +40,16 @@ public class MetadataExporter {
      */
     public final void getEntities() throws CommanderException {
         MetadataRetriever retriever;
-        retriever = new MetadataRetriever(tmpConfig.getSfUsername(),
-                tmpConfig.getSfPassword());
-        retriever.setSystemName(tmpConfig.getSfSystemname());
+        retriever = new MetadataRetriever(config.getUsername(),
+                config.getPassword());
+        String systemName = config.getSystemName();
+        retriever.setSystemName(systemName);
         try {
             retriever.retrieveZip();
             // Export ZIP
-            ZipFile sourceZip = new ZipFile(
-                    tmpConfig.getSfSystemname() + ".zip");
-            sourceZip.extractAll(tmpConfig.getSfSystemname());
-            File sourceFile = new File(tmpConfig.getSfSystemname() + ".zip");
+            ZipFile sourceZip = new ZipFile(systemName + ".zip");
+            sourceZip.extractAll(systemName);
+            File sourceFile = new File(systemName + ".zip");
             sourceFile.delete();
         } catch (CommanderException e) {
             throw new CommanderException(

@@ -82,15 +82,8 @@ public class CommanderConfig {
     /**
      * 
      */
-    private String sfSystemname;
-    /**
-     * 
-     */
-    private String sfUsername;
-    /**
-     * 
-     */
-    private String sfPassword;
+    private SfdcConfig sourceSfdcConfig;
+
     /**
      * 
      */
@@ -103,15 +96,8 @@ public class CommanderConfig {
     /**
      * 
      */
-    private String svnRepository;
-    /**
-     * 
-     */
-    private String svnUser;
-    /**
-     * 
-     */
-    private String svnPassword;
+    private SvnConfig svnConfig;
+
     /**
      * 
      */
@@ -124,108 +110,11 @@ public class CommanderConfig {
      * 
      */
     private String backupPath;
+
     /**
      * 
      */
-    private String sfTargetSystemname;
-    /**
-     * 
-     */
-    private String sfTargetUsername;
-    /**
-     * 
-     */
-    private String sfTargetPassword;
-
-    /**
-     * @return the sfSystemname
-     */
-    public final String getSfSystemname() {
-        return sfSystemname;
-    }
-
-    /**
-     * @param aSfSystemname
-     *            the sfSystemname to set
-     */
-    public final void setSfSystemname(final String aSfSystemname) {
-        sfSystemname = aSfSystemname;
-    }
-
-    /**
-     * @return the sfUsername
-     */
-    public final String getSfUsername() {
-        return sfUsername;
-    }
-
-    /**
-     * @param aSfUsername
-     *            the sfUsername to set
-     */
-    public final void setSfUsername(final String aSfUsername) {
-        sfUsername = aSfUsername;
-    }
-
-    /**
-     * @return the sfPassword
-     */
-    public final String getSfPassword() {
-        return sfPassword;
-    }
-
-    /**
-     * @param aSfPassword
-     *            the sfPassword to set
-     */
-    public final void setSfPassword(final String aSfPassword) {
-        sfPassword = aSfPassword;
-    }
-
-    /**
-     * @return the svnRepository
-     */
-    public final String getSvnRepository() {
-        return svnRepository;
-    }
-
-    /**
-     * @param aSvnRepository
-     *            the svnRepository to set
-     */
-    public final void setSvnRepository(final String aSvnRepository) {
-        svnRepository = aSvnRepository;
-    }
-
-    /**
-     * @return the svnUser
-     */
-    public final String getSvnUser() {
-        return svnUser;
-    }
-
-    /**
-     * @param aSvnUser
-     *            the svnUser to set
-     */
-    public final void setSvnUser(final String aSvnUser) {
-        svnUser = aSvnUser;
-    }
-
-    /**
-     * @return the svnPassword
-     */
-    public final String getSvnPassword() {
-        return svnPassword;
-    }
-
-    /**
-     * @param aSvnPassword
-     *            the svnPassword to set
-     */
-    public final void setSvnPassword(final String aSvnPassword) {
-        svnPassword = aSvnPassword;
-    }
+    private SfdcConfig targetSfdcConfig;
 
     /**
      * @return the renderPath
@@ -240,51 +129,6 @@ public class CommanderConfig {
      */
     public final void setRenderPath(final String aRenderPath) {
         renderPath = aRenderPath;
-    }
-
-    /**
-     * @return the sfTargetSystemname
-     */
-    public final String getSfTargetSystemname() {
-        return sfTargetSystemname;
-    }
-
-    /**
-     * @param aSfTargetSystemname
-     *            the sfTargetSystemname to set
-     */
-    public final void setSfTargetSystemname(final String aSfTargetSystemname) {
-        sfTargetSystemname = aSfTargetSystemname;
-    }
-
-    /**
-     * @return the sfTargetUsername
-     */
-    public final String getSfTargetUsername() {
-        return sfTargetUsername;
-    }
-
-    /**
-     * @param aSfTargetUsername
-     *            the sfTargetUsername to set
-     */
-    public final void setSfTargetUsername(final String aSfTargetUsername) {
-        sfTargetUsername = aSfTargetUsername;
-    }
-
-    /**
-     * @return the sfTargetPassword
-     */
-    public final String getSfTargetPassword() {
-        return sfTargetPassword;
-    }
-
-    /**
-     * @param aSfTargetPassword
-     *            the sfTargetPassword to set
-     */
-    public final void setSfTargetPassword(final String aSfTargetPassword) {
-        sfTargetPassword = aSfTargetPassword;
     }
 
     /**
@@ -345,6 +189,51 @@ public class CommanderConfig {
      */
     public final void setBackupPath(String aBackupPath) {
         backupPath = aBackupPath;
+    }
+
+    /**
+     * @return the svnConfig
+     */
+    public SvnConfig getSvnConfig() {
+        return svnConfig;
+    }
+
+    /**
+     * @param aSvnConfig
+     *            the svnConfig to set
+     */
+    public void setSvnConfig(SvnConfig aSvnConfig) {
+        svnConfig = aSvnConfig;
+    }
+
+    /**
+     * @return the sourceSfdcConfig
+     */
+    public SfdcConfig getSourceSfdcConfig() {
+        return sourceSfdcConfig;
+    }
+
+    /**
+     * @param aSourceSfdcConfig
+     *            the sourceSfdcConfig to set
+     */
+    public void setSourceSfdcConfig(SfdcConfig aSourceSfdcConfig) {
+        sourceSfdcConfig = aSourceSfdcConfig;
+    }
+
+    /**
+     * @return the targetSfdcConfig
+     */
+    public SfdcConfig getTargetSfdcConfig() {
+        return targetSfdcConfig;
+    }
+
+    /**
+     * @param aTargetSfdcConfig
+     *            the targetSfdcConfig to set
+     */
+    public void setTargetSfdcConfig(SfdcConfig aTargetSfdcConfig) {
+        targetSfdcConfig = aTargetSfdcConfig;
     }
 
 }

@@ -151,7 +151,7 @@ public class StartModeDispatcher {
                         if (cmd.hasOption("s")) {
                             // Extract salesforce config
                             MetadataExporter exporter = new MetadataExporter(
-                                    config);
+                                    config.getSourceSfdcConfig());
                             exporter.getEntities();
 
                         } else if (cmd.hasOption("o")) {
@@ -169,17 +169,20 @@ public class StartModeDispatcher {
                             // version
                             // control
                             MetadataExporter exporter = new MetadataExporter(
-                                    config);
+                                    config.getSourceSfdcConfig());
                             exporter.getEntities();
                         } else if (cmd.hasOption("r")) {
                             // Extract and render salesforce configuration
                             MetadataExporter exporter = new MetadataExporter(
-                                    config);
+                                    config.getSourceSfdcConfig());
                             ObjectExporter objExporter = new ObjectExporter(
-                                    config);
+                                    config.getSourceSfdcConfig());
                             exporter.getEntities();
                             objExporter.exportObjects();
-                            HtmlRenderer renderer = new HtmlRenderer(config);
+                            HtmlRenderer renderer = new HtmlRenderer(
+                                    config.getSourceSfdcConfig()
+                                            .getSystemName(),
+                                    config.getRenderPath());
                             renderer.generateOutput();
                         } else if (cmd.hasOption("x")) {
                             // Extract and render salesforce configuration to MS
@@ -188,7 +191,8 @@ public class StartModeDispatcher {
                             renderer.generatePartnerOutput();
                         } else if (cmd.hasOption("d")) {
                             DatabaseHandler dbHandler = new DatabaseHandler(
-                                    config);
+                                    config.getSourceSfdcConfig(),
+                                    config.getBackupPath());
                             dbHandler.backupOrganization();
                         } else {
                             commander.info("Missing command");

@@ -129,7 +129,8 @@ public class SvnHandler {
         // checkout
         if (!svn_logFolder.exists()) {
             try {
-                SVNURL url = SVNURL.parseURIDecoded(aConfig.getSvnRepository());
+                SVNURL url = SVNURL.parseURIDecoded(
+                        aConfig.getSvnConfig().getSvnRepository());
                 ISVNAuthenticationManager authManager = getAuthManager(aConfig);
                 SVNUpdateClient updateClient = new SVNUpdateClient(authManager,
                         SVNWCUtil.createDefaultOptions(true));
@@ -158,18 +159,21 @@ public class SvnHandler {
         SVNRepository repository = null;
         ISVNAuthenticationManager authManager = null;
         try {
-            SVNURL url = SVNURL.parseURIDecoded(aConfig.getSvnRepository());
+            SVNURL url = SVNURL
+                    .parseURIDecoded(aConfig.getSvnConfig().getSvnRepository());
             if (url.getProtocol().equals("http")) {
                 DAVRepositoryFactory.setup();
 
                 authManager = new BasicAuthenticationManager(
-                        aConfig.getSvnUser(), aConfig.getSvnPassword());
+                        aConfig.getSvnConfig().getSvnUser(),
+                        aConfig.getSvnConfig().getSvnPassword());
                 repository = DAVRepositoryFactory.create(url, null);
             } else if (url.getProtocol().equals("svn")) {
                 SVNRepositoryFactoryImpl.setup();
                 repository = SVNRepositoryFactory.create(url, null);
                 authManager = SVNWCUtil.createDefaultAuthenticationManager(
-                        aConfig.getSvnUser(), aConfig.getSvnPassword());
+                        aConfig.getSvnConfig().getSvnUser(),
+                        aConfig.getSvnConfig().getSvnPassword());
             }
             repository.setAuthenticationManager(authManager);
         } catch (SVNException e) {
@@ -197,8 +201,8 @@ public class SvnHandler {
             if (force) {
                 dest.delete();
             } else {
-                throw new IOException("Cannot overwrite existing file: "
-                        + dest.toString());
+                throw new IOException(
+                        "Cannot overwrite existing file: " + dest.toString());
             }
         }
         byte[] buffer = new byte[bufSize];

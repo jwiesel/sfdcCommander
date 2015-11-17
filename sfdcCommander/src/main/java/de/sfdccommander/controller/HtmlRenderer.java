@@ -9,9 +9,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -22,9 +23,10 @@ import javax.xml.transform.stream.StreamSource;
 
 import de.sfdccommander.controller.helper.CodeFileNameFilter;
 import de.sfdccommander.controller.helper.CommanderException;
+import de.sfdccommander.controller.helper.CopyDirVisitor;
+import de.sfdccommander.controller.helper.DeleteDirVisitor;
 import de.sfdccommander.controller.helper.XmlFileNameFilter;
 import de.sfdccommander.controller.helper.XsltFileNameFilter;
-import de.sfdccommander.model.CommanderConfig;
 import de.sfdccommander.viewer.SfdcCommander;
 
 /**
@@ -34,9 +36,14 @@ import de.sfdccommander.viewer.SfdcCommander;
 public class HtmlRenderer {
 
     /**
-     * Config for renderings.
+     * System name renderings.
      */
-    private final CommanderConfig config;
+    private final String systemName;
+
+    /**
+     * render path for html output.
+     */
+    private final String renderPath;
 
     /**
      * 
@@ -47,8 +54,9 @@ public class HtmlRenderer {
      * @param aConfig
      *            Config for renderings.
      */
-    public HtmlRenderer(final CommanderConfig aConfig) {
-        this.config = aConfig;
+    public HtmlRenderer(String aSystemName, String aRenderPath) {
+        this.systemName = aSystemName;
+        this.renderPath = aRenderPath;
     }
 
     public void generateOutput() throws CommanderException {
@@ -58,10 +66,16 @@ public class HtmlRenderer {
         File transformerFolder = new File("config/transformer");
 
         // prepare HTML output folder
-        File outputFolder = new File(
-                config.getRenderPath() + "/" + config.getSfSystemname());
+        File outputFolder = new File(renderPath + "/" + systemName);
         if (outputFolder.exists()) {
-            deleteDirectory(outputFolder);
+            try {
+                // delete output folder
+                Files.walkFileTree(outputFolder.toPath(),
+                        new DeleteDirVisitor());
+            } catch (IOException e) {
+                throw new CommanderException(
+                        "Could not delete folder: " + outputFolder, e);
+            }
         }
         outputFolder.mkdirs();
 
@@ -71,27 +85,28 @@ public class HtmlRenderer {
             String[] helperFolder = { "css", "images", "script", "fonts" };
 
             for (String folder : helperFolder) {
+                Path fromPath = Paths.get(
+                        transformerFolder.getAbsolutePath() + "/" + folder);
+                Path toPath = Paths
+                        .get(outputFolder.getAbsolutePath() + "/" + folder);
                 try {
-                    copyFolder(
-                            new File(transformerFolder.getAbsolutePath() + "/"
-                                    + folder),
-                            new File(outputFolder.getAbsolutePath() + "/"
-                                    + folder));
+                    Files.walkFileTree(fromPath,
+                            new CopyDirVisitor(fromPath, toPath));
                 } catch (IOException e) {
                     throw new CommanderException("Could not copy folder "
-                            + transformerFolder.getAbsolutePath() + "/" + folder
-                            + " to " + outputFolder.getAbsolutePath() + "/"
-                            + folder);
+                            + fromPath.toString() + " to " + toPath.toString());
                 }
             }
 
             // copy documents if available
             File documentsFolder = new File(
-                    config.getSfSystemname() + "/unpackaged/documents");
+                    systemName + "/unpackaged/documents");
             if (documentsFolder.exists()) {
                 commander.info("Copying documents");
                 try {
-                    copyFolder(documentsFolder, outputFolder);
+                    Files.walkFileTree(documentsFolder.toPath(),
+                            new CopyDirVisitor(documentsFolder.toPath(),
+                                    outputFolder.toPath()));
                 } catch (IOException e) {
                     throw new CommanderException("Could not copy folder "
                             + documentsFolder.getAbsolutePath() + " to "
@@ -112,8 +127,8 @@ public class HtmlRenderer {
                 tmpOutputFolder.mkdirs();
 
                 // get folder with sfdc source files
-                File sourceFolder = new File(config.getSfSystemname()
-                        + "/unpackaged/" + tmpTransformerName);
+                File sourceFolder = new File(
+                        systemName + "/unpackaged/" + tmpTransformerName);
 
                 File targetFolder;
 
@@ -127,7 +142,7 @@ public class HtmlRenderer {
                         commander.info("Generating output for "
                                 + transformer.getName());
                         targetFolder = new File(
-                                config.getSfSystemname() + "/unpackaged/lists");
+                                systemName + "/unpackaged/lists");
                         targetFolder.mkdirs();
                         generateFileList(tmpTransformerName, sourceFolder,
                                 targetFolder);
@@ -152,7 +167,8 @@ public class HtmlRenderer {
                                         tmpOutputFolder.getAbsolutePath() + "/"
                                                 + codeFile.getName());
                                 try {
-                                    copyFile(codeFile, codeTargetFile, 1, true);
+                                    Files.copy(codeFile.toPath(),
+                                            codeTargetFile.toPath());
                                 } catch (IOException e) {
                                     throw new CommanderException(
                                             "Could not copy file "
@@ -169,10 +185,8 @@ public class HtmlRenderer {
                 }
             }
             // Generate Lists
-            File listFolder = new File(
-                    config.getSfSystemname() + "/unpackaged/lists");
-            generateFileList("lists", listFolder,
-                    new File(config.getSfSystemname()));
+            File listFolder = new File(systemName + "/unpackaged/lists");
+            generateFileList("lists", listFolder, new File(systemName));
             File listTransformer = new File(
                     transformerFolder.getAbsolutePath() + "/lists.xslt");
             for (File xmlFile : listFolder.listFiles()) {
@@ -186,8 +200,7 @@ public class HtmlRenderer {
             // Generate Index
             File indexTransformer = new File(
                     transformerFolder.getAbsolutePath() + "/index.xsl");
-            File indexSource = new File(
-                    config.getSfSystemname() + "/lists.xml");
+            File indexSource = new File(systemName + "/lists.xml");
             File indexOutput = new File(
                     outputFolder.getAbsolutePath() + "/index.html");
             render(indexTransformer, indexSource, indexOutput);
@@ -312,8 +325,7 @@ public class HtmlRenderer {
                     ("<Files xmlns=\"http://soap.sforce.com/2006/04/metadata\">\r\n")
                             .getBytes());
             fos.write(("<entity>" + entity + "</entity>\r\n").getBytes());
-            fos.write(("<system>" + config.getSfSystemname() + "</system>\r\n")
-                    .getBytes());
+            fos.write(("<system>" + systemName + "</system>\r\n").getBytes());
 
             String cutFileName;
             for (File actFile : sourceFolder
@@ -333,130 +345,4 @@ public class HtmlRenderer {
 
     }
 
-    /**
-     * @param path
-     *            File path to delete.
-     * @return if path has been deleted.
-     */
-    public static boolean deleteDirectory(final File path) {
-        if (path.exists()) {
-            File[] files = path.listFiles();
-            for (int i = 0; i < files.length; i++) {
-                if (files[i].isDirectory()) {
-                    deleteDirectory(files[i]);
-                } else {
-                    files[i].delete();
-                }
-            }
-        }
-        return (path.delete());
-    }
-
-    /**
-     * @param src
-     *            Source File
-     * @param dest
-     *            Destination File
-     * @param bufSize
-     *            Size of byte[] buffer
-     * @param force
-     *            Overwrite Flag
-     * @throws IOException
-     *             Cannot overwrite existing file
-     */
-    private void copyFile(File src, File dest, int bufSize, boolean force)
-            throws IOException {
-        if (dest.exists()) {
-            if (force) {
-                dest.delete();
-            } else {
-                throw new IOException(
-                        "Cannot overwrite existing file: " + dest.toString());
-            }
-        }
-        byte[] buffer = new byte[bufSize];
-        int read = 0;
-        InputStream in = null;
-        OutputStream out = null;
-        try {
-            in = new FileInputStream(src);
-            out = new FileOutputStream(dest);
-            while (true) {
-                read = in.read(buffer);
-                if (read == -1) {
-                    // -1 bedeutet EOF
-                    break;
-                }
-                out.write(buffer, 0, read);
-            }
-        } finally {
-            // Sicherstellen, dass die Streams auch
-            // bei einem throw geschlossen werden.
-            // Falls in null ist, ist out auch null!
-            if (in != null) {
-                // Falls tatsächlich in.close() und out.close()
-                // Exceptions werfen, die jenige von 'out' geworfen wird.
-                try {
-                    in.close();
-                } finally {
-                    if (out != null) {
-                        out.close();
-                    }
-                }
-            }
-        }
-    }
-
-    /**
-     * @param src
-     *            source folder.
-     * @param dest
-     *            destination folder.
-     * @throws IOException
-     *             Exception, if copy not possible.
-     */
-    public static void copyFolder(final File src, final File dest)
-            throws IOException {
-
-        if (src.isDirectory()) {
-
-            // if directory not exists, create it
-            if (!dest.exists()) {
-                dest.mkdir();
-                System.out.println(
-                        "Directory copied from " + src + "  to " + dest);
-            }
-
-            // list all the directory contents
-            String[] files;
-
-            files = src.list();
-
-            for (String file : files) {
-                // construct the src and dest file structure
-                File srcFile = new File(src, file);
-                File destFile = new File(dest, file);
-                // recursive copy
-                copyFolder(srcFile, destFile);
-            }
-
-        } else {
-            // if file, then copy it
-            // Use bytes stream to support all file types
-            InputStream in = new FileInputStream(src);
-            OutputStream out = new FileOutputStream(dest);
-
-            byte[] buffer = new byte[1024];
-
-            int length;
-            // copy the file content in bytes
-            while ((length = in.read(buffer)) > 0) {
-                out.write(buffer, 0, length);
-            }
-
-            in.close();
-            out.close();
-            System.out.println("File copied from " + src + " to " + dest);
-        }
-    }
 }

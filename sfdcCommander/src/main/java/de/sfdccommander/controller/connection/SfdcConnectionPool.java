@@ -18,7 +18,7 @@ import com.sforce.soap.partner.fault.LoginFault;
 import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
 import de.sfdccommander.controller.helper.CommanderException;
-import de.sfdccommander.model.CommanderConfig;
+import de.sfdccommander.model.SfdcConfig;
 import de.sfdccommander.viewer.SfdcCommander;
 
 /**
@@ -58,7 +58,7 @@ public final class SfdcConnectionPool {
      * @throws ServerManagerException
      *             if issue with srvrmgr occurs
      */
-    public SoapBindingStub getBinding(final CommanderConfig aConfig)
+    public SoapBindingStub getBinding(final SfdcConfig aConfig)
             throws CommanderException {
         SoapBindingStub binding = null;
         SforceServiceLocator salesForceSL = new SforceServiceLocator();
@@ -66,8 +66,8 @@ public final class SfdcConnectionPool {
         boolean equals = false;
         for (SoapBindingStub actBinding : bindings) {
             // Compare Parameters
-            if (actBinding.getUsername().equals(aConfig.getSfUsername())) {
-                if (actBinding.getPassword().equals(aConfig.getSfPassword())) {
+            if (actBinding.getUsername().equals(aConfig.getUsername())) {
+                if (actBinding.getPassword().equals(aConfig.getPassword())) {
                     equals = true;
                 }
             }
@@ -81,8 +81,8 @@ public final class SfdcConnectionPool {
                 binding = (SoapBindingStub) salesForceSL.getSoap();
                 binding.setTimeout(60000);
                 LoginResult lr;
-                lr = binding.login(aConfig.getSfUsername(),
-                        aConfig.getSfPassword());
+                lr = binding.login(aConfig.getUsername(),
+                        aConfig.getPassword());
 
                 SessionHeader sh = new SessionHeader();
                 sh.setSessionId(lr.getSessionId());

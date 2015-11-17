@@ -35,8 +35,8 @@ import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
 import de.sfdccommander.controller.connection.SfdcConnectionPool;
 import de.sfdccommander.controller.helper.CommanderException;
-import de.sfdccommander.model.CommanderConfig;
 import de.sfdccommander.model.CustomObjectFieldMap;
+import de.sfdccommander.model.SfdcConfig;
 import de.sfdccommander.viewer.SfdcCommander;
 
 /**
@@ -45,7 +45,7 @@ import de.sfdccommander.viewer.SfdcCommander;
  */
 public class ObjectExporter {
 
-    private final CommanderConfig tmpConfig;
+    private final SfdcConfig config;
 
     static SoapBindingStub binding;
 
@@ -53,15 +53,15 @@ public class ObjectExporter {
 
     private SfdcConnectionPool connPool;
 
-    public ObjectExporter(CommanderConfig aConfig) {
-        tmpConfig = aConfig;
+    public ObjectExporter(SfdcConfig aConfig) {
+        config = aConfig;
     }
 
     public void exportObjects() throws CommanderException {
         commander = SfdcCommander.getInstance();
         connPool = SfdcConnectionPool.getInstance();
 
-        binding = connPool.getBinding(tmpConfig);
+        binding = connPool.getBinding(config);
 
         DescribeGlobalResult global;
         try {
@@ -85,7 +85,7 @@ public class ObjectExporter {
     public void renderObjectXml(DescribeGlobalSObjectResult aObject)
             throws CommanderException {
         SfdcCommander commander = SfdcCommander.getInstance();
-        File objectFile = new File(tmpConfig.getSfSystemname()
+        File objectFile = new File(config.getSystemName()
                 + "/unpackaged/objects/" + aObject.getName() + ".object");
 
         if (objectFile.exists()) {
@@ -119,7 +119,6 @@ public class ObjectExporter {
                 DOMSource source = new DOMSource(doc);
 
                 StreamResult result = new StreamResult(objectFile);
-                // StreamResult result = new StreamResult(System.out);
                 transformer.transform(source, result);
 
             } catch (ParserConfigurationException e) {

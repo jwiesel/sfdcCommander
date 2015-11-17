@@ -21,7 +21,7 @@ public class SfdcConfig {
     /**
      * SFDC URL.
      */
-    private String url;
+    private String systemName;
 
     /**
      * @return the username
@@ -54,18 +54,17 @@ public class SfdcConfig {
     }
 
     /**
-     * @return the url
+     * @return the systemName
      */
-    public final String getUrl() {
-        return url;
+    public String getSystemName() {
+        return systemName;
     }
 
     /**
-     * @param url
-     *            the url to set
+     * @param aSystemName the systemName to set
      */
-    public final void setUrl(final String aUrl) {
-        this.url = aUrl;
+    public void setSystemName(String aSystemName) {
+        systemName = aSystemName;
     }
 
 }

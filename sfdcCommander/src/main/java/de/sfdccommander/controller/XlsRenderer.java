@@ -96,8 +96,8 @@ public class XlsRenderer {
         connPool = SfdcConnectionPool.getInstance();
 
         // prepare XLS output folder
-        File outputFolder = new File(
-                tmpConfig.getXlsPath() + "/" + tmpConfig.getSfSystemname());
+        File outputFolder = new File(tmpConfig.getXlsPath() + "/"
+                + tmpConfig.getSourceSfdcConfig().getSystemName());
         if (outputFolder.exists()) {
             deleteDirectory(outputFolder);
         }
@@ -105,7 +105,7 @@ public class XlsRenderer {
 
         commander.info("Generating XLS output.");
 
-        binding = connPool.getBinding(tmpConfig);
+        binding = connPool.getBinding(tmpConfig.getSourceSfdcConfig());
 
         // run the different examples
         DescribeGlobalResult global;

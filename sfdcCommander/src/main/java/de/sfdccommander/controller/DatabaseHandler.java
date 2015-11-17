@@ -23,7 +23,7 @@ import com.sforce.soap.partner.sobject.SObject;
 
 import de.sfdccommander.controller.connection.SfdcConnectionPool;
 import de.sfdccommander.controller.helper.CommanderException;
-import de.sfdccommander.model.CommanderConfig;
+import de.sfdccommander.model.SfdcConfig;
 import de.sfdccommander.viewer.SfdcCommander;
 
 /**
@@ -32,16 +32,34 @@ import de.sfdccommander.viewer.SfdcCommander;
  */
 public class DatabaseHandler {
 
-    private final CommanderConfig config;
+    /**
+     * 
+     */
+    private final SfdcConfig config;
 
+    /**
+     * 
+     */
+    private final String backupPath;
+
+    /**
+     * 
+     */
     private SfdcCommander commander;
 
+    /**
+     * 
+     */
     private SfdcConnectionPool connPool;
 
+    /**
+     * 
+     */
     static SoapBindingStub sfBinding;
 
-    public DatabaseHandler(CommanderConfig aConfig) {
-        config = aConfig;
+    public DatabaseHandler(SfdcConfig aConfig, String aBackupPath) {
+        this.config = aConfig;
+        this.backupPath = aBackupPath;
     }
 
     public void backupOrganization() throws CommanderException {
@@ -50,16 +68,15 @@ public class DatabaseHandler {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
 
         commander.info("Generating Backup for Organization: "
-                + config.getSfSystemname());
+                + config.getSystemName());
 
-        File backupFolder = new File(
-                config.getBackupPath() + config.getSfSystemname());
+        File backupFolder = new File(backupPath + config.getSystemName());
         backupFolder.mkdirs();
         try {
             Class.forName("org.sqlite.JDBC");
             Connection dbConnection = DriverManager.getConnection(
                     "jdbc:sqlite:" + backupFolder.getAbsolutePath()
-                            + File.separator + config.getSfSystemname() + "_"
+                            + File.separator + config.getSystemName() + "_"
                             + sdf.format(date) + ".sqlite");
 
             connPool = SfdcConnectionPool.getInstance();

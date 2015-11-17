@@ -11,6 +11,8 @@ import java.util.Properties;
 
 import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.CommanderConfig;
+import de.sfdccommander.model.SfdcConfig;
+import de.sfdccommander.model.SvnConfig;
 
 /**
  * @author jochen
@@ -34,6 +36,7 @@ public class CommanderPropertiesHandler {
     /**
      * @return CommanderConfiguration for task execution.
      * @throws CommanderException
+     *             If config file cannot be loaded, an exception is thrown.
      */
     public final CommanderConfig loadProperties() throws CommanderException {
         Properties properties = new Properties();
@@ -50,28 +53,34 @@ public class CommanderPropertiesHandler {
                     "Could not open configuration file: " + tmpPropFile, e);
         }
 
-        config.setSfSystemname(
+        SfdcConfig sourceSfdcConfig = new SfdcConfig();
+        sourceSfdcConfig.setSystemName(
                 properties.getProperty(CommanderConfig.SF_SYSTEMNAME));
-        config.setSfUsername(
+        sourceSfdcConfig.setUsername(
                 properties.getProperty(CommanderConfig.SF_USERNAME));
-        config.setSfPassword(
+        sourceSfdcConfig.setPassword(
                 properties.getProperty(CommanderConfig.SF_PASSWORD));
-        config.setSvnRepository(
+        config.setSourceSfdcConfig(sourceSfdcConfig);
+        SvnConfig svnConfig = new SvnConfig();
+        svnConfig.setSvnRepository(
                 properties.getProperty(CommanderConfig.SVN_REPOSITORY));
-        config.setSvnUser(properties.getProperty(CommanderConfig.SVN_USER));
-        config.setSvnPassword(
+        svnConfig.setSvnUser(properties.getProperty(CommanderConfig.SVN_USER));
+        svnConfig.setSvnPassword(
                 properties.getProperty(CommanderConfig.SVN_PASSWORD));
+        config.setSvnConfig(svnConfig);
         config.setRenderPath(
                 properties.getProperty(CommanderConfig.RENDER_PATH));
         config.setBackupPath(
                 properties.getProperty(CommanderConfig.BACKUP_PATH));
         config.setXlsPath(properties.getProperty(CommanderConfig.XLS_PATH));
-        config.setSfTargetSystemname(
+        SfdcConfig targetSfdcConfig = new SfdcConfig();
+        targetSfdcConfig.setSystemName(
                 properties.getProperty(CommanderConfig.SF_TARGET_SYSTEMNAME));
-        config.setSfTargetUsername(
+        targetSfdcConfig.setUsername(
                 properties.getProperty(CommanderConfig.SF_TARGET_USERNAME));
-        config.setSfTargetPassword(
+        targetSfdcConfig.setPassword(
                 properties.getProperty(CommanderConfig.SF_TARGET_PASSWORD));
+        config.setTargetSfdcConfig(targetSfdcConfig);
         config.setHttpProxyHost(
                 properties.getProperty(CommanderConfig.HTTP_PROXY_HOST));
         config.setHttpProxyPort(
