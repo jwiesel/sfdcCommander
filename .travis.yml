@@ -1,6 +1,6 @@
 language: java
 
-script: mvn install -DskipTests=true -Dgpg.skip=true -f sfdcCommander/pom.xml
+script: mvn install -Dgpg.skip=true -f sfdcCommander/pom.xml
 
 jdk:
   - oraclejdk8
