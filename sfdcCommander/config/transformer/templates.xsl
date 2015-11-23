@@ -23,6 +23,7 @@
 	<!-- Content Header -->
 	<xsl:template name="get-content-header">
 		<xsl:param name="file" />
+		<xsl:param name="list"></xsl:param>
 		<div class="staticheader"><xsl:value-of select="$file" disable-output-escaping="yes" /></div>
 		<div class="qnav">
 			<a href="javascript:history.back()">
@@ -31,10 +32,17 @@
 			<a rel="nofollow"
 				onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;"
 				title="Print">
-				<xsl:attribute name="href"><xsl:call-template name="substring-before-last">
-						<xsl:with-param name="string" select="$file" />
-						<xsl:with-param name="delimiter" select="'.'" />
-					</xsl:call-template>.html</xsl:attribute>
+				<xsl:choose>
+					<xsl:when test="$list = 'true'">
+						<xsl:attribute name="href"><xsl:value-of select="$file" disable-output-escaping="yes" />.html</xsl:attribute>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:attribute name="href"><xsl:call-template name="substring-before-last">
+								<xsl:with-param name="string" select="$file" />
+								<xsl:with-param name="delimiter" select="'.'" />
+							</xsl:call-template>.html</xsl:attribute>
+					</xsl:otherwise>
+				</xsl:choose>
 				<span class="glyphicon glyphicon-print"></span>
 			</a>
 		</div>

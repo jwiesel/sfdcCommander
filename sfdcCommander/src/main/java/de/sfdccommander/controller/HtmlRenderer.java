@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -117,7 +118,7 @@ public class HtmlRenderer {
             // get xslt files
             transformFiles = transformerFolder
                     .listFiles(new XsltFileNameFilter());
-
+            Arrays.sort(transformFiles);
             for (File transformer : transformFiles) {
                 // create folder for current transformation file
                 String tmpTransformerName = transformer.getName().substring(0,
@@ -147,8 +148,10 @@ public class HtmlRenderer {
                         generateFileList(tmpTransformerName, sourceFolder,
                                 targetFolder);
                         // generate html files
-                        for (File xmlFile : sourceFolder
-                                .listFiles(new XmlFileNameFilter())) {
+                        File[] xmlFileList = sourceFolder
+                                .listFiles(new XmlFileNameFilter());
+                        Arrays.sort(xmlFileList);
+                        for (File xmlFile : xmlFileList) {
                             render(transformer, xmlFile,
                                     new File(tmpOutputFolder.getAbsolutePath()
                                             + "/"
@@ -161,8 +164,10 @@ public class HtmlRenderer {
                                 || tmpTransformerName.equals("classes")
                                 || tmpTransformerName.equals("pages")
                                 || tmpTransformerName.equals("scontrols")) {
-                            for (File codeFile : sourceFolder
-                                    .listFiles(new CodeFileNameFilter())) {
+                            File[] codeFileList = sourceFolder
+                                    .listFiles(new CodeFileNameFilter());
+                            Arrays.sort(codeFileList);
+                            for (File codeFile : codeFileList) {
                                 File codeTargetFile = new File(
                                         tmpOutputFolder.getAbsolutePath() + "/"
                                                 + codeFile.getName());
@@ -272,7 +277,9 @@ public class HtmlRenderer {
                             .getBytes());
 
             String actLine;
-            for (File recordFile : sourceFolder.listFiles()) {
+            File[] recordFileList = sourceFolder.listFiles();
+            Arrays.sort(recordFileList);
+            for (File recordFile : recordFileList) {
                 if (!recordFile.getAbsolutePath()
                         .equals(allRecordsFile.getAbsolutePath())) {
                     InputStreamReader isr = new InputStreamReader(
@@ -328,8 +335,9 @@ public class HtmlRenderer {
             fos.write(("<system>" + systemName + "</system>\r\n").getBytes());
 
             String cutFileName;
-            for (File actFile : sourceFolder
-                    .listFiles(new XmlFileNameFilter())) {
+            File[] fileList = sourceFolder.listFiles(new XmlFileNameFilter());
+            Arrays.sort(fileList);
+            for (File actFile : fileList) {
                 cutFileName = actFile.getName().substring(0,
                         actFile.getName().lastIndexOf("."));
                 fos.write(("<file>" + cutFileName + "</file>\r\n").getBytes());

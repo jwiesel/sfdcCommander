@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Files xmlns="http://soap.sforce.com/2006/04/metadata">
+<entity>lists</entity>
+<system>SampleOrg</system>
+<file>applications</file>
+<file>appMenus</file>
+<file>assignmentRules</file>
+<file>autoResponseRules</file>
+<file>communities</file>
+<file>escalationRules</file>
+<file>homePageLayouts</file>
+<file>installedPackages</file>
+<file>labels</file>
+<file>layouts</file>
+<file>matchingRules</file>
+<file>objects</file>
+<file>objectTranslations</file>
+<file>pages</file>
+<file>permissionsets</file>
+<file>profiles</file>
+<file>quickActions</file>
+<file>remoteSiteSettings</file>
+<file>roles</file>
+<file>settings</file>
+<file>sharingRules</file>
+<file>tabs</file>
+<file>triggers</file>
+<file>workflows</file>
+</Files>

@@ -67,4 +67,15 @@ public class HtmlRendererTest {
         tmpFolder.delete();
     }
 
+    @Test
+    public void renderTest() throws CommanderException {
+        File indexTransformer = new File("config/transformer/index.xsl");
+        File indexSource = new File("src/test/resources/lists.xml");
+        File indexOutput = new File("src/test/resources/index.html");
+        indexOutput.delete();
+        HtmlRenderer renderer = new HtmlRenderer("", "");
+        renderer.render(indexTransformer, indexSource, indexOutput);
+        Assert.assertTrue(indexOutput.isFile());
+    }
+
 }

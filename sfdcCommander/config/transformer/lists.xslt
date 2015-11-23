@@ -22,7 +22,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 					<div class="innerbody">
 					
 						<xsl:variable name="entity" select="sfdc:entity" /> 
-						<xsl:call-template name="get-content-header"><xsl:with-param name="file" select="$entity" /></xsl:call-template>
+						<xsl:call-template name="get-content-header"><xsl:with-param name="file" select="$entity" /><xsl:with-param name="list" select="'true'" /></xsl:call-template>
 						<div class="dynamiccontent">
 							<table class="table table-striped table-hover">
 								<xsl:for-each select="sfdc:file">
