@@ -35,11 +35,13 @@ public class HtmlRendererTest {
                 "/a/destination/folder");
         File resourceFolder = new File("src/test/resources/roles");
         File tmpFolder = new File("src/test/resources/mergeFilesTest");
+        File testFile1 = new File(tmpFolder.getAbsolutePath() + "/CEO.role");
+        File testFile2 = new File(tmpFolder.getAbsolutePath() + "/CFO.role");
         tmpFolder.mkdir();
         Files.copy(Paths.get(resourceFolder.getAbsolutePath() + "/CEO.role"),
-                Paths.get(tmpFolder.getAbsolutePath() + "/CEO.role"));
+                testFile1.toPath());
         Files.copy(Paths.get(resourceFolder.getAbsolutePath() + "/CFO.role"),
-                Paths.get(tmpFolder.getAbsolutePath() + "/CFO.role"));
+                testFile2.toPath());
 
         renderer.mergeFiles("roles", tmpFolder);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -63,6 +65,8 @@ public class HtmlRendererTest {
         Assert.assertEquals(2, j);
 
         // Cleanup
+        testFile1.delete();
+        testFile2.delete();
         allRoles.delete();
         tmpFolder.delete();
     }

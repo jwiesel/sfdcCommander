@@ -3,24 +3,31 @@
  */
 package de.sfdccommander.controller;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 
 import de.sfdccommander.controller.helper.CodeFileNameFilter;
 import de.sfdccommander.controller.helper.CommanderException;
@@ -256,65 +263,70 @@ public class HtmlRenderer {
 
     /**
      * @param entity
-     *            entity for merge process.
+     *            Entity which should be merged (e.g. roles)
      * @param sourceFolder
-     *            source folder for merge process.
+     *            Source folder of entity files (e.g. contains CEO.role)
      * @throws CommanderException
+     *             Exception if merge did not work.
      */
-    public final void mergeFiles(final String entity, final File sourceFolder)
+    public void mergeFiles(String entity, File sourceFolder)
             throws CommanderException {
 
         File allRecordsFile = new File(sourceFolder.getAbsolutePath() + "/"
                 + "all_" + entity + ".xml");
-
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory
+                .newInstance();
+        docFactory.setNamespaceAware(true);
         try {
-            FileOutputStream fos = new FileOutputStream(allRecordsFile);
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 
-            fos.write(("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n")
-                    .getBytes());
-            fos.write(("<" + entity
-                    + " xmlns=\"http://soap.sforce.com/2006/04/metadata\">\r\n")
-                            .getBytes());
+            // root elements
+            Document doc = docBuilder.newDocument();
 
-            String actLine;
+            Element rootElement = doc.createElement(entity);
+            rootElement.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns",
+                    "http://soap.sforce.com/2006/04/metadata");
+            doc.appendChild(rootElement);
             File[] recordFileList = sourceFolder.listFiles();
             Arrays.sort(recordFileList);
             for (File recordFile : recordFileList) {
                 if (!recordFile.getAbsolutePath()
                         .equals(allRecordsFile.getAbsolutePath())) {
-                    InputStreamReader isr = new InputStreamReader(
-                            new FileInputStream(recordFile));
-                    BufferedReader br = new BufferedReader(isr);
-
-                    // Read first line with xml version
-                    actLine = br.readLine();
-                    while ((actLine = br.readLine()) != null) {
-                        if (actLine.contains(
-                                " xmlns=\"http://soap.sforce.com/2006/04/metadata\"")) {
-                            fos.write(actLine.replace(
-                                    " xmlns=\"http://soap.sforce.com/2006/04/metadata\"",
-                                    "").concat("\r\n").getBytes());
-                        } else {
-                            fos.write(actLine.concat("\r\n").getBytes());
-                        }
-
-                    }
-                    br.close();
-                    recordFile.delete();
+                    Document entryDoc = docBuilder.parse(recordFile);
+                    Node importNode = doc
+                            .importNode(entryDoc.getDocumentElement(), true);
+                    rootElement.appendChild(importNode);
                 }
             }
-            fos.write(("</" + entity + ">").getBytes());
-            fos.close();
-        } catch (FileNotFoundException e) {
+            TransformerFactory transformerFactory = TransformerFactory
+                    .newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.transform(new DOMSource(doc),
+                    new StreamResult(allRecordsFile));
+        } catch (ParserConfigurationException e) {
             throw new CommanderException(
-                    "Could not find either " + allRecordsFile.getAbsolutePath()
-                            + " or one of the entity files.",
+                    "Could not configure document builder for "
+                            + allRecordsFile.getAbsolutePath(),
+                    e);
+        } catch (SAXException e) {
+            throw new CommanderException(
+                    "Could not parse one of the xml files in "
+                            + sourceFolder.getAbsolutePath(),
                     e);
         } catch (IOException e) {
             throw new CommanderException(
-                    "Could not write " + allRecordsFile.getAbsolutePath()
-                            + " or read one of the entity files.",
+                    "Could not open one of the xml files in "
+                            + sourceFolder.getAbsolutePath(),
                     e);
+        } catch (TransformerConfigurationException e) {
+            throw new CommanderException(
+                    "Could not configure xml-transformer for "
+                            + allRecordsFile.getAbsolutePath(),
+                    e);
+        } catch (TransformerException e) {
+            new CommanderException("Could not transform xml-result into file "
+                    + allRecordsFile.getAbsolutePath(), e);
         }
     }
 
