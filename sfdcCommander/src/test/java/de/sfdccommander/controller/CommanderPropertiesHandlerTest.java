@@ -22,28 +22,32 @@ public class CommanderPropertiesHandlerTest {
         CommanderPropertiesHandler propHandler = new CommanderPropertiesHandler(
                 "src/test/resources/Test.properties");
         CommanderConfig config = propHandler.loadProperties();
-        Assert.assertEquals(config.getSourceSfdcConfig().getSystemName(),
-                "MyDevelopmentOrg");
-        Assert.assertEquals(config.getSourceSfdcConfig().getUsername(),
-                "user@devAccount.com");
-        Assert.assertEquals(config.getSourceSfdcConfig().getPassword(),
-                "MyPasswordAndSecurityToken");
-        Assert.assertEquals(config.getHttpProxyHost(), "TestProxyHost");
-        Assert.assertEquals(config.getHttpProxyPort(), "8080");
-        Assert.assertEquals(config.getSvnConfig().getSvnRepository(),
-                "https://my.svn.server/repository/");
-        Assert.assertEquals(config.getSvnConfig().getSvnUser(), "svnUsername");
-        Assert.assertEquals(config.getSvnConfig().getSvnPassword(),
-                "svnPassword");
-        Assert.assertEquals(config.getRenderPath(), "c:/html/");
-        Assert.assertEquals(config.getXlsPath(), "c:/xls/");
-        Assert.assertEquals(config.getBackupPath(), "c:/sfdcBackup/");
-        Assert.assertEquals(config.getTargetSfdcConfig().getSystemName(),
-                "MyTargetOrg");
-        Assert.assertEquals(config.getTargetSfdcConfig().getUsername(),
-                "user@testAccount.com");
-        Assert.assertEquals(config.getTargetSfdcConfig().getPassword(),
-                "TargetPasswordAndSecurityToken");
+        Assert.assertEquals("MyDevelopmentOrg",
+                config.getSourceSfdcConfig().getSystemName());
+        Assert.assertEquals("user@devAccount.com",
+                config.getSourceSfdcConfig().getUsername());
+        Assert.assertEquals("MyPasswordAndSecurityToken",
+                config.getSourceSfdcConfig().getPassword());
+        Assert.assertEquals("https://login.salesforce.com",
+                config.getSourceSfdcConfig().getLoginUrl());
+        Assert.assertEquals("TestProxyHost", config.getHttpProxyHost());
+        Assert.assertEquals("8080", config.getHttpProxyPort());
+        Assert.assertEquals("https://my.svn.server/repository/",
+                config.getSvnConfig().getSvnRepository());
+        Assert.assertEquals("svnUsername", config.getSvnConfig().getSvnUser());
+        Assert.assertEquals("svnPassword",
+                config.getSvnConfig().getSvnPassword());
+        Assert.assertEquals("c:/html/", config.getRenderPath());
+        Assert.assertEquals("c:/xls/", config.getXlsPath());
+        Assert.assertEquals("c:/sfdcBackup/", config.getBackupPath());
+        Assert.assertEquals("MyTargetOrg",
+                config.getTargetSfdcConfig().getSystemName());
+        Assert.assertEquals("user@testAccount.com",
+                config.getTargetSfdcConfig().getUsername());
+        Assert.assertEquals("TargetPasswordAndSecurityToken",
+                config.getTargetSfdcConfig().getPassword());
+        Assert.assertEquals("https://test.salesforce.com",
+                config.getTargetSfdcConfig().getLoginUrl());
     }
 
     @Rule

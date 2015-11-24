@@ -18,8 +18,10 @@ public class SfdcConfig {
      */
     private String password;
 
+    private String loginUrl;
+
     /**
-     * SFDC URL.
+     * SFDC System Name.
      */
     private String systemName;
 
@@ -61,10 +63,29 @@ public class SfdcConfig {
     }
 
     /**
-     * @param aSystemName the systemName to set
+     * @param aSystemName
+     *            the systemName to set
      */
     public void setSystemName(String aSystemName) {
         systemName = aSystemName;
+    }
+
+    /**
+     * @return the loginUrl
+     */
+    public String getLoginUrl() {
+        return loginUrl;
+    }
+
+    /**
+     * @param aLoginUrl
+     *            the loginUrl to set
+     */
+    public void setLoginUrl(String aLoginUrl) {
+        loginUrl = aLoginUrl;
+        if (loginUrl.endsWith("/")) {
+            loginUrl = loginUrl.substring(0, loginUrl.length() - 1);
+        }
     }
 
 }

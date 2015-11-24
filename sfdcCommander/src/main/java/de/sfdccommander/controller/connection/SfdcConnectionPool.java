@@ -62,7 +62,7 @@ public final class SfdcConnectionPool {
             throws CommanderException {
         SoapBindingStub binding = null;
         SforceServiceLocator salesForceSL = new SforceServiceLocator();
-
+        salesForceSL.setSoapEndpointAddress(aConfig.getLoginUrl());
         boolean equals = false;
         for (SoapBindingStub actBinding : bindings) {
             // Compare Parameters
@@ -97,7 +97,8 @@ public final class SfdcConnectionPool {
                 }
             } catch (LoginFault e) {
                 throw new CommanderException(
-                        "Login failed. Please check your username, password and security token and ensure your user is not locked.",
+                        "Login failed for the following reason: "
+                                + e.getFaultReason(),
                         e);
             } catch (UnexpectedErrorFault e) {
                 throw new CommanderException(

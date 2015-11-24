@@ -60,6 +60,8 @@ public class CommanderPropertiesHandler {
                 properties.getProperty(CommanderConfig.SF_USERNAME));
         sourceSfdcConfig.setPassword(
                 properties.getProperty(CommanderConfig.SF_PASSWORD));
+        sourceSfdcConfig.setLoginUrl(
+                properties.getProperty(CommanderConfig.SF_SERVERURL));
         config.setSourceSfdcConfig(sourceSfdcConfig);
         SvnConfig svnConfig = new SvnConfig();
         svnConfig.setSvnRepository(
@@ -80,6 +82,8 @@ public class CommanderPropertiesHandler {
                 properties.getProperty(CommanderConfig.SF_TARGET_USERNAME));
         targetSfdcConfig.setPassword(
                 properties.getProperty(CommanderConfig.SF_TARGET_PASSWORD));
+        targetSfdcConfig.setLoginUrl(
+                properties.getProperty(CommanderConfig.SF_TARGET_SERVERURL));
         config.setTargetSfdcConfig(targetSfdcConfig);
         config.setHttpProxyHost(
                 properties.getProperty(CommanderConfig.HTTP_PROXY_HOST));

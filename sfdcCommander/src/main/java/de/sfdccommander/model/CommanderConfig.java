@@ -27,6 +27,11 @@ public class CommanderConfig {
     /**
      * 
      */
+    public static final String SF_SERVERURL = "sf.serverurl";
+
+    /**
+     * 
+     */
     public static final String HTTP_PROXY_HOST = "http.proxyHost";
 
     /**
@@ -78,6 +83,11 @@ public class CommanderConfig {
      * 
      */
     public static final String SF_TARGET_PASSWORD = "target.password";
+
+    /**
+     * 
+     */
+    public static final String SF_TARGET_SERVERURL = "target.serverurl";
 
     /**
      * 

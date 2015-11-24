@@ -55,15 +55,15 @@ public class MetadataRetriever {
             new InputStreamReader(System.in));
 
     // maximum number of attempts to retrieve the results
-    private static final int MAX_NUM_POLL_REQUESTS = 50;
+    private static final int MAX_NUM_POLL_REQUESTS = 100;
 
     private static final double API_VERSION = 34.0;
 
     private final SfdcCommander commander;
 
-    public MetadataRetriever(String username, String password)
+    public MetadataRetriever(String username, String password, String loginUrl)
             throws CommanderException {
-        createMetadataConnection(username, password);
+        createMetadataConnection(username, password, loginUrl);
         commander = SfdcCommander.getInstance();
     }
 
@@ -85,7 +85,9 @@ public class MetadataRetriever {
             do {
                 Thread.sleep(waitTimeMilliSecs);
                 // Double the wait time for the next iteration
-                waitTimeMilliSecs *= 2;
+                if (waitTimeMilliSecs < 100) {
+                    waitTimeMilliSecs *= 2;
+                }
                 if (poll++ > MAX_NUM_POLL_REQUESTS) {
                     throw new CommanderException(
                             "Request timed out.  If this is a large set "
@@ -212,10 +214,11 @@ public class MetadataRetriever {
     }
 
     private void createMetadataConnection(final String username,
-            final String password) throws CommanderException {
+            final String password, String loginUrl) throws CommanderException {
 
         MetadataServiceLocator metaDataSL = new MetadataServiceLocator();
         SforceServiceLocator salesForceSL = new SforceServiceLocator();
+        salesForceSL.setSoapEndpointAddress(loginUrl + "/services/Soap/u/34.0");
 
         try {
 
@@ -243,7 +246,8 @@ public class MetadataRetriever {
                     "Could not connection to salesforce-API.", e);
         } catch (LoginFault e) {
             throw new CommanderException(
-                    "Login failed. Please check your username, password and security token and ensure your user is not locked.",
+                    "Login failed for the following reason: "
+                            + e.getFaultReason(),
                     e);
         } catch (UnexpectedErrorFault e) {
             throw new CommanderException(
@@ -253,8 +257,7 @@ public class MetadataRetriever {
             throw new CommanderException("Login failed. Invalid Id.", e);
         } catch (RemoteException e) {
             throw new CommanderException(
-                    "Login failed due to a remote issue. Please check the log-file for details.",
-                    e);
+                    "Login failed due to a remote issue: " + e.getMessage(), e);
         }
 
     }
