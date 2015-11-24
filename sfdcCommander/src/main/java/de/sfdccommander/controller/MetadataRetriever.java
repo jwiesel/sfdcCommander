@@ -85,7 +85,7 @@ public class MetadataRetriever {
             do {
                 Thread.sleep(waitTimeMilliSecs);
                 // Double the wait time for the next iteration
-                if (waitTimeMilliSecs < 100) {
+                if (waitTimeMilliSecs < 100 * ONE_SECOND) {
                     waitTimeMilliSecs *= 2;
                 }
                 if (poll++ > MAX_NUM_POLL_REQUESTS) {
