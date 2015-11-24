@@ -62,7 +62,8 @@ public final class SfdcConnectionPool {
             throws CommanderException {
         SoapBindingStub binding = null;
         SforceServiceLocator salesForceSL = new SforceServiceLocator();
-        salesForceSL.setSoapEndpointAddress(aConfig.getLoginUrl());
+        salesForceSL.setSoapEndpointAddress(
+                aConfig.getLoginUrl() + "/services/Soap/u/34.0");
         boolean equals = false;
         for (SoapBindingStub actBinding : bindings) {
             // Compare Parameters
