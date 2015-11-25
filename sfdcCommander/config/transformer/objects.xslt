@@ -32,7 +32,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 									<xsl:if test="count(sfdc:fields)>0"><li><a target="_self" href="#fields">Fields</a></li></xsl:if>
 									<xsl:if test="count(sfdc:recordTypes)>0"><li><a target="_self" href="#recordtypes">Record Types</a></li></xsl:if>
 									<xsl:if test="count(sfdc:validationRules)>0"><li><a target="_self" href="#validationrules">Validation Rules</a></li></xsl:if>
-									<li><a target="_self"><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=workflows&amp;entity=', $object)"/></xsl:attribute>Workflows</a></li>
+									<li><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=workflows&amp;entity=', $object)"/></xsl:attribute>Workflows</a></li>
 									<xsl:if test="count(sfdc:actionOverrides)>0"><li><a target="_self" href="#actionoverrides">Action Overrides</a></li></xsl:if>
 									<xsl:if test="count(sfdc:searchLayouts)>0"><li><a target="_self" href="#searchlayouts">Search Layouts</a></li></xsl:if>
 									<xsl:if test="count(sfdc:listViews)>0"><li><a target="_self" href="#listviews">List Views</a></li></xsl:if>
@@ -110,7 +110,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 											
 											<xsl:if test="sfdc:length!=''">Length: <xsl:value-of select="sfdc:length"/><br /></xsl:if>
 											
-											<xsl:if test="sfdc:referenceTo!=''">Reference To: <a><xsl:attribute name="href"><xsl:value-of select="concat(sfdc:referenceTo,'.html')"/></xsl:attribute><xsl:value-of select="sfdc:referenceTo"/></a><br /></xsl:if>
+											<xsl:if test="sfdc:referenceTo!=''">Reference To: <a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=objects&amp;entity=', sfdc:referenceTo)"/></xsl:attribute><xsl:value-of select="sfdc:referenceTo"/></a><br /></xsl:if>
 											<xsl:if test="sfdc:relationshipName!=''">Relationship Name: <xsl:value-of select="sfdc:relationshipName"/><br /></xsl:if>
 											<xsl:if test="sfdc:relationshipLabel!=''">Relationship Label: <xsl:value-of select="sfdc:relationshipLabel"/><br /></xsl:if>
 											<xsl:if test="sfdc:deleteConstraint!=''">Delete Constraint: <xsl:value-of select="sfdc:deleteConstraint"/></xsl:if>
@@ -319,8 +319,8 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 									<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:requireRowSelection" /><xsl:with-param name="title" select="'Require Row selection?'" /></xsl:call-template></td>
 									<td><xsl:if test="sfdc:linkType='javascript'"><xsl:attribute name="id"><xsl:value-of select='concat("wl_", $link)' /></xsl:attribute><xsl:attribute name="class">fader</xsl:attribute></xsl:if><xsl:value-of select="sfdc:linkType"/></td>
 									<td>
-										<xsl:if test="sfdc:page!=''">Page: <a><xsl:attribute name="href"><xsl:value-of select="concat('../pages/', sfdc:page,'.page-meta.html')"/></xsl:attribute><xsl:value-of select="sfdc:page"/></a></xsl:if>
-										<xsl:if test="sfdc:scontrol!=''">sControl: <a><xsl:attribute name="href"><xsl:value-of select="concat('../scontrols/', sfdc:scontrol,'.scf-meta.html')"/></xsl:attribute><xsl:value-of select="sfdc:scontrol"/></a></xsl:if>
+										<xsl:if test="sfdc:page!=''">Page: <a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=pages&amp;entity=', sfdc:page,'.page-meta')"/></xsl:attribute><xsl:value-of select="sfdc:page"/></a></xsl:if>
+										<xsl:if test="sfdc:scontrol!=''">sControl: <a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=scontrols&amp;entity=', sfdc:scontrol,'.scf-meta')"/></xsl:attribute><xsl:value-of select="sfdc:scontrol"/></a></xsl:if>
 										<xsl:if test="sfdc:url!=''">
 										<xsl:choose>
 											<xsl:when test="sfdc:linkType='javascript'">

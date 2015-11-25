@@ -22,8 +22,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 			<body>
 				<xsl:for-each select="sfdc:CustomTab">
 					<div class="innerbody">
-						<div class="staticheader"><script>document.write(decodeURIComponent(decodeURIComponent('<xsl:value-of select='$file' />')));</script></div>
-						<div class="qnav"><a href="javascript:history.back()"><i class="glyphicon glyphicon-circle-arrow-left"></i></a></div>
+						<xsl:call-template name="get-content-header"><xsl:with-param name="file" select="$file" /></xsl:call-template>
 						<div class="dynamiccontent">
 							<p>
 								<xsl:if test="sfdc:customObject='true'"><b>Custom Object: </b><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=objects&amp;entity=',$tab)"/></xsl:attribute><xsl:value-of select="$tab"/></a><br /></xsl:if>

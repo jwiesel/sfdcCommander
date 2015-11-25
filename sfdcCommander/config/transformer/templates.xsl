@@ -126,10 +126,10 @@
 		<xsl:param name="field" />
 		<xsl:choose>
 			<xsl:when test="$field = 'DefaultOn'">
-				<img src="../images/power-on.PNG" />
+				<i title="Default On" class="glyphicon glyphicon-eye-open"></i>
 			</xsl:when>
 			<xsl:otherwise>
-				<img src="../images/power-off.PNG" />
+				<i title="Default Off" class="glyphicon glyphicon-eye-close"></i>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>

@@ -60,7 +60,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 									</tr>
 									<xsl:for-each select="sfdc:customTabs">
 										<tr>
-											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../tabs/',sfdc:name,'.html')"/></xsl:attribute><xsl:value-of select="sfdc:name"/></a></td>
+											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=tabs&amp;entity=',sfdc:name)"/></xsl:attribute><xsl:value-of select="sfdc:name"/></a></td>
 											<td><xsl:value-of select="sfdc:label"/></td>
 										</tr>
 									</xsl:for-each>

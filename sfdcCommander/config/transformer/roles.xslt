@@ -19,8 +19,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 			</head>
 			<body>
 				<div class="innerbody">
-					<div class="staticheader">Role hierarchy</div>
-					<div class="qnav"><a href="javascript:history.back()"><i class="glyphicon glyphicon-circle-arrow-left"></i></a></div>
+					<xsl:call-template name="get-content-header"><xsl:with-param name="file" select="'Role hierarchy'" /></xsl:call-template>
 					<div class="dynamiccontent">
 						<xsl:for-each select="sfdc:roles">
 							<h3>Roles</h3>

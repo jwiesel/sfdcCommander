@@ -38,7 +38,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 										<tr>
 											<td><xsl:value-of select="sfdc:fullName"/></td>
 											<td><xsl:value-of select="sfdc:categories"/></td>
-											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../translations/', sfdc:language, '.html')"/></xsl:attribute><xsl:value-of select="sfdc:language"/></a></td>
+											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=translations&amp;entity=', sfdc:language)"/></xsl:attribute><xsl:value-of select="sfdc:language"/></a></td>
 											<td><xsl:value-of select="sfdc:value"/></td>
 											<td class="icon"><xsl:call-template name="show-boolean"><xsl:with-param name="field" select="sfdc:protected" /><xsl:with-param name="title" select="'Protected?'" /></xsl:call-template></td>
 											<td><xsl:value-of select="sfdc:shortDescription"/></td>

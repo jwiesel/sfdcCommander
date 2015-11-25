@@ -27,9 +27,9 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 							<p>
 								<ul class="nav nav-pills">
 									<h3>Quick Navigation</h3>
-									<xsl:if test="count(sfdc:customButtons)>0 or count(sfdc:excludeButtons)>0"><li><a href="#buttons">Buttons</a></li></xsl:if>
-									<xsl:if test="count(sfdc:layoutSections)>0"><li><a href="#layoutsections">Layout Sections</a></li></xsl:if>
-									<xsl:if test="count(sfdc:relatedLists)>0"><li><a href="#relatedlists">Related Lists</a></li></xsl:if>
+									<xsl:if test="count(sfdc:customButtons)>0 or count(sfdc:excludeButtons)>0"><li><a target="_self" href="#buttons">Buttons</a></li></xsl:if>
+									<xsl:if test="count(sfdc:layoutSections)>0"><li><a target="_self" href="#layoutsections">Layout Sections</a></li></xsl:if>
+									<xsl:if test="count(sfdc:relatedLists)>0"><li><a target="_self" href="#relatedlists">Related Lists</a></li></xsl:if>
 								</ul>
 							</p>
 							

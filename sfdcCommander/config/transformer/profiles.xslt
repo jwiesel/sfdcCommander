@@ -75,7 +75,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 														<xsl:value-of select="sfdc:tab"/>
 													</xsl:when>
 													<xsl:otherwise>
-														<a><xsl:attribute name="href"><xsl:value-of select="concat('../tabs/', sfdc:tab, '.html')"/></xsl:attribute><xsl:value-of select="sfdc:tab"/></a>
+														<a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=tabs&amp;entity=', sfdc:tab)"/></xsl:attribute><xsl:value-of select="sfdc:tab"/></a>
 													</xsl:otherwise>
 												</xsl:choose>
 											</td>

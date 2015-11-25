@@ -26,12 +26,12 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 							<p>
 								<ul class="nav nav-pills">
 									<h3>Quick Navigation</h3>
-									<xsl:if test="count(sfdc:caseValues)>0"><li><a href="#casevalues">Case Values</a></li></xsl:if>
-									<xsl:if test="count(sfdc:fields)>0"><li><a href="#fields">Fields</a></li></xsl:if>
-									<xsl:if test="count(sfdc:layouts)>0"><li><a href="#layouts">Layouts</a></li></xsl:if>
-									<xsl:if test="count(sfdc:recordTypes)>0"><li><a href="#recordtypes">Record Types</a></li></xsl:if>
-									<xsl:if test="count(sfdc:validationRules)>0"><li><a href="#validationrules">Validation Rules</a></li></xsl:if>
-									<xsl:if test="count(sfdc:webLinks)>0"><li><a href="#weblinks">Web Links</a></li></xsl:if>
+									<xsl:if test="count(sfdc:caseValues)>0"><li><a target="_self" href="#casevalues">Case Values</a></li></xsl:if>
+									<xsl:if test="count(sfdc:fields)>0"><li><a target="_self" href="#fields">Fields</a></li></xsl:if>
+									<xsl:if test="count(sfdc:layouts)>0"><li><a target="_self" href="#layouts">Layouts</a></li></xsl:if>
+									<xsl:if test="count(sfdc:recordTypes)>0"><li><a target="_self" href="#recordtypes">Record Types</a></li></xsl:if>
+									<xsl:if test="count(sfdc:validationRules)>0"><li><a target="_self" href="#validationrules">Validation Rules</a></li></xsl:if>
+									<xsl:if test="count(sfdc:webLinks)>0"><li><a target="_self" href="#weblinks">Web Links</a></li></xsl:if>
 								</ul>
 							</p>
 							

@@ -59,10 +59,10 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 												<xsl:for-each select="sfdc:actions">
 													<xsl:choose>
 														<xsl:when test="sfdc:type='FieldUpdate'">
-															<xsl:value-of select="sfdc:type"/>: <a><xsl:attribute name="href"><xsl:value-of select="concat('#fu_', sfdc:name)"/></xsl:attribute><xsl:value-of select="sfdc:name"/></a><br />
+															<xsl:value-of select="sfdc:type"/>: <a target="_self"><xsl:attribute name="href"><xsl:value-of select="concat('#fu_', sfdc:name)"/></xsl:attribute><xsl:value-of select="sfdc:name"/></a><br />
 														</xsl:when>
 														<xsl:when test="sfdc:type='Alert'">
-															<xsl:value-of select="sfdc:type"/>: <a><xsl:attribute name="href"><xsl:value-of select="concat('#al_', sfdc:name)"/></xsl:attribute><xsl:value-of select="sfdc:name"/></a><br />
+															<xsl:value-of select="sfdc:type"/>: <a target="_self"><xsl:attribute name="href"><xsl:value-of select="concat('#al_', sfdc:name)"/></xsl:attribute><xsl:value-of select="sfdc:name"/></a><br />
 														</xsl:when>
 														<xsl:otherwise>
 															<xsl:value-of select="sfdc:type"/>: <xsl:value-of select="sfdc:name"/><br />
@@ -100,7 +100,7 @@ xmlns:sfdc="http://soap.sforce.com/2006/04/metadata">
 										<tr>
 											<td><a><xsl:attribute name="name"><xsl:value-of select="concat('fu_', sfdc:fullName)"/></xsl:attribute><xsl:value-of select="sfdc:fullName"/></a></td>
 											<td><xsl:value-of select="sfdc:name"/></td>
-											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../objects/',$object,'.html#f_',sfdc:field)"/></xsl:attribute><xsl:value-of select="sfdc:field"/></a></td>
+											<td><a><xsl:attribute name="href"><xsl:value-of select="concat('../index.html?category=objects&amp;entity=',$object,'#f_',sfdc:field)"/></xsl:attribute><xsl:value-of select="sfdc:field"/></a></td>
 											<td><xsl:value-of select="sfdc:operation"/></td>
 											<td>
 												<xsl:if test="sfdc:lookupValueType!=''">Lookup Value Type: <xsl:value-of select="sfdc:lookupValueType"/><br /></xsl:if>
