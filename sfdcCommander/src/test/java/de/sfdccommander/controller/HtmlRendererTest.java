@@ -65,10 +65,9 @@ public class HtmlRendererTest {
         Assert.assertEquals(2, j);
 
         // Cleanup
-        testFile1.delete();
-        testFile2.delete();
         allRoles.delete();
         tmpFolder.delete();
+        Assert.assertFalse(tmpFolder.exists());
     }
 
     @Test
@@ -80,6 +79,35 @@ public class HtmlRendererTest {
         HtmlRenderer renderer = new HtmlRenderer("", "");
         renderer.render(indexTransformer, indexSource, indexOutput);
         Assert.assertTrue(indexOutput.isFile());
+    }
+
+    @Test
+    public void generateFileListTest() throws CommanderException, SAXException,
+            IOException, ParserConfigurationException {
+        File resourceFolder = new File("src/test/resources/roles");
+        File targetFolder = new File("src/test/resources/lists");
+        targetFolder.mkdirs();
+        HtmlRenderer renderer = new HtmlRenderer("", "");
+        renderer.generateFileList("roles", resourceFolder, targetFolder);
+
+        File generatedFileList = new File("src/test/resources/lists/roles.xml");
+        Assert.assertTrue(generatedFileList.exists());
+
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        dbFactory.setNamespaceAware(true);
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(generatedFileList);
+        Element rootElement = doc.getDocumentElement();
+        Assert.assertEquals("Files", rootElement.getNodeName());
+        Assert.assertEquals("http://soap.sforce.com/2006/04/metadata",
+                rootElement.getNamespaceURI());
+        NodeList files = rootElement.getElementsByTagName("file");
+        Assert.assertEquals(2, files.getLength());
+
+        // Cleanup
+        generatedFileList.delete();
+        targetFolder.delete();
+        Assert.assertFalse(targetFolder.exists());
     }
 
 }

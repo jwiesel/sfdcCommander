@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeGlobalSObjectResult;
@@ -45,12 +46,14 @@ public class DatabaseHandler {
     /**
      * 
      */
-    private SfdcCommander commander;
+    private final SfdcCommander commander;
 
     /**
      * 
      */
     private SfdcConnectionPool connPool;
+
+    private final HashMap<String, String> dataTypeMap;
 
     /**
      * 
@@ -60,10 +63,26 @@ public class DatabaseHandler {
     public DatabaseHandler(SfdcConfig aConfig, String aBackupPath) {
         this.config = aConfig;
         this.backupPath = aBackupPath;
+        commander = SfdcCommander.getInstance();
+
+        dataTypeMap = new HashMap<>();
+        dataTypeMap.put("id", "VARCHAR(20)");
+        dataTypeMap.put("reference", "VARCHAR(20)");
+        dataTypeMap.put("datetime", "DATETIME");
+        dataTypeMap.put("string", "VARCHAR(255)");
+        dataTypeMap.put("boolean", "BOOLEAN");// TODO: To be replaced by
+                                              // toBool function
+        dataTypeMap.put("date", "DATE");
+        dataTypeMap.put("picklist", "VARCHAR(255)");
+        dataTypeMap.put("double", "DOUBLE");
+        dataTypeMap.put("textarea", "TEXT");
+        dataTypeMap.put("currency", "VARCHAR(255)");// TODO to be replaced
+        dataTypeMap.put("url", "VARCHAR(255)");
+        dataTypeMap.put("phone", "VARCHAR(50)");
+        dataTypeMap.put("address", "VARCHAR(100)");
     }
 
     public void backupOrganization() throws CommanderException {
-        commander = SfdcCommander.getInstance();
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
 
@@ -157,7 +176,7 @@ public class DatabaseHandler {
         for (Field field : aFields) {
             // TODO Change type or remove method
             createStatement.append("`" + field.getName() + "` "
-                    + convertSfdcFieldType("text") + ",");
+                    + convertSfdcFieldType(field.getType().getValue()) + ",");
         }
         createStatement.setLength(createStatement.length() - 1);
         createStatement.append(");");
@@ -166,16 +185,18 @@ public class DatabaseHandler {
         return createStatement.toString();
     }
 
-    private String generateDropTableStatement(String aObjectName) {
+    protected String generateDropTableStatement(String aObjectName) {
         String tmpStatement = "DROP TABLE IF EXISTS `" + aObjectName + "`;";
         commander.debug(tmpStatement);
         return tmpStatement;
     }
 
-    private String convertSfdcFieldType(String sfdcFieldType) {
-        String dbFieldType = "text";
-
-        return dbFieldType;
+    protected String convertSfdcFieldType(String sfdcFieldType) {
+        String dbType = dataTypeMap.get(sfdcFieldType);
+        if (dbType == null) {
+            dbType = "text";
+        }
+        return dbType;
     }
 
     private String generateSOQLSelectQuery(String aObjectName,

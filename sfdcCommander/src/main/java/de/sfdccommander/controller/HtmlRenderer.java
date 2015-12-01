@@ -296,6 +296,7 @@ public class HtmlRenderer {
                     Node importNode = doc
                             .importNode(entryDoc.getDocumentElement(), true);
                     rootElement.appendChild(importNode);
+                    recordFile.delete();
                 }
             }
             TransformerFactory transformerFactory = TransformerFactory
@@ -332,37 +333,52 @@ public class HtmlRenderer {
 
     public void generateFileList(final String entity, final File sourceFolder,
             final File targetFolder) throws CommanderException {
-        File output = null;
+        File generatedFileList = new File(
+                targetFolder.getAbsolutePath() + "/" + entity + ".xml");
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory
+                .newInstance();
+        docFactory.setNamespaceAware(true);
         try {
-            output = new File(
-                    targetFolder.getAbsolutePath() + "/" + entity + ".xml");
-            FileOutputStream fos = new FileOutputStream(output);
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 
-            fos.write(("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n")
-                    .getBytes());
-            fos.write(
-                    ("<Files xmlns=\"http://soap.sforce.com/2006/04/metadata\">\r\n")
-                            .getBytes());
-            fos.write(("<entity>" + entity + "</entity>\r\n").getBytes());
-            fos.write(("<system>" + systemName + "</system>\r\n").getBytes());
+            // root elements
+            Document doc = docBuilder.newDocument();
 
-            String cutFileName;
+            Element rootElement = doc.createElement("Files");
+            rootElement.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns",
+                    "http://soap.sforce.com/2006/04/metadata");
+            doc.appendChild(rootElement);
+            Element entityElement = doc.createElement("entity");
+            entityElement.appendChild(doc.createTextNode(entity));
+            entityElement.setAttributeNS("http://www.w3.org/2000/xmlns/",
+                    "xmlns", "http://soap.sforce.com/2006/04/metadata");
+            rootElement.appendChild(entityElement);
             File[] fileList = sourceFolder.listFiles(new XmlFileNameFilter());
             Arrays.sort(fileList);
             for (File actFile : fileList) {
-                cutFileName = actFile.getName().substring(0,
-                        actFile.getName().lastIndexOf("."));
-                fos.write(("<file>" + cutFileName + "</file>\r\n").getBytes());
+                Element newFileElement = doc.createElement("file");
+                newFileElement.appendChild(doc.createTextNode(actFile.getName()
+                        .substring(0, actFile.getName().lastIndexOf("."))));
+                newFileElement.setAttributeNS("http://www.w3.org/2000/xmlns/",
+                        "xmlns", "http://soap.sforce.com/2006/04/metadata");
+                rootElement.appendChild(newFileElement);
             }
 
-            fos.write(("</Files>").getBytes());
-            fos.close();
-        } catch (IOException e) {
+            TransformerFactory transformerFactory = TransformerFactory
+                    .newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.transform(new DOMSource(doc),
+                    new StreamResult(generatedFileList));
+        } catch (ParserConfigurationException e) {
             throw new CommanderException(
-                    "Could not generate file-list " + output.getAbsolutePath(),
+                    "Could not configure document builder for "
+                            + generatedFileList.getAbsolutePath(),
                     e);
+        } catch (TransformerException e) {
+            new CommanderException("Could not transform xml-result into file "
+                    + generatedFileList.getAbsolutePath(), e);
         }
-
     }
 
 }
