@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 
 import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeGlobalSObjectResult;
@@ -25,6 +24,8 @@ import com.sforce.soap.partner.sobject.SObject;
 import de.sfdccommander.controller.connection.SfdcConnectionPool;
 import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.SfdcConfig;
+import de.sfdccommander.model.SpecialQuerySObjectSet;
+import de.sfdccommander.model.SqliteDataTypeMap;
 import de.sfdccommander.viewer.SfdcCommander;
 
 /**
@@ -53,7 +54,8 @@ public class DatabaseHandler {
      */
     private SfdcConnectionPool connPool;
 
-    private final HashMap<String, String> dataTypeMap;
+    private final SqliteDataTypeMap dataTypeMap;
+    private final SpecialQuerySObjectSet unsupportedSObjects;
 
     /**
      * 
@@ -65,21 +67,9 @@ public class DatabaseHandler {
         this.backupPath = aBackupPath;
         commander = SfdcCommander.getInstance();
 
-        dataTypeMap = new HashMap<>();
-        dataTypeMap.put("id", "VARCHAR(20)");
-        dataTypeMap.put("reference", "VARCHAR(20)");
-        dataTypeMap.put("datetime", "DATETIME");
-        dataTypeMap.put("string", "VARCHAR(255)");
-        dataTypeMap.put("boolean", "BOOLEAN");// TODO: To be replaced by
-                                              // toBool function
-        dataTypeMap.put("date", "DATE");
-        dataTypeMap.put("picklist", "VARCHAR(255)");
-        dataTypeMap.put("double", "DOUBLE");
-        dataTypeMap.put("textarea", "TEXT");
-        dataTypeMap.put("currency", "VARCHAR(255)");// TODO to be replaced
-        dataTypeMap.put("url", "VARCHAR(255)");
-        dataTypeMap.put("phone", "VARCHAR(50)");
-        dataTypeMap.put("address", "VARCHAR(100)");
+        dataTypeMap = new SqliteDataTypeMap();
+        unsupportedSObjects = new SpecialQuerySObjectSet();
+
     }
 
     public void backupOrganization() throws CommanderException {
@@ -116,13 +106,8 @@ public class DatabaseHandler {
                 DescribeSObjectResult tmpDescribeSObject = sfBinding
                         .describeSObject(objectGlobalResult.getName());
                 if (tmpDescribeSObject.isQueryable()) {
-                    if (!tmpDescribeSObject.getName()
-                            .equals("ContentDocumentLink")
-                            && !tmpDescribeSObject.getName()
-                                    .equals("UserProfileFeed")
-                            && !tmpDescribeSObject.getName()
-                                    .equals("UserRecordAccess")
-                            && !tmpDescribeSObject.getName().equals("Vote")) {
+                    if (!unsupportedSObjects
+                            .contains(tmpDescribeSObject.getName())) {
                         commander.info(
                                 "Object: " + tmpDescribeSObject.getName());
                         commander.info("Preparing database table.");
@@ -139,13 +124,23 @@ public class DatabaseHandler {
                         commander.info("");
                         QueryResult queryResults = sfBinding
                                 .queryAll(soqlSelect);
+                        boolean done = false;
                         if (queryResults.getSize() > 0) {
-                            for (SObject tmpSObject : queryResults
-                                    .getRecords()) {
-                                insertStatement = generateInsertStatementForSObject(
-                                        tmpSObject,
-                                        tmpDescribeSObject.getName(), fields);
-                                tmpStatement.execute(insertStatement);
+                            while (!done) {
+                                for (SObject tmpSObject : queryResults
+                                        .getRecords()) {
+                                    insertStatement = generateInsertStatementForSObject(
+                                            tmpSObject,
+                                            tmpDescribeSObject.getName(),
+                                            fields);
+                                    tmpStatement.execute(insertStatement);
+                                }
+                                if (queryResults.isDone()) {
+                                    done = true;
+                                } else {
+                                    queryResults = sfBinding.queryMore(
+                                            queryResults.getQueryLocator());
+                                }
                             }
                         }
                     }
