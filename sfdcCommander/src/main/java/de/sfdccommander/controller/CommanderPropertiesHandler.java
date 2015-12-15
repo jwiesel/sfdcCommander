@@ -89,6 +89,16 @@ public class CommanderPropertiesHandler {
                 properties.getProperty(CommanderConfig.HTTP_PROXY_HOST));
         config.setHttpProxyPort(
                 properties.getProperty(CommanderConfig.HTTP_PROXY_PORT));
+
+        if (!config.getHttpProxyHost().equals("")) {
+            System.setProperty(CommanderConfig.HTTP_PROXY_HOST,
+                    config.getHttpProxyHost());
+        }
+        if (!config.getHttpProxyPort().equals("")) {
+            System.setProperty(CommanderConfig.HTTP_PROXY_PORT,
+                    config.getHttpProxyPort());
+        }
+
         return config;
     }
 }

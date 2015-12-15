@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
@@ -58,6 +59,8 @@ public class MetadataRetriever {
     private static final int MAX_NUM_POLL_REQUESTS = 100;
 
     private static final double API_VERSION = 34.0;
+
+    private static final int MAX_PACKAGE_MEMBERS = 60;
 
     private final SfdcCommander commander;
 
@@ -178,39 +181,67 @@ public class MetadataRetriever {
             throws CommanderException {
         SfdcCommander commander = SfdcCommander.getInstance();
         commander.info("Gathering Metadata from your Org...");
-        List<PackageTypeMembers> pd = new ArrayList<PackageTypeMembers>();
+        List<PackageTypeMembers> entitylist = new ArrayList<PackageTypeMembers>();
+        int members = 0;
         try {
             DescribeMetadataResult metadataResult = metaBinding
                     .describeMetadata(API_VERSION);
             for (DescribeMetadataObject objectType : metadataResult
                     .getMetadataObjects()) {
-                PackageTypeMembers pdi = new PackageTypeMembers();
-                pdi.setName(objectType.getXmlName());
-
-                ListMetadataQuery[] queries = new ListMetadataQuery[1];
-                queries[0] = new ListMetadataQuery();
-                queries[0].setType(objectType.getXmlName());
-                FileProperties[] tmpListMetadata = metaBinding
-                        .listMetadata(queries, API_VERSION);
-                if (tmpListMetadata != null) {
-                    List<String> members = new ArrayList<String>();
-                    for (FileProperties member : tmpListMetadata) {
-                        members.add(URLDecoder.decode(member.getFullName()));
-                    }
-                    pdi.setMembers(members.toArray(new String[members.size()]));
+                PackageTypeMembers entity = generateEntityWithMembers(
+                        objectType);
+                if (entity.getMembers() != null) {
+                    members += entity.getMembers().length;
                 }
-                pd.add(pdi);
+                // TODO: Add check for max. members to create several
+                // entitylists & packages --> support for large orgs >10.000
+                // members
+                entitylist.add(entity);
             }
+            commander.info(
+                    "Your Org consists of " + members + " visible elements.");
         } catch (RemoteException e) {
             throw new CommanderException(
                     "Could not describe metadata to build package.xml", e);
+        } catch (UnsupportedEncodingException e) {
+            throw new CommanderException(
+                    "Could not decode package member name with UTF-8. (Unsupported Encoding?)",
+                    e);
         }
 
         com.sforce.soap._2006._04.metadata._package r = new com.sforce.soap._2006._04.metadata._package();
-        r.setTypes(pd.toArray(new PackageTypeMembers[pd.size()]));
+        r.setTypes(
+                entitylist.toArray(new PackageTypeMembers[entitylist.size()]));
         r.setVersion(API_VERSION + "");
         return r;
 
+    }
+
+    /**
+     * @param objectType
+     * @return
+     * @throws RemoteException
+     * @throws UnsupportedEncodingException
+     */
+    private PackageTypeMembers generateEntityWithMembers(
+            DescribeMetadataObject objectType)
+                    throws RemoteException, UnsupportedEncodingException {
+        PackageTypeMembers entity = new PackageTypeMembers();
+        entity.setName(objectType.getXmlName());
+
+        ListMetadataQuery[] queries = new ListMetadataQuery[1];
+        queries[0] = new ListMetadataQuery();
+        queries[0].setType(objectType.getXmlName());
+        FileProperties[] tmpListMetadata = metaBinding.listMetadata(queries,
+                API_VERSION);
+        if (tmpListMetadata != null) {
+            List<String> members = new ArrayList<String>();
+            for (FileProperties member : tmpListMetadata) {
+                members.add(URLDecoder.decode(member.getFullName(), "UTF-8"));
+            }
+            entity.setMembers(members.toArray(new String[members.size()]));
+        }
+        return entity;
     }
 
     private void createMetadataConnection(final String username,

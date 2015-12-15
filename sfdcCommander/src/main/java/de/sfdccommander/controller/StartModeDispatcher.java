@@ -3,13 +3,7 @@
  */
 package de.sfdccommander.controller;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.Arrays;
-
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -17,11 +11,11 @@ import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.apache.log4j.Logger;
 
 import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.CommanderConfig;
 import de.sfdccommander.viewer.SfdcCommander;
+import de.sfdccommander.viewer.Window;
 
 /**
  * @author jochen
@@ -29,8 +23,6 @@ import de.sfdccommander.viewer.SfdcCommander;
  */
 
 public class StartModeDispatcher {
-
-    private static final String NO_UI_MODE = "The UI-Mode of sfdcCommander is not yet available. Please execute the application via command-line with parameter '-help'.";
 
     /**
      * 
@@ -72,10 +64,6 @@ public class StartModeDispatcher {
      * 
      */
     private static final String CONFIG = "config";
-    /**
-     * 
-     */
-    public static final String SYSTEM_LOOK_NOT_LOADED = "Could not get System Look&Feel";
 
     /**
      * @param aArgs
@@ -111,20 +99,7 @@ public class StartModeDispatcher {
 
         if (tmpArgs.length == 0) {
             // Start UI Mode
-            commander.info(NO_UI_MODE);
-            try {
-                String cn = UIManager.getSystemLookAndFeelClassName();
-                UIManager.setLookAndFeel(cn);
-            } catch (ClassNotFoundException e) {
-                Logger.getLogger(this.getClass()).error(SYSTEM_LOOK_NOT_LOADED);
-            } catch (InstantiationException e) {
-                Logger.getLogger(this.getClass()).error(SYSTEM_LOOK_NOT_LOADED);
-            } catch (IllegalAccessException e) {
-                Logger.getLogger(this.getClass()).error(SYSTEM_LOOK_NOT_LOADED);
-            } catch (UnsupportedLookAndFeelException e) {
-                Logger.getLogger(this.getClass()).error(SYSTEM_LOOK_NOT_LOADED);
-            }
-            JOptionPane.showMessageDialog(null, NO_UI_MODE);
+            Window window = Window.getInstance();
         } else {
             // check parameters for command line mode
             CommandLineParser parser = new BasicParser();
@@ -140,60 +115,18 @@ public class StartModeDispatcher {
                         CommanderPropertiesHandler propHandler = new CommanderPropertiesHandler(
                                 cmd.getOptionValue(CONFIG));
                         CommanderConfig config = propHandler.loadProperties();
-                        if (!config.getHttpProxyHost().equals("")) {
-                            System.setProperty(CommanderConfig.HTTP_PROXY_HOST,
-                                    config.getHttpProxyHost());
-                        }
-                        if (!config.getHttpProxyPort().equals("")) {
-                            System.setProperty(CommanderConfig.HTTP_PROXY_PORT,
-                                    config.getHttpProxyPort());
-                        }
                         if (cmd.hasOption("s")) {
-                            // Extract salesforce config
-                            MetadataExporter exporter = new MetadataExporter(
-                                    config.getSourceSfdcConfig());
-                            exporter.getEntities();
-
+                            Tasks.exportSrc(config);
                         } else if (cmd.hasOption("o")) {
-                            XmlComparer comparer = new XmlComparer();
-                            // TODO Test only
-                            try {
-                                comparer.compareXml(
-                                        new FileReader("AccountOld.object"),
-                                        new FileReader("AccountNew.object"));
-                            } catch (FileNotFoundException e) {
-                                // TODO: Add application logic
-                            }
+                            Tasks.compare(config);
                         } else if (cmd.hasOption("v")) {
-                            // Extract and put config from Salesforce under
-                            // version
-                            // control
-                            MetadataExporter exporter = new MetadataExporter(
-                                    config.getSourceSfdcConfig());
-                            exporter.getEntities();
+                            Tasks.versionize(config);
                         } else if (cmd.hasOption("r")) {
-                            // Extract and render salesforce configuration
-                            MetadataExporter exporter = new MetadataExporter(
-                                    config.getSourceSfdcConfig());
-                            ObjectExporter objExporter = new ObjectExporter(
-                                    config.getSourceSfdcConfig());
-                            exporter.getEntities();
-                            objExporter.exportObjects();
-                            HtmlRenderer renderer = new HtmlRenderer(
-                                    config.getSourceSfdcConfig()
-                                            .getSystemName(),
-                                    config.getRenderPath());
-                            renderer.generateOutput();
+                            Tasks.render(config);
                         } else if (cmd.hasOption("x")) {
-                            // Extract and render salesforce configuration to MS
-                            // Excel
-                            XlsRenderer renderer = new XlsRenderer(config);
-                            renderer.generatePartnerOutput();
+                            Tasks.renderXls(config);
                         } else if (cmd.hasOption("d")) {
-                            DatabaseHandler dbHandler = new DatabaseHandler(
-                                    config.getSourceSfdcConfig(),
-                                    config.getBackupPath());
-                            dbHandler.backupOrganization();
+                            Tasks.exportData(config);
                         } else {
                             commander.info("Missing command");
                             displayCliHelp();
