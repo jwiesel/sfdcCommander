@@ -1,0 +1,11 @@
+Package: sfdc-commander
+Version: 0.4
+Architecture: all
+Essential: no
+Section: utils, misc
+Priority: extra
+Suggest: java7-runtime-headless | java8-runtime-headless | java7-runtime | java8-runtime
+Maintainer: jwiesel <contact@force-box.com>
+Homepage: https://github.com/jwiesel/sfdcCommander
+Installed-Size: 25000
+Description: sfdcCommander is a client utility to analyze the meta data of salesforce.com organizations.

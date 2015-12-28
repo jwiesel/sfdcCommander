@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=sfdcCommander
+GenericName=sfdcCommander
+Comment=sfdcCommander is a client utility to analyze the meta data of salesforce.com organizations.
+Exec=java -jar /usr/share/sfdcCommander/sfdcCommander.jar
+Terminal=true
+Type=Application
