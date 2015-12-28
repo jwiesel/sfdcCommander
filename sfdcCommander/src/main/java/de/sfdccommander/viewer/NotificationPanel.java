@@ -63,27 +63,30 @@ public class NotificationPanel extends JPanel {
         this.add(hideButton, "right");
     }
 
+    public void success(String aSuccessMessage) {
+        notify(aSuccessMessage, Color.GREEN);
+    }
+
+    public void error(String anErrorMessage) {
+        notify(anErrorMessage, Color.RED);
+    }
+
+    public void info(String anInfoMessage) {
+        notify(anInfoMessage, Color.BLUE);
+    }
+
     /**
      * @param notification
      *            Notification text
+     * @param red
      */
-    public final void notify(final String notification) {
-        // Color tmpStartColor = Color.YELLOW;
-        // int tmpStartRed = tmpStartColor.getRed();
-        // int tmpStartGreen = tmpStartColor.getGreen();
-        // int tmpStartBlue = tmpStartColor.getBlue();
-        //
-        // Color tmpEndColor = Color.LIGHT_GRAY;
-        // int tmpEndRed = tmpEndColor.getRed();
-        // int tmpEndGreen = tmpEndColor.getGreen();
-        // int tmpEndBlue = tmpEndColor.getBlue();
-        //
-        // Math.max(tmpMath.max(arg0, arg1)
+    private final void notify(final String notification, Color aColor) {
 
         notificationLabel.setVisible(true);
         notificationText.setVisible(true);
         hideButton.setVisible(true);
         notificationText.setText(notification);
+        notificationLabel.setForeground(aColor);
     }
 
     /**
@@ -91,6 +94,7 @@ public class NotificationPanel extends JPanel {
      */
     public final void hideNotification() {
         notificationLabel.setVisible(false);
+        notificationLabel.setForeground(Color.BLACK);
         notificationText.setVisible(false);
         hideButton.setVisible(false);
         notificationText.setText("");

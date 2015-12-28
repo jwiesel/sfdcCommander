@@ -12,6 +12,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.filechooser.FileFilter;
 
 import de.sfdccommander.controller.listener.ClickButtonHandler;
@@ -67,7 +68,7 @@ public class FileOpenPanel extends JPanel {
         } else {
             selectFileButton.setToolTipText(tmpButtonText);
         }
-        // selectFileButton.setIcon(Images.getImageResource(Images.FOLDER_GREEN));
+        selectFileButton.setIcon(UIManager.getIcon("FileView.fileIcon"));
         selectFileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent aE) {

@@ -15,6 +15,7 @@ import org.apache.commons.cli.ParseException;
 import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.CommanderConfig;
 import de.sfdccommander.viewer.SfdcCommander;
+import de.sfdccommander.viewer.Translations;
 import de.sfdccommander.viewer.Window;
 
 /**
@@ -23,7 +24,6 @@ import de.sfdccommander.viewer.Window;
  */
 
 public class StartModeDispatcher {
-
     /**
      * 
      */
@@ -32,38 +32,6 @@ public class StartModeDispatcher {
      * 
      */
     private Options options = null;
-    /**
-     * 
-     */
-    private static final String EXPORT_SRC = "exportsrc";
-    /**
-     * 
-     */
-    private static final String VERSIONIZE = "versionize";
-    /**
-     * 
-     */
-    private static final String RENDER = "render";
-    /**
-     * 
-     */
-    private static final String RENDERXLS = "renderxls";
-    /**
-     * 
-     */
-    private static final String EXPORT_DATA = "exportdata";
-    /**
-     * 
-     */
-    private static final String COMPARE_CONFIG = "comparesrc";
-    /**
-     * 
-     */
-    private static final String HELP = "help";
-    /**
-     * 
-     */
-    private static final String CONFIG = "config";
 
     /**
      * @param aArgs
@@ -78,23 +46,25 @@ public class StartModeDispatcher {
      */
     public final void dispatch() {
         options = new Options();
-        options.addOption("h", HELP, false, "Show help text.");
-        options.addOption("c", CONFIG, true, "The commander configuration.");
-        options.addOption("s", EXPORT_SRC, false,
-                "Extract salesforce.com configuration to local harddrive.");
-        options.addOption("d", EXPORT_DATA, false,
-                "Backup salesforce.com data in a local database to avoid data loss due to faulty data deletions.");
-        options.addOption("r", RENDER, false,
-                "Extract salesforce.com configuration and render the entities to get a system overview.");
-        options.addOption("x", RENDERXLS, false,
-                "Extract salesforce.com schema and render the entities to MS Excel to get a system overview.");
-        options.addOption("v", VERSIONIZE, false,
-                "Extract salesforce configuration and put it under version control");
-        options.addOption("o", COMPARE_CONFIG, false,
-                "Compare system configurations.");
+        options.addOption("h", Translations.HELP, false,
+                Translations.HELP_DESC);
+        options.addOption("c", Translations.CONFIG, true,
+                "The commander configuration.");
+        options.addOption("s", Translations.EXPORT_SRC, false,
+                Translations.EXPORT_SRC_DESC);
+        options.addOption("d", Translations.EXPORT_DATA, false,
+                Translations.EXPORT_DATA_DESC);
+        options.addOption("r", Translations.RENDER, false,
+                Translations.RENDER_DESC);
+        options.addOption("x", Translations.RENDERXLS, false,
+                Translations.RENDERXLS_DESC);
+        options.addOption("v", Translations.VERSIONIZE, false,
+                Translations.VERSIONIZE_DESC);
+        options.addOption("o", Translations.COMPARE_CONFIG, false,
+                Translations.COMPARE_CONFIG_DESC);
 
         SfdcCommander commander = SfdcCommander.getInstance();
-        commander.info("sfdcCommander");
+        commander.info("Starting sfdcCommander...");
         commander.debug("Parameters entered:" + Arrays.toString(tmpArgs));
 
         if (tmpArgs.length == 0) {
@@ -113,7 +83,7 @@ public class StartModeDispatcher {
                 if (cmd.hasOption("c")) {
                     try {
                         CommanderPropertiesHandler propHandler = new CommanderPropertiesHandler(
-                                cmd.getOptionValue(CONFIG));
+                                cmd.getOptionValue(Translations.CONFIG));
                         CommanderConfig config = propHandler.loadProperties();
                         if (cmd.hasOption("s")) {
                             Tasks.exportSrc(config);

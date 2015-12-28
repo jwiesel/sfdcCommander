@@ -51,7 +51,7 @@ public final class Window extends JFrame {
 
         tabbedPane.addTab(Translations.START, configActionPanel);
 
-        setTitle(Translations.SFDC_COMMANDER);
+        setTitle(Translations.SFDC_COMMANDER + " " + Translations.VERSION);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
