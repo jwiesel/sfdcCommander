@@ -46,6 +46,7 @@ public final class Translations {
     public static final String SPECIFY_PROPERTIES_FILE = "Please specify a properties file";
     public static final String SELECT_ACTION = "Please select an action.";
     public static final String TASK_EXECUTED = "Task successfully executed.";
+    public static final String SEPARATOR = "--------------------------------";
 
     /**
      * 

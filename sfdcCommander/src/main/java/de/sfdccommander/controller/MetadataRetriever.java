@@ -29,11 +29,13 @@ import com.sforce.soap._2006._04.metadata.RetrieveMessage;
 import com.sforce.soap._2006._04.metadata.RetrieveRequest;
 import com.sforce.soap._2006._04.metadata.RetrieveResult;
 import com.sforce.soap._2006._04.metadata.RetrieveStatus;
+import com.sforce.soap._2006._04.metadata._package;
 
 import de.sfdccommander.controller.connection.SfdcConnectionPool;
 import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.SfdcConfig;
 import de.sfdccommander.viewer.SfdcCommander;
+import de.sfdccommander.viewer.Translations;
 
 public class MetadataRetriever {
 
@@ -50,76 +52,86 @@ public class MetadataRetriever {
     // maximum number of attempts to retrieve the results
     private static final int MAX_NUM_POLL_REQUESTS = 100;
 
-    private static final int MAX_PACKAGE_MEMBERS = 60;
+    private static final int MAX_PACKAGE_MEMBERS = 5000;
 
     private final SfdcCommander commander;
 
     public MetadataRetriever(SfdcConfig aConfig) throws CommanderException {
-        // createMetadataConnection(username, password, loginUrl);
         SfdcConnectionPool connectionPool = SfdcConnectionPool.getInstance();
         metaBinding = connectionPool.createMetadataBinding(aConfig);
         commander = SfdcCommander.getInstance();
     }
 
-    public void retrieveZip() throws CommanderException {
-        RetrieveRequest retrieveRequest = new RetrieveRequest();
-        // The version in package.xml overrides the version in RetrieveRequest
-        retrieveRequest.setApiVersion(SfdcConnectionPool.API_VERSION);
-        retrieveRequest.setUnpackaged(buildPackage());
-        try {
+    public int retrieveZips() throws CommanderException {
+        List<_package> packages = buildPackages();
+        int packageNum = 0;
+        for (_package currentPackage : packages) {
+            packageNum++;
+            commander.info(Translations.SEPARATOR);
+            commander.info("Downloading metadata package #" + packageNum);
+            RetrieveRequest retrieveRequest = new RetrieveRequest();
+            // The version in package.xml overrides the version in
+            // RetrieveRequest
+            retrieveRequest.setApiVersion(SfdcConnectionPool.API_VERSION);
+            retrieveRequest.setUnpackaged(currentPackage);
+            try {
 
-            // Start the retrieve operation
-            AsyncResult asyncResult = metaBinding.retrieve(retrieveRequest);
-            String asyncResultId = asyncResult.getId();
+                // Start the retrieve operation
+                AsyncResult asyncResult = metaBinding.retrieve(retrieveRequest);
+                String asyncResultId = asyncResult.getId();
 
-            // Wait for the retrieve to complete
-            int poll = 0;
-            long waitTimeMilliSecs = ONE_SECOND;
-            RetrieveResult result = null;
-            do {
-                Thread.sleep(waitTimeMilliSecs);
-                // Double the wait time for the next iteration
-                if (waitTimeMilliSecs < 100 * ONE_SECOND) {
-                    waitTimeMilliSecs *= 2;
-                }
-                if (poll++ > MAX_NUM_POLL_REQUESTS) {
-                    throw new CommanderException(
-                            "Request timed out.  If this is a large set "
-                                    + "of metadata components, check that the time allowed "
-                                    + "by MAX_NUM_POLL_REQUESTS is sufficient.");
-                }
-                result = metaBinding.checkRetrieveStatus(asyncResultId, true);
-                commander.info("Retrieve Status: " + result.getStatus());
-            } while (!result.isDone());
-
-            if (result.getStatus() == RetrieveStatus.Failed) {
-                throw new CommanderException(result.getErrorStatusCode()
-                        + " msg: " + result.getErrorMessage());
-            } else if (result.getStatus() == RetrieveStatus.Succeeded) {
-                // Print out any warning messages
-                StringBuilder buf = new StringBuilder();
-                if (result.getMessages() != null) {
-                    for (RetrieveMessage rm : result.getMessages()) {
-                        buf.append(rm.getFileName() + " - " + rm.getProblem()
-                                + "\r\n");
+                // Wait for the retrieve to complete
+                int poll = 0;
+                long waitTimeMilliSecs = ONE_SECOND;
+                RetrieveResult result = null;
+                do {
+                    Thread.sleep(waitTimeMilliSecs);
+                    // Double the wait time for the next iteration
+                    if (waitTimeMilliSecs < 100 * ONE_SECOND) {
+                        waitTimeMilliSecs *= 2;
                     }
-                }
-                if (buf.length() > 0) {
-                    commander.info("Retrieve warnings:\n" + buf);
-                }
+                    if (poll++ > MAX_NUM_POLL_REQUESTS) {
+                        throw new CommanderException(
+                                "Request timed out.  If this is a large set "
+                                        + "of metadata components, check that the time allowed "
+                                        + "by MAX_NUM_POLL_REQUESTS is sufficient.");
+                    }
+                    result = metaBinding.checkRetrieveStatus(asyncResultId,
+                            true);
+                    commander.info("Retrieve Status: " + result.getStatus());
+                } while (!result.isDone());
 
-                // Write the zip to the file system
-                File resultsFile = new File(systemName + ".zip");
-                writeZip(result.getZipFile(), resultsFile);
+                if (result.getStatus() == RetrieveStatus.Failed) {
+                    throw new CommanderException(result.getErrorStatusCode()
+                            + " msg: " + result.getErrorMessage());
+                } else if (result.getStatus() == RetrieveStatus.Succeeded) {
+                    // Print out any warning messages
+                    StringBuilder buf = new StringBuilder();
+                    if (result.getMessages() != null) {
+                        for (RetrieveMessage rm : result.getMessages()) {
+                            buf.append(rm.getFileName() + " - "
+                                    + rm.getProblem() + "\r\n");
+                        }
+                    }
+                    if (buf.length() > 0) {
+                        commander.info("Retrieve warnings:\n" + buf);
+                    }
 
+                    // Write the zip to the file system
+                    File resultsFile = new File(
+                            systemName + packageNum + ".zip");
+                    writeZip(result.getZipFile(), resultsFile);
+
+                }
+            } catch (RemoteException e) {
+                throw new CommanderException("Could not retrieve metadata.", e);
+
+            } catch (InterruptedException e) {
+                throw new CommanderException(
+                        "Metdata download request has been interrupted.", e);
             }
-        } catch (RemoteException e) {
-            throw new CommanderException("Could not retrieve metadata.", e);
-
-        } catch (InterruptedException e) {
-            throw new CommanderException(
-                    "Metdata download request has been interrupted.", e);
         }
+        return packageNum;
     }
 
     private void writeZip(byte[] content, File zipFile)
@@ -168,12 +180,14 @@ public class MetadataRetriever {
         }
     }
 
-    private com.sforce.soap._2006._04.metadata._package buildPackage()
-            throws CommanderException {
+    private List<_package> buildPackages() throws CommanderException {
         SfdcCommander commander = SfdcCommander.getInstance();
+        commander.info(Translations.SEPARATOR);
         commander.info("Gathering Metadata from your Org...");
+        List<List<PackageTypeMembers>> lists = new ArrayList<List<PackageTypeMembers>>();
         List<PackageTypeMembers> entitylist = new ArrayList<PackageTypeMembers>();
         int members = 0;
+        lists.add(entitylist);
         try {
             DescribeMetadataResult metadataResult = metaBinding
                     .describeMetadata(SfdcConnectionPool.API_VERSION);
@@ -183,14 +197,18 @@ public class MetadataRetriever {
                         objectType);
                 if (entity.getMembers() != null) {
                     members += entity.getMembers().length;
+                    commander.info("Entity " + entity.getName() + " contains "
+                            + entity.getMembers().length
+                            + " visible element(s).");
                 }
-                // TODO: Add check for max. members to create several
-                // entitylists & packages --> support for large orgs >10.000
-                // members
+                if (members > MAX_PACKAGE_MEMBERS) {
+                    // create new entity list (content for a package)
+                    entitylist = new ArrayList<PackageTypeMembers>();
+                    lists.add(entitylist);
+                    members = 0;
+                }
                 entitylist.add(entity);
             }
-            commander.info(
-                    "Your Org consists of " + members + " visible elements.");
         } catch (RemoteException e) {
             throw new CommanderException(
                     "Could not describe metadata to build package.xml", e);
@@ -199,12 +217,18 @@ public class MetadataRetriever {
                     "Could not decode package member name with UTF-8. (Unsupported Encoding?)",
                     e);
         }
-
-        com.sforce.soap._2006._04.metadata._package r = new com.sforce.soap._2006._04.metadata._package();
-        r.setTypes(
-                entitylist.toArray(new PackageTypeMembers[entitylist.size()]));
-        r.setVersion(SfdcConnectionPool.API_VERSION + "");
-        return r;
+        // put entity lists into packages
+        List<_package> packages = new ArrayList<_package>();
+        for (List<PackageTypeMembers> currentList : lists) {
+            _package r = new _package();
+            r.setTypes(currentList
+                    .toArray(new PackageTypeMembers[currentList.size()]));
+            r.setVersion(SfdcConnectionPool.API_VERSION + "");
+            packages.add(r);
+        }
+        commander.info(packages.size()
+                + " meta-data package(s) defined to be downloaded.");
+        return packages;
 
     }
 
