@@ -18,29 +18,21 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.rpc.ServiceException;
-
 import com.sforce.soap._2006._04.metadata.AsyncResult;
 import com.sforce.soap._2006._04.metadata.DescribeMetadataObject;
 import com.sforce.soap._2006._04.metadata.DescribeMetadataResult;
 import com.sforce.soap._2006._04.metadata.FileProperties;
 import com.sforce.soap._2006._04.metadata.ListMetadataQuery;
 import com.sforce.soap._2006._04.metadata.MetadataBindingStub;
-import com.sforce.soap._2006._04.metadata.MetadataServiceLocator;
 import com.sforce.soap._2006._04.metadata.PackageTypeMembers;
 import com.sforce.soap._2006._04.metadata.RetrieveMessage;
 import com.sforce.soap._2006._04.metadata.RetrieveRequest;
 import com.sforce.soap._2006._04.metadata.RetrieveResult;
 import com.sforce.soap._2006._04.metadata.RetrieveStatus;
-import com.sforce.soap._2006._04.metadata.SessionHeader;
-import com.sforce.soap.partner.LoginResult;
-import com.sforce.soap.partner.SforceServiceLocator;
-import com.sforce.soap.partner.SoapBindingStub;
-import com.sforce.soap.partner.fault.InvalidIdFault;
-import com.sforce.soap.partner.fault.LoginFault;
-import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
+import de.sfdccommander.controller.connection.SfdcConnectionPool;
 import de.sfdccommander.controller.helper.CommanderException;
+import de.sfdccommander.model.SfdcConfig;
 import de.sfdccommander.viewer.SfdcCommander;
 
 public class MetadataRetriever {
@@ -58,22 +50,21 @@ public class MetadataRetriever {
     // maximum number of attempts to retrieve the results
     private static final int MAX_NUM_POLL_REQUESTS = 100;
 
-    private static final double API_VERSION = 34.0;
-
     private static final int MAX_PACKAGE_MEMBERS = 60;
 
     private final SfdcCommander commander;
 
-    public MetadataRetriever(String username, String password, String loginUrl)
-            throws CommanderException {
-        createMetadataConnection(username, password, loginUrl);
+    public MetadataRetriever(SfdcConfig aConfig) throws CommanderException {
+        // createMetadataConnection(username, password, loginUrl);
+        SfdcConnectionPool connectionPool = SfdcConnectionPool.getInstance();
+        metaBinding = connectionPool.createMetadataBinding(aConfig);
         commander = SfdcCommander.getInstance();
     }
 
     public void retrieveZip() throws CommanderException {
         RetrieveRequest retrieveRequest = new RetrieveRequest();
         // The version in package.xml overrides the version in RetrieveRequest
-        retrieveRequest.setApiVersion(API_VERSION);
+        retrieveRequest.setApiVersion(SfdcConnectionPool.API_VERSION);
         retrieveRequest.setUnpackaged(buildPackage());
         try {
 
@@ -185,7 +176,7 @@ public class MetadataRetriever {
         int members = 0;
         try {
             DescribeMetadataResult metadataResult = metaBinding
-                    .describeMetadata(API_VERSION);
+                    .describeMetadata(SfdcConnectionPool.API_VERSION);
             for (DescribeMetadataObject objectType : metadataResult
                     .getMetadataObjects()) {
                 PackageTypeMembers entity = generateEntityWithMembers(
@@ -212,7 +203,7 @@ public class MetadataRetriever {
         com.sforce.soap._2006._04.metadata._package r = new com.sforce.soap._2006._04.metadata._package();
         r.setTypes(
                 entitylist.toArray(new PackageTypeMembers[entitylist.size()]));
-        r.setVersion(API_VERSION + "");
+        r.setVersion(SfdcConnectionPool.API_VERSION + "");
         return r;
 
     }
@@ -233,7 +224,7 @@ public class MetadataRetriever {
         queries[0] = new ListMetadataQuery();
         queries[0].setType(objectType.getXmlName());
         FileProperties[] tmpListMetadata = metaBinding.listMetadata(queries,
-                API_VERSION);
+                SfdcConnectionPool.API_VERSION);
         if (tmpListMetadata != null) {
             List<String> members = new ArrayList<String>();
             for (FileProperties member : tmpListMetadata) {
@@ -242,55 +233,6 @@ public class MetadataRetriever {
             entity.setMembers(members.toArray(new String[members.size()]));
         }
         return entity;
-    }
-
-    private void createMetadataConnection(final String username,
-            final String password, String loginUrl) throws CommanderException {
-
-        MetadataServiceLocator metaDataSL = new MetadataServiceLocator();
-        SforceServiceLocator salesForceSL = new SforceServiceLocator();
-        salesForceSL.setSoapEndpointAddress(loginUrl + "/services/Soap/u/34.0");
-
-        try {
-
-            SoapBindingStub soapBinding = (SoapBindingStub) salesForceSL
-                    .getSoap();
-            soapBinding.setTimeout(60000);
-            LoginResult loginResult = soapBinding.login(username, password);
-
-            SessionHeader sh = new SessionHeader();
-            sh.setSessionId(loginResult.getSessionId());
-
-            MetadataBindingStub metaBinding = (MetadataBindingStub) metaDataSL
-                    .getMetadata();
-
-            metaBinding._setProperty(SoapBindingStub.ENDPOINT_ADDRESS_PROPERTY,
-                    loginResult.getMetadataServerUrl());
-
-            metaBinding.setHeader(metaDataSL.getServiceName().getNamespaceURI(),
-                    "SessionHeader", sh);
-
-            this.metaBinding = metaBinding;
-
-        } catch (ServiceException e) {
-            throw new CommanderException(
-                    "Could not connection to salesforce-API.", e);
-        } catch (LoginFault e) {
-            throw new CommanderException(
-                    "Login failed for the following reason: "
-                            + e.getFaultReason(),
-                    e);
-        } catch (UnexpectedErrorFault e) {
-            throw new CommanderException(
-                    "Login failed due to an unexcepted error. Please check the log file for details.",
-                    e);
-        } catch (InvalidIdFault e) {
-            throw new CommanderException("Login failed. Invalid Id.", e);
-        } catch (RemoteException e) {
-            throw new CommanderException(
-                    "Login failed due to a remote issue: " + e.getMessage(), e);
-        }
-
     }
 
     /**

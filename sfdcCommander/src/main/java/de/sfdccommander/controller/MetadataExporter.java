@@ -40,8 +40,7 @@ public class MetadataExporter {
      */
     public final void getEntities() throws CommanderException {
         MetadataRetriever retriever;
-        retriever = new MetadataRetriever(config.getUsername(),
-                config.getPassword(), config.getLoginUrl());
+        retriever = new MetadataRetriever(config);
         String systemName = config.getSystemName();
         retriever.setSystemName(systemName);
         try {

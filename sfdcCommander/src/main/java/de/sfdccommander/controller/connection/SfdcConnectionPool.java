@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.xml.rpc.ServiceException;
 
+import com.sforce.soap._2006._04.metadata.MetadataBindingStub;
+import com.sforce.soap._2006._04.metadata.MetadataServiceLocator;
 import com.sforce.soap._2006._04.metadata.SessionHeader;
 import com.sforce.soap.partner.LoginResult;
 import com.sforce.soap.partner.SforceServiceLocator;
@@ -39,6 +41,8 @@ public final class SfdcConnectionPool {
 
     private final SfdcCommander commander;
 
+    public static final double API_VERSION = 34.0;
+
     /**
      * Default constructor.
      */
@@ -61,9 +65,6 @@ public final class SfdcConnectionPool {
     public SoapBindingStub getBinding(final SfdcConfig aConfig)
             throws CommanderException {
         SoapBindingStub binding = null;
-        SforceServiceLocator salesForceSL = new SforceServiceLocator();
-        salesForceSL.setSoapEndpointAddress(
-                aConfig.getLoginUrl() + "/services/Soap/u/34.0");
         boolean equals = false;
         for (SoapBindingStub actBinding : bindings) {
             // Compare Parameters
@@ -78,47 +79,79 @@ public final class SfdcConnectionPool {
             }
         }
         if (binding == null) {
-            try {
-                binding = (SoapBindingStub) salesForceSL.getSoap();
-                binding.setTimeout(60000);
-                LoginResult lr;
-                lr = binding.login(aConfig.getUsername(),
-                        aConfig.getPassword());
-
-                SessionHeader sh = new SessionHeader();
-                sh.setSessionId(lr.getSessionId());
-                binding._setProperty(SoapBindingStub.ENDPOINT_ADDRESS_PROPERTY,
-                        lr.getServerUrl());
-                binding.setHeader(
-                        salesForceSL.getServiceName().getNamespaceURI(),
-                        "SessionHeader", sh);
-                if (lr.isPasswordExpired()) {
-                    commander.info(
-                            "An error has occurred. Your password has expired.");
-                }
-            } catch (LoginFault e) {
-                throw new CommanderException(
-                        "Login failed for the following reason: "
-                                + e.getFaultReason(),
-                        e);
-            } catch (UnexpectedErrorFault e) {
-                throw new CommanderException(
-                        "Login failed due to an unexcepted error. Please check the log file for details.",
-                        e);
-            } catch (InvalidIdFault e) {
-                throw new CommanderException("Login failed. Invalid Id.", e);
-            } catch (RemoteException e) {
-                throw new CommanderException(
-                        "Login failed due to a remote issue. Please check the log-file for details.",
-                        e);
-            } catch (ServiceException e) {
-                throw new CommanderException(
-                        "Could not connect to SOAP-API. Wrong URL?", e);
-            }
-
-            bindings.add(binding);
+            bindings.add(createPartnerBinding(aConfig).getBinding());
         }
         return binding;
+    }
+
+    private PartnerBindingResult createPartnerBinding(final SfdcConfig aConfig)
+            throws CommanderException {
+        SforceServiceLocator salesForceSL = new SforceServiceLocator();
+        salesForceSL.setSoapEndpointAddress(
+                aConfig.getLoginUrl() + "/services/Soap/u/" + API_VERSION);
+        SoapBindingStub binding = null;
+        PartnerBindingResult result = new PartnerBindingResult();
+        try {
+            binding = (SoapBindingStub) salesForceSL.getSoap();
+            binding.setTimeout(60000);
+            LoginResult lr;
+            lr = binding.login(aConfig.getUsername(), aConfig.getPassword());
+
+            SessionHeader sh = new SessionHeader();
+            sh.setSessionId(lr.getSessionId());
+            binding._setProperty(SoapBindingStub.ENDPOINT_ADDRESS_PROPERTY,
+                    lr.getServerUrl());
+            binding.setHeader(salesForceSL.getServiceName().getNamespaceURI(),
+                    "SessionHeader", sh);
+            if (lr.isPasswordExpired()) {
+                commander.info(
+                        "An error has occurred. Your password has expired.");
+            }
+            result.setBinding(binding);
+            result.setLoginResult(lr);
+        } catch (LoginFault e) {
+            throw new CommanderException(
+                    "Login failed for the following reason: "
+                            + e.getFaultReason(),
+                    e);
+        } catch (UnexpectedErrorFault e) {
+            throw new CommanderException(
+                    "Login failed due to an unexcepted error. Please check the log file for details.",
+                    e);
+        } catch (InvalidIdFault e) {
+            throw new CommanderException("Login failed. Invalid Id.", e);
+        } catch (RemoteException e) {
+            throw new CommanderException(
+                    "Login failed due to a remote issue. Please check the log-file for details.",
+                    e);
+        } catch (ServiceException e) {
+            throw new CommanderException(
+                    "Could not connect to SOAP-API. Wrong URL?", e);
+        }
+        return result;
+    }
+
+    public MetadataBindingStub createMetadataBinding(final SfdcConfig aConfig)
+            throws CommanderException {
+        PartnerBindingResult partnerBinding = createPartnerBinding(aConfig);
+        MetadataServiceLocator metaDataSL = new MetadataServiceLocator();
+        SessionHeader sh = new SessionHeader();
+        sh.setSessionId(partnerBinding.getLoginResult().getSessionId());
+
+        MetadataBindingStub metaBinding;
+        try {
+            metaBinding = (MetadataBindingStub) metaDataSL.getMetadata();
+            metaBinding._setProperty(SoapBindingStub.ENDPOINT_ADDRESS_PROPERTY,
+                    partnerBinding.getLoginResult().getMetadataServerUrl());
+
+            metaBinding.setHeader(metaDataSL.getServiceName().getNamespaceURI(),
+                    "SessionHeader", sh);
+        } catch (ServiceException e) {
+            throw new CommanderException(
+                    "Could not instanciate Metadata Connection from Partner connection",
+                    e);
+        }
+        return metaBinding;
     }
 
     /**
