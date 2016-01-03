@@ -21,6 +21,7 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeGlobalSObjectResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
+import com.sforce.soap.partner.Field;
 import com.sforce.soap.partner.SoapBindingStub;
 import com.sforce.soap.partner.fault.InvalidSObjectFault;
 import com.sforce.soap.partner.fault.UnexpectedErrorFault;
@@ -186,34 +187,29 @@ public class XlsRenderer {
             // fe
             for (int i = 0; i < tmpDescribeSObject.getFields().length; i++) {
                 row = sheet.createRow((short) i + CONTENT_HEADER + 1);
-                row.createCell(0).setCellValue(
-                        tmpDescribeSObject.getFields()[i].getName());
-                row.createCell(1).setCellValue(
-                        tmpDescribeSObject.getFields()[i].getLabel());
+                Field currentField = tmpDescribeSObject.getFields()[i];
+                row.createCell(0).setCellValue(currentField.getName());
+                row.createCell(1).setCellValue(currentField.getLabel());
                 boolean required = false;
-                if (!tmpDescribeSObject.getFields()[i].isNillable()) {
+                if (!currentField.isNillable()) {
                     required = true;
+                }
+                Boolean externalId = new Boolean(false);
+                if (currentField.getExternalId() != null) {
+                    externalId = currentField.getExternalId();
                 }
                 row.createCell(2)
                         .setCellValue(new Boolean(required).toString());
-                row.createCell(3)
-                        .setCellValue(new Boolean(
-                                tmpDescribeSObject.getFields()[i].isUnique())
-                                        .toString());
-                row.createCell(4).setCellValue(new Boolean(
-                        tmpDescribeSObject.getFields()[i].getExternalId())
-                                .toString());
-                row.createCell(5).setCellValue(new Boolean(
-                        tmpDescribeSObject.getFields()[i].isCaseSensitive())
-                                .toString());
-                row.createCell(6).setCellValue(
-                        tmpDescribeSObject.getFields()[i].getType().toString());
-                row.createCell(7).setCellValue(
-                        tmpDescribeSObject.getFields()[i].getLength());
-                row.createCell(8).setCellValue(
-                        tmpDescribeSObject.getFields()[i].getPrecision());
-                row.createCell(9).setCellValue(
-                        tmpDescribeSObject.getFields()[i].getScale());
+                row.createCell(3).setCellValue(
+                        new Boolean(currentField.isUnique()).toString());
+                row.createCell(4).setCellValue(externalId.toString());
+                row.createCell(5).setCellValue(
+                        new Boolean(currentField.isCaseSensitive()).toString());
+                row.createCell(6)
+                        .setCellValue(currentField.getType().toString());
+                row.createCell(7).setCellValue(currentField.getLength());
+                row.createCell(8).setCellValue(currentField.getPrecision());
+                row.createCell(9).setCellValue(currentField.getScale());
             }
             autoSizeColumns(sheet, 0, 9);
 

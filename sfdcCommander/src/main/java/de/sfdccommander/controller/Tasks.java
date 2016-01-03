@@ -3,11 +3,10 @@
  */
 package de.sfdccommander.controller;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-
 import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.CommanderConfig;
+import de.sfdccommander.viewer.SfdcCommander;
+import de.sfdccommander.viewer.Translations;
 
 /**
  * @author jochen
@@ -46,24 +45,26 @@ public class Tasks {
 
     public static void compare(CommanderConfig aConfig)
             throws CommanderException {
-        XmlComparer comparer = new XmlComparer();
-        // TODO Test only
-        try {
-            comparer.compareXml(new FileReader("AccountOld.object"),
-                    new FileReader("AccountNew.object"));
-        } catch (FileNotFoundException e) {
-            // TODO: Add application logic
-        }
+        // XmlComparer comparer = new XmlComparer();
+        // // TODO Test only
+        // try {
+        // comparer.compareXml(new FileReader("AccountOld.object"),
+        // new FileReader("AccountNew.object"));
+        // } catch (FileNotFoundException e) {
+        // // TODO: Add application logic
+        // }
+        SfdcCommander commander = SfdcCommander.getInstance();
+        commander.info(Translations.FEATURE_NOT_YET_IMPLEMENTED);
     }
 
     public static void versionize(CommanderConfig aConfig)
             throws CommanderException {
-        // Extract and put config from Salesforce under
-        // version
-        // control
-        MetadataExporter exporter = new MetadataExporter(
-                aConfig.getSourceSfdcConfig());
-        exporter.getEntities();
+        SfdcCommander commander = SfdcCommander.getInstance();
+        // Extract and put config from Salesforce under version control
+        // MetadataExporter exporter = new MetadataExporter(
+        // aConfig.getSourceSfdcConfig());
+        // exporter.getEntities();
+        commander.info(Translations.FEATURE_NOT_YET_IMPLEMENTED);
     }
 
     public static void renderXls(CommanderConfig aConfig)

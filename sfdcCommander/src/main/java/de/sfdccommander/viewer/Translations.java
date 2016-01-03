@@ -48,6 +48,8 @@ public final class Translations {
     public static final String TASK_EXECUTED = "Task successfully executed.";
     public static final String SEPARATOR = "--------------------------------";
 
+    public static final String FEATURE_NOT_YET_IMPLEMENTED = "This feature has not yet been implemented.";
+
     /**
      * 
      */

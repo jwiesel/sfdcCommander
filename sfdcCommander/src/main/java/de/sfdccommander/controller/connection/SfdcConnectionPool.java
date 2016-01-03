@@ -79,7 +79,8 @@ public final class SfdcConnectionPool {
             }
         }
         if (binding == null) {
-            bindings.add(createPartnerBinding(aConfig).getBinding());
+            binding = createPartnerBinding(aConfig).getBinding();
+            bindings.add(binding);
         }
         return binding;
     }
