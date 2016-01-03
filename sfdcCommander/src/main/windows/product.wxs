@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+	<Product Id="638122ea-d6ac-4a15-a11f-7e691fcf0e44" Name="sfdcCommander"
+		Language="1033" Version="0.4" Manufacturer="jwiesel"
+		UpgradeCode="638122ea-d6ac-4a15-a11f-7e691fcf0e44">
+		<Package Description="sfdcCommander installer package"
+			Comments="First version of the Windows Installer package"
+			Manufacturer="jwiesel" InstallerVersion="200" Compressed="yes" />
+		<Media Id="1" Cabinet="product.cab" EmbedCab="yes" />
+
+		<Property Id="COMMANDPROMPT">$(env.WINDIR)\system32\cmd.exe</Property>
+
+		<!-- Directory Structure for Installer package -->
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder" Name="PFiles">
+				<Directory Id="SFDCDIR" Name="sfdcCommander">
+					<Directory Id="CONFIGDIR" Name="config">
+						<Directory Id="TRANSFORMERDIR" Name="transformer">
+							<Directory Id="CSSDIR" Name="css" />
+							<Directory Id="FONTSDIR" Name="fonts" />
+							<Directory Id="IMAGESDIR" Name="images" />
+							<Directory Id="SCRIPTDIR" Name="script" />
+						</Directory>
+					</Directory>
+				</Directory>
+			</Directory>
+			<Directory Id="ProgramMenuFolder">
+				<Directory Id="ApplicationProgramsFolder" Name="sfdcCommander" />
+			</Directory>
+		</Directory>
+
+		<!-- Files for installer package -->
+		<DirectoryRef Id="SFDCDIR">
+			<Component Id="sfdcCommander.jar" Guid="638122ea-d6ac-4a15-a11f-7e691fcf0e44">
+				<File Id="sfdcCommander.jar" Name="sfdcCommander.jar" DiskId="1"
+					Source="..\..\..\target\sfdcCommander-0.0.1-SNAPSHOT.jar" KeyPath="yes"
+					Checksum="yes" />
+			</Component>
+		</DirectoryRef>
+		<DirectoryRef Id="CONFIGDIR">
+			<Component Id="SampleOrg.properties" Guid="995eb7e7-015c-4a46-a65b-5d87097a614b">
+				<File Id="SampleOrg.properties" Name="SampleOrg.properties"
+					DiskId="1" Source="..\..\..\config\SampleOrg.properties" KeyPath="yes" />
+			</Component>
+		</DirectoryRef>
+		<DirectoryRef Id="TRANSFORMERDIR">
+			<Component Id="applications.xslt" Guid="{C9AA2D4B-79B4-476D-86F1-60514E172B7B}">
+				<File Id="applications.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\applications.xslt" />
+			</Component>
+			<Component Id="appMenus.xslt" Guid="{0C5C4388-544F-4E24-9BC4-F55396E7EDFC}">
+				<File Id="appMenus.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\appMenus.xslt" />
+			</Component>
+			<Component Id="assignmentRules.xslt" Guid="{8F49FD59-550A-405A-B8EA-4AF8420454EE}">
+				<File Id="assignmentRules.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\assignmentRules.xslt" />
+			</Component>
+			<Component Id="autoResponseRules.xslt" Guid="{B537A31A-473B-4744-8536-3834A74A1F58}">
+				<File Id="autoResponseRules.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\autoResponseRules.xslt" />
+			</Component>
+			<Component Id="classes.xslt" Guid="{CCAAA980-E61B-4E97-BECA-CB8D6D78D01E}">
+				<File Id="classes.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\classes.xslt" />
+			</Component>
+			<Component Id="communities.xslt" Guid="{34CBC243-21DC-45CC-89FF-8D7AF5165D06}">
+				<File Id="communities.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\communities.xslt" />
+			</Component>
+			<Component Id="escalationRules.xslt" Guid="{F2C63467-8533-4163-ACD6-120454270594}">
+				<File Id="escalationRules.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\escalationRules.xslt" />
+			</Component>
+			<Component Id="homePageLayouts.xslt" Guid="{5C5CCBFF-5A45-4970-89D8-3A72B69B12DD}">
+				<File Id="homePageLayouts.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\homePageLayouts.xslt" />
+			</Component>
+			<Component Id="index.xsl" Guid="{B0505DFB-A98D-4CE8-9BF6-01D0DBA53837}">
+				<File Id="index.xsl" KeyPath="yes" Source="..\..\..\config\transformer\index.xsl" />
+			</Component>
+			<Component Id="installedPackages.xslt" Guid="{68F71D67-4A33-4FFE-AD4B-B39309FBD75C}">
+				<File Id="installedPackages.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\installedPackages.xslt" />
+			</Component>
+			<Component Id="labels.xslt" Guid="{27F3175B-0F95-4B94-B816-8C325E6F5C11}">
+				<File Id="labels.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\labels.xslt" />
+			</Component>
+			<Component Id="layouts.xslt" Guid="{B3B586C4-540E-4B4C-9A68-7165964CCC84}">
+				<File Id="layouts.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\layouts.xslt" />
+			</Component>
+			<Component Id="lists.xslt" Guid="{EF6C5186-A163-4DA3-9807-2D9D6D571C9B}">
+				<File Id="lists.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\lists.xslt" />
+			</Component>
+			<Component Id="matchingRules.xslt" Guid="{7FD31393-C445-4FF6-BF3A-16C250F3C2E5}">
+				<File Id="matchingRules.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\matchingRules.xslt" />
+			</Component>
+			<Component Id="objects.xslt" Guid="{CF295670-E4A4-48F4-90DB-7C6A64FD144F}">
+				<File Id="objects.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\objects.xslt" />
+			</Component>
+			<Component Id="objectTranslations.xslt" Guid="{94143596-BF5F-4701-83E4-BB4F42A5E6B2}">
+				<File Id="objectTranslations.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\objectTranslations.xslt" />
+			</Component>
+			<Component Id="orgsettings.xslt" Guid="{BB037FC1-C8D8-45A4-B200-C462E77A8376}">
+				<File Id="orgsettings.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\orgsettings.xslt" />
+			</Component>
+			<Component Id="pages.xslt" Guid="{8F1AE5B4-744F-4D8E-9818-6E0EFC219E12}">
+				<File Id="pages.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\pages.xslt" />
+			</Component>
+			<Component Id="permissionsets.xslt" Guid="{0A31718A-48A9-49FE-85A0-A590F2CC173C}">
+				<File Id="permissionsets.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\permissionsets.xslt" />
+			</Component>
+			<Component Id="profiles.xslt" Guid="{E97886F6-0B5C-4BE4-9A90-2B002504C745}">
+				<File Id="profiles.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\profiles.xslt" />
+			</Component>
+			<Component Id="quickActions.xslt" Guid="{3BF4BC7F-DF02-4CFB-AFCC-8816CD760DE5}">
+				<File Id="quickActions.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\quickActions.xslt" />
+			</Component>
+			<Component Id="remoteSiteSettings.xslt" Guid="{3E525FA7-26B5-4F7D-A008-BE93AA046DA5}">
+				<File Id="remoteSiteSettings.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\remoteSiteSettings.xslt" />
+			</Component>
+			<Component Id="roles.xslt" Guid="{DA372EC2-E782-4BAA-98C9-ED652503A72A}">
+				<File Id="roles.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\roles.xslt" />
+			</Component>
+			<Component Id="scontrols.xslt" Guid="{A7D8E28C-2776-431B-B33A-8C6AB26DB699}">
+				<File Id="scontrols.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\scontrols.xslt" />
+			</Component>
+			<Component Id="settings.xslt" Guid="{02D66077-6E43-44E5-8600-53FEA13C2B95}">
+				<File Id="settings.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\settings.xslt" />
+			</Component>
+			<Component Id="sharingRules.xslt" Guid="{8821D3C8-CBC6-4490-ADB7-B40E41A171D6}">
+				<File Id="sharingRules.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\sharingRules.xslt" />
+			</Component>
+			<Component Id="tabs.xslt" Guid="{5F8E536A-7D31-45B7-A015-DA8A10C43095}">
+				<File Id="tabs.xslt" KeyPath="yes" Source="..\..\..\config\transformer\tabs.xslt" />
+			</Component>
+			<Component Id="templates.xsl" Guid="{4EB10B63-3D37-4EF3-B9FC-B768F77AA349}">
+				<File Id="templates.xsl" KeyPath="yes"
+					Source="..\..\..\config\transformer\templates.xsl" />
+			</Component>
+			<Component Id="territories.xslt" Guid="{E84D5A1F-DC5B-4D6F-A475-D482B45A1622}">
+				<File Id="territories.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\territories.xslt" />
+			</Component>
+			<Component Id="translations.xslt" Guid="{CEAC335D-F439-4EAA-AB5E-B431AFBE1367}">
+				<File Id="translations.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\translations.xslt" />
+			</Component>
+			<Component Id="triggers.xslt" Guid="{A8DAE47E-5CB4-4DBD-95FA-CE86F042A3D9}">
+				<File Id="triggers.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\triggers.xslt" />
+			</Component>
+			<Component Id="weblinks.xslt" Guid="{CB0BCC36-9F05-4469-B656-B477D0EA848A}">
+				<File Id="weblinks.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\weblinks.xslt" />
+			</Component>
+			<Component Id="workflows.xslt" Guid="{84884246-235D-4A1D-BA39-E837B7FABBF5}">
+				<File Id="workflows.xslt" KeyPath="yes"
+					Source="..\..\..\config\transformer\workflows.xslt" />
+			</Component>
+		</DirectoryRef>
+		<DirectoryRef Id="CSSDIR">
+			<Component Id="bootstrap.min.css" Guid="{077175D9-7D66-4228-9D5B-2CBCCE753918}">
+				<File Id="bootstrap.min.css" KeyPath="yes"
+					Source="..\..\..\config\transformer\css\bootstrap.min.css" />
+			</Component>
+			<Component Id="content.css" Guid="{6D1AEF4D-CC38-42A5-A491-0D7DFDC2054E}">
+				<File Id="content.css" KeyPath="yes"
+					Source="..\..\..\config\transformer\css\content.css" />
+			</Component>
+			<Component Id="jquery.snippet.min.css" Guid="{191EEB24-32FB-4C0C-B125-41C0A1F54D46}">
+				<File Id="jquery.snippet.min.css" KeyPath="yes"
+					Source="..\..\..\config\transformer\css\jquery.snippet.min.css" />
+			</Component>
+			<Component Id="print.css" Guid="{A143F78A-1A59-4B4D-9166-3CC68563FDF6}">
+				<File Id="print.css" KeyPath="yes"
+					Source="..\..\..\config\transformer\css\print.css" />
+			</Component>
+			<Component Id="wrapper.css" Guid="{AF757B43-2AA8-4B46-921F-492B54AC0B24}">
+				<File Id="wrapper.css" KeyPath="yes"
+					Source="..\..\..\config\transformer\css\wrapper.css" />
+			</Component>
+		</DirectoryRef>
+		<DirectoryRef Id="FONTSDIR">
+			<Component Id="glyphicons_halflings_regular.eot" Guid="{25298A4B-BA82-4439-881C-EC40EAFDDE1D}">
+				<File Id="glyphicons_halflings_regular.eot" KeyPath="yes"
+					Source="..\..\..\config\transformer\fonts\glyphicons-halflings-regular.eot" />
+			</Component>
+			<Component Id="glyphicons_halflings_regular.svg" Guid="{4A00E508-E9E8-47B6-AAAA-FC7A30293D3B}">
+				<File Id="glyphicons_halflings_regular.svg" KeyPath="yes"
+					Source="..\..\..\config\transformer\fonts\glyphicons-halflings-regular.svg" />
+			</Component>
+			<Component Id="glyphicons_halflings_regular.ttf" Guid="{67F547EB-CF86-4AE4-BCA3-65C0EBFA0C20}">
+				<File Id="glyphicons_halflings_regular.ttf" KeyPath="yes" DefaultLanguage="0"
+					Source="..\..\..\config\transformer\fonts\glyphicons-halflings-regular.ttf" />
+			</Component>
+			<Component Id="glyphicons_halflings_regular.woff" Guid="{58EAFA48-19A9-4B8C-9688-62FBA95F6B2D}">
+				<File Id="glyphicons_halflings_regular.woff" KeyPath="yes"
+					Source="..\..\..\config\transformer\fonts\glyphicons-halflings-regular.woff" />
+			</Component>
+			<Component Id="glyphicons_halflings_regular.woff2" Guid="{41E69DC5-29FC-4F1C-A874-BEB6A5326E10}">
+				<File Id="glyphicons_halflings_regular.woff2" KeyPath="yes"
+					Source="..\..\..\config\transformer\fonts\glyphicons-halflings-regular.woff2" />
+			</Component>
+		</DirectoryRef>
+		<DirectoryRef Id="IMAGESDIR">
+			<Component Id="favicon.ico" Guid="{C99399A5-6698-4032-9AE3-E62198B91A01}">
+				<File Id="favicon.ico" KeyPath="yes"
+					Source="..\..\..\config\transformer\images\favicon.ico" />
+			</Component>
+			<Component Id="Tile.png" Guid="{ED0877FA-BD51-4221-933F-101ED1037D3A}">
+				<File Id="Tile.png" KeyPath="yes"
+					Source="..\..\..\config\transformer\images\Tile.png" />
+			</Component>
+		</DirectoryRef>
+		<DirectoryRef Id="SCRIPTDIR">
+			<Component Id="bootstrap.min.js" Guid="{E949C960-C16C-4972-9075-B623B1E2534B}">
+				<File Id="bootstrap.min.js" KeyPath="yes"
+					Source="..\..\..\config\transformer\script\bootstrap.min.js" />
+			</Component>
+			<Component Id="jquery_1.11.2.min.js" Guid="{E7F0406E-8D25-46B5-A2EF-9CB640C7DE3D}">
+				<File Id="jquery_1.11.2.min.js" KeyPath="yes"
+					Source="..\..\..\config\transformer\script\jquery-1.11.2.min.js" />
+			</Component>
+			<Component Id="jquery.snippet.min.js" Guid="{08209018-ACC1-42CC-BD52-34D45B452928}">
+				<File Id="jquery.snippet.min.js" KeyPath="yes"
+					Source="..\..\..\config\transformer\script\jquery.snippet.min.js" />
+			</Component>
+			<Component Id="script.js" Guid="{470C4D03-E6A6-4D6B-9466-8F7D5AB03548}">
+				<File Id="script.js" KeyPath="yes"
+					Source="..\..\..\config\transformer\script\script.js" />
+			</Component>
+		</DirectoryRef>
+		<DirectoryRef Id="ApplicationProgramsFolder">
+			<Component Id="ApplicationShortcut" Guid="0b3dd123-68f5-427d-8aea-71ac237c3bfb">
+				<Shortcut Id="ApplicationStartMenuShortcut" Name="Start sfdcCommander"
+					Description="Start sfdcCommander" Target="[SFDCDIR]sfdcCommander.jar"
+					WorkingDirectory="SFDCDIR">
+				</Shortcut>
+				<Shortcut Id="ApplicationCommandLineStartMenuShortcut"
+					Name="Open CommandLine" Description="Open CommandLine for sfdcCommander"
+					Target="[COMMANDPROMPT]" WorkingDirectory="SFDCDIR">
+				</Shortcut>
+				<util:InternetShortcut Id="OnlineDocumentationShortcut"
+					Name="Open sfdcCommander Project Website" Target="https://github.com/jwiesel/sfdcCommander" />
+				<Shortcut Id="UninstallProduct" Name="Uninstall sfdcCommander"
+					Description="Uninstalls sfdcCommander" Target="[SystemFolder]msiexec.exe"
+					Arguments="/x [ProductCode]" />
+				<RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
+				<RegistryValue Root="HKCU" Key="Software\Microsoft\sfdcCommander"
+					Name="installed" Type="integer" Value="1" KeyPath="yes" />
+			</Component>
+		</DirectoryRef>
+
+		<!-- Add contents to installer package -->
+		<Feature Id="sfdcCommanderPackage" Title="Package Contents"
+			Level="1">
+			<ComponentRef Id="sfdcCommander.jar" />
+			<ComponentRef Id="SampleOrg.properties" />
+			<!-- Transformer -->
+			<ComponentRef Id="applications.xslt" />
+			<ComponentRef Id="appMenus.xslt" />
+			<ComponentRef Id="assignmentRules.xslt" />
+			<ComponentRef Id="autoResponseRules.xslt" />
+			<ComponentRef Id="classes.xslt" />
+			<ComponentRef Id="communities.xslt" />
+			<ComponentRef Id="escalationRules.xslt" />
+			<ComponentRef Id="homePageLayouts.xslt" />
+			<ComponentRef Id="index.xsl" />
+			<ComponentRef Id="installedPackages.xslt" />
+			<ComponentRef Id="labels.xslt" />
+			<ComponentRef Id="layouts.xslt" />
+			<ComponentRef Id="lists.xslt" />
+			<ComponentRef Id="matchingRules.xslt" />
+			<ComponentRef Id="objects.xslt" />
+			<ComponentRef Id="objectTranslations.xslt" />
+			<ComponentRef Id="orgsettings.xslt" />
+			<ComponentRef Id="pages.xslt" />
+			<ComponentRef Id="permissionsets.xslt" />
+			<ComponentRef Id="profiles.xslt" />
+			<ComponentRef Id="quickActions.xslt" />
+			<ComponentRef Id="remoteSiteSettings.xslt" />
+			<ComponentRef Id="roles.xslt" />
+			<ComponentRef Id="scontrols.xslt" />
+			<ComponentRef Id="settings.xslt" />
+			<ComponentRef Id="sharingRules.xslt" />
+			<ComponentRef Id="tabs.xslt" />
+			<ComponentRef Id="templates.xsl" />
+			<ComponentRef Id="territories.xslt" />
+			<ComponentRef Id="translations.xslt" />
+			<ComponentRef Id="triggers.xslt" />
+			<ComponentRef Id="weblinks.xslt" />
+			<ComponentRef Id="workflows.xslt" />
+			<!-- CSS -->
+			<ComponentRef Id="bootstrap.min.css" />
+			<ComponentRef Id="content.css" />
+			<ComponentRef Id="jquery.snippet.min.css" />
+			<ComponentRef Id="print.css" />
+			<ComponentRef Id="wrapper.css" />
+			<!-- Fonts -->
+			<ComponentRef Id="glyphicons_halflings_regular.eot" />
+			<ComponentRef Id="glyphicons_halflings_regular.svg" />
+			<ComponentRef Id="glyphicons_halflings_regular.ttf" />
+			<ComponentRef Id="glyphicons_halflings_regular.woff" />
+			<ComponentRef Id="glyphicons_halflings_regular.woff2" />
+			<!-- Images -->
+			<ComponentRef Id="favicon.ico" />
+			<ComponentRef Id="Tile.png" />
+			<!-- Script -->
+			<ComponentRef Id="bootstrap.min.js" />
+			<ComponentRef Id="jquery_1.11.2.min.js" />
+			<ComponentRef Id="jquery.snippet.min.js" />
+			<ComponentRef Id="script.js" />
+			<!-- Start Menu -->
+			<ComponentRef Id="ApplicationShortcut" />
+		</Feature>
+		<Property Id="WIXUI_INSTALLDIR" Value="SFDCDIR" />
+		<UIRef Id="WixUI_InstallDir" />
+
+		<!--<Icon Id="icon.ico" SourceFile="icon.png"/> <Property Id="ARPPRODUCTICON" 
+			Value="icon.ico" /> -->
+
+		<!-- Check some requirements ONLY on "install", but not on modify or uninstall.Check 
+			done for (32 Bit) -->
+		<Property Id="JAVA_CURRENT_VERSION">
+			<RegistrySearch Id="JRE_CURRENT_VERSION_REGSEARCH"
+				Root="HKLM" Key="SOFTWARE\JavaSoft\Java Runtime Environment" Name="CurrentVersion"
+				Type="raw" Win64="no" />
+		</Property>
+		<Condition
+			Message="Java Runtime Environment is not installed or outdated. Please install Oracle JRE 1.7 or later. Download URL: https://www.java.com/de/download/"><![CDATA[Installed OR (JAVA_CURRENT_VERSION >= "1.7")]]></Condition>
+
+		<WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
+	</Product>
+</Wix>

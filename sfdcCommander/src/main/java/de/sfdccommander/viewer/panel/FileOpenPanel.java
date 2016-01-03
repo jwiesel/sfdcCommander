@@ -121,7 +121,7 @@ public class FileOpenPanel extends JPanel {
         if (foldersOnly) {
             fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         }
-        String currentFolder = "";
+        String currentFolder = System.getProperty("user.dir");
         if (fileTextField.getText() != "") {
             int lastSep = -1;
             if (fileTextField.getText().contains("\\")) {
