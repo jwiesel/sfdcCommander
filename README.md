@@ -1,19 +1,19 @@
 sfdcCommander is a metadata management tool for salesforce.com. It offers you helpful features to understand and improve your metadata configuration. Furthermore you can save a lot of time in the administration of your salesforce.com Organizations
 
 ## Features
-### [salesforce.com Tech-Docu Generator](salesforce.com-tech-docu-generator)
+### [salesforce.com Tech-Docu Generator](https://github.com/jwiesel/sfdcCommander/wiki/salesforce.com-tech-docu-generator)
 ![salesforce.com Documentation Generator](http://static.force-box.com/img/documentation-generator.png)
 
 The Tech-Docu Generator creates a complete system documentation for your salesforce-Orgs with only one click! This is especially helpful, if you need an easy to access and always up-to-date documentation for your salesforce-Orgs. The documentation contains most of the salesforce entities like Objects, Page-Layouts, Profiles, Permission-Sets, etc. Furthermore the documentation is very user-friendly and responsive. You can view it on tablets and smartphones, if you like. Page-Layouts are displayed in the documentation like they are shown in salesforce.com when you view them.
-### [salesforce.com Database-Backup](salesforce.com database backup)
+### [salesforce.com Database-Backup](https://github.com/jwiesel/sfdcCommander/wiki/salesforce.com database backup)
 ![salesforce.com Database Backup](http://static.force-box.com/img/database-backup.png)
 
 Need an easy to analyze and complete backup of you salesforce-Org? Why not create a database-snapshot into a local database? The Database-Backup generates a complete copy of your Org into Sqlite. Therefore you can review the entire data, analyze it using SQL, etc.
-### salesforce.com Schema-Export
+### [salesforce.com Schema-Export](https://github.com/jwiesel/sfdcCommander/wiki/salesforce.com-schema-export)
 ![salesforce.com Schema-Export](http://static.force-box.com/img/schema-export.png)
 
 The Schema-Export offers you the ability to generate a complete Object-Schema into a Microsoft Excel-Sheet for every object at the same time. You can easily store the complete structure of your data model with only one click. This is especially helpful if separate files are needed in your documentation. E.g. if you want to share the schema of only one special object or if you want to process the data model in a certain way. 
-### salesforce.com Metadata-Downloader
+### [salesforce.com Metadata-Downloader](https://github.com/jwiesel/sfdcCommander/wiki/salesforce.com-automated-metadata-download)
 ![Automatic salesforce.com Metadata Download](http://static.force-box.com/img/metadata-download.png)
 
 The Metadata-Downloader does a complete download of your Org-Metadata to your local hard-drive. The nice thing about this functionality in sfdcCommander is: You neither need a build.xml nor a package.xml. sfdcCommander automatically downloads all members of all entities in your org. --> complete metadata.
