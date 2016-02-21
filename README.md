@@ -13,7 +13,7 @@ Need an easy to analyze and complete backup of you salesforce-Org? Why not creat
 ![salesforce.com Schema-Export](http://static.force-box.com/img/schema-export.png)
 
 The Schema-Export offers you the ability to generate a complete Object-Schema into a Microsoft Excel-Sheet for every object at the same time. You can easily store the complete structure of your data model with only one click. This is especially helpful if separate files are needed in your documentation. E.g. if you want to share the schema of only one special object or if you want to process the data model in a certain way. 
-### [salesforce.com Metadata-Downloader](https://github.com/jwiesel/sfdcCommander/wiki/salesforce.com-automated-metadata-download)
+### [salesforce.com Metadata-Downloader](https://github.com/jwiesel/sfdcCommander/wiki/salesforce.com-metadata-downloader)
 ![Automatic salesforce.com Metadata Download](http://static.force-box.com/img/metadata-download.png)
 
 The Metadata-Downloader does a complete download of your Org-Metadata to your local hard-drive. The nice thing about this functionality in sfdcCommander is: You neither need a build.xml nor a package.xml. sfdcCommander automatically downloads all members of all entities in your org. --> complete metadata.
