@@ -32,6 +32,7 @@ public final class Window extends JFrame {
      */
     public void init() {
         commander = SfdcCommander.getInstance();
+        commander.setGuiMode(true);
         try {
             String cn = UIManager.getSystemLookAndFeelClassName();
             UIManager.setLookAndFeel(cn);

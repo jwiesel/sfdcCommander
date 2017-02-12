@@ -7,7 +7,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Properties;
+
+import org.apache.commons.validator.UrlValidator;
 
 import de.sfdccommander.controller.helper.CommanderException;
 import de.sfdccommander.model.CommanderConfig;
@@ -54,14 +57,18 @@ public class CommanderPropertiesHandler {
         }
 
         SfdcConfig sourceSfdcConfig = new SfdcConfig();
-        sourceSfdcConfig.setSystemName(
-                properties.getProperty(CommanderConfig.SF_SYSTEMNAME));
+        String tmpSystemName = properties
+                .getProperty(CommanderConfig.SF_SYSTEMNAME);
+        validateSystemName(tmpSystemName);
+        sourceSfdcConfig.setSystemName(tmpSystemName);
         sourceSfdcConfig.setUsername(
                 properties.getProperty(CommanderConfig.SF_USERNAME));
         sourceSfdcConfig.setPassword(
                 properties.getProperty(CommanderConfig.SF_PASSWORD));
-        sourceSfdcConfig.setLoginUrl(
-                properties.getProperty(CommanderConfig.SF_SERVERURL));
+        String tmpServerUrl = properties
+                .getProperty(CommanderConfig.SF_SERVERURL);
+        validateUrl(tmpServerUrl);
+        sourceSfdcConfig.setLoginUrl(tmpServerUrl);
         config.setSourceSfdcConfig(sourceSfdcConfig);
         SvnConfig svnConfig = new SvnConfig();
         svnConfig.setSvnRepository(
@@ -76,14 +83,18 @@ public class CommanderPropertiesHandler {
                 properties.getProperty(CommanderConfig.BACKUP_PATH));
         config.setXlsPath(properties.getProperty(CommanderConfig.XLS_PATH));
         SfdcConfig targetSfdcConfig = new SfdcConfig();
-        targetSfdcConfig.setSystemName(
-                properties.getProperty(CommanderConfig.SF_TARGET_SYSTEMNAME));
+        String tmpTargetSystem = properties
+                .getProperty(CommanderConfig.SF_TARGET_SYSTEMNAME);
+        validateSystemName(tmpTargetSystem);
+        targetSfdcConfig.setSystemName(tmpTargetSystem);
         targetSfdcConfig.setUsername(
                 properties.getProperty(CommanderConfig.SF_TARGET_USERNAME));
         targetSfdcConfig.setPassword(
                 properties.getProperty(CommanderConfig.SF_TARGET_PASSWORD));
-        targetSfdcConfig.setLoginUrl(
-                properties.getProperty(CommanderConfig.SF_TARGET_SERVERURL));
+        String tmpTargetServerUrl = properties
+                .getProperty(CommanderConfig.SF_TARGET_SERVERURL);
+        validateUrl(tmpTargetServerUrl);
+        targetSfdcConfig.setLoginUrl(tmpTargetServerUrl);
         config.setTargetSfdcConfig(targetSfdcConfig);
         config.setHttpProxyHost(
                 properties.getProperty(CommanderConfig.HTTP_PROXY_HOST));
@@ -100,5 +111,32 @@ public class CommanderPropertiesHandler {
         }
 
         return config;
+    }
+
+    private void validateSystemName(String aSystemName)
+            throws CommanderException {
+        // TODO Auto-generated method stub
+        char[] illegalChars = { '/', '\n', '\r', '\t', '\0', '\f', '`', '?',
+                '*', '\\', '<', '>', '|', '\"', ':' };
+        for (char illegal : illegalChars) {
+            if (aSystemName.contains(illegal + "")) {
+                StringBuilder builder = new StringBuilder();
+                throw new CommanderException("System name '" + aSystemName
+                        + "' in your config-file contains an illegal character: '"
+                        + illegal
+                        + "'. Please do not use the following characters: "
+                        + Arrays.toString(illegalChars));
+            }
+        }
+    }
+
+    private void validateUrl(String aUrl) throws CommanderException {
+        String[] schemes = { "http", "https" };
+        UrlValidator urlValidator = new UrlValidator(schemes);
+        if (!urlValidator.isValid(aUrl)) {
+            throw new CommanderException(
+                    "The provided Server-URL in your config-file is not a valid URL: '"
+                            + aUrl + "'");
+        }
     }
 }

@@ -18,6 +18,8 @@ public class SfdcCommander {
      */
     private static SfdcCommander instance;
 
+    private boolean guiMode;
+
     /**
      * @param args
      */
@@ -52,6 +54,7 @@ public class SfdcCommander {
      */
     public SfdcCommander(final String[] args) {
         getLogger().info("Application started.");
+        setGuiMode(false);
         StartModeDispatcher dispatcher = new StartModeDispatcher(args);
         dispatcher.dispatch();
     }
@@ -77,6 +80,11 @@ public class SfdcCommander {
      *            The Error message.
      */
     public final void error(final String message, final Throwable anException) {
+        if (isGuiMode()) {
+            NotificationPanel notificationPanel = Window.getInstance()
+                    .getNotificationLabel();
+            notificationPanel.error(message);
+        }
         System.out.println("Error: " + message);
         getLogger().error(message, anException);
     }
@@ -95,4 +103,20 @@ public class SfdcCommander {
     private Logger getLogger() {
         return Logger.getLogger(this.getClass());
     }
+
+    /**
+     * @return the guiMode
+     */
+    public boolean isGuiMode() {
+        return guiMode;
+    }
+
+    /**
+     * @param aGuiMode
+     *            the guiMode to set
+     */
+    public void setGuiMode(boolean aGuiMode) {
+        guiMode = aGuiMode;
+    }
+
 }

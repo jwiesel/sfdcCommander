@@ -40,7 +40,7 @@ import de.sfdccommander.viewer.Translations;
 public class MetadataRetriever {
 
     // Binding for the metadata WSDL used for making metadata API calls
-    private MetadataBindingStub metaBinding;
+    private final MetadataBindingStub metaBinding;
 
     private String systemName;
 
@@ -136,7 +136,8 @@ public class MetadataRetriever {
 
     private void writeZip(byte[] content, File zipFile)
             throws CommanderException {
-        commander.info("Writing results to zip file");
+        commander.info(
+                "Writing results to zip file: " + zipFile.getAbsolutePath());
         ByteArrayInputStream bais = new ByteArrayInputStream(content);
         FileOutputStream os = null;
         try {
@@ -159,6 +160,9 @@ public class MetadataRetriever {
             } catch (IOException e) {
                 throw new CommanderException(
                         "Could not close zip-file after creation.", e);
+            } catch (NullPointerException ne) {
+                throw new CommanderException("Could not write zip-File: "
+                        + zipFile.getAbsolutePath(), ne);
             }
         }
     }
@@ -240,7 +244,7 @@ public class MetadataRetriever {
      */
     private PackageTypeMembers generateEntityWithMembers(
             DescribeMetadataObject objectType)
-                    throws RemoteException, UnsupportedEncodingException {
+            throws RemoteException, UnsupportedEncodingException {
         PackageTypeMembers entity = new PackageTypeMembers();
         entity.setName(objectType.getXmlName());
 
