@@ -4,5 +4,4 @@ script: mvn install -Dgpg.skip=true -f sfdcCommander/pom.xml
 
 jdk:
   - oraclejdk8
-  - oraclejdk7
-  - openjdk7
+  - openjdk8
