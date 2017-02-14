@@ -112,6 +112,8 @@ public class MetadataRetriever {
                             buf.append(rm.getFileName() + " - "
                                     + rm.getProblem() + "\r\n");
                         }
+                    } else {
+                        commander.info("Retrieved package without warnings.");
                     }
                     if (buf.length() > 0) {
                         commander.info("Retrieve warnings:\n" + buf);

@@ -21,7 +21,7 @@ public final class UiLayout {
     public static final int LABEL_WIDTH = 100;
     public static final int FIELD_WIDTH = 335;
 
-    public static final int WINDOW_WIDTH = 700;
+    public static final int WINDOW_WIDTH = 750;
     public static final int WINDOW_HEIGHT = 300;
 
     public static final int HELP_WINDOW_WIDTH = 650;

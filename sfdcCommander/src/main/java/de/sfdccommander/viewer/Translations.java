@@ -13,7 +13,7 @@ public final class Translations {
      * 
      */
     public static final String SFDC_COMMANDER = "sfdcCommander";
-    public static final String VERSION = "v0.4";
+    public static final String VERSION = "v0.5";
     public static final String CONFIGURATION = "Configuration";
     public static final String SYSTEM_LOOK_NOT_LOADED = "Could not get System Look&Feel";
     public static final String NOTIFICATION = "Notification";

@@ -80,12 +80,13 @@ public class SfdcCommander {
      *            The Error message.
      */
     public final void error(final String message, final Throwable anException) {
+        String tmpCheckLog = " - Check 'log/commander.log' for details.";
         if (isGuiMode()) {
             NotificationPanel notificationPanel = Window.getInstance()
                     .getNotificationLabel();
-            notificationPanel.error(message);
+            notificationPanel.error(message + tmpCheckLog);
         }
-        System.out.println("Error: " + message);
+        System.out.println("Error: " + message + tmpCheckLog);
         getLogger().error(message, anException);
     }
 
