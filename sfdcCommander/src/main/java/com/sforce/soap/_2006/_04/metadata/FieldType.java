@@ -39,6 +39,7 @@ public class FieldType implements java.io.Serializable {
     public static final java.lang.String _Summary = "Summary";
     public static final java.lang.String _Hierarchy = "Hierarchy";
     public static final java.lang.String _File = "File";
+    public static final java.lang.String _MetadataRelationship = "MetadataRelationship";
     public static final java.lang.String _ExternalLookup = "ExternalLookup";
     public static final java.lang.String _IndirectLookup = "IndirectLookup";
     public static final java.lang.String _CustomDataType = "CustomDataType";
@@ -64,6 +65,7 @@ public class FieldType implements java.io.Serializable {
     public static final FieldType Summary = new FieldType(_Summary);
     public static final FieldType Hierarchy = new FieldType(_Hierarchy);
     public static final FieldType File = new FieldType(_File);
+    public static final FieldType MetadataRelationship = new FieldType(_MetadataRelationship);
     public static final FieldType ExternalLookup = new FieldType(_ExternalLookup);
     public static final FieldType IndirectLookup = new FieldType(_IndirectLookup);
     public static final FieldType CustomDataType = new FieldType(_CustomDataType);

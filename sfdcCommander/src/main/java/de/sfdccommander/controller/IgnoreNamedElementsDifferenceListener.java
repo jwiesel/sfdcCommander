@@ -15,8 +15,8 @@ import org.w3c.dom.Node;
  * @author jochen
  * 
  */
-public class IgnoreNamedElementsDifferenceListener implements
-        DifferenceListener {
+public class IgnoreNamedElementsDifferenceListener
+        implements DifferenceListener {
 
     private final Set<String> blackList = new HashSet<String>();
 
@@ -29,9 +29,8 @@ public class IgnoreNamedElementsDifferenceListener implements
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.custommonkey.xmlunit.DifferenceListener#differenceFound(org.custommonkey
-     * .xmlunit.Difference)
+     * @see org.custommonkey.xmlunit.DifferenceListener#differenceFound(org.
+     * custommonkey .xmlunit.Difference)
      */
     @Override
     public int differenceFound(Difference aDifference) {
@@ -54,7 +53,6 @@ public class IgnoreNamedElementsDifferenceListener implements
      */
     @Override
     public void skippedComparison(Node aControl, Node aTest) {
-        // TODO Auto-generated method stub
 
     }
 

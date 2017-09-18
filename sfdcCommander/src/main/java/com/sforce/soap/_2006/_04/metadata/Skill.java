@@ -10,6 +10,8 @@ package com.sforce.soap._2006._04.metadata;
 public class Skill  extends com.sforce.soap._2006._04.metadata.Metadata  implements java.io.Serializable {
     private com.sforce.soap._2006._04.metadata.SkillAssignments assignments;
 
+    private java.lang.String description;
+
     private java.lang.String label;
 
     public Skill() {
@@ -18,10 +20,12 @@ public class Skill  extends com.sforce.soap._2006._04.metadata.Metadata  impleme
     public Skill(
            java.lang.String fullName,
            com.sforce.soap._2006._04.metadata.SkillAssignments assignments,
+           java.lang.String description,
            java.lang.String label) {
         super(
             fullName);
         this.assignments = assignments;
+        this.description = description;
         this.label = label;
     }
 
@@ -43,6 +47,26 @@ public class Skill  extends com.sforce.soap._2006._04.metadata.Metadata  impleme
      */
     public void setAssignments(com.sforce.soap._2006._04.metadata.SkillAssignments assignments) {
         this.assignments = assignments;
+    }
+
+
+    /**
+     * Gets the description value for this Skill.
+     * 
+     * @return description
+     */
+    public java.lang.String getDescription() {
+        return description;
+    }
+
+
+    /**
+     * Sets the description value for this Skill.
+     * 
+     * @param description
+     */
+    public void setDescription(java.lang.String description) {
+        this.description = description;
     }
 
 
@@ -80,6 +104,9 @@ public class Skill  extends com.sforce.soap._2006._04.metadata.Metadata  impleme
             ((this.assignments==null && other.getAssignments()==null) || 
              (this.assignments!=null &&
               this.assignments.equals(other.getAssignments()))) &&
+            ((this.description==null && other.getDescription()==null) || 
+             (this.description!=null &&
+              this.description.equals(other.getDescription()))) &&
             ((this.label==null && other.getLabel()==null) || 
              (this.label!=null &&
               this.label.equals(other.getLabel())));
@@ -96,6 +123,9 @@ public class Skill  extends com.sforce.soap._2006._04.metadata.Metadata  impleme
         int _hashCode = super.hashCode();
         if (getAssignments() != null) {
             _hashCode += getAssignments().hashCode();
+        }
+        if (getDescription() != null) {
+            _hashCode += getDescription().hashCode();
         }
         if (getLabel() != null) {
             _hashCode += getLabel().hashCode();
@@ -114,6 +144,13 @@ public class Skill  extends com.sforce.soap._2006._04.metadata.Metadata  impleme
         elemField.setFieldName("assignments");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "assignments"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "SkillAssignments"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("description");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "description"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

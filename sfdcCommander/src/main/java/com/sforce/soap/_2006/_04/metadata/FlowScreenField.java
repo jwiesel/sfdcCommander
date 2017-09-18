@@ -24,6 +24,8 @@ public class FlowScreenField  extends com.sforce.soap._2006._04.metadata.FlowEle
 
     private java.lang.Boolean isRequired;
 
+    private java.lang.Boolean isVisible;
+
     private java.lang.Integer scale;
 
     private com.sforce.soap._2006._04.metadata.FlowInputValidationRule validationRule;
@@ -43,6 +45,7 @@ public class FlowScreenField  extends com.sforce.soap._2006._04.metadata.FlowEle
            com.sforce.soap._2006._04.metadata.FlowScreenFieldType fieldType,
            java.lang.String helpText,
            java.lang.Boolean isRequired,
+           java.lang.Boolean isVisible,
            java.lang.Integer scale,
            com.sforce.soap._2006._04.metadata.FlowInputValidationRule validationRule) {
         super(
@@ -57,6 +60,7 @@ public class FlowScreenField  extends com.sforce.soap._2006._04.metadata.FlowEle
         this.fieldType = fieldType;
         this.helpText = helpText;
         this.isRequired = isRequired;
+        this.isVisible = isVisible;
         this.scale = scale;
         this.validationRule = validationRule;
     }
@@ -231,6 +235,26 @@ public class FlowScreenField  extends com.sforce.soap._2006._04.metadata.FlowEle
 
 
     /**
+     * Gets the isVisible value for this FlowScreenField.
+     * 
+     * @return isVisible
+     */
+    public java.lang.Boolean getIsVisible() {
+        return isVisible;
+    }
+
+
+    /**
+     * Sets the isVisible value for this FlowScreenField.
+     * 
+     * @param isVisible
+     */
+    public void setIsVisible(java.lang.Boolean isVisible) {
+        this.isVisible = isVisible;
+    }
+
+
+    /**
      * Gets the scale value for this FlowScreenField.
      * 
      * @return scale
@@ -305,6 +329,9 @@ public class FlowScreenField  extends com.sforce.soap._2006._04.metadata.FlowEle
             ((this.isRequired==null && other.getIsRequired()==null) || 
              (this.isRequired!=null &&
               this.isRequired.equals(other.getIsRequired()))) &&
+            ((this.isVisible==null && other.getIsVisible()==null) || 
+             (this.isVisible!=null &&
+              this.isVisible.equals(other.getIsVisible()))) &&
             ((this.scale==null && other.getScale()==null) || 
              (this.scale!=null &&
               this.scale.equals(other.getScale()))) &&
@@ -353,6 +380,9 @@ public class FlowScreenField  extends com.sforce.soap._2006._04.metadata.FlowEle
         }
         if (getIsRequired() != null) {
             _hashCode += getIsRequired().hashCode();
+        }
+        if (getIsVisible() != null) {
+            _hashCode += getIsVisible().hashCode();
         }
         if (getScale() != null) {
             _hashCode += getScale().hashCode();
@@ -422,6 +452,13 @@ public class FlowScreenField  extends com.sforce.soap._2006._04.metadata.FlowEle
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("isRequired");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "isRequired"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("isVisible");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "isVisible"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);

@@ -14,11 +14,13 @@ public class InvalidFieldFault  extends com.sforce.soap.partner.fault.ApiQueryFa
     public InvalidFieldFault(
            com.sforce.soap.partner.fault.ExceptionCode exceptionCode,
            java.lang.String exceptionMessage,
+           com.sforce.soap.partner.ExtendedErrorDetails[] extendedErrorDetails,
            int row,
            int column) {
         super(
             exceptionCode,
             exceptionMessage,
+            extendedErrorDetails,
             row,
             column);
     }

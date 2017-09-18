@@ -20,9 +20,37 @@ public class FlexiPageType implements java.io.Serializable {
     public static final java.lang.String _AppPage = "AppPage";
     public static final java.lang.String _ObjectPage = "ObjectPage";
     public static final java.lang.String _RecordPage = "RecordPage";
+    public static final java.lang.String _HomePage = "HomePage";
+    public static final java.lang.String _MailAppAppPage = "MailAppAppPage";
+    public static final java.lang.String _CommAppPage = "CommAppPage";
+    public static final java.lang.String _CommForgotPasswordPage = "CommForgotPasswordPage";
+    public static final java.lang.String _CommLoginPage = "CommLoginPage";
+    public static final java.lang.String _CommObjectPage = "CommObjectPage";
+    public static final java.lang.String _CommQuickActionCreatePage = "CommQuickActionCreatePage";
+    public static final java.lang.String _CommRecordPage = "CommRecordPage";
+    public static final java.lang.String _CommRelatedListPage = "CommRelatedListPage";
+    public static final java.lang.String _CommSearchResultPage = "CommSearchResultPage";
+    public static final java.lang.String _CommSelfRegisterPage = "CommSelfRegisterPage";
+    public static final java.lang.String _CommThemeLayoutPage = "CommThemeLayoutPage";
+    public static final java.lang.String _UtilityBar = "UtilityBar";
+    public static final java.lang.String _RecordPreview = "RecordPreview";
     public static final FlexiPageType AppPage = new FlexiPageType(_AppPage);
     public static final FlexiPageType ObjectPage = new FlexiPageType(_ObjectPage);
     public static final FlexiPageType RecordPage = new FlexiPageType(_RecordPage);
+    public static final FlexiPageType HomePage = new FlexiPageType(_HomePage);
+    public static final FlexiPageType MailAppAppPage = new FlexiPageType(_MailAppAppPage);
+    public static final FlexiPageType CommAppPage = new FlexiPageType(_CommAppPage);
+    public static final FlexiPageType CommForgotPasswordPage = new FlexiPageType(_CommForgotPasswordPage);
+    public static final FlexiPageType CommLoginPage = new FlexiPageType(_CommLoginPage);
+    public static final FlexiPageType CommObjectPage = new FlexiPageType(_CommObjectPage);
+    public static final FlexiPageType CommQuickActionCreatePage = new FlexiPageType(_CommQuickActionCreatePage);
+    public static final FlexiPageType CommRecordPage = new FlexiPageType(_CommRecordPage);
+    public static final FlexiPageType CommRelatedListPage = new FlexiPageType(_CommRelatedListPage);
+    public static final FlexiPageType CommSearchResultPage = new FlexiPageType(_CommSearchResultPage);
+    public static final FlexiPageType CommSelfRegisterPage = new FlexiPageType(_CommSelfRegisterPage);
+    public static final FlexiPageType CommThemeLayoutPage = new FlexiPageType(_CommThemeLayoutPage);
+    public static final FlexiPageType UtilityBar = new FlexiPageType(_UtilityBar);
+    public static final FlexiPageType RecordPreview = new FlexiPageType(_RecordPreview);
     public java.lang.String getValue() { return _value_;}
     public static FlexiPageType fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

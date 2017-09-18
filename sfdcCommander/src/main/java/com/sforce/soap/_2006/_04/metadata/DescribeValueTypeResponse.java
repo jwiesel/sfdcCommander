@@ -8,13 +8,13 @@
 package com.sforce.soap._2006._04.metadata;
 
 public class DescribeValueTypeResponse  implements java.io.Serializable {
-    private com.sforce.soap._2006._04.metadata.ValueTypeField[] result;
+    private com.sforce.soap._2006._04.metadata.DescribeValueTypeResult result;
 
     public DescribeValueTypeResponse() {
     }
 
     public DescribeValueTypeResponse(
-           com.sforce.soap._2006._04.metadata.ValueTypeField[] result) {
+           com.sforce.soap._2006._04.metadata.DescribeValueTypeResult result) {
            this.result = result;
     }
 
@@ -24,7 +24,7 @@ public class DescribeValueTypeResponse  implements java.io.Serializable {
      * 
      * @return result
      */
-    public com.sforce.soap._2006._04.metadata.ValueTypeField[] getResult() {
+    public com.sforce.soap._2006._04.metadata.DescribeValueTypeResult getResult() {
         return result;
     }
 
@@ -34,7 +34,7 @@ public class DescribeValueTypeResponse  implements java.io.Serializable {
      * 
      * @param result
      */
-    public void setResult(com.sforce.soap._2006._04.metadata.ValueTypeField[] result) {
+    public void setResult(com.sforce.soap._2006._04.metadata.DescribeValueTypeResult result) {
         this.result = result;
     }
 
@@ -52,7 +52,7 @@ public class DescribeValueTypeResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.result==null && other.getResult()==null) || 
              (this.result!=null &&
-              java.util.Arrays.equals(this.result, other.getResult())));
+              this.result.equals(other.getResult())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,15 +65,7 @@ public class DescribeValueTypeResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getResult() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getResult());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getResult(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
+            _hashCode += getResult().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -88,9 +80,8 @@ public class DescribeValueTypeResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("result");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "result"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ValueTypeField"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DescribeValueTypeResult"));
         elemField.setNillable(false);
-        elemField.setItemQName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "valueTypeFields"));
         typeDesc.addFieldDesc(elemField);
     }
 

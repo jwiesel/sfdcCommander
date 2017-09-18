@@ -12,14 +12,18 @@ public class SearchResult  implements java.io.Serializable {
 
     private com.sforce.soap.partner.SearchRecord[] searchRecords;
 
+    private com.sforce.soap.partner.SearchResultsMetadata searchResultsMetadata;
+
     public SearchResult() {
     }
 
     public SearchResult(
            java.lang.String queryId,
-           com.sforce.soap.partner.SearchRecord[] searchRecords) {
+           com.sforce.soap.partner.SearchRecord[] searchRecords,
+           com.sforce.soap.partner.SearchResultsMetadata searchResultsMetadata) {
            this.queryId = queryId;
            this.searchRecords = searchRecords;
+           this.searchResultsMetadata = searchResultsMetadata;
     }
 
 
@@ -70,6 +74,26 @@ public class SearchResult  implements java.io.Serializable {
         this.searchRecords[i] = _value;
     }
 
+
+    /**
+     * Gets the searchResultsMetadata value for this SearchResult.
+     * 
+     * @return searchResultsMetadata
+     */
+    public com.sforce.soap.partner.SearchResultsMetadata getSearchResultsMetadata() {
+        return searchResultsMetadata;
+    }
+
+
+    /**
+     * Sets the searchResultsMetadata value for this SearchResult.
+     * 
+     * @param searchResultsMetadata
+     */
+    public void setSearchResultsMetadata(com.sforce.soap.partner.SearchResultsMetadata searchResultsMetadata) {
+        this.searchResultsMetadata = searchResultsMetadata;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof SearchResult)) return false;
@@ -87,7 +111,10 @@ public class SearchResult  implements java.io.Serializable {
               this.queryId.equals(other.getQueryId()))) &&
             ((this.searchRecords==null && other.getSearchRecords()==null) || 
              (this.searchRecords!=null &&
-              java.util.Arrays.equals(this.searchRecords, other.getSearchRecords())));
+              java.util.Arrays.equals(this.searchRecords, other.getSearchRecords()))) &&
+            ((this.searchResultsMetadata==null && other.getSearchResultsMetadata()==null) || 
+             (this.searchResultsMetadata!=null &&
+              this.searchResultsMetadata.equals(other.getSearchResultsMetadata())));
         __equalsCalc = null;
         return _equals;
     }
@@ -113,6 +140,9 @@ public class SearchResult  implements java.io.Serializable {
                 }
             }
         }
+        if (getSearchResultsMetadata() != null) {
+            _hashCode += getSearchResultsMetadata().hashCode();
+        }
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -136,6 +166,13 @@ public class SearchResult  implements java.io.Serializable {
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("searchResultsMetadata");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "searchResultsMetadata"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "SearchResultsMetadata"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
     }
 

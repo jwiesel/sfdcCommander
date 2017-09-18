@@ -27,6 +27,8 @@ public class InvocableActionType implements java.io.Serializable {
     public static final java.lang.String _quickAction = "quickAction";
     public static final java.lang.String _submit = "submit";
     public static final java.lang.String _thanks = "thanks";
+    public static final java.lang.String _thunderResponse = "thunderResponse";
+    public static final java.lang.String _createServiceReport = "createServiceReport";
     public static final InvocableActionType apex = new InvocableActionType(_apex);
     public static final InvocableActionType chatterPost = new InvocableActionType(_chatterPost);
     public static final InvocableActionType contentWorkspaceEnableFolders = new InvocableActionType(_contentWorkspaceEnableFolders);
@@ -37,6 +39,8 @@ public class InvocableActionType implements java.io.Serializable {
     public static final InvocableActionType quickAction = new InvocableActionType(_quickAction);
     public static final InvocableActionType submit = new InvocableActionType(_submit);
     public static final InvocableActionType thanks = new InvocableActionType(_thanks);
+    public static final InvocableActionType thunderResponse = new InvocableActionType(_thunderResponse);
+    public static final InvocableActionType createServiceReport = new InvocableActionType(_createServiceReport);
     public java.lang.String getValue() { return _value_;}
     public static InvocableActionType fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

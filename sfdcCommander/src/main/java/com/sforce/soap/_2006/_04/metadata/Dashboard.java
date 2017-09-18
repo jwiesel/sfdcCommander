@@ -16,6 +16,8 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
 
     private com.sforce.soap._2006._04.metadata.DashboardFilter[] dashboardFilters;
 
+    private com.sforce.soap._2006._04.metadata.DashboardGridLayout dashboardGridLayout;
+
     private java.lang.String dashboardResultRefreshedDate;
 
     private java.lang.String dashboardResultRunningUser;
@@ -23,6 +25,10 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
     private com.sforce.soap._2006._04.metadata.DashboardType dashboardType;
 
     private java.lang.String description;
+
+    private java.lang.String folderName;
+
+    private java.lang.Boolean isGridLayout;
 
     private com.sforce.soap._2006._04.metadata.DashboardComponentSection leftSection;
 
@@ -49,10 +55,13 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
            com.sforce.soap._2006._04.metadata.ChartBackgroundDirection backgroundFadeDirection,
            java.lang.String backgroundStartColor,
            com.sforce.soap._2006._04.metadata.DashboardFilter[] dashboardFilters,
+           com.sforce.soap._2006._04.metadata.DashboardGridLayout dashboardGridLayout,
            java.lang.String dashboardResultRefreshedDate,
            java.lang.String dashboardResultRunningUser,
            com.sforce.soap._2006._04.metadata.DashboardType dashboardType,
            java.lang.String description,
+           java.lang.String folderName,
+           java.lang.Boolean isGridLayout,
            com.sforce.soap._2006._04.metadata.DashboardComponentSection leftSection,
            com.sforce.soap._2006._04.metadata.DashboardComponentSection middleSection,
            com.sforce.soap._2006._04.metadata.DashboardComponentSection rightSection,
@@ -67,10 +76,13 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         this.backgroundFadeDirection = backgroundFadeDirection;
         this.backgroundStartColor = backgroundStartColor;
         this.dashboardFilters = dashboardFilters;
+        this.dashboardGridLayout = dashboardGridLayout;
         this.dashboardResultRefreshedDate = dashboardResultRefreshedDate;
         this.dashboardResultRunningUser = dashboardResultRunningUser;
         this.dashboardType = dashboardType;
         this.description = description;
+        this.folderName = folderName;
+        this.isGridLayout = isGridLayout;
         this.leftSection = leftSection;
         this.middleSection = middleSection;
         this.rightSection = rightSection;
@@ -171,6 +183,26 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
 
 
     /**
+     * Gets the dashboardGridLayout value for this Dashboard.
+     * 
+     * @return dashboardGridLayout
+     */
+    public com.sforce.soap._2006._04.metadata.DashboardGridLayout getDashboardGridLayout() {
+        return dashboardGridLayout;
+    }
+
+
+    /**
+     * Sets the dashboardGridLayout value for this Dashboard.
+     * 
+     * @param dashboardGridLayout
+     */
+    public void setDashboardGridLayout(com.sforce.soap._2006._04.metadata.DashboardGridLayout dashboardGridLayout) {
+        this.dashboardGridLayout = dashboardGridLayout;
+    }
+
+
+    /**
      * Gets the dashboardResultRefreshedDate value for this Dashboard.
      * 
      * @return dashboardResultRefreshedDate
@@ -247,6 +279,46 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
      */
     public void setDescription(java.lang.String description) {
         this.description = description;
+    }
+
+
+    /**
+     * Gets the folderName value for this Dashboard.
+     * 
+     * @return folderName
+     */
+    public java.lang.String getFolderName() {
+        return folderName;
+    }
+
+
+    /**
+     * Sets the folderName value for this Dashboard.
+     * 
+     * @param folderName
+     */
+    public void setFolderName(java.lang.String folderName) {
+        this.folderName = folderName;
+    }
+
+
+    /**
+     * Gets the isGridLayout value for this Dashboard.
+     * 
+     * @return isGridLayout
+     */
+    public java.lang.Boolean getIsGridLayout() {
+        return isGridLayout;
+    }
+
+
+    /**
+     * Sets the isGridLayout value for this Dashboard.
+     * 
+     * @param isGridLayout
+     */
+    public void setIsGridLayout(java.lang.Boolean isGridLayout) {
+        this.isGridLayout = isGridLayout;
     }
 
 
@@ -433,6 +505,9 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
             ((this.dashboardFilters==null && other.getDashboardFilters()==null) || 
              (this.dashboardFilters!=null &&
               java.util.Arrays.equals(this.dashboardFilters, other.getDashboardFilters()))) &&
+            ((this.dashboardGridLayout==null && other.getDashboardGridLayout()==null) || 
+             (this.dashboardGridLayout!=null &&
+              this.dashboardGridLayout.equals(other.getDashboardGridLayout()))) &&
             ((this.dashboardResultRefreshedDate==null && other.getDashboardResultRefreshedDate()==null) || 
              (this.dashboardResultRefreshedDate!=null &&
               this.dashboardResultRefreshedDate.equals(other.getDashboardResultRefreshedDate()))) &&
@@ -445,6 +520,12 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
             ((this.description==null && other.getDescription()==null) || 
              (this.description!=null &&
               this.description.equals(other.getDescription()))) &&
+            ((this.folderName==null && other.getFolderName()==null) || 
+             (this.folderName!=null &&
+              this.folderName.equals(other.getFolderName()))) &&
+            ((this.isGridLayout==null && other.getIsGridLayout()==null) || 
+             (this.isGridLayout!=null &&
+              this.isGridLayout.equals(other.getIsGridLayout()))) &&
             ((this.leftSection==null && other.getLeftSection()==null) || 
              (this.leftSection!=null &&
               this.leftSection.equals(other.getLeftSection()))) &&
@@ -498,6 +579,9 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
                 }
             }
         }
+        if (getDashboardGridLayout() != null) {
+            _hashCode += getDashboardGridLayout().hashCode();
+        }
         if (getDashboardResultRefreshedDate() != null) {
             _hashCode += getDashboardResultRefreshedDate().hashCode();
         }
@@ -509,6 +593,12 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         }
         if (getDescription() != null) {
             _hashCode += getDescription().hashCode();
+        }
+        if (getFolderName() != null) {
+            _hashCode += getFolderName().hashCode();
+        }
+        if (getIsGridLayout() != null) {
+            _hashCode += getIsGridLayout().hashCode();
         }
         if (getLeftSection() != null) {
             _hashCode += getLeftSection().hashCode();
@@ -569,6 +659,13 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("dashboardGridLayout");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "dashboardGridLayout"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DashboardGridLayout"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("dashboardResultRefreshedDate");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "dashboardResultRefreshedDate"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -597,9 +694,24 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("folderName");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "folderName"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("isGridLayout");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "isGridLayout"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("leftSection");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "leftSection"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DashboardComponentSection"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
@@ -613,6 +725,7 @@ public class Dashboard  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         elemField.setFieldName("rightSection");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "rightSection"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DashboardComponentSection"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

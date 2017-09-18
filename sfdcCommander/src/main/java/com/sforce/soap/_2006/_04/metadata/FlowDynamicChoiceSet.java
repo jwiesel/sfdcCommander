@@ -20,6 +20,10 @@ public class FlowDynamicChoiceSet  extends com.sforce.soap._2006._04.metadata.Fl
 
     private com.sforce.soap._2006._04.metadata.FlowOutputFieldAssignment[] outputAssignments;
 
+    private java.lang.String picklistField;
+
+    private java.lang.String picklistObject;
+
     private java.lang.String sortField;
 
     private com.sforce.soap._2006._04.metadata.SortOrder sortOrder;
@@ -39,6 +43,8 @@ public class FlowDynamicChoiceSet  extends com.sforce.soap._2006._04.metadata.Fl
            java.lang.Integer limit,
            java.lang.String object,
            com.sforce.soap._2006._04.metadata.FlowOutputFieldAssignment[] outputAssignments,
+           java.lang.String picklistField,
+           java.lang.String picklistObject,
            java.lang.String sortField,
            com.sforce.soap._2006._04.metadata.SortOrder sortOrder,
            java.lang.String valueField) {
@@ -52,6 +58,8 @@ public class FlowDynamicChoiceSet  extends com.sforce.soap._2006._04.metadata.Fl
         this.limit = limit;
         this.object = object;
         this.outputAssignments = outputAssignments;
+        this.picklistField = picklistField;
+        this.picklistObject = picklistObject;
         this.sortField = sortField;
         this.sortOrder = sortOrder;
         this.valueField = valueField;
@@ -195,6 +203,46 @@ public class FlowDynamicChoiceSet  extends com.sforce.soap._2006._04.metadata.Fl
 
 
     /**
+     * Gets the picklistField value for this FlowDynamicChoiceSet.
+     * 
+     * @return picklistField
+     */
+    public java.lang.String getPicklistField() {
+        return picklistField;
+    }
+
+
+    /**
+     * Sets the picklistField value for this FlowDynamicChoiceSet.
+     * 
+     * @param picklistField
+     */
+    public void setPicklistField(java.lang.String picklistField) {
+        this.picklistField = picklistField;
+    }
+
+
+    /**
+     * Gets the picklistObject value for this FlowDynamicChoiceSet.
+     * 
+     * @return picklistObject
+     */
+    public java.lang.String getPicklistObject() {
+        return picklistObject;
+    }
+
+
+    /**
+     * Sets the picklistObject value for this FlowDynamicChoiceSet.
+     * 
+     * @param picklistObject
+     */
+    public void setPicklistObject(java.lang.String picklistObject) {
+        this.picklistObject = picklistObject;
+    }
+
+
+    /**
      * Gets the sortField value for this FlowDynamicChoiceSet.
      * 
      * @return sortField
@@ -283,6 +331,12 @@ public class FlowDynamicChoiceSet  extends com.sforce.soap._2006._04.metadata.Fl
             ((this.outputAssignments==null && other.getOutputAssignments()==null) || 
              (this.outputAssignments!=null &&
               java.util.Arrays.equals(this.outputAssignments, other.getOutputAssignments()))) &&
+            ((this.picklistField==null && other.getPicklistField()==null) || 
+             (this.picklistField!=null &&
+              this.picklistField.equals(other.getPicklistField()))) &&
+            ((this.picklistObject==null && other.getPicklistObject()==null) || 
+             (this.picklistObject!=null &&
+              this.picklistObject.equals(other.getPicklistObject()))) &&
             ((this.sortField==null && other.getSortField()==null) || 
              (this.sortField!=null &&
               this.sortField.equals(other.getSortField()))) &&
@@ -336,6 +390,12 @@ public class FlowDynamicChoiceSet  extends com.sforce.soap._2006._04.metadata.Fl
                     _hashCode += obj.hashCode();
                 }
             }
+        }
+        if (getPicklistField() != null) {
+            _hashCode += getPicklistField().hashCode();
+        }
+        if (getPicklistObject() != null) {
+            _hashCode += getPicklistObject().hashCode();
         }
         if (getSortField() != null) {
             _hashCode += getSortField().hashCode();
@@ -396,6 +456,20 @@ public class FlowDynamicChoiceSet  extends com.sforce.soap._2006._04.metadata.Fl
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("picklistField");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "picklistField"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("picklistObject");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "picklistObject"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("sortField");

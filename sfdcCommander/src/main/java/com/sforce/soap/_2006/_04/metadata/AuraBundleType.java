@@ -21,10 +21,12 @@ public class AuraBundleType implements java.io.Serializable {
     public static final java.lang.String _Component = "Component";
     public static final java.lang.String _Event = "Event";
     public static final java.lang.String _Interface = "Interface";
+    public static final java.lang.String _Tokens = "Tokens";
     public static final AuraBundleType Application = new AuraBundleType(_Application);
     public static final AuraBundleType Component = new AuraBundleType(_Component);
     public static final AuraBundleType Event = new AuraBundleType(_Event);
     public static final AuraBundleType Interface = new AuraBundleType(_Interface);
+    public static final AuraBundleType Tokens = new AuraBundleType(_Tokens);
     public java.lang.String getValue() { return _value_;}
     public static AuraBundleType fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

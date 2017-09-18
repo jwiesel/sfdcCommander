@@ -20,17 +20,25 @@ public class FlowProcessType implements java.io.Serializable {
     public static final java.lang.String _AutoLaunchedFlow = "AutoLaunchedFlow";
     public static final java.lang.String _Flow = "Flow";
     public static final java.lang.String _Workflow = "Workflow";
+    public static final java.lang.String _CustomEvent = "CustomEvent";
+    public static final java.lang.String _InvocableProcess = "InvocableProcess";
     public static final java.lang.String _LoginFlow = "LoginFlow";
     public static final java.lang.String _ActionPlan = "ActionPlan";
     public static final java.lang.String _JourneyBuilderIntegration = "JourneyBuilderIntegration";
     public static final java.lang.String _UserProvisioningFlow = "UserProvisioningFlow";
+    public static final java.lang.String _Survey = "Survey";
+    public static final java.lang.String _FieldServiceMobile = "FieldServiceMobile";
     public static final FlowProcessType AutoLaunchedFlow = new FlowProcessType(_AutoLaunchedFlow);
     public static final FlowProcessType Flow = new FlowProcessType(_Flow);
     public static final FlowProcessType Workflow = new FlowProcessType(_Workflow);
+    public static final FlowProcessType CustomEvent = new FlowProcessType(_CustomEvent);
+    public static final FlowProcessType InvocableProcess = new FlowProcessType(_InvocableProcess);
     public static final FlowProcessType LoginFlow = new FlowProcessType(_LoginFlow);
     public static final FlowProcessType ActionPlan = new FlowProcessType(_ActionPlan);
     public static final FlowProcessType JourneyBuilderIntegration = new FlowProcessType(_JourneyBuilderIntegration);
     public static final FlowProcessType UserProvisioningFlow = new FlowProcessType(_UserProvisioningFlow);
+    public static final FlowProcessType Survey = new FlowProcessType(_Survey);
+    public static final FlowProcessType FieldServiceMobile = new FlowProcessType(_FieldServiceMobile);
     public java.lang.String getValue() { return _value_;}
     public static FlowProcessType fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

@@ -22,6 +22,8 @@ public class FlowScreen  extends com.sforce.soap._2006._04.metadata.FlowNode  im
 
     private java.lang.String pausedText;
 
+    private com.sforce.soap._2006._04.metadata.FlowScreenRule[] rules;
+
     public FlowScreen() {
     }
 
@@ -38,7 +40,8 @@ public class FlowScreen  extends com.sforce.soap._2006._04.metadata.FlowNode  im
            com.sforce.soap._2006._04.metadata.FlowConnector connector,
            com.sforce.soap._2006._04.metadata.FlowScreenField[] fields,
            java.lang.String helpText,
-           java.lang.String pausedText) {
+           java.lang.String pausedText,
+           com.sforce.soap._2006._04.metadata.FlowScreenRule[] rules) {
         super(
             param3,
             description,
@@ -53,6 +56,7 @@ public class FlowScreen  extends com.sforce.soap._2006._04.metadata.FlowNode  im
         this.fields = fields;
         this.helpText = helpText;
         this.pausedText = pausedText;
+        this.rules = rules;
     }
 
 
@@ -203,6 +207,34 @@ public class FlowScreen  extends com.sforce.soap._2006._04.metadata.FlowNode  im
         this.pausedText = pausedText;
     }
 
+
+    /**
+     * Gets the rules value for this FlowScreen.
+     * 
+     * @return rules
+     */
+    public com.sforce.soap._2006._04.metadata.FlowScreenRule[] getRules() {
+        return rules;
+    }
+
+
+    /**
+     * Sets the rules value for this FlowScreen.
+     * 
+     * @param rules
+     */
+    public void setRules(com.sforce.soap._2006._04.metadata.FlowScreenRule[] rules) {
+        this.rules = rules;
+    }
+
+    public com.sforce.soap._2006._04.metadata.FlowScreenRule getRules(int i) {
+        return this.rules[i];
+    }
+
+    public void setRules(int i, com.sforce.soap._2006._04.metadata.FlowScreenRule _value) {
+        this.rules[i] = _value;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof FlowScreen)) return false;
@@ -235,7 +267,10 @@ public class FlowScreen  extends com.sforce.soap._2006._04.metadata.FlowNode  im
               this.helpText.equals(other.getHelpText()))) &&
             ((this.pausedText==null && other.getPausedText()==null) || 
              (this.pausedText!=null &&
-              this.pausedText.equals(other.getPausedText())));
+              this.pausedText.equals(other.getPausedText()))) &&
+            ((this.rules==null && other.getRules()==null) || 
+             (this.rules!=null &&
+              java.util.Arrays.equals(this.rules, other.getRules())));
         __equalsCalc = null;
         return _equals;
     }
@@ -275,6 +310,17 @@ public class FlowScreen  extends com.sforce.soap._2006._04.metadata.FlowNode  im
         }
         if (getPausedText() != null) {
             _hashCode += getPausedText().hashCode();
+        }
+        if (getRules() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getRules());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getRules(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -335,6 +381,14 @@ public class FlowScreen  extends com.sforce.soap._2006._04.metadata.FlowNode  im
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("rules");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "rules"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FlowScreenRule"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
     }
 

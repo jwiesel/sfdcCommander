@@ -10,6 +10,8 @@ package com.sforce.soap._2006._04.metadata;
 public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  implements java.io.Serializable {
     private java.lang.Boolean allowMembersToFlag;
 
+    private java.lang.String allowedExtensions;
+
     private com.sforce.soap._2006._04.metadata.Branding branding;
 
     private java.lang.String caseCommentEmailTemplate;
@@ -34,11 +36,17 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
 
     private java.lang.Boolean enableReputation;
 
+    private java.lang.Boolean enableSiteAsContainer;
+
     private java.lang.String feedChannel;
 
     private java.lang.String forgotPasswordTemplate;
 
     private java.lang.String logoutUrl;
+
+    private java.lang.Integer maxFileSizeKb;
+
+    private com.sforce.soap._2006._04.metadata.NavigationMenuItem[] navigationLinkSet;
 
     private com.sforce.soap._2006._04.metadata.NetworkMemberGroup networkMemberGroups;
 
@@ -72,6 +80,7 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
     public Network(
            java.lang.String fullName,
            java.lang.Boolean allowMembersToFlag,
+           java.lang.String allowedExtensions,
            com.sforce.soap._2006._04.metadata.Branding branding,
            java.lang.String caseCommentEmailTemplate,
            java.lang.String changePasswordTemplate,
@@ -84,9 +93,12 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
            java.lang.Boolean enableNicknameDisplay,
            java.lang.Boolean enablePrivateMessages,
            java.lang.Boolean enableReputation,
+           java.lang.Boolean enableSiteAsContainer,
            java.lang.String feedChannel,
            java.lang.String forgotPasswordTemplate,
            java.lang.String logoutUrl,
+           java.lang.Integer maxFileSizeKb,
+           com.sforce.soap._2006._04.metadata.NavigationMenuItem[] navigationLinkSet,
            com.sforce.soap._2006._04.metadata.NetworkMemberGroup networkMemberGroups,
            java.lang.String newSenderAddress,
            java.lang.String picassoSite,
@@ -103,6 +115,7 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
         super(
             fullName);
         this.allowMembersToFlag = allowMembersToFlag;
+        this.allowedExtensions = allowedExtensions;
         this.branding = branding;
         this.caseCommentEmailTemplate = caseCommentEmailTemplate;
         this.changePasswordTemplate = changePasswordTemplate;
@@ -115,9 +128,12 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
         this.enableNicknameDisplay = enableNicknameDisplay;
         this.enablePrivateMessages = enablePrivateMessages;
         this.enableReputation = enableReputation;
+        this.enableSiteAsContainer = enableSiteAsContainer;
         this.feedChannel = feedChannel;
         this.forgotPasswordTemplate = forgotPasswordTemplate;
         this.logoutUrl = logoutUrl;
+        this.maxFileSizeKb = maxFileSizeKb;
+        this.navigationLinkSet = navigationLinkSet;
         this.networkMemberGroups = networkMemberGroups;
         this.newSenderAddress = newSenderAddress;
         this.picassoSite = picassoSite;
@@ -151,6 +167,26 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
      */
     public void setAllowMembersToFlag(java.lang.Boolean allowMembersToFlag) {
         this.allowMembersToFlag = allowMembersToFlag;
+    }
+
+
+    /**
+     * Gets the allowedExtensions value for this Network.
+     * 
+     * @return allowedExtensions
+     */
+    public java.lang.String getAllowedExtensions() {
+        return allowedExtensions;
+    }
+
+
+    /**
+     * Sets the allowedExtensions value for this Network.
+     * 
+     * @param allowedExtensions
+     */
+    public void setAllowedExtensions(java.lang.String allowedExtensions) {
+        this.allowedExtensions = allowedExtensions;
     }
 
 
@@ -395,6 +431,26 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
 
 
     /**
+     * Gets the enableSiteAsContainer value for this Network.
+     * 
+     * @return enableSiteAsContainer
+     */
+    public java.lang.Boolean getEnableSiteAsContainer() {
+        return enableSiteAsContainer;
+    }
+
+
+    /**
+     * Sets the enableSiteAsContainer value for this Network.
+     * 
+     * @param enableSiteAsContainer
+     */
+    public void setEnableSiteAsContainer(java.lang.Boolean enableSiteAsContainer) {
+        this.enableSiteAsContainer = enableSiteAsContainer;
+    }
+
+
+    /**
      * Gets the feedChannel value for this Network.
      * 
      * @return feedChannel
@@ -451,6 +507,46 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
      */
     public void setLogoutUrl(java.lang.String logoutUrl) {
         this.logoutUrl = logoutUrl;
+    }
+
+
+    /**
+     * Gets the maxFileSizeKb value for this Network.
+     * 
+     * @return maxFileSizeKb
+     */
+    public java.lang.Integer getMaxFileSizeKb() {
+        return maxFileSizeKb;
+    }
+
+
+    /**
+     * Sets the maxFileSizeKb value for this Network.
+     * 
+     * @param maxFileSizeKb
+     */
+    public void setMaxFileSizeKb(java.lang.Integer maxFileSizeKb) {
+        this.maxFileSizeKb = maxFileSizeKb;
+    }
+
+
+    /**
+     * Gets the navigationLinkSet value for this Network.
+     * 
+     * @return navigationLinkSet
+     */
+    public com.sforce.soap._2006._04.metadata.NavigationMenuItem[] getNavigationLinkSet() {
+        return navigationLinkSet;
+    }
+
+
+    /**
+     * Sets the navigationLinkSet value for this Network.
+     * 
+     * @param navigationLinkSet
+     */
+    public void setNavigationLinkSet(com.sforce.soap._2006._04.metadata.NavigationMenuItem[] navigationLinkSet) {
+        this.navigationLinkSet = navigationLinkSet;
     }
 
 
@@ -728,6 +824,9 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
             ((this.allowMembersToFlag==null && other.getAllowMembersToFlag()==null) || 
              (this.allowMembersToFlag!=null &&
               this.allowMembersToFlag.equals(other.getAllowMembersToFlag()))) &&
+            ((this.allowedExtensions==null && other.getAllowedExtensions()==null) || 
+             (this.allowedExtensions!=null &&
+              this.allowedExtensions.equals(other.getAllowedExtensions()))) &&
             ((this.branding==null && other.getBranding()==null) || 
              (this.branding!=null &&
               this.branding.equals(other.getBranding()))) &&
@@ -764,6 +863,9 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
             ((this.enableReputation==null && other.getEnableReputation()==null) || 
              (this.enableReputation!=null &&
               this.enableReputation.equals(other.getEnableReputation()))) &&
+            ((this.enableSiteAsContainer==null && other.getEnableSiteAsContainer()==null) || 
+             (this.enableSiteAsContainer!=null &&
+              this.enableSiteAsContainer.equals(other.getEnableSiteAsContainer()))) &&
             ((this.feedChannel==null && other.getFeedChannel()==null) || 
              (this.feedChannel!=null &&
               this.feedChannel.equals(other.getFeedChannel()))) &&
@@ -773,6 +875,12 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
             ((this.logoutUrl==null && other.getLogoutUrl()==null) || 
              (this.logoutUrl!=null &&
               this.logoutUrl.equals(other.getLogoutUrl()))) &&
+            ((this.maxFileSizeKb==null && other.getMaxFileSizeKb()==null) || 
+             (this.maxFileSizeKb!=null &&
+              this.maxFileSizeKb.equals(other.getMaxFileSizeKb()))) &&
+            ((this.navigationLinkSet==null && other.getNavigationLinkSet()==null) || 
+             (this.navigationLinkSet!=null &&
+              java.util.Arrays.equals(this.navigationLinkSet, other.getNavigationLinkSet()))) &&
             ((this.networkMemberGroups==null && other.getNetworkMemberGroups()==null) || 
              (this.networkMemberGroups!=null &&
               this.networkMemberGroups.equals(other.getNetworkMemberGroups()))) &&
@@ -826,6 +934,9 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
         if (getAllowMembersToFlag() != null) {
             _hashCode += getAllowMembersToFlag().hashCode();
         }
+        if (getAllowedExtensions() != null) {
+            _hashCode += getAllowedExtensions().hashCode();
+        }
         if (getBranding() != null) {
             _hashCode += getBranding().hashCode();
         }
@@ -862,6 +973,9 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
         if (getEnableReputation() != null) {
             _hashCode += getEnableReputation().hashCode();
         }
+        if (getEnableSiteAsContainer() != null) {
+            _hashCode += getEnableSiteAsContainer().hashCode();
+        }
         if (getFeedChannel() != null) {
             _hashCode += getFeedChannel().hashCode();
         }
@@ -870,6 +984,20 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
         }
         if (getLogoutUrl() != null) {
             _hashCode += getLogoutUrl().hashCode();
+        }
+        if (getMaxFileSizeKb() != null) {
+            _hashCode += getMaxFileSizeKb().hashCode();
+        }
+        if (getNavigationLinkSet() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getNavigationLinkSet());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getNavigationLinkSet(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getNetworkMemberGroups() != null) {
             _hashCode += getNetworkMemberGroups().hashCode();
@@ -940,6 +1068,13 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
         elemField.setFieldName("allowMembersToFlag");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "allowMembersToFlag"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("allowedExtensions");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "allowedExtensions"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
@@ -1025,6 +1160,13 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("enableSiteAsContainer");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableSiteAsContainer"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("feedChannel");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "feedChannel"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -1043,6 +1185,21 @@ public class Network  extends com.sforce.soap._2006._04.metadata.Metadata  imple
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("maxFileSizeKb");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "maxFileSizeKb"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("navigationLinkSet");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "navigationLinkSet"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "NavigationMenuItem"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "navigationMenuItem"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("networkMemberGroups");

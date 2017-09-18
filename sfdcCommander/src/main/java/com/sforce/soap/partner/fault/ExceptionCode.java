@@ -22,6 +22,7 @@ public class ExceptionCode implements java.io.Serializable {
     public static final java.lang.String _API_DISABLED_FOR_ORG = "API_DISABLED_FOR_ORG";
     public static final java.lang.String _ARGUMENT_OBJECT_PARSE_ERROR = "ARGUMENT_OBJECT_PARSE_ERROR";
     public static final java.lang.String _ASYNC_OPERATION_LOCATOR = "ASYNC_OPERATION_LOCATOR";
+    public static final java.lang.String _ASYNC_QUERY_UNSUPPORTED_QUERY = "ASYNC_QUERY_UNSUPPORTED_QUERY";
     public static final java.lang.String _BATCH_PROCESSING_HALTED = "BATCH_PROCESSING_HALTED";
     public static final java.lang.String _BIG_OBJECT_UNSUPPORTED_OPERATION = "BIG_OBJECT_UNSUPPORTED_OPERATION";
     public static final java.lang.String _CANNOT_DELETE_ENTITY = "CANNOT_DELETE_ENTITY";
@@ -31,11 +32,16 @@ public class ExceptionCode implements java.io.Serializable {
     public static final java.lang.String _CIRCULAR_OBJECT_GRAPH = "CIRCULAR_OBJECT_GRAPH";
     public static final java.lang.String _CLIENT_NOT_ACCESSIBLE_FOR_USER = "CLIENT_NOT_ACCESSIBLE_FOR_USER";
     public static final java.lang.String _CLIENT_REQUIRE_UPDATE_FOR_USER = "CLIENT_REQUIRE_UPDATE_FOR_USER";
+    public static final java.lang.String _CONTENT_CUSTOM_DOWNLOAD_EXCEPTION = "CONTENT_CUSTOM_DOWNLOAD_EXCEPTION";
     public static final java.lang.String _CONTENT_HUB_AUTHENTICATION_EXCEPTION = "CONTENT_HUB_AUTHENTICATION_EXCEPTION";
     public static final java.lang.String _CONTENT_HUB_FILE_DOWNLOAD_EXCEPTION = "CONTENT_HUB_FILE_DOWNLOAD_EXCEPTION";
     public static final java.lang.String _CONTENT_HUB_FILE_NOT_FOUND_EXCEPTION = "CONTENT_HUB_FILE_NOT_FOUND_EXCEPTION";
     public static final java.lang.String _CONTENT_HUB_INVALID_OBJECT_TYPE_EXCEPTION = "CONTENT_HUB_INVALID_OBJECT_TYPE_EXCEPTION";
     public static final java.lang.String _CONTENT_HUB_INVALID_PAGE_NUMBER_EXCEPTION = "CONTENT_HUB_INVALID_PAGE_NUMBER_EXCEPTION";
+    public static final java.lang.String _CONTENT_HUB_INVALID_PAYLOAD = "CONTENT_HUB_INVALID_PAYLOAD";
+    public static final java.lang.String _CONTENT_HUB_INVALID_RENDITION_PAGE_NUMBER_EXCEPTION = "CONTENT_HUB_INVALID_RENDITION_PAGE_NUMBER_EXCEPTION";
+    public static final java.lang.String _CONTENT_HUB_ITEM_TYPE_NOT_FOUND_EXCEPTION = "CONTENT_HUB_ITEM_TYPE_NOT_FOUND_EXCEPTION";
+    public static final java.lang.String _CONTENT_HUB_OBJECT_NOT_FOUND_EXCEPTION = "CONTENT_HUB_OBJECT_NOT_FOUND_EXCEPTION";
     public static final java.lang.String _CONTENT_HUB_OPERATION_NOT_SUPPORTED_EXCEPTION = "CONTENT_HUB_OPERATION_NOT_SUPPORTED_EXCEPTION";
     public static final java.lang.String _CONTENT_HUB_SECURITY_EXCEPTION = "CONTENT_HUB_SECURITY_EXCEPTION";
     public static final java.lang.String _CONTENT_HUB_TIMEOUT_EXCEPTION = "CONTENT_HUB_TIMEOUT_EXCEPTION";
@@ -44,6 +50,7 @@ public class ExceptionCode implements java.io.Serializable {
     public static final java.lang.String _CUSTOM_SETTINGS_LIMIT_EXCEEDED = "CUSTOM_SETTINGS_LIMIT_EXCEEDED";
     public static final java.lang.String _DATACLOUD_API_CLIENT_EXCEPTION = "DATACLOUD_API_CLIENT_EXCEPTION";
     public static final java.lang.String _DATACLOUD_API_DISABLED_EXCEPTION = "DATACLOUD_API_DISABLED_EXCEPTION";
+    public static final java.lang.String _DATACLOUD_API_INVALID_QUERY_EXCEPTION = "DATACLOUD_API_INVALID_QUERY_EXCEPTION";
     public static final java.lang.String _DATACLOUD_API_SERVER_BUSY_EXCEPTION = "DATACLOUD_API_SERVER_BUSY_EXCEPTION";
     public static final java.lang.String _DATACLOUD_API_SERVER_EXCEPTION = "DATACLOUD_API_SERVER_EXCEPTION";
     public static final java.lang.String _DATACLOUD_API_TIMEOUT_EXCEPTION = "DATACLOUD_API_TIMEOUT_EXCEPTION";
@@ -54,10 +61,12 @@ public class ExceptionCode implements java.io.Serializable {
     public static final java.lang.String _EMAIL_TO_CASE_INVALID_ROUTING = "EMAIL_TO_CASE_INVALID_ROUTING";
     public static final java.lang.String _EMAIL_TO_CASE_LIMIT_EXCEEDED = "EMAIL_TO_CASE_LIMIT_EXCEEDED";
     public static final java.lang.String _EMAIL_TO_CASE_NOT_ENABLED = "EMAIL_TO_CASE_NOT_ENABLED";
+    public static final java.lang.String _ENTITY_NOT_QUERYABLE = "ENTITY_NOT_QUERYABLE";
     public static final java.lang.String _ENVIRONMENT_HUB_MEMBERSHIP_CONFLICT = "ENVIRONMENT_HUB_MEMBERSHIP_CONFLICT";
     public static final java.lang.String _EXCEEDED_ID_LIMIT = "EXCEEDED_ID_LIMIT";
     public static final java.lang.String _EXCEEDED_LEAD_CONVERT_LIMIT = "EXCEEDED_LEAD_CONVERT_LIMIT";
     public static final java.lang.String _EXCEEDED_MAX_SIZE_REQUEST = "EXCEEDED_MAX_SIZE_REQUEST";
+    public static final java.lang.String _EXCEEDED_MAX_SOBJECTS = "EXCEEDED_MAX_SOBJECTS";
     public static final java.lang.String _EXCEEDED_MAX_TYPES_LIMIT = "EXCEEDED_MAX_TYPES_LIMIT";
     public static final java.lang.String _EXCEEDED_QUOTA = "EXCEEDED_QUOTA";
     public static final java.lang.String _EXTERNAL_OBJECT_AUTHENTICATION_EXCEPTION = "EXTERNAL_OBJECT_AUTHENTICATION_EXCEPTION";
@@ -71,6 +80,7 @@ public class ExceptionCode implements java.io.Serializable {
     public static final java.lang.String _ILLEGAL_QUERY_PARAMETER_VALUE = "ILLEGAL_QUERY_PARAMETER_VALUE";
     public static final java.lang.String _INACTIVE_OWNER_OR_USER = "INACTIVE_OWNER_OR_USER";
     public static final java.lang.String _INACTIVE_PORTAL = "INACTIVE_PORTAL";
+    public static final java.lang.String _INSERT_UPDATE_DELETE_NOT_ALLOWED_DURING_MAINTENANCE = "INSERT_UPDATE_DELETE_NOT_ALLOWED_DURING_MAINTENANCE";
     public static final java.lang.String _INSUFFICIENT_ACCESS = "INSUFFICIENT_ACCESS";
     public static final java.lang.String _INTERNAL_CANVAS_ERROR = "INTERNAL_CANVAS_ERROR";
     public static final java.lang.String _INVALID_ASSIGNMENT_RULE = "INVALID_ASSIGNMENT_RULE";
@@ -110,6 +120,7 @@ public class ExceptionCode implements java.io.Serializable {
     public static final java.lang.String _JIGSAW_REQUEST_NOT_SUPPORTED = "JIGSAW_REQUEST_NOT_SUPPORTED";
     public static final java.lang.String _JSON_PARSER_ERROR = "JSON_PARSER_ERROR";
     public static final java.lang.String _KEY_HAS_BEEN_DESTROYED = "KEY_HAS_BEEN_DESTROYED";
+    public static final java.lang.String _LICENSING_DATA_ERROR = "LICENSING_DATA_ERROR";
     public static final java.lang.String _LICENSING_UNKNOWN_ERROR = "LICENSING_UNKNOWN_ERROR";
     public static final java.lang.String _LIMIT_EXCEEDED = "LIMIT_EXCEEDED";
     public static final java.lang.String _LOGIN_CHALLENGE_ISSUED = "LOGIN_CHALLENGE_ISSUED";
@@ -122,9 +133,12 @@ public class ExceptionCode implements java.io.Serializable {
     public static final java.lang.String _MALFORMED_SEARCH = "MALFORMED_SEARCH";
     public static final java.lang.String _MISSING_ARGUMENT = "MISSING_ARGUMENT";
     public static final java.lang.String _MISSING_RECORD = "MISSING_RECORD";
+    public static final java.lang.String _MODIFIED = "MODIFIED";
     public static final java.lang.String _MUTUAL_AUTHENTICATION_FAILED = "MUTUAL_AUTHENTICATION_FAILED";
     public static final java.lang.String _NOT_ACCEPTABLE = "NOT_ACCEPTABLE";
     public static final java.lang.String _NOT_MODIFIED = "NOT_MODIFIED";
+    public static final java.lang.String _NO_ACTIVE_DUPLICATE_RULE = "NO_ACTIVE_DUPLICATE_RULE";
+    public static final java.lang.String _NO_RECIPIENTS = "NO_RECIPIENTS";
     public static final java.lang.String _NO_SOFTPHONE_LAYOUT = "NO_SOFTPHONE_LAYOUT";
     public static final java.lang.String _NUMBER_OUTSIDE_VALID_RANGE = "NUMBER_OUTSIDE_VALID_RANGE";
     public static final java.lang.String _OPERATION_TOO_LARGE = "OPERATION_TOO_LARGE";
@@ -138,6 +152,7 @@ public class ExceptionCode implements java.io.Serializable {
     public static final java.lang.String _POST_BODY_PARSE_ERROR = "POST_BODY_PARSE_ERROR";
     public static final java.lang.String _QUERY_TIMEOUT = "QUERY_TIMEOUT";
     public static final java.lang.String _QUERY_TOO_COMPLICATED = "QUERY_TOO_COMPLICATED";
+    public static final java.lang.String _REALTIME_PROCESSING_TIME_EXCEEDED_LIMIT = "REALTIME_PROCESSING_TIME_EXCEEDED_LIMIT";
     public static final java.lang.String _REQUEST_LIMIT_EXCEEDED = "REQUEST_LIMIT_EXCEEDED";
     public static final java.lang.String _REQUEST_RUNNING_TOO_LONG = "REQUEST_RUNNING_TOO_LONG";
     public static final java.lang.String _SERVER_UNAVAILABLE = "SERVER_UNAVAILABLE";
@@ -157,6 +172,7 @@ public class ExceptionCode implements java.io.Serializable {
     public static final java.lang.String _UNABLE_TO_LOCK_ROW = "UNABLE_TO_LOCK_ROW";
     public static final java.lang.String _UNKNOWN_ATTACHMENT_EXCEPTION = "UNKNOWN_ATTACHMENT_EXCEPTION";
     public static final java.lang.String _UNKNOWN_EXCEPTION = "UNKNOWN_EXCEPTION";
+    public static final java.lang.String _UNKNOWN_ORG_SETTING = "UNKNOWN_ORG_SETTING";
     public static final java.lang.String _UNSUPPORTED_API_VERSION = "UNSUPPORTED_API_VERSION";
     public static final java.lang.String _UNSUPPORTED_ATTACHMENT_ENCODING = "UNSUPPORTED_ATTACHMENT_ENCODING";
     public static final java.lang.String _UNSUPPORTED_CLIENT = "UNSUPPORTED_CLIENT";
@@ -167,6 +183,7 @@ public class ExceptionCode implements java.io.Serializable {
     public static final ExceptionCode API_DISABLED_FOR_ORG = new ExceptionCode(_API_DISABLED_FOR_ORG);
     public static final ExceptionCode ARGUMENT_OBJECT_PARSE_ERROR = new ExceptionCode(_ARGUMENT_OBJECT_PARSE_ERROR);
     public static final ExceptionCode ASYNC_OPERATION_LOCATOR = new ExceptionCode(_ASYNC_OPERATION_LOCATOR);
+    public static final ExceptionCode ASYNC_QUERY_UNSUPPORTED_QUERY = new ExceptionCode(_ASYNC_QUERY_UNSUPPORTED_QUERY);
     public static final ExceptionCode BATCH_PROCESSING_HALTED = new ExceptionCode(_BATCH_PROCESSING_HALTED);
     public static final ExceptionCode BIG_OBJECT_UNSUPPORTED_OPERATION = new ExceptionCode(_BIG_OBJECT_UNSUPPORTED_OPERATION);
     public static final ExceptionCode CANNOT_DELETE_ENTITY = new ExceptionCode(_CANNOT_DELETE_ENTITY);
@@ -176,11 +193,16 @@ public class ExceptionCode implements java.io.Serializable {
     public static final ExceptionCode CIRCULAR_OBJECT_GRAPH = new ExceptionCode(_CIRCULAR_OBJECT_GRAPH);
     public static final ExceptionCode CLIENT_NOT_ACCESSIBLE_FOR_USER = new ExceptionCode(_CLIENT_NOT_ACCESSIBLE_FOR_USER);
     public static final ExceptionCode CLIENT_REQUIRE_UPDATE_FOR_USER = new ExceptionCode(_CLIENT_REQUIRE_UPDATE_FOR_USER);
+    public static final ExceptionCode CONTENT_CUSTOM_DOWNLOAD_EXCEPTION = new ExceptionCode(_CONTENT_CUSTOM_DOWNLOAD_EXCEPTION);
     public static final ExceptionCode CONTENT_HUB_AUTHENTICATION_EXCEPTION = new ExceptionCode(_CONTENT_HUB_AUTHENTICATION_EXCEPTION);
     public static final ExceptionCode CONTENT_HUB_FILE_DOWNLOAD_EXCEPTION = new ExceptionCode(_CONTENT_HUB_FILE_DOWNLOAD_EXCEPTION);
     public static final ExceptionCode CONTENT_HUB_FILE_NOT_FOUND_EXCEPTION = new ExceptionCode(_CONTENT_HUB_FILE_NOT_FOUND_EXCEPTION);
     public static final ExceptionCode CONTENT_HUB_INVALID_OBJECT_TYPE_EXCEPTION = new ExceptionCode(_CONTENT_HUB_INVALID_OBJECT_TYPE_EXCEPTION);
     public static final ExceptionCode CONTENT_HUB_INVALID_PAGE_NUMBER_EXCEPTION = new ExceptionCode(_CONTENT_HUB_INVALID_PAGE_NUMBER_EXCEPTION);
+    public static final ExceptionCode CONTENT_HUB_INVALID_PAYLOAD = new ExceptionCode(_CONTENT_HUB_INVALID_PAYLOAD);
+    public static final ExceptionCode CONTENT_HUB_INVALID_RENDITION_PAGE_NUMBER_EXCEPTION = new ExceptionCode(_CONTENT_HUB_INVALID_RENDITION_PAGE_NUMBER_EXCEPTION);
+    public static final ExceptionCode CONTENT_HUB_ITEM_TYPE_NOT_FOUND_EXCEPTION = new ExceptionCode(_CONTENT_HUB_ITEM_TYPE_NOT_FOUND_EXCEPTION);
+    public static final ExceptionCode CONTENT_HUB_OBJECT_NOT_FOUND_EXCEPTION = new ExceptionCode(_CONTENT_HUB_OBJECT_NOT_FOUND_EXCEPTION);
     public static final ExceptionCode CONTENT_HUB_OPERATION_NOT_SUPPORTED_EXCEPTION = new ExceptionCode(_CONTENT_HUB_OPERATION_NOT_SUPPORTED_EXCEPTION);
     public static final ExceptionCode CONTENT_HUB_SECURITY_EXCEPTION = new ExceptionCode(_CONTENT_HUB_SECURITY_EXCEPTION);
     public static final ExceptionCode CONTENT_HUB_TIMEOUT_EXCEPTION = new ExceptionCode(_CONTENT_HUB_TIMEOUT_EXCEPTION);
@@ -189,6 +211,7 @@ public class ExceptionCode implements java.io.Serializable {
     public static final ExceptionCode CUSTOM_SETTINGS_LIMIT_EXCEEDED = new ExceptionCode(_CUSTOM_SETTINGS_LIMIT_EXCEEDED);
     public static final ExceptionCode DATACLOUD_API_CLIENT_EXCEPTION = new ExceptionCode(_DATACLOUD_API_CLIENT_EXCEPTION);
     public static final ExceptionCode DATACLOUD_API_DISABLED_EXCEPTION = new ExceptionCode(_DATACLOUD_API_DISABLED_EXCEPTION);
+    public static final ExceptionCode DATACLOUD_API_INVALID_QUERY_EXCEPTION = new ExceptionCode(_DATACLOUD_API_INVALID_QUERY_EXCEPTION);
     public static final ExceptionCode DATACLOUD_API_SERVER_BUSY_EXCEPTION = new ExceptionCode(_DATACLOUD_API_SERVER_BUSY_EXCEPTION);
     public static final ExceptionCode DATACLOUD_API_SERVER_EXCEPTION = new ExceptionCode(_DATACLOUD_API_SERVER_EXCEPTION);
     public static final ExceptionCode DATACLOUD_API_TIMEOUT_EXCEPTION = new ExceptionCode(_DATACLOUD_API_TIMEOUT_EXCEPTION);
@@ -199,10 +222,12 @@ public class ExceptionCode implements java.io.Serializable {
     public static final ExceptionCode EMAIL_TO_CASE_INVALID_ROUTING = new ExceptionCode(_EMAIL_TO_CASE_INVALID_ROUTING);
     public static final ExceptionCode EMAIL_TO_CASE_LIMIT_EXCEEDED = new ExceptionCode(_EMAIL_TO_CASE_LIMIT_EXCEEDED);
     public static final ExceptionCode EMAIL_TO_CASE_NOT_ENABLED = new ExceptionCode(_EMAIL_TO_CASE_NOT_ENABLED);
+    public static final ExceptionCode ENTITY_NOT_QUERYABLE = new ExceptionCode(_ENTITY_NOT_QUERYABLE);
     public static final ExceptionCode ENVIRONMENT_HUB_MEMBERSHIP_CONFLICT = new ExceptionCode(_ENVIRONMENT_HUB_MEMBERSHIP_CONFLICT);
     public static final ExceptionCode EXCEEDED_ID_LIMIT = new ExceptionCode(_EXCEEDED_ID_LIMIT);
     public static final ExceptionCode EXCEEDED_LEAD_CONVERT_LIMIT = new ExceptionCode(_EXCEEDED_LEAD_CONVERT_LIMIT);
     public static final ExceptionCode EXCEEDED_MAX_SIZE_REQUEST = new ExceptionCode(_EXCEEDED_MAX_SIZE_REQUEST);
+    public static final ExceptionCode EXCEEDED_MAX_SOBJECTS = new ExceptionCode(_EXCEEDED_MAX_SOBJECTS);
     public static final ExceptionCode EXCEEDED_MAX_TYPES_LIMIT = new ExceptionCode(_EXCEEDED_MAX_TYPES_LIMIT);
     public static final ExceptionCode EXCEEDED_QUOTA = new ExceptionCode(_EXCEEDED_QUOTA);
     public static final ExceptionCode EXTERNAL_OBJECT_AUTHENTICATION_EXCEPTION = new ExceptionCode(_EXTERNAL_OBJECT_AUTHENTICATION_EXCEPTION);
@@ -216,6 +241,7 @@ public class ExceptionCode implements java.io.Serializable {
     public static final ExceptionCode ILLEGAL_QUERY_PARAMETER_VALUE = new ExceptionCode(_ILLEGAL_QUERY_PARAMETER_VALUE);
     public static final ExceptionCode INACTIVE_OWNER_OR_USER = new ExceptionCode(_INACTIVE_OWNER_OR_USER);
     public static final ExceptionCode INACTIVE_PORTAL = new ExceptionCode(_INACTIVE_PORTAL);
+    public static final ExceptionCode INSERT_UPDATE_DELETE_NOT_ALLOWED_DURING_MAINTENANCE = new ExceptionCode(_INSERT_UPDATE_DELETE_NOT_ALLOWED_DURING_MAINTENANCE);
     public static final ExceptionCode INSUFFICIENT_ACCESS = new ExceptionCode(_INSUFFICIENT_ACCESS);
     public static final ExceptionCode INTERNAL_CANVAS_ERROR = new ExceptionCode(_INTERNAL_CANVAS_ERROR);
     public static final ExceptionCode INVALID_ASSIGNMENT_RULE = new ExceptionCode(_INVALID_ASSIGNMENT_RULE);
@@ -255,6 +281,7 @@ public class ExceptionCode implements java.io.Serializable {
     public static final ExceptionCode JIGSAW_REQUEST_NOT_SUPPORTED = new ExceptionCode(_JIGSAW_REQUEST_NOT_SUPPORTED);
     public static final ExceptionCode JSON_PARSER_ERROR = new ExceptionCode(_JSON_PARSER_ERROR);
     public static final ExceptionCode KEY_HAS_BEEN_DESTROYED = new ExceptionCode(_KEY_HAS_BEEN_DESTROYED);
+    public static final ExceptionCode LICENSING_DATA_ERROR = new ExceptionCode(_LICENSING_DATA_ERROR);
     public static final ExceptionCode LICENSING_UNKNOWN_ERROR = new ExceptionCode(_LICENSING_UNKNOWN_ERROR);
     public static final ExceptionCode LIMIT_EXCEEDED = new ExceptionCode(_LIMIT_EXCEEDED);
     public static final ExceptionCode LOGIN_CHALLENGE_ISSUED = new ExceptionCode(_LOGIN_CHALLENGE_ISSUED);
@@ -267,9 +294,12 @@ public class ExceptionCode implements java.io.Serializable {
     public static final ExceptionCode MALFORMED_SEARCH = new ExceptionCode(_MALFORMED_SEARCH);
     public static final ExceptionCode MISSING_ARGUMENT = new ExceptionCode(_MISSING_ARGUMENT);
     public static final ExceptionCode MISSING_RECORD = new ExceptionCode(_MISSING_RECORD);
+    public static final ExceptionCode MODIFIED = new ExceptionCode(_MODIFIED);
     public static final ExceptionCode MUTUAL_AUTHENTICATION_FAILED = new ExceptionCode(_MUTUAL_AUTHENTICATION_FAILED);
     public static final ExceptionCode NOT_ACCEPTABLE = new ExceptionCode(_NOT_ACCEPTABLE);
     public static final ExceptionCode NOT_MODIFIED = new ExceptionCode(_NOT_MODIFIED);
+    public static final ExceptionCode NO_ACTIVE_DUPLICATE_RULE = new ExceptionCode(_NO_ACTIVE_DUPLICATE_RULE);
+    public static final ExceptionCode NO_RECIPIENTS = new ExceptionCode(_NO_RECIPIENTS);
     public static final ExceptionCode NO_SOFTPHONE_LAYOUT = new ExceptionCode(_NO_SOFTPHONE_LAYOUT);
     public static final ExceptionCode NUMBER_OUTSIDE_VALID_RANGE = new ExceptionCode(_NUMBER_OUTSIDE_VALID_RANGE);
     public static final ExceptionCode OPERATION_TOO_LARGE = new ExceptionCode(_OPERATION_TOO_LARGE);
@@ -283,6 +313,7 @@ public class ExceptionCode implements java.io.Serializable {
     public static final ExceptionCode POST_BODY_PARSE_ERROR = new ExceptionCode(_POST_BODY_PARSE_ERROR);
     public static final ExceptionCode QUERY_TIMEOUT = new ExceptionCode(_QUERY_TIMEOUT);
     public static final ExceptionCode QUERY_TOO_COMPLICATED = new ExceptionCode(_QUERY_TOO_COMPLICATED);
+    public static final ExceptionCode REALTIME_PROCESSING_TIME_EXCEEDED_LIMIT = new ExceptionCode(_REALTIME_PROCESSING_TIME_EXCEEDED_LIMIT);
     public static final ExceptionCode REQUEST_LIMIT_EXCEEDED = new ExceptionCode(_REQUEST_LIMIT_EXCEEDED);
     public static final ExceptionCode REQUEST_RUNNING_TOO_LONG = new ExceptionCode(_REQUEST_RUNNING_TOO_LONG);
     public static final ExceptionCode SERVER_UNAVAILABLE = new ExceptionCode(_SERVER_UNAVAILABLE);
@@ -302,6 +333,7 @@ public class ExceptionCode implements java.io.Serializable {
     public static final ExceptionCode UNABLE_TO_LOCK_ROW = new ExceptionCode(_UNABLE_TO_LOCK_ROW);
     public static final ExceptionCode UNKNOWN_ATTACHMENT_EXCEPTION = new ExceptionCode(_UNKNOWN_ATTACHMENT_EXCEPTION);
     public static final ExceptionCode UNKNOWN_EXCEPTION = new ExceptionCode(_UNKNOWN_EXCEPTION);
+    public static final ExceptionCode UNKNOWN_ORG_SETTING = new ExceptionCode(_UNKNOWN_ORG_SETTING);
     public static final ExceptionCode UNSUPPORTED_API_VERSION = new ExceptionCode(_UNSUPPORTED_API_VERSION);
     public static final ExceptionCode UNSUPPORTED_ATTACHMENT_ENCODING = new ExceptionCode(_UNSUPPORTED_ATTACHMENT_ENCODING);
     public static final ExceptionCode UNSUPPORTED_CLIENT = new ExceptionCode(_UNSUPPORTED_CLIENT);

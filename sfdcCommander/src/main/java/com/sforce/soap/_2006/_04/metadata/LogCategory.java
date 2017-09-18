@@ -25,6 +25,7 @@ public class LogCategory implements java.io.Serializable {
     public static final java.lang.String _Apex_profiling = "Apex_profiling";
     public static final java.lang.String _Visualforce = "Visualforce";
     public static final java.lang.String _System = "System";
+    public static final java.lang.String _Wave = "Wave";
     public static final java.lang.String _All = "All";
     public static final LogCategory Db = new LogCategory(_Db);
     public static final LogCategory Workflow = new LogCategory(_Workflow);
@@ -34,6 +35,7 @@ public class LogCategory implements java.io.Serializable {
     public static final LogCategory Apex_profiling = new LogCategory(_Apex_profiling);
     public static final LogCategory Visualforce = new LogCategory(_Visualforce);
     public static final LogCategory System = new LogCategory(_System);
+    public static final LogCategory Wave = new LogCategory(_Wave);
     public static final LogCategory All = new LogCategory(_All);
     public java.lang.String getValue() { return _value_;}
     public static LogCategory fromValue(java.lang.String value)

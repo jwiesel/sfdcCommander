@@ -17,7 +17,7 @@ public class LogCategoryLevel implements java.io.Serializable {
         _table_.put(_value_,this);
     }
 
-    public static final java.lang.String _Internal = "Internal";
+    public static final java.lang.String _None = "None";
     public static final java.lang.String _Finest = "Finest";
     public static final java.lang.String _Finer = "Finer";
     public static final java.lang.String _Fine = "Fine";
@@ -25,7 +25,7 @@ public class LogCategoryLevel implements java.io.Serializable {
     public static final java.lang.String _Info = "Info";
     public static final java.lang.String _Warn = "Warn";
     public static final java.lang.String _Error = "Error";
-    public static final LogCategoryLevel Internal = new LogCategoryLevel(_Internal);
+    public static final LogCategoryLevel None = new LogCategoryLevel(_None);
     public static final LogCategoryLevel Finest = new LogCategoryLevel(_Finest);
     public static final LogCategoryLevel Finer = new LogCategoryLevel(_Finer);
     public static final LogCategoryLevel Fine = new LogCategoryLevel(_Fine);

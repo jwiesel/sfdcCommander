@@ -25,6 +25,7 @@ public class QuickActionType implements java.io.Serializable {
     public static final java.lang.String _SocialPost = "SocialPost";
     public static final java.lang.String _Canvas = "Canvas";
     public static final java.lang.String _Update = "Update";
+    public static final java.lang.String _LightningComponent = "LightningComponent";
     public static final QuickActionType Create = new QuickActionType(_Create);
     public static final QuickActionType VisualforcePage = new QuickActionType(_VisualforcePage);
     public static final QuickActionType Post = new QuickActionType(_Post);
@@ -33,6 +34,7 @@ public class QuickActionType implements java.io.Serializable {
     public static final QuickActionType SocialPost = new QuickActionType(_SocialPost);
     public static final QuickActionType Canvas = new QuickActionType(_Canvas);
     public static final QuickActionType Update = new QuickActionType(_Update);
+    public static final QuickActionType LightningComponent = new QuickActionType(_LightningComponent);
     public java.lang.String getValue() { return _value_;}
     public static QuickActionType fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

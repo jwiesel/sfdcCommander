@@ -30,6 +30,12 @@ public class DescribeSObjectResult  implements java.io.Serializable {
 
     private com.sforce.soap.partner.Field[] fields;
 
+    private boolean hasSubtypes;
+
+    private boolean idEnabled;
+
+    private boolean isSubtype;
+
     private java.lang.String keyPrefix;
 
     private java.lang.String label;
@@ -40,9 +46,13 @@ public class DescribeSObjectResult  implements java.io.Serializable {
 
     private boolean mergeable;
 
+    private boolean mruEnabled;
+
     private java.lang.String name;
 
     private com.sforce.soap.partner.NamedLayoutInfo[] namedLayoutInfos;
+
+    private java.lang.String networkScopeFieldName;
 
     private boolean queryable;
 
@@ -55,6 +65,8 @@ public class DescribeSObjectResult  implements java.io.Serializable {
     private java.lang.Boolean searchLayoutable;
 
     private boolean searchable;
+
+    private com.sforce.soap.partner.ScopeInfo[] supportedScopes;
 
     private java.lang.Boolean triggerable;
 
@@ -83,19 +95,25 @@ public class DescribeSObjectResult  implements java.io.Serializable {
            boolean deprecatedAndHidden,
            boolean feedEnabled,
            com.sforce.soap.partner.Field[] fields,
+           boolean hasSubtypes,
+           boolean idEnabled,
+           boolean isSubtype,
            java.lang.String keyPrefix,
            java.lang.String label,
            java.lang.String labelPlural,
            boolean layoutable,
            boolean mergeable,
+           boolean mruEnabled,
            java.lang.String name,
            com.sforce.soap.partner.NamedLayoutInfo[] namedLayoutInfos,
+           java.lang.String networkScopeFieldName,
            boolean queryable,
            com.sforce.soap.partner.RecordTypeInfo[] recordTypeInfos,
            boolean replicateable,
            boolean retrieveable,
            java.lang.Boolean searchLayoutable,
            boolean searchable,
+           com.sforce.soap.partner.ScopeInfo[] supportedScopes,
            java.lang.Boolean triggerable,
            boolean undeletable,
            boolean updateable,
@@ -113,19 +131,25 @@ public class DescribeSObjectResult  implements java.io.Serializable {
            this.deprecatedAndHidden = deprecatedAndHidden;
            this.feedEnabled = feedEnabled;
            this.fields = fields;
+           this.hasSubtypes = hasSubtypes;
+           this.idEnabled = idEnabled;
+           this.isSubtype = isSubtype;
            this.keyPrefix = keyPrefix;
            this.label = label;
            this.labelPlural = labelPlural;
            this.layoutable = layoutable;
            this.mergeable = mergeable;
+           this.mruEnabled = mruEnabled;
            this.name = name;
            this.namedLayoutInfos = namedLayoutInfos;
+           this.networkScopeFieldName = networkScopeFieldName;
            this.queryable = queryable;
            this.recordTypeInfos = recordTypeInfos;
            this.replicateable = replicateable;
            this.retrieveable = retrieveable;
            this.searchLayoutable = searchLayoutable;
            this.searchable = searchable;
+           this.supportedScopes = supportedScopes;
            this.triggerable = triggerable;
            this.undeletable = undeletable;
            this.updateable = updateable;
@@ -380,6 +404,66 @@ public class DescribeSObjectResult  implements java.io.Serializable {
 
 
     /**
+     * Gets the hasSubtypes value for this DescribeSObjectResult.
+     * 
+     * @return hasSubtypes
+     */
+    public boolean isHasSubtypes() {
+        return hasSubtypes;
+    }
+
+
+    /**
+     * Sets the hasSubtypes value for this DescribeSObjectResult.
+     * 
+     * @param hasSubtypes
+     */
+    public void setHasSubtypes(boolean hasSubtypes) {
+        this.hasSubtypes = hasSubtypes;
+    }
+
+
+    /**
+     * Gets the idEnabled value for this DescribeSObjectResult.
+     * 
+     * @return idEnabled
+     */
+    public boolean isIdEnabled() {
+        return idEnabled;
+    }
+
+
+    /**
+     * Sets the idEnabled value for this DescribeSObjectResult.
+     * 
+     * @param idEnabled
+     */
+    public void setIdEnabled(boolean idEnabled) {
+        this.idEnabled = idEnabled;
+    }
+
+
+    /**
+     * Gets the isSubtype value for this DescribeSObjectResult.
+     * 
+     * @return isSubtype
+     */
+    public boolean isIsSubtype() {
+        return isSubtype;
+    }
+
+
+    /**
+     * Sets the isSubtype value for this DescribeSObjectResult.
+     * 
+     * @param isSubtype
+     */
+    public void setIsSubtype(boolean isSubtype) {
+        this.isSubtype = isSubtype;
+    }
+
+
+    /**
      * Gets the keyPrefix value for this DescribeSObjectResult.
      * 
      * @return keyPrefix
@@ -480,6 +564,26 @@ public class DescribeSObjectResult  implements java.io.Serializable {
 
 
     /**
+     * Gets the mruEnabled value for this DescribeSObjectResult.
+     * 
+     * @return mruEnabled
+     */
+    public boolean isMruEnabled() {
+        return mruEnabled;
+    }
+
+
+    /**
+     * Sets the mruEnabled value for this DescribeSObjectResult.
+     * 
+     * @param mruEnabled
+     */
+    public void setMruEnabled(boolean mruEnabled) {
+        this.mruEnabled = mruEnabled;
+    }
+
+
+    /**
      * Gets the name value for this DescribeSObjectResult.
      * 
      * @return name
@@ -524,6 +628,26 @@ public class DescribeSObjectResult  implements java.io.Serializable {
 
     public void setNamedLayoutInfos(int i, com.sforce.soap.partner.NamedLayoutInfo _value) {
         this.namedLayoutInfos[i] = _value;
+    }
+
+
+    /**
+     * Gets the networkScopeFieldName value for this DescribeSObjectResult.
+     * 
+     * @return networkScopeFieldName
+     */
+    public java.lang.String getNetworkScopeFieldName() {
+        return networkScopeFieldName;
+    }
+
+
+    /**
+     * Sets the networkScopeFieldName value for this DescribeSObjectResult.
+     * 
+     * @param networkScopeFieldName
+     */
+    public void setNetworkScopeFieldName(java.lang.String networkScopeFieldName) {
+        this.networkScopeFieldName = networkScopeFieldName;
     }
 
 
@@ -652,6 +776,34 @@ public class DescribeSObjectResult  implements java.io.Serializable {
      */
     public void setSearchable(boolean searchable) {
         this.searchable = searchable;
+    }
+
+
+    /**
+     * Gets the supportedScopes value for this DescribeSObjectResult.
+     * 
+     * @return supportedScopes
+     */
+    public com.sforce.soap.partner.ScopeInfo[] getSupportedScopes() {
+        return supportedScopes;
+    }
+
+
+    /**
+     * Sets the supportedScopes value for this DescribeSObjectResult.
+     * 
+     * @param supportedScopes
+     */
+    public void setSupportedScopes(com.sforce.soap.partner.ScopeInfo[] supportedScopes) {
+        this.supportedScopes = supportedScopes;
+    }
+
+    public com.sforce.soap.partner.ScopeInfo getSupportedScopes(int i) {
+        return this.supportedScopes[i];
+    }
+
+    public void setSupportedScopes(int i, com.sforce.soap.partner.ScopeInfo _value) {
+        this.supportedScopes[i] = _value;
     }
 
 
@@ -803,6 +955,9 @@ public class DescribeSObjectResult  implements java.io.Serializable {
             ((this.fields==null && other.getFields()==null) || 
              (this.fields!=null &&
               java.util.Arrays.equals(this.fields, other.getFields()))) &&
+            this.hasSubtypes == other.isHasSubtypes() &&
+            this.idEnabled == other.isIdEnabled() &&
+            this.isSubtype == other.isIsSubtype() &&
             ((this.keyPrefix==null && other.getKeyPrefix()==null) || 
              (this.keyPrefix!=null &&
               this.keyPrefix.equals(other.getKeyPrefix()))) &&
@@ -814,12 +969,16 @@ public class DescribeSObjectResult  implements java.io.Serializable {
               this.labelPlural.equals(other.getLabelPlural()))) &&
             this.layoutable == other.isLayoutable() &&
             this.mergeable == other.isMergeable() &&
+            this.mruEnabled == other.isMruEnabled() &&
             ((this.name==null && other.getName()==null) || 
              (this.name!=null &&
               this.name.equals(other.getName()))) &&
             ((this.namedLayoutInfos==null && other.getNamedLayoutInfos()==null) || 
              (this.namedLayoutInfos!=null &&
               java.util.Arrays.equals(this.namedLayoutInfos, other.getNamedLayoutInfos()))) &&
+            ((this.networkScopeFieldName==null && other.getNetworkScopeFieldName()==null) || 
+             (this.networkScopeFieldName!=null &&
+              this.networkScopeFieldName.equals(other.getNetworkScopeFieldName()))) &&
             this.queryable == other.isQueryable() &&
             ((this.recordTypeInfos==null && other.getRecordTypeInfos()==null) || 
              (this.recordTypeInfos!=null &&
@@ -830,6 +989,9 @@ public class DescribeSObjectResult  implements java.io.Serializable {
              (this.searchLayoutable!=null &&
               this.searchLayoutable.equals(other.getSearchLayoutable()))) &&
             this.searchable == other.isSearchable() &&
+            ((this.supportedScopes==null && other.getSupportedScopes()==null) || 
+             (this.supportedScopes!=null &&
+              java.util.Arrays.equals(this.supportedScopes, other.getSupportedScopes()))) &&
             ((this.triggerable==null && other.getTriggerable()==null) || 
              (this.triggerable!=null &&
               this.triggerable.equals(other.getTriggerable()))) &&
@@ -896,6 +1058,9 @@ public class DescribeSObjectResult  implements java.io.Serializable {
                 }
             }
         }
+        _hashCode += (isHasSubtypes() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isIdEnabled() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isIsSubtype() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getKeyPrefix() != null) {
             _hashCode += getKeyPrefix().hashCode();
         }
@@ -907,6 +1072,7 @@ public class DescribeSObjectResult  implements java.io.Serializable {
         }
         _hashCode += (isLayoutable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += (isMergeable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isMruEnabled() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getName() != null) {
             _hashCode += getName().hashCode();
         }
@@ -920,6 +1086,9 @@ public class DescribeSObjectResult  implements java.io.Serializable {
                     _hashCode += obj.hashCode();
                 }
             }
+        }
+        if (getNetworkScopeFieldName() != null) {
+            _hashCode += getNetworkScopeFieldName().hashCode();
         }
         _hashCode += (isQueryable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getRecordTypeInfos() != null) {
@@ -939,6 +1108,17 @@ public class DescribeSObjectResult  implements java.io.Serializable {
             _hashCode += getSearchLayoutable().hashCode();
         }
         _hashCode += (isSearchable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getSupportedScopes() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getSupportedScopes());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getSupportedScopes(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
         if (getTriggerable() != null) {
             _hashCode += getTriggerable().hashCode();
         }
@@ -1036,6 +1216,24 @@ public class DescribeSObjectResult  implements java.io.Serializable {
         elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("hasSubtypes");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "hasSubtypes"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("idEnabled");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "idEnabled"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("isSubtype");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "isSubtype"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keyPrefix");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "keyPrefix"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -1066,6 +1264,12 @@ public class DescribeSObjectResult  implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("mruEnabled");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "mruEnabled"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("name");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "name"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -1078,6 +1282,12 @@ public class DescribeSObjectResult  implements java.io.Serializable {
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("networkScopeFieldName");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "networkScopeFieldName"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("queryable");
@@ -1117,6 +1327,14 @@ public class DescribeSObjectResult  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "searchable"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("supportedScopes");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "supportedScopes"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "ScopeInfo"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("triggerable");

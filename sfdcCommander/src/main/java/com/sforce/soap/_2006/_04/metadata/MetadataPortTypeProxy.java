@@ -92,7 +92,7 @@ public class MetadataPortTypeProxy implements com.sforce.soap._2006._04.metadata
     return metadataPortType.describeMetadata(asOfVersion);
   }
   
-  public com.sforce.soap._2006._04.metadata.ValueTypeField[] describeValueType(java.lang.String type) throws java.rmi.RemoteException{
+  public com.sforce.soap._2006._04.metadata.DescribeValueTypeResult describeValueType(java.lang.String type) throws java.rmi.RemoteException{
     if (metadataPortType == null)
       _initMetadataPortTypeProxy();
     return metadataPortType.describeValueType(type);

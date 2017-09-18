@@ -10,12 +10,16 @@ package com.sforce.soap.partner;
 public class DescribeAppMenu  implements java.io.Serializable {
     private com.sforce.soap.partner.AppMenuType appMenuType;
 
+    private java.lang.String networkId;
+
     public DescribeAppMenu() {
     }
 
     public DescribeAppMenu(
-           com.sforce.soap.partner.AppMenuType appMenuType) {
+           com.sforce.soap.partner.AppMenuType appMenuType,
+           java.lang.String networkId) {
            this.appMenuType = appMenuType;
+           this.networkId = networkId;
     }
 
 
@@ -38,6 +42,26 @@ public class DescribeAppMenu  implements java.io.Serializable {
         this.appMenuType = appMenuType;
     }
 
+
+    /**
+     * Gets the networkId value for this DescribeAppMenu.
+     * 
+     * @return networkId
+     */
+    public java.lang.String getNetworkId() {
+        return networkId;
+    }
+
+
+    /**
+     * Sets the networkId value for this DescribeAppMenu.
+     * 
+     * @param networkId
+     */
+    public void setNetworkId(java.lang.String networkId) {
+        this.networkId = networkId;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof DescribeAppMenu)) return false;
@@ -52,7 +76,10 @@ public class DescribeAppMenu  implements java.io.Serializable {
         _equals = true && 
             ((this.appMenuType==null && other.getAppMenuType()==null) || 
              (this.appMenuType!=null &&
-              this.appMenuType.equals(other.getAppMenuType())));
+              this.appMenuType.equals(other.getAppMenuType()))) &&
+            ((this.networkId==null && other.getNetworkId()==null) || 
+             (this.networkId!=null &&
+              this.networkId.equals(other.getNetworkId())));
         __equalsCalc = null;
         return _equals;
     }
@@ -66,6 +93,9 @@ public class DescribeAppMenu  implements java.io.Serializable {
         int _hashCode = 1;
         if (getAppMenuType() != null) {
             _hashCode += getAppMenuType().hashCode();
+        }
+        if (getNetworkId() != null) {
+            _hashCode += getNetworkId().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -82,6 +112,12 @@ public class DescribeAppMenu  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "appMenuType"));
         elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "AppMenuType"));
         elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("networkId");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "networkId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
     }
 

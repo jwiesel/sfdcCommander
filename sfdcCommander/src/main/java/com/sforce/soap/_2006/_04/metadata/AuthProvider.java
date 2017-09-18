@@ -14,6 +14,8 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
 
     private java.lang.String consumerSecret;
 
+    private java.lang.String customMetadataTypeRecord;
+
     private java.lang.String defaultScopes;
 
     private java.lang.String errorUrl;
@@ -29,6 +31,8 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
     private java.lang.Boolean includeOrgIdInIdentifier;
 
     private java.lang.String logoutUrl;
+
+    private java.lang.String plugin;
 
     private java.lang.String portal;
 
@@ -52,6 +56,7 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
            java.lang.String authorizeUrl,
            java.lang.String consumerKey,
            java.lang.String consumerSecret,
+           java.lang.String customMetadataTypeRecord,
            java.lang.String defaultScopes,
            java.lang.String errorUrl,
            java.lang.String executionUser,
@@ -60,6 +65,7 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
            java.lang.String idTokenIssuer,
            java.lang.Boolean includeOrgIdInIdentifier,
            java.lang.String logoutUrl,
+           java.lang.String plugin,
            java.lang.String portal,
            com.sforce.soap._2006._04.metadata.AuthProviderType providerType,
            java.lang.String registrationHandler,
@@ -72,6 +78,7 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
         this.authorizeUrl = authorizeUrl;
         this.consumerKey = consumerKey;
         this.consumerSecret = consumerSecret;
+        this.customMetadataTypeRecord = customMetadataTypeRecord;
         this.defaultScopes = defaultScopes;
         this.errorUrl = errorUrl;
         this.executionUser = executionUser;
@@ -80,6 +87,7 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
         this.idTokenIssuer = idTokenIssuer;
         this.includeOrgIdInIdentifier = includeOrgIdInIdentifier;
         this.logoutUrl = logoutUrl;
+        this.plugin = plugin;
         this.portal = portal;
         this.providerType = providerType;
         this.registrationHandler = registrationHandler;
@@ -147,6 +155,26 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
      */
     public void setConsumerSecret(java.lang.String consumerSecret) {
         this.consumerSecret = consumerSecret;
+    }
+
+
+    /**
+     * Gets the customMetadataTypeRecord value for this AuthProvider.
+     * 
+     * @return customMetadataTypeRecord
+     */
+    public java.lang.String getCustomMetadataTypeRecord() {
+        return customMetadataTypeRecord;
+    }
+
+
+    /**
+     * Sets the customMetadataTypeRecord value for this AuthProvider.
+     * 
+     * @param customMetadataTypeRecord
+     */
+    public void setCustomMetadataTypeRecord(java.lang.String customMetadataTypeRecord) {
+        this.customMetadataTypeRecord = customMetadataTypeRecord;
     }
 
 
@@ -311,6 +339,26 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
 
 
     /**
+     * Gets the plugin value for this AuthProvider.
+     * 
+     * @return plugin
+     */
+    public java.lang.String getPlugin() {
+        return plugin;
+    }
+
+
+    /**
+     * Sets the plugin value for this AuthProvider.
+     * 
+     * @param plugin
+     */
+    public void setPlugin(java.lang.String plugin) {
+        this.plugin = plugin;
+    }
+
+
+    /**
      * Gets the portal value for this AuthProvider.
      * 
      * @return portal
@@ -470,6 +518,9 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
             ((this.consumerSecret==null && other.getConsumerSecret()==null) || 
              (this.consumerSecret!=null &&
               this.consumerSecret.equals(other.getConsumerSecret()))) &&
+            ((this.customMetadataTypeRecord==null && other.getCustomMetadataTypeRecord()==null) || 
+             (this.customMetadataTypeRecord!=null &&
+              this.customMetadataTypeRecord.equals(other.getCustomMetadataTypeRecord()))) &&
             ((this.defaultScopes==null && other.getDefaultScopes()==null) || 
              (this.defaultScopes!=null &&
               this.defaultScopes.equals(other.getDefaultScopes()))) &&
@@ -494,6 +545,9 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
             ((this.logoutUrl==null && other.getLogoutUrl()==null) || 
              (this.logoutUrl!=null &&
               this.logoutUrl.equals(other.getLogoutUrl()))) &&
+            ((this.plugin==null && other.getPlugin()==null) || 
+             (this.plugin!=null &&
+              this.plugin.equals(other.getPlugin()))) &&
             ((this.portal==null && other.getPortal()==null) || 
              (this.portal!=null &&
               this.portal.equals(other.getPortal()))) &&
@@ -535,6 +589,9 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
         if (getConsumerSecret() != null) {
             _hashCode += getConsumerSecret().hashCode();
         }
+        if (getCustomMetadataTypeRecord() != null) {
+            _hashCode += getCustomMetadataTypeRecord().hashCode();
+        }
         if (getDefaultScopes() != null) {
             _hashCode += getDefaultScopes().hashCode();
         }
@@ -558,6 +615,9 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
         }
         if (getLogoutUrl() != null) {
             _hashCode += getLogoutUrl().hashCode();
+        }
+        if (getPlugin() != null) {
+            _hashCode += getPlugin().hashCode();
         }
         if (getPortal() != null) {
             _hashCode += getPortal().hashCode();
@@ -607,6 +667,13 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("consumerSecret");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "consumerSecret"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("customMetadataTypeRecord");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "customMetadataTypeRecord"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
@@ -662,6 +729,13 @@ public class AuthProvider  extends com.sforce.soap._2006._04.metadata.Metadata  
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("logoutUrl");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "logoutUrl"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("plugin");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "plugin"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);

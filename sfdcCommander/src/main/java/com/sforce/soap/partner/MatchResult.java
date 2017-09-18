@@ -8,9 +8,9 @@
 package com.sforce.soap.partner;
 
 public class MatchResult  implements java.io.Serializable {
-    private com.sforce.soap.partner.Error[] errors;
-
     private java.lang.String entityType;
+
+    private com.sforce.soap.partner.Error[] errors;
 
     private java.lang.String matchEngine;
 
@@ -26,20 +26,40 @@ public class MatchResult  implements java.io.Serializable {
     }
 
     public MatchResult(
-           com.sforce.soap.partner.Error[] errors,
            java.lang.String entityType,
+           com.sforce.soap.partner.Error[] errors,
            java.lang.String matchEngine,
            com.sforce.soap.partner.MatchRecord[] matchRecords,
            java.lang.String rule,
            int size,
            boolean success) {
-           this.errors = errors;
            this.entityType = entityType;
+           this.errors = errors;
            this.matchEngine = matchEngine;
            this.matchRecords = matchRecords;
            this.rule = rule;
            this.size = size;
            this.success = success;
+    }
+
+
+    /**
+     * Gets the entityType value for this MatchResult.
+     * 
+     * @return entityType
+     */
+    public java.lang.String getEntityType() {
+        return entityType;
+    }
+
+
+    /**
+     * Sets the entityType value for this MatchResult.
+     * 
+     * @param entityType
+     */
+    public void setEntityType(java.lang.String entityType) {
+        this.entityType = entityType;
     }
 
 
@@ -68,26 +88,6 @@ public class MatchResult  implements java.io.Serializable {
 
     public void setErrors(int i, com.sforce.soap.partner.Error _value) {
         this.errors[i] = _value;
-    }
-
-
-    /**
-     * Gets the entityType value for this MatchResult.
-     * 
-     * @return entityType
-     */
-    public java.lang.String getEntityType() {
-        return entityType;
-    }
-
-
-    /**
-     * Sets the entityType value for this MatchResult.
-     * 
-     * @param entityType
-     */
-    public void setEntityType(java.lang.String entityType) {
-        this.entityType = entityType;
     }
 
 
@@ -210,12 +210,12 @@ public class MatchResult  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.errors==null && other.getErrors()==null) || 
-             (this.errors!=null &&
-              java.util.Arrays.equals(this.errors, other.getErrors()))) &&
             ((this.entityType==null && other.getEntityType()==null) || 
              (this.entityType!=null &&
               this.entityType.equals(other.getEntityType()))) &&
+            ((this.errors==null && other.getErrors()==null) || 
+             (this.errors!=null &&
+              java.util.Arrays.equals(this.errors, other.getErrors()))) &&
             ((this.matchEngine==null && other.getMatchEngine()==null) || 
              (this.matchEngine!=null &&
               this.matchEngine.equals(other.getMatchEngine()))) &&
@@ -238,6 +238,9 @@ public class MatchResult  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getEntityType() != null) {
+            _hashCode += getEntityType().hashCode();
+        }
         if (getErrors() != null) {
             for (int i=0;
                  i<java.lang.reflect.Array.getLength(getErrors());
@@ -248,9 +251,6 @@ public class MatchResult  implements java.io.Serializable {
                     _hashCode += obj.hashCode();
                 }
             }
-        }
-        if (getEntityType() != null) {
-            _hashCode += getEntityType().hashCode();
         }
         if (getMatchEngine() != null) {
             _hashCode += getMatchEngine().hashCode();
@@ -282,18 +282,18 @@ public class MatchResult  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "MatchResult"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("entityType");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "entityType"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("errors");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "errors"));
         elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "Error"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("entityType");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "entityType"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("matchEngine");

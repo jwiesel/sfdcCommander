@@ -18,11 +18,13 @@ public class ApiQueryFault  extends com.sforce.soap.partner.fault.ApiFault  impl
     public ApiQueryFault(
            com.sforce.soap.partner.fault.ExceptionCode exceptionCode,
            java.lang.String exceptionMessage,
+           com.sforce.soap.partner.ExtendedErrorDetails[] extendedErrorDetails,
            int row,
            int column) {
         super(
             exceptionCode,
-            exceptionMessage);
+            exceptionMessage,
+            extendedErrorDetails);
         this.row = row;
         this.column = column;
     }

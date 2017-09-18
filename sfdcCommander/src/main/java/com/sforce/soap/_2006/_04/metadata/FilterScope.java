@@ -24,6 +24,7 @@ public class FilterScope implements java.io.Serializable {
     public static final java.lang.String _MyTerritory = "MyTerritory";
     public static final java.lang.String _MyTeamTerritory = "MyTeamTerritory";
     public static final java.lang.String _Team = "Team";
+    public static final java.lang.String _AssignedToMe = "AssignedToMe";
     public static final FilterScope Everything = new FilterScope(_Everything);
     public static final FilterScope Mine = new FilterScope(_Mine);
     public static final FilterScope Queue = new FilterScope(_Queue);
@@ -31,6 +32,7 @@ public class FilterScope implements java.io.Serializable {
     public static final FilterScope MyTerritory = new FilterScope(_MyTerritory);
     public static final FilterScope MyTeamTerritory = new FilterScope(_MyTeamTerritory);
     public static final FilterScope Team = new FilterScope(_Team);
+    public static final FilterScope AssignedToMe = new FilterScope(_AssignedToMe);
     public java.lang.String getValue() { return _value_;}
     public static FilterScope fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

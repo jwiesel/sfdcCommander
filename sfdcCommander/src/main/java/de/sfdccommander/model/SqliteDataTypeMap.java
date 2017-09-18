@@ -63,7 +63,6 @@ public class SqliteDataTypeMap extends HashMap<String, String> {
      */
     public SqliteDataTypeMap(int aInitialCapacity) {
         super(aInitialCapacity);
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -71,7 +70,6 @@ public class SqliteDataTypeMap extends HashMap<String, String> {
      */
     public SqliteDataTypeMap(Map<? extends String, ? extends String> aM) {
         super(aM);
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -80,7 +78,6 @@ public class SqliteDataTypeMap extends HashMap<String, String> {
      */
     public SqliteDataTypeMap(int aInitialCapacity, float aLoadFactor) {
         super(aInitialCapacity, aLoadFactor);
-        // TODO Auto-generated constructor stub
     }
 
 }

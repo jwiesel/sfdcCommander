@@ -32,6 +32,7 @@ public class ConnectedAppOauthAccessScope implements java.io.Serializable {
     public static final java.lang.String _OfflineAccess = "OfflineAccess";
     public static final java.lang.String _CustomPermissions = "CustomPermissions";
     public static final java.lang.String _Wave = "Wave";
+    public static final java.lang.String _Eclair = "Eclair";
     public static final ConnectedAppOauthAccessScope Basic = new ConnectedAppOauthAccessScope(_Basic);
     public static final ConnectedAppOauthAccessScope Api = new ConnectedAppOauthAccessScope(_Api);
     public static final ConnectedAppOauthAccessScope Web = new ConnectedAppOauthAccessScope(_Web);
@@ -47,6 +48,7 @@ public class ConnectedAppOauthAccessScope implements java.io.Serializable {
     public static final ConnectedAppOauthAccessScope OfflineAccess = new ConnectedAppOauthAccessScope(_OfflineAccess);
     public static final ConnectedAppOauthAccessScope CustomPermissions = new ConnectedAppOauthAccessScope(_CustomPermissions);
     public static final ConnectedAppOauthAccessScope Wave = new ConnectedAppOauthAccessScope(_Wave);
+    public static final ConnectedAppOauthAccessScope Eclair = new ConnectedAppOauthAccessScope(_Eclair);
     public java.lang.String getValue() { return _value_;}
     public static ConnectedAppOauthAccessScope fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

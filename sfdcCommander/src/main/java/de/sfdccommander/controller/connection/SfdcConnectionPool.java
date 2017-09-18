@@ -41,7 +41,7 @@ public final class SfdcConnectionPool {
 
     private final SfdcCommander commander;
 
-    public static final double API_VERSION = 34.0;
+    public static final double API_VERSION = 39.0;
 
     /**
      * Default constructor.

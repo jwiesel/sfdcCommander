@@ -19,8 +19,10 @@ public class FeedLayoutFilterType implements java.io.Serializable {
 
     public static final java.lang.String _AllUpdates = "AllUpdates";
     public static final java.lang.String _FeedItemType = "FeedItemType";
+    public static final java.lang.String _Custom = "Custom";
     public static final FeedLayoutFilterType AllUpdates = new FeedLayoutFilterType(_AllUpdates);
     public static final FeedLayoutFilterType FeedItemType = new FeedLayoutFilterType(_FeedItemType);
+    public static final FeedLayoutFilterType Custom = new FeedLayoutFilterType(_Custom);
     public java.lang.String getValue() { return _value_;}
     public static FeedLayoutFilterType fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

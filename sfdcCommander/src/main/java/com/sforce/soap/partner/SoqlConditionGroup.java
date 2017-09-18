@@ -127,6 +127,7 @@ public class SoqlConditionGroup  extends com.sforce.soap.partner.SoqlWhereCondit
         elemField.setFieldName("conditions");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "conditions"));
         elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "SoqlWhereCondition"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);

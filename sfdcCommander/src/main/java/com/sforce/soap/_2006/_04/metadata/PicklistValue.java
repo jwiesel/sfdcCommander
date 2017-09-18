@@ -7,22 +7,16 @@
 
 package com.sforce.soap._2006._04.metadata;
 
-public class PicklistValue  extends com.sforce.soap._2006._04.metadata.Metadata  implements java.io.Serializable {
+public class PicklistValue  extends com.sforce.soap._2006._04.metadata.GlobalPicklistValue  implements java.io.Serializable {
     private java.lang.Boolean allowEmail;
 
     private java.lang.Boolean closed;
-
-    private java.lang.String color;
 
     private java.lang.String[] controllingFieldValues;
 
     private java.lang.Boolean converted;
 
     private java.lang.Boolean cssExposed;
-
-    private boolean _default;
-
-    private java.lang.String description;
 
     private com.sforce.soap._2006._04.metadata.ForecastCategories forecastCategory;
 
@@ -41,14 +35,15 @@ public class PicklistValue  extends com.sforce.soap._2006._04.metadata.Metadata 
 
     public PicklistValue(
            java.lang.String fullName,
+           java.lang.String color,
+           boolean _default,
+           java.lang.String description,
+           java.lang.Boolean isActive,
            java.lang.Boolean allowEmail,
            java.lang.Boolean closed,
-           java.lang.String color,
            java.lang.String[] controllingFieldValues,
            java.lang.Boolean converted,
            java.lang.Boolean cssExposed,
-           boolean _default,
-           java.lang.String description,
            com.sforce.soap._2006._04.metadata.ForecastCategories forecastCategory,
            java.lang.Boolean highPriority,
            java.lang.Integer probability,
@@ -56,15 +51,16 @@ public class PicklistValue  extends com.sforce.soap._2006._04.metadata.Metadata 
            java.lang.Boolean reviewed,
            java.lang.Boolean won) {
         super(
-            fullName);
+            fullName,
+            color,
+            _default,
+            description,
+            isActive);
         this.allowEmail = allowEmail;
         this.closed = closed;
-        this.color = color;
         this.controllingFieldValues = controllingFieldValues;
         this.converted = converted;
         this.cssExposed = cssExposed;
-        this._default = _default;
-        this.description = description;
         this.forecastCategory = forecastCategory;
         this.highPriority = highPriority;
         this.probability = probability;
@@ -111,26 +107,6 @@ public class PicklistValue  extends com.sforce.soap._2006._04.metadata.Metadata 
      */
     public void setClosed(java.lang.Boolean closed) {
         this.closed = closed;
-    }
-
-
-    /**
-     * Gets the color value for this PicklistValue.
-     * 
-     * @return color
-     */
-    public java.lang.String getColor() {
-        return color;
-    }
-
-
-    /**
-     * Sets the color value for this PicklistValue.
-     * 
-     * @param color
-     */
-    public void setColor(java.lang.String color) {
-        this.color = color;
     }
 
 
@@ -199,46 +175,6 @@ public class PicklistValue  extends com.sforce.soap._2006._04.metadata.Metadata 
      */
     public void setCssExposed(java.lang.Boolean cssExposed) {
         this.cssExposed = cssExposed;
-    }
-
-
-    /**
-     * Gets the _default value for this PicklistValue.
-     * 
-     * @return _default
-     */
-    public boolean is_default() {
-        return _default;
-    }
-
-
-    /**
-     * Sets the _default value for this PicklistValue.
-     * 
-     * @param _default
-     */
-    public void set_default(boolean _default) {
-        this._default = _default;
-    }
-
-
-    /**
-     * Gets the description value for this PicklistValue.
-     * 
-     * @return description
-     */
-    public java.lang.String getDescription() {
-        return description;
-    }
-
-
-    /**
-     * Sets the description value for this PicklistValue.
-     * 
-     * @param description
-     */
-    public void setDescription(java.lang.String description) {
-        this.description = description;
     }
 
 
@@ -379,9 +315,6 @@ public class PicklistValue  extends com.sforce.soap._2006._04.metadata.Metadata 
             ((this.closed==null && other.getClosed()==null) || 
              (this.closed!=null &&
               this.closed.equals(other.getClosed()))) &&
-            ((this.color==null && other.getColor()==null) || 
-             (this.color!=null &&
-              this.color.equals(other.getColor()))) &&
             ((this.controllingFieldValues==null && other.getControllingFieldValues()==null) || 
              (this.controllingFieldValues!=null &&
               java.util.Arrays.equals(this.controllingFieldValues, other.getControllingFieldValues()))) &&
@@ -391,10 +324,6 @@ public class PicklistValue  extends com.sforce.soap._2006._04.metadata.Metadata 
             ((this.cssExposed==null && other.getCssExposed()==null) || 
              (this.cssExposed!=null &&
               this.cssExposed.equals(other.getCssExposed()))) &&
-            this._default == other.is_default() &&
-            ((this.description==null && other.getDescription()==null) || 
-             (this.description!=null &&
-              this.description.equals(other.getDescription()))) &&
             ((this.forecastCategory==null && other.getForecastCategory()==null) || 
              (this.forecastCategory!=null &&
               this.forecastCategory.equals(other.getForecastCategory()))) &&
@@ -430,9 +359,6 @@ public class PicklistValue  extends com.sforce.soap._2006._04.metadata.Metadata 
         if (getClosed() != null) {
             _hashCode += getClosed().hashCode();
         }
-        if (getColor() != null) {
-            _hashCode += getColor().hashCode();
-        }
         if (getControllingFieldValues() != null) {
             for (int i=0;
                  i<java.lang.reflect.Array.getLength(getControllingFieldValues());
@@ -449,10 +375,6 @@ public class PicklistValue  extends com.sforce.soap._2006._04.metadata.Metadata 
         }
         if (getCssExposed() != null) {
             _hashCode += getCssExposed().hashCode();
-        }
-        _hashCode += (is_default() ? Boolean.TRUE : Boolean.FALSE).hashCode();
-        if (getDescription() != null) {
-            _hashCode += getDescription().hashCode();
         }
         if (getForecastCategory() != null) {
             _hashCode += getForecastCategory().hashCode();
@@ -497,13 +419,6 @@ public class PicklistValue  extends com.sforce.soap._2006._04.metadata.Metadata 
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("color");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "color"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("controllingFieldValues");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "controllingFieldValues"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -522,19 +437,6 @@ public class PicklistValue  extends com.sforce.soap._2006._04.metadata.Metadata 
         elemField.setFieldName("cssExposed");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "cssExposed"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("_default");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "default"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("description");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "description"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

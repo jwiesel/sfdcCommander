@@ -16,6 +16,8 @@ public class GetUserInfoResult  implements java.io.Serializable {
 
     private java.lang.String orgDefaultCurrencyIsoCode;
 
+    private java.lang.String orgDefaultCurrencyLocale;
+
     private boolean orgDisallowHtmlAttachments;
 
     private boolean orgHasPersonAccounts;
@@ -60,6 +62,7 @@ public class GetUserInfoResult  implements java.io.Serializable {
            java.lang.String currencySymbol,
            int orgAttachmentFileSizeLimit,
            java.lang.String orgDefaultCurrencyIsoCode,
+           java.lang.String orgDefaultCurrencyLocale,
            boolean orgDisallowHtmlAttachments,
            boolean orgHasPersonAccounts,
            java.lang.String organizationId,
@@ -82,6 +85,7 @@ public class GetUserInfoResult  implements java.io.Serializable {
            this.currencySymbol = currencySymbol;
            this.orgAttachmentFileSizeLimit = orgAttachmentFileSizeLimit;
            this.orgDefaultCurrencyIsoCode = orgDefaultCurrencyIsoCode;
+           this.orgDefaultCurrencyLocale = orgDefaultCurrencyLocale;
            this.orgDisallowHtmlAttachments = orgDisallowHtmlAttachments;
            this.orgHasPersonAccounts = orgHasPersonAccounts;
            this.organizationId = organizationId;
@@ -180,6 +184,26 @@ public class GetUserInfoResult  implements java.io.Serializable {
      */
     public void setOrgDefaultCurrencyIsoCode(java.lang.String orgDefaultCurrencyIsoCode) {
         this.orgDefaultCurrencyIsoCode = orgDefaultCurrencyIsoCode;
+    }
+
+
+    /**
+     * Gets the orgDefaultCurrencyLocale value for this GetUserInfoResult.
+     * 
+     * @return orgDefaultCurrencyLocale
+     */
+    public java.lang.String getOrgDefaultCurrencyLocale() {
+        return orgDefaultCurrencyLocale;
+    }
+
+
+    /**
+     * Sets the orgDefaultCurrencyLocale value for this GetUserInfoResult.
+     * 
+     * @param orgDefaultCurrencyLocale
+     */
+    public void setOrgDefaultCurrencyLocale(java.lang.String orgDefaultCurrencyLocale) {
+        this.orgDefaultCurrencyLocale = orgDefaultCurrencyLocale;
     }
 
 
@@ -562,6 +586,9 @@ public class GetUserInfoResult  implements java.io.Serializable {
             ((this.orgDefaultCurrencyIsoCode==null && other.getOrgDefaultCurrencyIsoCode()==null) || 
              (this.orgDefaultCurrencyIsoCode!=null &&
               this.orgDefaultCurrencyIsoCode.equals(other.getOrgDefaultCurrencyIsoCode()))) &&
+            ((this.orgDefaultCurrencyLocale==null && other.getOrgDefaultCurrencyLocale()==null) || 
+             (this.orgDefaultCurrencyLocale!=null &&
+              this.orgDefaultCurrencyLocale.equals(other.getOrgDefaultCurrencyLocale()))) &&
             this.orgDisallowHtmlAttachments == other.isOrgDisallowHtmlAttachments() &&
             this.orgHasPersonAccounts == other.isOrgHasPersonAccounts() &&
             ((this.organizationId==null && other.getOrganizationId()==null) || 
@@ -626,6 +653,9 @@ public class GetUserInfoResult  implements java.io.Serializable {
         _hashCode += getOrgAttachmentFileSizeLimit();
         if (getOrgDefaultCurrencyIsoCode() != null) {
             _hashCode += getOrgDefaultCurrencyIsoCode().hashCode();
+        }
+        if (getOrgDefaultCurrencyLocale() != null) {
+            _hashCode += getOrgDefaultCurrencyLocale().hashCode();
         }
         _hashCode += (isOrgDisallowHtmlAttachments() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += (isOrgHasPersonAccounts() ? Boolean.TRUE : Boolean.FALSE).hashCode();
@@ -704,6 +734,12 @@ public class GetUserInfoResult  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("orgDefaultCurrencyIsoCode");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "orgDefaultCurrencyIsoCode"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("orgDefaultCurrencyLocale");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "orgDefaultCurrencyLocale"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);

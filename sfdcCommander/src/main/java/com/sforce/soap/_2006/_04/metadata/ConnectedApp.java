@@ -34,6 +34,8 @@ public class ConnectedApp  extends com.sforce.soap._2006._04.metadata.Metadata  
 
     private com.sforce.soap._2006._04.metadata.ConnectedAppOauthConfig oauthConfig;
 
+    private java.lang.String plugin;
+
     private com.sforce.soap._2006._04.metadata.ConnectedAppSamlConfig samlConfig;
 
     private java.lang.String startUrl;
@@ -56,6 +58,7 @@ public class ConnectedApp  extends com.sforce.soap._2006._04.metadata.Metadata  
            com.sforce.soap._2006._04.metadata.ConnectedAppMobileDetailConfig mobileAppConfig,
            java.lang.String mobileStartUrl,
            com.sforce.soap._2006._04.metadata.ConnectedAppOauthConfig oauthConfig,
+           java.lang.String plugin,
            com.sforce.soap._2006._04.metadata.ConnectedAppSamlConfig samlConfig,
            java.lang.String startUrl) {
         super(
@@ -73,6 +76,7 @@ public class ConnectedApp  extends com.sforce.soap._2006._04.metadata.Metadata  
         this.mobileAppConfig = mobileAppConfig;
         this.mobileStartUrl = mobileStartUrl;
         this.oauthConfig = oauthConfig;
+        this.plugin = plugin;
         this.samlConfig = samlConfig;
         this.startUrl = startUrl;
     }
@@ -355,6 +359,26 @@ public class ConnectedApp  extends com.sforce.soap._2006._04.metadata.Metadata  
 
 
     /**
+     * Gets the plugin value for this ConnectedApp.
+     * 
+     * @return plugin
+     */
+    public java.lang.String getPlugin() {
+        return plugin;
+    }
+
+
+    /**
+     * Sets the plugin value for this ConnectedApp.
+     * 
+     * @param plugin
+     */
+    public void setPlugin(java.lang.String plugin) {
+        this.plugin = plugin;
+    }
+
+
+    /**
      * Gets the samlConfig value for this ConnectedApp.
      * 
      * @return samlConfig
@@ -444,6 +468,9 @@ public class ConnectedApp  extends com.sforce.soap._2006._04.metadata.Metadata  
             ((this.oauthConfig==null && other.getOauthConfig()==null) || 
              (this.oauthConfig!=null &&
               this.oauthConfig.equals(other.getOauthConfig()))) &&
+            ((this.plugin==null && other.getPlugin()==null) || 
+             (this.plugin!=null &&
+              this.plugin.equals(other.getPlugin()))) &&
             ((this.samlConfig==null && other.getSamlConfig()==null) || 
              (this.samlConfig!=null &&
               this.samlConfig.equals(other.getSamlConfig()))) &&
@@ -515,6 +542,9 @@ public class ConnectedApp  extends com.sforce.soap._2006._04.metadata.Metadata  
         }
         if (getOauthConfig() != null) {
             _hashCode += getOauthConfig().hashCode();
+        }
+        if (getPlugin() != null) {
+            _hashCode += getPlugin().hashCode();
         }
         if (getSamlConfig() != null) {
             _hashCode += getSamlConfig().hashCode();
@@ -620,6 +650,13 @@ public class ConnectedApp  extends com.sforce.soap._2006._04.metadata.Metadata  
         elemField.setFieldName("oauthConfig");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "oauthConfig"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ConnectedAppOauthConfig"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("plugin");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "plugin"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

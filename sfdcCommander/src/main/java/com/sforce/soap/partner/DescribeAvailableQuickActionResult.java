@@ -8,6 +8,8 @@
 package com.sforce.soap.partner;
 
 public class DescribeAvailableQuickActionResult  implements java.io.Serializable {
+    private java.lang.String actionEnumOrId;
+
     private java.lang.String label;
 
     private java.lang.String name;
@@ -18,12 +20,34 @@ public class DescribeAvailableQuickActionResult  implements java.io.Serializable
     }
 
     public DescribeAvailableQuickActionResult(
+           java.lang.String actionEnumOrId,
            java.lang.String label,
            java.lang.String name,
            java.lang.String type) {
+           this.actionEnumOrId = actionEnumOrId;
            this.label = label;
            this.name = name;
            this.type = type;
+    }
+
+
+    /**
+     * Gets the actionEnumOrId value for this DescribeAvailableQuickActionResult.
+     * 
+     * @return actionEnumOrId
+     */
+    public java.lang.String getActionEnumOrId() {
+        return actionEnumOrId;
+    }
+
+
+    /**
+     * Sets the actionEnumOrId value for this DescribeAvailableQuickActionResult.
+     * 
+     * @param actionEnumOrId
+     */
+    public void setActionEnumOrId(java.lang.String actionEnumOrId) {
+        this.actionEnumOrId = actionEnumOrId;
     }
 
 
@@ -98,6 +122,9 @@ public class DescribeAvailableQuickActionResult  implements java.io.Serializable
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.actionEnumOrId==null && other.getActionEnumOrId()==null) || 
+             (this.actionEnumOrId!=null &&
+              this.actionEnumOrId.equals(other.getActionEnumOrId()))) &&
             ((this.label==null && other.getLabel()==null) || 
              (this.label!=null &&
               this.label.equals(other.getLabel()))) &&
@@ -118,6 +145,9 @@ public class DescribeAvailableQuickActionResult  implements java.io.Serializable
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getActionEnumOrId() != null) {
+            _hashCode += getActionEnumOrId().hashCode();
+        }
         if (getLabel() != null) {
             _hashCode += getLabel().hashCode();
         }
@@ -138,6 +168,12 @@ public class DescribeAvailableQuickActionResult  implements java.io.Serializable
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeAvailableQuickActionResult"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("actionEnumOrId");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "actionEnumOrId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("label");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "label"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));

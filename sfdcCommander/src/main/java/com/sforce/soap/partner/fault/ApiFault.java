@@ -12,14 +12,18 @@ public class ApiFault  extends org.apache.axis.AxisFault  implements java.io.Ser
 
     private java.lang.String exceptionMessage;
 
+    private com.sforce.soap.partner.ExtendedErrorDetails[] extendedErrorDetails;
+
     public ApiFault() {
     }
 
     public ApiFault(
            com.sforce.soap.partner.fault.ExceptionCode exceptionCode,
-           java.lang.String exceptionMessage) {
+           java.lang.String exceptionMessage,
+           com.sforce.soap.partner.ExtendedErrorDetails[] extendedErrorDetails) {
         this.exceptionCode = exceptionCode;
         this.exceptionMessage = exceptionMessage;
+        this.extendedErrorDetails = extendedErrorDetails;
     }
 
 
@@ -62,6 +66,34 @@ public class ApiFault  extends org.apache.axis.AxisFault  implements java.io.Ser
         this.exceptionMessage = exceptionMessage;
     }
 
+
+    /**
+     * Gets the extendedErrorDetails value for this ApiFault.
+     * 
+     * @return extendedErrorDetails
+     */
+    public com.sforce.soap.partner.ExtendedErrorDetails[] getExtendedErrorDetails() {
+        return extendedErrorDetails;
+    }
+
+
+    /**
+     * Sets the extendedErrorDetails value for this ApiFault.
+     * 
+     * @param extendedErrorDetails
+     */
+    public void setExtendedErrorDetails(com.sforce.soap.partner.ExtendedErrorDetails[] extendedErrorDetails) {
+        this.extendedErrorDetails = extendedErrorDetails;
+    }
+
+    public com.sforce.soap.partner.ExtendedErrorDetails getExtendedErrorDetails(int i) {
+        return this.extendedErrorDetails[i];
+    }
+
+    public void setExtendedErrorDetails(int i, com.sforce.soap.partner.ExtendedErrorDetails _value) {
+        this.extendedErrorDetails[i] = _value;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof ApiFault)) return false;
@@ -79,7 +111,10 @@ public class ApiFault  extends org.apache.axis.AxisFault  implements java.io.Ser
               this.exceptionCode.equals(other.getExceptionCode()))) &&
             ((this.exceptionMessage==null && other.getExceptionMessage()==null) || 
              (this.exceptionMessage!=null &&
-              this.exceptionMessage.equals(other.getExceptionMessage())));
+              this.exceptionMessage.equals(other.getExceptionMessage()))) &&
+            ((this.extendedErrorDetails==null && other.getExtendedErrorDetails()==null) || 
+             (this.extendedErrorDetails!=null &&
+              java.util.Arrays.equals(this.extendedErrorDetails, other.getExtendedErrorDetails())));
         __equalsCalc = null;
         return _equals;
     }
@@ -96,6 +131,17 @@ public class ApiFault  extends org.apache.axis.AxisFault  implements java.io.Ser
         }
         if (getExceptionMessage() != null) {
             _hashCode += getExceptionMessage().hashCode();
+        }
+        if (getExtendedErrorDetails() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getExtendedErrorDetails());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getExtendedErrorDetails(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -118,6 +164,14 @@ public class ApiFault  extends org.apache.axis.AxisFault  implements java.io.Ser
         elemField.setXmlName(new javax.xml.namespace.QName("urn:fault.partner.soap.sforce.com", "exceptionMessage"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("extendedErrorDetails");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:fault.partner.soap.sforce.com", "extendedErrorDetails"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "ExtendedErrorDetails"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
     }
 

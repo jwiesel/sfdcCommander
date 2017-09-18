@@ -28,6 +28,14 @@ public class PlatformActionListContext implements java.io.Serializable {
     public static final java.lang.String _Flexipage = "Flexipage";
     public static final java.lang.String _MruList = "MruList";
     public static final java.lang.String _MruRow = "MruRow";
+    public static final java.lang.String _RecordEdit = "RecordEdit";
+    public static final java.lang.String _Photo = "Photo";
+    public static final java.lang.String _BannerPhoto = "BannerPhoto";
+    public static final java.lang.String _ObjectHomeChart = "ObjectHomeChart";
+    public static final java.lang.String _ListViewDefinition = "ListViewDefinition";
+    public static final java.lang.String _Dockable = "Dockable";
+    public static final java.lang.String _Lookup = "Lookup";
+    public static final java.lang.String _Assistant = "Assistant";
     public static final PlatformActionListContext ListView = new PlatformActionListContext(_ListView);
     public static final PlatformActionListContext RelatedList = new PlatformActionListContext(_RelatedList);
     public static final PlatformActionListContext ListViewRecord = new PlatformActionListContext(_ListViewRecord);
@@ -39,6 +47,14 @@ public class PlatformActionListContext implements java.io.Serializable {
     public static final PlatformActionListContext Flexipage = new PlatformActionListContext(_Flexipage);
     public static final PlatformActionListContext MruList = new PlatformActionListContext(_MruList);
     public static final PlatformActionListContext MruRow = new PlatformActionListContext(_MruRow);
+    public static final PlatformActionListContext RecordEdit = new PlatformActionListContext(_RecordEdit);
+    public static final PlatformActionListContext Photo = new PlatformActionListContext(_Photo);
+    public static final PlatformActionListContext BannerPhoto = new PlatformActionListContext(_BannerPhoto);
+    public static final PlatformActionListContext ObjectHomeChart = new PlatformActionListContext(_ObjectHomeChart);
+    public static final PlatformActionListContext ListViewDefinition = new PlatformActionListContext(_ListViewDefinition);
+    public static final PlatformActionListContext Dockable = new PlatformActionListContext(_Dockable);
+    public static final PlatformActionListContext Lookup = new PlatformActionListContext(_Lookup);
+    public static final PlatformActionListContext Assistant = new PlatformActionListContext(_Assistant);
     public java.lang.String getValue() { return _value_;}
     public static PlatformActionListContext fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

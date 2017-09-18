@@ -58,7 +58,11 @@ public class CaseSettings  extends com.sforce.soap._2006._04.metadata.Metadata  
 
     private java.lang.Boolean showFewerCloseActions;
 
+    private java.lang.String systemUserEmail;
+
     private java.lang.Boolean useSystemEmailAddress;
+
+    private java.lang.Boolean useSystemUserAsDefaultCaseUser;
 
     private com.sforce.soap._2006._04.metadata.WebToCaseSettings webToCase;
 
@@ -92,7 +96,9 @@ public class CaseSettings  extends com.sforce.soap._2006._04.metadata.Metadata  
            java.lang.Boolean notifyOwnerOnCaseComment,
            java.lang.Boolean notifyOwnerOnCaseOwnerChange,
            java.lang.Boolean showFewerCloseActions,
+           java.lang.String systemUserEmail,
            java.lang.Boolean useSystemEmailAddress,
+           java.lang.Boolean useSystemUserAsDefaultCaseUser,
            com.sforce.soap._2006._04.metadata.WebToCaseSettings webToCase) {
         super(
             fullName);
@@ -121,7 +127,9 @@ public class CaseSettings  extends com.sforce.soap._2006._04.metadata.Metadata  
         this.notifyOwnerOnCaseComment = notifyOwnerOnCaseComment;
         this.notifyOwnerOnCaseOwnerChange = notifyOwnerOnCaseOwnerChange;
         this.showFewerCloseActions = showFewerCloseActions;
+        this.systemUserEmail = systemUserEmail;
         this.useSystemEmailAddress = useSystemEmailAddress;
+        this.useSystemUserAsDefaultCaseUser = useSystemUserAsDefaultCaseUser;
         this.webToCase = webToCase;
     }
 
@@ -635,6 +643,26 @@ public class CaseSettings  extends com.sforce.soap._2006._04.metadata.Metadata  
 
 
     /**
+     * Gets the systemUserEmail value for this CaseSettings.
+     * 
+     * @return systemUserEmail
+     */
+    public java.lang.String getSystemUserEmail() {
+        return systemUserEmail;
+    }
+
+
+    /**
+     * Sets the systemUserEmail value for this CaseSettings.
+     * 
+     * @param systemUserEmail
+     */
+    public void setSystemUserEmail(java.lang.String systemUserEmail) {
+        this.systemUserEmail = systemUserEmail;
+    }
+
+
+    /**
      * Gets the useSystemEmailAddress value for this CaseSettings.
      * 
      * @return useSystemEmailAddress
@@ -651,6 +679,26 @@ public class CaseSettings  extends com.sforce.soap._2006._04.metadata.Metadata  
      */
     public void setUseSystemEmailAddress(java.lang.Boolean useSystemEmailAddress) {
         this.useSystemEmailAddress = useSystemEmailAddress;
+    }
+
+
+    /**
+     * Gets the useSystemUserAsDefaultCaseUser value for this CaseSettings.
+     * 
+     * @return useSystemUserAsDefaultCaseUser
+     */
+    public java.lang.Boolean getUseSystemUserAsDefaultCaseUser() {
+        return useSystemUserAsDefaultCaseUser;
+    }
+
+
+    /**
+     * Sets the useSystemUserAsDefaultCaseUser value for this CaseSettings.
+     * 
+     * @param useSystemUserAsDefaultCaseUser
+     */
+    public void setUseSystemUserAsDefaultCaseUser(java.lang.Boolean useSystemUserAsDefaultCaseUser) {
+        this.useSystemUserAsDefaultCaseUser = useSystemUserAsDefaultCaseUser;
     }
 
 
@@ -760,9 +808,15 @@ public class CaseSettings  extends com.sforce.soap._2006._04.metadata.Metadata  
             ((this.showFewerCloseActions==null && other.getShowFewerCloseActions()==null) || 
              (this.showFewerCloseActions!=null &&
               this.showFewerCloseActions.equals(other.getShowFewerCloseActions()))) &&
+            ((this.systemUserEmail==null && other.getSystemUserEmail()==null) || 
+             (this.systemUserEmail!=null &&
+              this.systemUserEmail.equals(other.getSystemUserEmail()))) &&
             ((this.useSystemEmailAddress==null && other.getUseSystemEmailAddress()==null) || 
              (this.useSystemEmailAddress!=null &&
               this.useSystemEmailAddress.equals(other.getUseSystemEmailAddress()))) &&
+            ((this.useSystemUserAsDefaultCaseUser==null && other.getUseSystemUserAsDefaultCaseUser()==null) || 
+             (this.useSystemUserAsDefaultCaseUser!=null &&
+              this.useSystemUserAsDefaultCaseUser.equals(other.getUseSystemUserAsDefaultCaseUser()))) &&
             ((this.webToCase==null && other.getWebToCase()==null) || 
              (this.webToCase!=null &&
               this.webToCase.equals(other.getWebToCase())));
@@ -860,8 +914,14 @@ public class CaseSettings  extends com.sforce.soap._2006._04.metadata.Metadata  
         if (getShowFewerCloseActions() != null) {
             _hashCode += getShowFewerCloseActions().hashCode();
         }
+        if (getSystemUserEmail() != null) {
+            _hashCode += getSystemUserEmail().hashCode();
+        }
         if (getUseSystemEmailAddress() != null) {
             _hashCode += getUseSystemEmailAddress().hashCode();
+        }
+        if (getUseSystemUserAsDefaultCaseUser() != null) {
+            _hashCode += getUseSystemUserAsDefaultCaseUser().hashCode();
         }
         if (getWebToCase() != null) {
             _hashCode += getWebToCase().hashCode();
@@ -1053,8 +1113,22 @@ public class CaseSettings  extends com.sforce.soap._2006._04.metadata.Metadata  
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("systemUserEmail");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "systemUserEmail"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("useSystemEmailAddress");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "useSystemEmailAddress"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("useSystemUserAsDefaultCaseUser");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "useSystemUserAsDefaultCaseUser"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);

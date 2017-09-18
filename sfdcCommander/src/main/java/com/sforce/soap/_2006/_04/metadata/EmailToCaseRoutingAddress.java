@@ -24,6 +24,10 @@ public class EmailToCaseRoutingAddress  implements java.io.Serializable {
 
     private java.lang.String emailAddress;
 
+    private java.lang.String emailServicesAddress;
+
+    private java.lang.Boolean isVerified;
+
     private java.lang.String routingName;
 
     private java.lang.Boolean saveEmailHeaders;
@@ -42,6 +46,8 @@ public class EmailToCaseRoutingAddress  implements java.io.Serializable {
            java.lang.String casePriority,
            java.lang.Boolean createTask,
            java.lang.String emailAddress,
+           java.lang.String emailServicesAddress,
+           java.lang.Boolean isVerified,
            java.lang.String routingName,
            java.lang.Boolean saveEmailHeaders,
            java.lang.String taskStatus) {
@@ -53,6 +59,8 @@ public class EmailToCaseRoutingAddress  implements java.io.Serializable {
            this.casePriority = casePriority;
            this.createTask = createTask;
            this.emailAddress = emailAddress;
+           this.emailServicesAddress = emailServicesAddress;
+           this.isVerified = isVerified;
            this.routingName = routingName;
            this.saveEmailHeaders = saveEmailHeaders;
            this.taskStatus = taskStatus;
@@ -220,6 +228,46 @@ public class EmailToCaseRoutingAddress  implements java.io.Serializable {
 
 
     /**
+     * Gets the emailServicesAddress value for this EmailToCaseRoutingAddress.
+     * 
+     * @return emailServicesAddress
+     */
+    public java.lang.String getEmailServicesAddress() {
+        return emailServicesAddress;
+    }
+
+
+    /**
+     * Sets the emailServicesAddress value for this EmailToCaseRoutingAddress.
+     * 
+     * @param emailServicesAddress
+     */
+    public void setEmailServicesAddress(java.lang.String emailServicesAddress) {
+        this.emailServicesAddress = emailServicesAddress;
+    }
+
+
+    /**
+     * Gets the isVerified value for this EmailToCaseRoutingAddress.
+     * 
+     * @return isVerified
+     */
+    public java.lang.Boolean getIsVerified() {
+        return isVerified;
+    }
+
+
+    /**
+     * Sets the isVerified value for this EmailToCaseRoutingAddress.
+     * 
+     * @param isVerified
+     */
+    public void setIsVerified(java.lang.Boolean isVerified) {
+        this.isVerified = isVerified;
+    }
+
+
+    /**
      * Gets the routingName value for this EmailToCaseRoutingAddress.
      * 
      * @return routingName
@@ -314,6 +362,12 @@ public class EmailToCaseRoutingAddress  implements java.io.Serializable {
             ((this.emailAddress==null && other.getEmailAddress()==null) || 
              (this.emailAddress!=null &&
               this.emailAddress.equals(other.getEmailAddress()))) &&
+            ((this.emailServicesAddress==null && other.getEmailServicesAddress()==null) || 
+             (this.emailServicesAddress!=null &&
+              this.emailServicesAddress.equals(other.getEmailServicesAddress()))) &&
+            ((this.isVerified==null && other.getIsVerified()==null) || 
+             (this.isVerified!=null &&
+              this.isVerified.equals(other.getIsVerified()))) &&
             ((this.routingName==null && other.getRoutingName()==null) || 
              (this.routingName!=null &&
               this.routingName.equals(other.getRoutingName()))) &&
@@ -357,6 +411,12 @@ public class EmailToCaseRoutingAddress  implements java.io.Serializable {
         }
         if (getEmailAddress() != null) {
             _hashCode += getEmailAddress().hashCode();
+        }
+        if (getEmailServicesAddress() != null) {
+            _hashCode += getEmailServicesAddress().hashCode();
+        }
+        if (getIsVerified() != null) {
+            _hashCode += getIsVerified().hashCode();
         }
         if (getRoutingName() != null) {
             _hashCode += getRoutingName().hashCode();
@@ -430,6 +490,20 @@ public class EmailToCaseRoutingAddress  implements java.io.Serializable {
         elemField.setFieldName("emailAddress");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "emailAddress"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("emailServicesAddress");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "emailServicesAddress"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("isVerified");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "isVerified"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

@@ -22,11 +22,13 @@ public class PlatformActionType implements java.io.Serializable {
     public static final java.lang.String _CustomButton = "CustomButton";
     public static final java.lang.String _ProductivityAction = "ProductivityAction";
     public static final java.lang.String _ActionLink = "ActionLink";
+    public static final java.lang.String _InvocableAction = "InvocableAction";
     public static final PlatformActionType QuickAction = new PlatformActionType(_QuickAction);
     public static final PlatformActionType StandardButton = new PlatformActionType(_StandardButton);
     public static final PlatformActionType CustomButton = new PlatformActionType(_CustomButton);
     public static final PlatformActionType ProductivityAction = new PlatformActionType(_ProductivityAction);
     public static final PlatformActionType ActionLink = new PlatformActionType(_ActionLink);
+    public static final PlatformActionType InvocableAction = new PlatformActionType(_InvocableAction);
     public java.lang.String getValue() { return _value_;}
     public static PlatformActionType fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

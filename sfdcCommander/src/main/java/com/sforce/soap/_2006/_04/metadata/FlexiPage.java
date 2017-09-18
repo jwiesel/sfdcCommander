@@ -14,13 +14,15 @@ public class FlexiPage  extends com.sforce.soap._2006._04.metadata.Metadata  imp
 
     private java.lang.String masterLabel;
 
-    private java.lang.String pageTemplate;
+    private java.lang.String parentFlexiPage;
 
     private com.sforce.soap._2006._04.metadata.PlatformActionList platformActionlist;
 
     private com.sforce.soap._2006._04.metadata.QuickActionListItem[] quickActionList;
 
     private java.lang.String sobjectType;
+
+    private com.sforce.soap._2006._04.metadata.FlexiPageTemplateInstance template;
 
     private com.sforce.soap._2006._04.metadata.FlexiPageType type;
 
@@ -32,20 +34,22 @@ public class FlexiPage  extends com.sforce.soap._2006._04.metadata.Metadata  imp
            java.lang.String description,
            com.sforce.soap._2006._04.metadata.FlexiPageRegion[] flexiPageRegions,
            java.lang.String masterLabel,
-           java.lang.String pageTemplate,
+           java.lang.String parentFlexiPage,
            com.sforce.soap._2006._04.metadata.PlatformActionList platformActionlist,
            com.sforce.soap._2006._04.metadata.QuickActionListItem[] quickActionList,
            java.lang.String sobjectType,
+           com.sforce.soap._2006._04.metadata.FlexiPageTemplateInstance template,
            com.sforce.soap._2006._04.metadata.FlexiPageType type) {
         super(
             fullName);
         this.description = description;
         this.flexiPageRegions = flexiPageRegions;
         this.masterLabel = masterLabel;
-        this.pageTemplate = pageTemplate;
+        this.parentFlexiPage = parentFlexiPage;
         this.platformActionlist = platformActionlist;
         this.quickActionList = quickActionList;
         this.sobjectType = sobjectType;
+        this.template = template;
         this.type = type;
     }
 
@@ -119,22 +123,22 @@ public class FlexiPage  extends com.sforce.soap._2006._04.metadata.Metadata  imp
 
 
     /**
-     * Gets the pageTemplate value for this FlexiPage.
+     * Gets the parentFlexiPage value for this FlexiPage.
      * 
-     * @return pageTemplate
+     * @return parentFlexiPage
      */
-    public java.lang.String getPageTemplate() {
-        return pageTemplate;
+    public java.lang.String getParentFlexiPage() {
+        return parentFlexiPage;
     }
 
 
     /**
-     * Sets the pageTemplate value for this FlexiPage.
+     * Sets the parentFlexiPage value for this FlexiPage.
      * 
-     * @param pageTemplate
+     * @param parentFlexiPage
      */
-    public void setPageTemplate(java.lang.String pageTemplate) {
-        this.pageTemplate = pageTemplate;
+    public void setParentFlexiPage(java.lang.String parentFlexiPage) {
+        this.parentFlexiPage = parentFlexiPage;
     }
 
 
@@ -199,6 +203,26 @@ public class FlexiPage  extends com.sforce.soap._2006._04.metadata.Metadata  imp
 
 
     /**
+     * Gets the template value for this FlexiPage.
+     * 
+     * @return template
+     */
+    public com.sforce.soap._2006._04.metadata.FlexiPageTemplateInstance getTemplate() {
+        return template;
+    }
+
+
+    /**
+     * Sets the template value for this FlexiPage.
+     * 
+     * @param template
+     */
+    public void setTemplate(com.sforce.soap._2006._04.metadata.FlexiPageTemplateInstance template) {
+        this.template = template;
+    }
+
+
+    /**
      * Gets the type value for this FlexiPage.
      * 
      * @return type
@@ -238,9 +262,9 @@ public class FlexiPage  extends com.sforce.soap._2006._04.metadata.Metadata  imp
             ((this.masterLabel==null && other.getMasterLabel()==null) || 
              (this.masterLabel!=null &&
               this.masterLabel.equals(other.getMasterLabel()))) &&
-            ((this.pageTemplate==null && other.getPageTemplate()==null) || 
-             (this.pageTemplate!=null &&
-              this.pageTemplate.equals(other.getPageTemplate()))) &&
+            ((this.parentFlexiPage==null && other.getParentFlexiPage()==null) || 
+             (this.parentFlexiPage!=null &&
+              this.parentFlexiPage.equals(other.getParentFlexiPage()))) &&
             ((this.platformActionlist==null && other.getPlatformActionlist()==null) || 
              (this.platformActionlist!=null &&
               this.platformActionlist.equals(other.getPlatformActionlist()))) &&
@@ -250,6 +274,9 @@ public class FlexiPage  extends com.sforce.soap._2006._04.metadata.Metadata  imp
             ((this.sobjectType==null && other.getSobjectType()==null) || 
              (this.sobjectType!=null &&
               this.sobjectType.equals(other.getSobjectType()))) &&
+            ((this.template==null && other.getTemplate()==null) || 
+             (this.template!=null &&
+              this.template.equals(other.getTemplate()))) &&
             ((this.type==null && other.getType()==null) || 
              (this.type!=null &&
               this.type.equals(other.getType())));
@@ -281,8 +308,8 @@ public class FlexiPage  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         if (getMasterLabel() != null) {
             _hashCode += getMasterLabel().hashCode();
         }
-        if (getPageTemplate() != null) {
-            _hashCode += getPageTemplate().hashCode();
+        if (getParentFlexiPage() != null) {
+            _hashCode += getParentFlexiPage().hashCode();
         }
         if (getPlatformActionlist() != null) {
             _hashCode += getPlatformActionlist().hashCode();
@@ -300,6 +327,9 @@ public class FlexiPage  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         }
         if (getSobjectType() != null) {
             _hashCode += getSobjectType().hashCode();
+        }
+        if (getTemplate() != null) {
+            _hashCode += getTemplate().hashCode();
         }
         if (getType() != null) {
             _hashCode += getType().hashCode();
@@ -336,9 +366,10 @@ public class FlexiPage  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("pageTemplate");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "pageTemplate"));
+        elemField.setFieldName("parentFlexiPage");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "parentFlexiPage"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
@@ -361,6 +392,12 @@ public class FlexiPage  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "sobjectType"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("template");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "template"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FlexiPageTemplateInstance"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

@@ -12,8 +12,6 @@ public class AccountSettings  extends com.sforce.soap._2006._04.metadata.Metadat
 
     private java.lang.Boolean enableAccountTeams;
 
-    private java.lang.Boolean enableSharedContacts;
-
     private java.lang.Boolean showViewHierarchyLink;
 
     public AccountSettings() {
@@ -23,13 +21,11 @@ public class AccountSettings  extends com.sforce.soap._2006._04.metadata.Metadat
            java.lang.String fullName,
            java.lang.Boolean enableAccountOwnerReport,
            java.lang.Boolean enableAccountTeams,
-           java.lang.Boolean enableSharedContacts,
            java.lang.Boolean showViewHierarchyLink) {
         super(
             fullName);
         this.enableAccountOwnerReport = enableAccountOwnerReport;
         this.enableAccountTeams = enableAccountTeams;
-        this.enableSharedContacts = enableSharedContacts;
         this.showViewHierarchyLink = showViewHierarchyLink;
     }
 
@@ -75,26 +71,6 @@ public class AccountSettings  extends com.sforce.soap._2006._04.metadata.Metadat
 
 
     /**
-     * Gets the enableSharedContacts value for this AccountSettings.
-     * 
-     * @return enableSharedContacts
-     */
-    public java.lang.Boolean getEnableSharedContacts() {
-        return enableSharedContacts;
-    }
-
-
-    /**
-     * Sets the enableSharedContacts value for this AccountSettings.
-     * 
-     * @param enableSharedContacts
-     */
-    public void setEnableSharedContacts(java.lang.Boolean enableSharedContacts) {
-        this.enableSharedContacts = enableSharedContacts;
-    }
-
-
-    /**
      * Gets the showViewHierarchyLink value for this AccountSettings.
      * 
      * @return showViewHierarchyLink
@@ -131,9 +107,6 @@ public class AccountSettings  extends com.sforce.soap._2006._04.metadata.Metadat
             ((this.enableAccountTeams==null && other.getEnableAccountTeams()==null) || 
              (this.enableAccountTeams!=null &&
               this.enableAccountTeams.equals(other.getEnableAccountTeams()))) &&
-            ((this.enableSharedContacts==null && other.getEnableSharedContacts()==null) || 
-             (this.enableSharedContacts!=null &&
-              this.enableSharedContacts.equals(other.getEnableSharedContacts()))) &&
             ((this.showViewHierarchyLink==null && other.getShowViewHierarchyLink()==null) || 
              (this.showViewHierarchyLink!=null &&
               this.showViewHierarchyLink.equals(other.getShowViewHierarchyLink())));
@@ -153,9 +126,6 @@ public class AccountSettings  extends com.sforce.soap._2006._04.metadata.Metadat
         }
         if (getEnableAccountTeams() != null) {
             _hashCode += getEnableAccountTeams().hashCode();
-        }
-        if (getEnableSharedContacts() != null) {
-            _hashCode += getEnableSharedContacts().hashCode();
         }
         if (getShowViewHierarchyLink() != null) {
             _hashCode += getShowViewHierarchyLink().hashCode();
@@ -180,13 +150,6 @@ public class AccountSettings  extends com.sforce.soap._2006._04.metadata.Metadat
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("enableAccountTeams");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableAccountTeams"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("enableSharedContacts");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableSharedContacts"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);

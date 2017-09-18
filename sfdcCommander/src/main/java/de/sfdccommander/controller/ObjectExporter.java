@@ -98,28 +98,34 @@ public class ObjectExporter {
                 Element customObjectElement = doc.getDocumentElement();
 
                 // Add salesforce standard fields
-                DescribeSObjectResult tmpDescribeSObject = binding
-                        .describeSObject(aObject.getName());
-                commander.info("Generating enhanced XML for object: "
-                        + tmpDescribeSObject.getName());
-                for (Field field : tmpDescribeSObject.getFields()) {
-                    if (!field.isCustom()) {
-                        if (!field.getType().toString().equals("picklist")) {
-                            customObjectElement
-                                    .appendChild(getFieldElement(doc, field));
+                DescribeSObjectResult[] tmpDescribeSObjects = binding
+                        .describeSObjects(new String[] { aObject.getName() });
+                for (DescribeSObjectResult tmpDescribeSObject : tmpDescribeSObjects) {
+                    // This block will not be called, when the describeSObjects
+                    // does not return an entry for the selected object
+                    commander.info("Generating enhanced XML for object: "
+                            + tmpDescribeSObject.getName());
+                    for (Field field : tmpDescribeSObject.getFields()) {
+                        if (!field.isCustom()) {
+                            if (!field.getType().toString()
+                                    .equals("picklist")) {
+                                customObjectElement.appendChild(
+                                        getFieldElement(doc, field));
+                            }
                         }
                     }
-                }
-                // update xml-file
-                TransformerFactory transformerFactory = TransformerFactory
-                        .newInstance();
-                Transformer transformer = transformerFactory.newTransformer();
-                transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-                addXmlNamespace(doc.getDocumentElement());
-                DOMSource source = new DOMSource(doc);
+                    // update xml-file
+                    TransformerFactory transformerFactory = TransformerFactory
+                            .newInstance();
+                    Transformer transformer = transformerFactory
+                            .newTransformer();
+                    transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+                    addXmlNamespace(doc.getDocumentElement());
+                    DOMSource source = new DOMSource(doc);
 
-                StreamResult result = new StreamResult(objectFile);
-                transformer.transform(source, result);
+                    StreamResult result = new StreamResult(objectFile);
+                    transformer.transform(source, result);
+                }
 
             } catch (ParserConfigurationException e) {
                 throw new CommanderException(

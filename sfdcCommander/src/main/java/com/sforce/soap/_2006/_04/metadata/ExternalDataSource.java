@@ -8,8 +8,6 @@
 package com.sforce.soap._2006._04.metadata;
 
 public class ExternalDataSource  extends com.sforce.soap._2006._04.metadata.Metadata  implements java.io.Serializable {
-    private java.lang.String apiKey;
-
     private java.lang.String authProvider;
 
     private java.lang.String certificate;
@@ -17,6 +15,8 @@ public class ExternalDataSource  extends com.sforce.soap._2006._04.metadata.Meta
     private java.lang.String customConfiguration;
 
     private java.lang.String endpoint;
+
+    private java.lang.Boolean isWritable;
 
     private java.lang.String label;
 
@@ -45,11 +45,11 @@ public class ExternalDataSource  extends com.sforce.soap._2006._04.metadata.Meta
 
     public ExternalDataSource(
            java.lang.String fullName,
-           java.lang.String apiKey,
            java.lang.String authProvider,
            java.lang.String certificate,
            java.lang.String customConfiguration,
            java.lang.String endpoint,
+           java.lang.Boolean isWritable,
            java.lang.String label,
            java.lang.String oauthRefreshToken,
            java.lang.String oauthScope,
@@ -63,11 +63,11 @@ public class ExternalDataSource  extends com.sforce.soap._2006._04.metadata.Meta
            java.lang.String version) {
         super(
             fullName);
-        this.apiKey = apiKey;
         this.authProvider = authProvider;
         this.certificate = certificate;
         this.customConfiguration = customConfiguration;
         this.endpoint = endpoint;
+        this.isWritable = isWritable;
         this.label = label;
         this.oauthRefreshToken = oauthRefreshToken;
         this.oauthScope = oauthScope;
@@ -79,26 +79,6 @@ public class ExternalDataSource  extends com.sforce.soap._2006._04.metadata.Meta
         this.type = type;
         this.username = username;
         this.version = version;
-    }
-
-
-    /**
-     * Gets the apiKey value for this ExternalDataSource.
-     * 
-     * @return apiKey
-     */
-    public java.lang.String getApiKey() {
-        return apiKey;
-    }
-
-
-    /**
-     * Sets the apiKey value for this ExternalDataSource.
-     * 
-     * @param apiKey
-     */
-    public void setApiKey(java.lang.String apiKey) {
-        this.apiKey = apiKey;
     }
 
 
@@ -179,6 +159,26 @@ public class ExternalDataSource  extends com.sforce.soap._2006._04.metadata.Meta
      */
     public void setEndpoint(java.lang.String endpoint) {
         this.endpoint = endpoint;
+    }
+
+
+    /**
+     * Gets the isWritable value for this ExternalDataSource.
+     * 
+     * @return isWritable
+     */
+    public java.lang.Boolean getIsWritable() {
+        return isWritable;
+    }
+
+
+    /**
+     * Sets the isWritable value for this ExternalDataSource.
+     * 
+     * @param isWritable
+     */
+    public void setIsWritable(java.lang.Boolean isWritable) {
+        this.isWritable = isWritable;
     }
 
 
@@ -413,9 +413,6 @@ public class ExternalDataSource  extends com.sforce.soap._2006._04.metadata.Meta
         __equalsCalc = obj;
         boolean _equals;
         _equals = super.equals(obj) && 
-            ((this.apiKey==null && other.getApiKey()==null) || 
-             (this.apiKey!=null &&
-              this.apiKey.equals(other.getApiKey()))) &&
             ((this.authProvider==null && other.getAuthProvider()==null) || 
              (this.authProvider!=null &&
               this.authProvider.equals(other.getAuthProvider()))) &&
@@ -428,6 +425,9 @@ public class ExternalDataSource  extends com.sforce.soap._2006._04.metadata.Meta
             ((this.endpoint==null && other.getEndpoint()==null) || 
              (this.endpoint!=null &&
               this.endpoint.equals(other.getEndpoint()))) &&
+            ((this.isWritable==null && other.getIsWritable()==null) || 
+             (this.isWritable!=null &&
+              this.isWritable.equals(other.getIsWritable()))) &&
             ((this.label==null && other.getLabel()==null) || 
              (this.label!=null &&
               this.label.equals(other.getLabel()))) &&
@@ -472,9 +472,6 @@ public class ExternalDataSource  extends com.sforce.soap._2006._04.metadata.Meta
         }
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
-        if (getApiKey() != null) {
-            _hashCode += getApiKey().hashCode();
-        }
         if (getAuthProvider() != null) {
             _hashCode += getAuthProvider().hashCode();
         }
@@ -486,6 +483,9 @@ public class ExternalDataSource  extends com.sforce.soap._2006._04.metadata.Meta
         }
         if (getEndpoint() != null) {
             _hashCode += getEndpoint().hashCode();
+        }
+        if (getIsWritable() != null) {
+            _hashCode += getIsWritable().hashCode();
         }
         if (getLabel() != null) {
             _hashCode += getLabel().hashCode();
@@ -531,13 +531,6 @@ public class ExternalDataSource  extends com.sforce.soap._2006._04.metadata.Meta
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ExternalDataSource"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("apiKey");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "apiKey"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("authProvider");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "authProvider"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -562,6 +555,13 @@ public class ExternalDataSource  extends com.sforce.soap._2006._04.metadata.Meta
         elemField.setFieldName("endpoint");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "endpoint"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("isWritable");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "isWritable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

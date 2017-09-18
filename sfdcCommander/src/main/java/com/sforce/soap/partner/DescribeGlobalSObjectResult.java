@@ -22,6 +22,12 @@ public class DescribeGlobalSObjectResult  implements java.io.Serializable {
 
     private boolean feedEnabled;
 
+    private boolean hasSubtypes;
+
+    private boolean idEnabled;
+
+    private boolean isSubtype;
+
     private java.lang.String keyPrefix;
 
     private java.lang.String label;
@@ -31,6 +37,8 @@ public class DescribeGlobalSObjectResult  implements java.io.Serializable {
     private boolean layoutable;
 
     private boolean mergeable;
+
+    private boolean mruEnabled;
 
     private java.lang.String name;
 
@@ -59,11 +67,15 @@ public class DescribeGlobalSObjectResult  implements java.io.Serializable {
            boolean deletable,
            boolean deprecatedAndHidden,
            boolean feedEnabled,
+           boolean hasSubtypes,
+           boolean idEnabled,
+           boolean isSubtype,
            java.lang.String keyPrefix,
            java.lang.String label,
            java.lang.String labelPlural,
            boolean layoutable,
            boolean mergeable,
+           boolean mruEnabled,
            java.lang.String name,
            boolean queryable,
            boolean replicateable,
@@ -79,11 +91,15 @@ public class DescribeGlobalSObjectResult  implements java.io.Serializable {
            this.deletable = deletable;
            this.deprecatedAndHidden = deprecatedAndHidden;
            this.feedEnabled = feedEnabled;
+           this.hasSubtypes = hasSubtypes;
+           this.idEnabled = idEnabled;
+           this.isSubtype = isSubtype;
            this.keyPrefix = keyPrefix;
            this.label = label;
            this.labelPlural = labelPlural;
            this.layoutable = layoutable;
            this.mergeable = mergeable;
+           this.mruEnabled = mruEnabled;
            this.name = name;
            this.queryable = queryable;
            this.replicateable = replicateable;
@@ -236,6 +252,66 @@ public class DescribeGlobalSObjectResult  implements java.io.Serializable {
 
 
     /**
+     * Gets the hasSubtypes value for this DescribeGlobalSObjectResult.
+     * 
+     * @return hasSubtypes
+     */
+    public boolean isHasSubtypes() {
+        return hasSubtypes;
+    }
+
+
+    /**
+     * Sets the hasSubtypes value for this DescribeGlobalSObjectResult.
+     * 
+     * @param hasSubtypes
+     */
+    public void setHasSubtypes(boolean hasSubtypes) {
+        this.hasSubtypes = hasSubtypes;
+    }
+
+
+    /**
+     * Gets the idEnabled value for this DescribeGlobalSObjectResult.
+     * 
+     * @return idEnabled
+     */
+    public boolean isIdEnabled() {
+        return idEnabled;
+    }
+
+
+    /**
+     * Sets the idEnabled value for this DescribeGlobalSObjectResult.
+     * 
+     * @param idEnabled
+     */
+    public void setIdEnabled(boolean idEnabled) {
+        this.idEnabled = idEnabled;
+    }
+
+
+    /**
+     * Gets the isSubtype value for this DescribeGlobalSObjectResult.
+     * 
+     * @return isSubtype
+     */
+    public boolean isIsSubtype() {
+        return isSubtype;
+    }
+
+
+    /**
+     * Sets the isSubtype value for this DescribeGlobalSObjectResult.
+     * 
+     * @param isSubtype
+     */
+    public void setIsSubtype(boolean isSubtype) {
+        this.isSubtype = isSubtype;
+    }
+
+
+    /**
      * Gets the keyPrefix value for this DescribeGlobalSObjectResult.
      * 
      * @return keyPrefix
@@ -332,6 +408,26 @@ public class DescribeGlobalSObjectResult  implements java.io.Serializable {
      */
     public void setMergeable(boolean mergeable) {
         this.mergeable = mergeable;
+    }
+
+
+    /**
+     * Gets the mruEnabled value for this DescribeGlobalSObjectResult.
+     * 
+     * @return mruEnabled
+     */
+    public boolean isMruEnabled() {
+        return mruEnabled;
+    }
+
+
+    /**
+     * Sets the mruEnabled value for this DescribeGlobalSObjectResult.
+     * 
+     * @param mruEnabled
+     */
+    public void setMruEnabled(boolean mruEnabled) {
+        this.mruEnabled = mruEnabled;
     }
 
 
@@ -513,6 +609,9 @@ public class DescribeGlobalSObjectResult  implements java.io.Serializable {
             this.deletable == other.isDeletable() &&
             this.deprecatedAndHidden == other.isDeprecatedAndHidden() &&
             this.feedEnabled == other.isFeedEnabled() &&
+            this.hasSubtypes == other.isHasSubtypes() &&
+            this.idEnabled == other.isIdEnabled() &&
+            this.isSubtype == other.isIsSubtype() &&
             ((this.keyPrefix==null && other.getKeyPrefix()==null) || 
              (this.keyPrefix!=null &&
               this.keyPrefix.equals(other.getKeyPrefix()))) &&
@@ -524,6 +623,7 @@ public class DescribeGlobalSObjectResult  implements java.io.Serializable {
               this.labelPlural.equals(other.getLabelPlural()))) &&
             this.layoutable == other.isLayoutable() &&
             this.mergeable == other.isMergeable() &&
+            this.mruEnabled == other.isMruEnabled() &&
             ((this.name==null && other.getName()==null) || 
              (this.name!=null &&
               this.name.equals(other.getName()))) &&
@@ -552,6 +652,9 @@ public class DescribeGlobalSObjectResult  implements java.io.Serializable {
         _hashCode += (isDeletable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += (isDeprecatedAndHidden() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += (isFeedEnabled() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isHasSubtypes() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isIdEnabled() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isIsSubtype() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getKeyPrefix() != null) {
             _hashCode += getKeyPrefix().hashCode();
         }
@@ -563,6 +666,7 @@ public class DescribeGlobalSObjectResult  implements java.io.Serializable {
         }
         _hashCode += (isLayoutable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += (isMergeable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isMruEnabled() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getName() != null) {
             _hashCode += getName().hashCode();
         }
@@ -626,6 +730,24 @@ public class DescribeGlobalSObjectResult  implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("hasSubtypes");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "hasSubtypes"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("idEnabled");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "idEnabled"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("isSubtype");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "isSubtype"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keyPrefix");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "keyPrefix"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -652,6 +774,12 @@ public class DescribeGlobalSObjectResult  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("mergeable");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "mergeable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("mruEnabled");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "mruEnabled"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

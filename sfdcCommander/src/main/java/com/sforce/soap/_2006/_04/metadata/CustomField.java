@@ -30,11 +30,15 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
 
     private java.lang.Boolean externalId;
 
+    private com.sforce.soap._2006._04.metadata.FieldManageability fieldManageability;
+
     private java.lang.String formula;
 
     private com.sforce.soap._2006._04.metadata.TreatBlanksAs formulaTreatBlanksAs;
 
     private java.lang.String inlineHelpText;
+
+    private java.lang.Boolean isConvertLeadDisabled;
 
     private java.lang.Boolean isFilteringDisabled;
 
@@ -52,7 +56,7 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
 
     private com.sforce.soap._2006._04.metadata.EncryptedFieldMaskType maskType;
 
-    private com.sforce.soap._2006._04.metadata.Picklist picklist;
+    private java.lang.String metadataRelationshipControllingField;
 
     private java.lang.Boolean populateExistingRows;
 
@@ -98,6 +102,8 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
 
     private java.lang.Boolean unique;
 
+    private com.sforce.soap._2006._04.metadata.ValueSet valueSet;
+
     private java.lang.Integer visibleLines;
 
     private java.lang.Boolean writeRequiresMasterRead;
@@ -118,9 +124,11 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
            java.lang.Boolean escapeMarkup,
            java.lang.String externalDeveloperName,
            java.lang.Boolean externalId,
+           com.sforce.soap._2006._04.metadata.FieldManageability fieldManageability,
            java.lang.String formula,
            com.sforce.soap._2006._04.metadata.TreatBlanksAs formulaTreatBlanksAs,
            java.lang.String inlineHelpText,
+           java.lang.Boolean isConvertLeadDisabled,
            java.lang.Boolean isFilteringDisabled,
            java.lang.Boolean isNameField,
            java.lang.Boolean isSortingDisabled,
@@ -129,7 +137,7 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
            com.sforce.soap._2006._04.metadata.LookupFilter lookupFilter,
            com.sforce.soap._2006._04.metadata.EncryptedFieldMaskChar maskChar,
            com.sforce.soap._2006._04.metadata.EncryptedFieldMaskType maskType,
-           com.sforce.soap._2006._04.metadata.Picklist picklist,
+           java.lang.String metadataRelationshipControllingField,
            java.lang.Boolean populateExistingRows,
            java.lang.Integer precision,
            java.lang.String referenceTargetField,
@@ -152,6 +160,7 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
            java.lang.Boolean trackTrending,
            com.sforce.soap._2006._04.metadata.FieldType type,
            java.lang.Boolean unique,
+           com.sforce.soap._2006._04.metadata.ValueSet valueSet,
            java.lang.Integer visibleLines,
            java.lang.Boolean writeRequiresMasterRead) {
         super(
@@ -167,9 +176,11 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
         this.escapeMarkup = escapeMarkup;
         this.externalDeveloperName = externalDeveloperName;
         this.externalId = externalId;
+        this.fieldManageability = fieldManageability;
         this.formula = formula;
         this.formulaTreatBlanksAs = formulaTreatBlanksAs;
         this.inlineHelpText = inlineHelpText;
+        this.isConvertLeadDisabled = isConvertLeadDisabled;
         this.isFilteringDisabled = isFilteringDisabled;
         this.isNameField = isNameField;
         this.isSortingDisabled = isSortingDisabled;
@@ -178,7 +189,7 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
         this.lookupFilter = lookupFilter;
         this.maskChar = maskChar;
         this.maskType = maskType;
-        this.picklist = picklist;
+        this.metadataRelationshipControllingField = metadataRelationshipControllingField;
         this.populateExistingRows = populateExistingRows;
         this.precision = precision;
         this.referenceTargetField = referenceTargetField;
@@ -201,6 +212,7 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
         this.trackTrending = trackTrending;
         this.type = type;
         this.unique = unique;
+        this.valueSet = valueSet;
         this.visibleLines = visibleLines;
         this.writeRequiresMasterRead = writeRequiresMasterRead;
     }
@@ -427,6 +439,26 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
 
 
     /**
+     * Gets the fieldManageability value for this CustomField.
+     * 
+     * @return fieldManageability
+     */
+    public com.sforce.soap._2006._04.metadata.FieldManageability getFieldManageability() {
+        return fieldManageability;
+    }
+
+
+    /**
+     * Sets the fieldManageability value for this CustomField.
+     * 
+     * @param fieldManageability
+     */
+    public void setFieldManageability(com.sforce.soap._2006._04.metadata.FieldManageability fieldManageability) {
+        this.fieldManageability = fieldManageability;
+    }
+
+
+    /**
      * Gets the formula value for this CustomField.
      * 
      * @return formula
@@ -483,6 +515,26 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
      */
     public void setInlineHelpText(java.lang.String inlineHelpText) {
         this.inlineHelpText = inlineHelpText;
+    }
+
+
+    /**
+     * Gets the isConvertLeadDisabled value for this CustomField.
+     * 
+     * @return isConvertLeadDisabled
+     */
+    public java.lang.Boolean getIsConvertLeadDisabled() {
+        return isConvertLeadDisabled;
+    }
+
+
+    /**
+     * Sets the isConvertLeadDisabled value for this CustomField.
+     * 
+     * @param isConvertLeadDisabled
+     */
+    public void setIsConvertLeadDisabled(java.lang.Boolean isConvertLeadDisabled) {
+        this.isConvertLeadDisabled = isConvertLeadDisabled;
     }
 
 
@@ -647,22 +699,22 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
 
 
     /**
-     * Gets the picklist value for this CustomField.
+     * Gets the metadataRelationshipControllingField value for this CustomField.
      * 
-     * @return picklist
+     * @return metadataRelationshipControllingField
      */
-    public com.sforce.soap._2006._04.metadata.Picklist getPicklist() {
-        return picklist;
+    public java.lang.String getMetadataRelationshipControllingField() {
+        return metadataRelationshipControllingField;
     }
 
 
     /**
-     * Sets the picklist value for this CustomField.
+     * Sets the metadataRelationshipControllingField value for this CustomField.
      * 
-     * @param picklist
+     * @param metadataRelationshipControllingField
      */
-    public void setPicklist(com.sforce.soap._2006._04.metadata.Picklist picklist) {
-        this.picklist = picklist;
+    public void setMetadataRelationshipControllingField(java.lang.String metadataRelationshipControllingField) {
+        this.metadataRelationshipControllingField = metadataRelationshipControllingField;
     }
 
 
@@ -1115,6 +1167,26 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
 
 
     /**
+     * Gets the valueSet value for this CustomField.
+     * 
+     * @return valueSet
+     */
+    public com.sforce.soap._2006._04.metadata.ValueSet getValueSet() {
+        return valueSet;
+    }
+
+
+    /**
+     * Sets the valueSet value for this CustomField.
+     * 
+     * @param valueSet
+     */
+    public void setValueSet(com.sforce.soap._2006._04.metadata.ValueSet valueSet) {
+        this.valueSet = valueSet;
+    }
+
+
+    /**
      * Gets the visibleLines value for this CustomField.
      * 
      * @return visibleLines
@@ -1198,6 +1270,9 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
             ((this.externalId==null && other.getExternalId()==null) || 
              (this.externalId!=null &&
               this.externalId.equals(other.getExternalId()))) &&
+            ((this.fieldManageability==null && other.getFieldManageability()==null) || 
+             (this.fieldManageability!=null &&
+              this.fieldManageability.equals(other.getFieldManageability()))) &&
             ((this.formula==null && other.getFormula()==null) || 
              (this.formula!=null &&
               this.formula.equals(other.getFormula()))) &&
@@ -1207,6 +1282,9 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
             ((this.inlineHelpText==null && other.getInlineHelpText()==null) || 
              (this.inlineHelpText!=null &&
               this.inlineHelpText.equals(other.getInlineHelpText()))) &&
+            ((this.isConvertLeadDisabled==null && other.getIsConvertLeadDisabled()==null) || 
+             (this.isConvertLeadDisabled!=null &&
+              this.isConvertLeadDisabled.equals(other.getIsConvertLeadDisabled()))) &&
             ((this.isFilteringDisabled==null && other.getIsFilteringDisabled()==null) || 
              (this.isFilteringDisabled!=null &&
               this.isFilteringDisabled.equals(other.getIsFilteringDisabled()))) &&
@@ -1231,9 +1309,9 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
             ((this.maskType==null && other.getMaskType()==null) || 
              (this.maskType!=null &&
               this.maskType.equals(other.getMaskType()))) &&
-            ((this.picklist==null && other.getPicklist()==null) || 
-             (this.picklist!=null &&
-              this.picklist.equals(other.getPicklist()))) &&
+            ((this.metadataRelationshipControllingField==null && other.getMetadataRelationshipControllingField()==null) || 
+             (this.metadataRelationshipControllingField!=null &&
+              this.metadataRelationshipControllingField.equals(other.getMetadataRelationshipControllingField()))) &&
             ((this.populateExistingRows==null && other.getPopulateExistingRows()==null) || 
              (this.populateExistingRows!=null &&
               this.populateExistingRows.equals(other.getPopulateExistingRows()))) &&
@@ -1300,6 +1378,9 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
             ((this.unique==null && other.getUnique()==null) || 
              (this.unique!=null &&
               this.unique.equals(other.getUnique()))) &&
+            ((this.valueSet==null && other.getValueSet()==null) || 
+             (this.valueSet!=null &&
+              this.valueSet.equals(other.getValueSet()))) &&
             ((this.visibleLines==null && other.getVisibleLines()==null) || 
              (this.visibleLines!=null &&
               this.visibleLines.equals(other.getVisibleLines()))) &&
@@ -1350,6 +1431,9 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
         if (getExternalId() != null) {
             _hashCode += getExternalId().hashCode();
         }
+        if (getFieldManageability() != null) {
+            _hashCode += getFieldManageability().hashCode();
+        }
         if (getFormula() != null) {
             _hashCode += getFormula().hashCode();
         }
@@ -1358,6 +1442,9 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
         }
         if (getInlineHelpText() != null) {
             _hashCode += getInlineHelpText().hashCode();
+        }
+        if (getIsConvertLeadDisabled() != null) {
+            _hashCode += getIsConvertLeadDisabled().hashCode();
         }
         if (getIsFilteringDisabled() != null) {
             _hashCode += getIsFilteringDisabled().hashCode();
@@ -1383,8 +1470,8 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
         if (getMaskType() != null) {
             _hashCode += getMaskType().hashCode();
         }
-        if (getPicklist() != null) {
-            _hashCode += getPicklist().hashCode();
+        if (getMetadataRelationshipControllingField() != null) {
+            _hashCode += getMetadataRelationshipControllingField().hashCode();
         }
         if (getPopulateExistingRows() != null) {
             _hashCode += getPopulateExistingRows().hashCode();
@@ -1459,6 +1546,9 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
         }
         if (getUnique() != null) {
             _hashCode += getUnique().hashCode();
+        }
+        if (getValueSet() != null) {
+            _hashCode += getValueSet().hashCode();
         }
         if (getVisibleLines() != null) {
             _hashCode += getVisibleLines().hashCode();
@@ -1554,6 +1644,13 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("fieldManageability");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "fieldManageability"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FieldManageability"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("formula");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "formula"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -1571,6 +1668,13 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
         elemField.setFieldName("inlineHelpText");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "inlineHelpText"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("isConvertLeadDisabled");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "isConvertLeadDisabled"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
@@ -1631,9 +1735,9 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("picklist");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "picklist"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Picklist"));
+        elemField.setFieldName("metadataRelationshipControllingField");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "metadataRelationshipControllingField"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
@@ -1789,6 +1893,13 @@ public class CustomField  extends com.sforce.soap._2006._04.metadata.Metadata  i
         elemField.setFieldName("unique");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "unique"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("valueSet");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "valueSet"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ValueSet"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

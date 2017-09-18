@@ -8,6 +8,8 @@
 package com.sforce.soap._2006._04.metadata;
 
 public class EntitlementProcess  extends com.sforce.soap._2006._04.metadata.Metadata  implements java.io.Serializable {
+    private java.lang.String SObjectType;
+
     private java.lang.Boolean active;
 
     private java.lang.String businessHours;
@@ -39,6 +41,7 @@ public class EntitlementProcess  extends com.sforce.soap._2006._04.metadata.Meta
 
     public EntitlementProcess(
            java.lang.String fullName,
+           java.lang.String SObjectType,
            java.lang.Boolean active,
            java.lang.String businessHours,
            java.lang.String description,
@@ -54,6 +57,7 @@ public class EntitlementProcess  extends com.sforce.soap._2006._04.metadata.Meta
            java.lang.Integer versionNumber) {
         super(
             fullName);
+        this.SObjectType = SObjectType;
         this.active = active;
         this.businessHours = businessHours;
         this.description = description;
@@ -67,6 +71,26 @@ public class EntitlementProcess  extends com.sforce.soap._2006._04.metadata.Meta
         this.versionMaster = versionMaster;
         this.versionNotes = versionNotes;
         this.versionNumber = versionNumber;
+    }
+
+
+    /**
+     * Gets the SObjectType value for this EntitlementProcess.
+     * 
+     * @return SObjectType
+     */
+    public java.lang.String getSObjectType() {
+        return SObjectType;
+    }
+
+
+    /**
+     * Sets the SObjectType value for this EntitlementProcess.
+     * 
+     * @param SObjectType
+     */
+    public void setSObjectType(java.lang.String SObjectType) {
+        this.SObjectType = SObjectType;
     }
 
 
@@ -357,6 +381,9 @@ public class EntitlementProcess  extends com.sforce.soap._2006._04.metadata.Meta
         __equalsCalc = obj;
         boolean _equals;
         _equals = super.equals(obj) && 
+            ((this.SObjectType==null && other.getSObjectType()==null) || 
+             (this.SObjectType!=null &&
+              this.SObjectType.equals(other.getSObjectType()))) &&
             ((this.active==null && other.getActive()==null) || 
              (this.active!=null &&
               this.active.equals(other.getActive()))) &&
@@ -407,6 +434,9 @@ public class EntitlementProcess  extends com.sforce.soap._2006._04.metadata.Meta
         }
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
+        if (getSObjectType() != null) {
+            _hashCode += getSObjectType().hashCode();
+        }
         if (getActive() != null) {
             _hashCode += getActive().hashCode();
         }
@@ -473,6 +503,13 @@ public class EntitlementProcess  extends com.sforce.soap._2006._04.metadata.Meta
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EntitlementProcess"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("SObjectType");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "SObjectType"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("active");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "active"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));

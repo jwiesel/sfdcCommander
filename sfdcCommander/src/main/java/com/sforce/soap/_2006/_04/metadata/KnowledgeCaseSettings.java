@@ -10,6 +10,8 @@ package com.sforce.soap._2006._04.metadata;
 public class KnowledgeCaseSettings  implements java.io.Serializable {
     private java.lang.String articlePDFCreationProfile;
 
+    private java.lang.String[] articlePublicSharingCommunities;
+
     private java.lang.String[] articlePublicSharingSites;
 
     private java.lang.String[] articlePublicSharingSitesChatterAnswers;
@@ -33,6 +35,7 @@ public class KnowledgeCaseSettings  implements java.io.Serializable {
 
     public KnowledgeCaseSettings(
            java.lang.String articlePDFCreationProfile,
+           java.lang.String[] articlePublicSharingCommunities,
            java.lang.String[] articlePublicSharingSites,
            java.lang.String[] articlePublicSharingSitesChatterAnswers,
            java.lang.String assignTo,
@@ -43,6 +46,7 @@ public class KnowledgeCaseSettings  implements java.io.Serializable {
            java.lang.Boolean enableArticlePublicSharingSites,
            java.lang.Boolean useProfileForPDFCreation) {
            this.articlePDFCreationProfile = articlePDFCreationProfile;
+           this.articlePublicSharingCommunities = articlePublicSharingCommunities;
            this.articlePublicSharingSites = articlePublicSharingSites;
            this.articlePublicSharingSitesChatterAnswers = articlePublicSharingSitesChatterAnswers;
            this.assignTo = assignTo;
@@ -72,6 +76,26 @@ public class KnowledgeCaseSettings  implements java.io.Serializable {
      */
     public void setArticlePDFCreationProfile(java.lang.String articlePDFCreationProfile) {
         this.articlePDFCreationProfile = articlePDFCreationProfile;
+    }
+
+
+    /**
+     * Gets the articlePublicSharingCommunities value for this KnowledgeCaseSettings.
+     * 
+     * @return articlePublicSharingCommunities
+     */
+    public java.lang.String[] getArticlePublicSharingCommunities() {
+        return articlePublicSharingCommunities;
+    }
+
+
+    /**
+     * Sets the articlePublicSharingCommunities value for this KnowledgeCaseSettings.
+     * 
+     * @param articlePublicSharingCommunities
+     */
+    public void setArticlePublicSharingCommunities(java.lang.String[] articlePublicSharingCommunities) {
+        this.articlePublicSharingCommunities = articlePublicSharingCommunities;
     }
 
 
@@ -269,6 +293,9 @@ public class KnowledgeCaseSettings  implements java.io.Serializable {
             ((this.articlePDFCreationProfile==null && other.getArticlePDFCreationProfile()==null) || 
              (this.articlePDFCreationProfile!=null &&
               this.articlePDFCreationProfile.equals(other.getArticlePDFCreationProfile()))) &&
+            ((this.articlePublicSharingCommunities==null && other.getArticlePublicSharingCommunities()==null) || 
+             (this.articlePublicSharingCommunities!=null &&
+              java.util.Arrays.equals(this.articlePublicSharingCommunities, other.getArticlePublicSharingCommunities()))) &&
             ((this.articlePublicSharingSites==null && other.getArticlePublicSharingSites()==null) || 
              (this.articlePublicSharingSites!=null &&
               java.util.Arrays.equals(this.articlePublicSharingSites, other.getArticlePublicSharingSites()))) &&
@@ -309,6 +336,17 @@ public class KnowledgeCaseSettings  implements java.io.Serializable {
         int _hashCode = 1;
         if (getArticlePDFCreationProfile() != null) {
             _hashCode += getArticlePDFCreationProfile().hashCode();
+        }
+        if (getArticlePublicSharingCommunities() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getArticlePublicSharingCommunities());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getArticlePublicSharingCommunities(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getArticlePublicSharingSites() != null) {
             for (int i=0;
@@ -369,6 +407,14 @@ public class KnowledgeCaseSettings  implements java.io.Serializable {
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("articlePublicSharingCommunities");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "articlePublicSharingCommunities"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "community"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("articlePublicSharingSites");

@@ -16,6 +16,8 @@ public class AnalyticsCloudComponent  extends com.sforce.soap.partner.DescribeLa
 
     private boolean hideOnError;
 
+    private boolean showSharing;
+
     private boolean showTitle;
 
     private java.lang.String width;
@@ -32,6 +34,7 @@ public class AnalyticsCloudComponent  extends com.sforce.soap.partner.DescribeLa
            java.lang.String filter,
            java.lang.String height,
            boolean hideOnError,
+           boolean showSharing,
            boolean showTitle,
            java.lang.String width) {
         super(
@@ -43,6 +46,7 @@ public class AnalyticsCloudComponent  extends com.sforce.soap.partner.DescribeLa
         this.filter = filter;
         this.height = height;
         this.hideOnError = hideOnError;
+        this.showSharing = showSharing;
         this.showTitle = showTitle;
         this.width = width;
     }
@@ -129,6 +133,26 @@ public class AnalyticsCloudComponent  extends com.sforce.soap.partner.DescribeLa
 
 
     /**
+     * Gets the showSharing value for this AnalyticsCloudComponent.
+     * 
+     * @return showSharing
+     */
+    public boolean isShowSharing() {
+        return showSharing;
+    }
+
+
+    /**
+     * Sets the showSharing value for this AnalyticsCloudComponent.
+     * 
+     * @param showSharing
+     */
+    public void setShowSharing(boolean showSharing) {
+        this.showSharing = showSharing;
+    }
+
+
+    /**
      * Gets the showTitle value for this AnalyticsCloudComponent.
      * 
      * @return showTitle
@@ -189,6 +213,7 @@ public class AnalyticsCloudComponent  extends com.sforce.soap.partner.DescribeLa
              (this.height!=null &&
               this.height.equals(other.getHeight()))) &&
             this.hideOnError == other.isHideOnError() &&
+            this.showSharing == other.isShowSharing() &&
             this.showTitle == other.isShowTitle() &&
             ((this.width==null && other.getWidth()==null) || 
              (this.width!=null &&
@@ -214,6 +239,7 @@ public class AnalyticsCloudComponent  extends com.sforce.soap.partner.DescribeLa
             _hashCode += getHeight().hashCode();
         }
         _hashCode += (isHideOnError() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isShowSharing() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += (isShowTitle() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getWidth() != null) {
             _hashCode += getWidth().hashCode();
@@ -249,6 +275,12 @@ public class AnalyticsCloudComponent  extends com.sforce.soap.partner.DescribeLa
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("hideOnError");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "hideOnError"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("showSharing");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "showSharing"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

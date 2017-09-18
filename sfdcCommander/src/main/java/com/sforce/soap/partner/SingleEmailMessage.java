@@ -16,11 +16,15 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
 
     private java.lang.String[] documentAttachments;
 
+    private java.lang.String[] entityAttachments;
+
+    private com.sforce.soap.partner.EmailFileAttachment[] fileAttachments;
+
     private java.lang.String htmlBody;
 
     private java.lang.String inReplyTo;
 
-    private com.sforce.soap.partner.EmailFileAttachment[] fileAttachments;
+    private com.sforce.soap.partner.SendEmailOptOutPolicy optOutPolicy;
 
     private java.lang.String orgWideEmailAddressId;
 
@@ -33,6 +37,10 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
     private java.lang.String templateId;
 
     private java.lang.String[] toAddresses;
+
+    private java.lang.Boolean treatBodiesAsTemplate;
+
+    private java.lang.Boolean treatTargetObjectAsRecipient;
 
     private java.lang.String whatId;
 
@@ -51,15 +59,19 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
            java.lang.String[] ccAddresses,
            java.lang.String charset,
            java.lang.String[] documentAttachments,
+           java.lang.String[] entityAttachments,
+           com.sforce.soap.partner.EmailFileAttachment[] fileAttachments,
            java.lang.String htmlBody,
            java.lang.String inReplyTo,
-           com.sforce.soap.partner.EmailFileAttachment[] fileAttachments,
+           com.sforce.soap.partner.SendEmailOptOutPolicy optOutPolicy,
            java.lang.String orgWideEmailAddressId,
            java.lang.String plainTextBody,
            java.lang.String references,
            java.lang.String targetObjectId,
            java.lang.String templateId,
            java.lang.String[] toAddresses,
+           java.lang.Boolean treatBodiesAsTemplate,
+           java.lang.Boolean treatTargetObjectAsRecipient,
            java.lang.String whatId) {
         super(
             bccSender,
@@ -73,15 +85,19 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
         this.ccAddresses = ccAddresses;
         this.charset = charset;
         this.documentAttachments = documentAttachments;
+        this.entityAttachments = entityAttachments;
+        this.fileAttachments = fileAttachments;
         this.htmlBody = htmlBody;
         this.inReplyTo = inReplyTo;
-        this.fileAttachments = fileAttachments;
+        this.optOutPolicy = optOutPolicy;
         this.orgWideEmailAddressId = orgWideEmailAddressId;
         this.plainTextBody = plainTextBody;
         this.references = references;
         this.targetObjectId = targetObjectId;
         this.templateId = templateId;
         this.toAddresses = toAddresses;
+        this.treatBodiesAsTemplate = treatBodiesAsTemplate;
+        this.treatTargetObjectAsRecipient = treatTargetObjectAsRecipient;
         this.whatId = whatId;
     }
 
@@ -191,6 +207,62 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
 
 
     /**
+     * Gets the entityAttachments value for this SingleEmailMessage.
+     * 
+     * @return entityAttachments
+     */
+    public java.lang.String[] getEntityAttachments() {
+        return entityAttachments;
+    }
+
+
+    /**
+     * Sets the entityAttachments value for this SingleEmailMessage.
+     * 
+     * @param entityAttachments
+     */
+    public void setEntityAttachments(java.lang.String[] entityAttachments) {
+        this.entityAttachments = entityAttachments;
+    }
+
+    public java.lang.String getEntityAttachments(int i) {
+        return this.entityAttachments[i];
+    }
+
+    public void setEntityAttachments(int i, java.lang.String _value) {
+        this.entityAttachments[i] = _value;
+    }
+
+
+    /**
+     * Gets the fileAttachments value for this SingleEmailMessage.
+     * 
+     * @return fileAttachments
+     */
+    public com.sforce.soap.partner.EmailFileAttachment[] getFileAttachments() {
+        return fileAttachments;
+    }
+
+
+    /**
+     * Sets the fileAttachments value for this SingleEmailMessage.
+     * 
+     * @param fileAttachments
+     */
+    public void setFileAttachments(com.sforce.soap.partner.EmailFileAttachment[] fileAttachments) {
+        this.fileAttachments = fileAttachments;
+    }
+
+    public com.sforce.soap.partner.EmailFileAttachment getFileAttachments(int i) {
+        return this.fileAttachments[i];
+    }
+
+    public void setFileAttachments(int i, com.sforce.soap.partner.EmailFileAttachment _value) {
+        this.fileAttachments[i] = _value;
+    }
+
+
+    /**
      * Gets the htmlBody value for this SingleEmailMessage.
      * 
      * @return htmlBody
@@ -231,30 +303,22 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
 
 
     /**
-     * Gets the fileAttachments value for this SingleEmailMessage.
+     * Gets the optOutPolicy value for this SingleEmailMessage.
      * 
-     * @return fileAttachments
+     * @return optOutPolicy
      */
-    public com.sforce.soap.partner.EmailFileAttachment[] getFileAttachments() {
-        return fileAttachments;
+    public com.sforce.soap.partner.SendEmailOptOutPolicy getOptOutPolicy() {
+        return optOutPolicy;
     }
 
 
     /**
-     * Sets the fileAttachments value for this SingleEmailMessage.
+     * Sets the optOutPolicy value for this SingleEmailMessage.
      * 
-     * @param fileAttachments
+     * @param optOutPolicy
      */
-    public void setFileAttachments(com.sforce.soap.partner.EmailFileAttachment[] fileAttachments) {
-        this.fileAttachments = fileAttachments;
-    }
-
-    public com.sforce.soap.partner.EmailFileAttachment getFileAttachments(int i) {
-        return this.fileAttachments[i];
-    }
-
-    public void setFileAttachments(int i, com.sforce.soap.partner.EmailFileAttachment _value) {
-        this.fileAttachments[i] = _value;
+    public void setOptOutPolicy(com.sforce.soap.partner.SendEmailOptOutPolicy optOutPolicy) {
+        this.optOutPolicy = optOutPolicy;
     }
 
 
@@ -387,6 +451,46 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
 
 
     /**
+     * Gets the treatBodiesAsTemplate value for this SingleEmailMessage.
+     * 
+     * @return treatBodiesAsTemplate
+     */
+    public java.lang.Boolean getTreatBodiesAsTemplate() {
+        return treatBodiesAsTemplate;
+    }
+
+
+    /**
+     * Sets the treatBodiesAsTemplate value for this SingleEmailMessage.
+     * 
+     * @param treatBodiesAsTemplate
+     */
+    public void setTreatBodiesAsTemplate(java.lang.Boolean treatBodiesAsTemplate) {
+        this.treatBodiesAsTemplate = treatBodiesAsTemplate;
+    }
+
+
+    /**
+     * Gets the treatTargetObjectAsRecipient value for this SingleEmailMessage.
+     * 
+     * @return treatTargetObjectAsRecipient
+     */
+    public java.lang.Boolean getTreatTargetObjectAsRecipient() {
+        return treatTargetObjectAsRecipient;
+    }
+
+
+    /**
+     * Sets the treatTargetObjectAsRecipient value for this SingleEmailMessage.
+     * 
+     * @param treatTargetObjectAsRecipient
+     */
+    public void setTreatTargetObjectAsRecipient(java.lang.Boolean treatTargetObjectAsRecipient) {
+        this.treatTargetObjectAsRecipient = treatTargetObjectAsRecipient;
+    }
+
+
+    /**
      * Gets the whatId value for this SingleEmailMessage.
      * 
      * @return whatId
@@ -429,15 +533,21 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
             ((this.documentAttachments==null && other.getDocumentAttachments()==null) || 
              (this.documentAttachments!=null &&
               java.util.Arrays.equals(this.documentAttachments, other.getDocumentAttachments()))) &&
+            ((this.entityAttachments==null && other.getEntityAttachments()==null) || 
+             (this.entityAttachments!=null &&
+              java.util.Arrays.equals(this.entityAttachments, other.getEntityAttachments()))) &&
+            ((this.fileAttachments==null && other.getFileAttachments()==null) || 
+             (this.fileAttachments!=null &&
+              java.util.Arrays.equals(this.fileAttachments, other.getFileAttachments()))) &&
             ((this.htmlBody==null && other.getHtmlBody()==null) || 
              (this.htmlBody!=null &&
               this.htmlBody.equals(other.getHtmlBody()))) &&
             ((this.inReplyTo==null && other.getInReplyTo()==null) || 
              (this.inReplyTo!=null &&
               this.inReplyTo.equals(other.getInReplyTo()))) &&
-            ((this.fileAttachments==null && other.getFileAttachments()==null) || 
-             (this.fileAttachments!=null &&
-              java.util.Arrays.equals(this.fileAttachments, other.getFileAttachments()))) &&
+            ((this.optOutPolicy==null && other.getOptOutPolicy()==null) || 
+             (this.optOutPolicy!=null &&
+              this.optOutPolicy.equals(other.getOptOutPolicy()))) &&
             ((this.orgWideEmailAddressId==null && other.getOrgWideEmailAddressId()==null) || 
              (this.orgWideEmailAddressId!=null &&
               this.orgWideEmailAddressId.equals(other.getOrgWideEmailAddressId()))) &&
@@ -456,6 +566,12 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
             ((this.toAddresses==null && other.getToAddresses()==null) || 
              (this.toAddresses!=null &&
               java.util.Arrays.equals(this.toAddresses, other.getToAddresses()))) &&
+            ((this.treatBodiesAsTemplate==null && other.getTreatBodiesAsTemplate()==null) || 
+             (this.treatBodiesAsTemplate!=null &&
+              this.treatBodiesAsTemplate.equals(other.getTreatBodiesAsTemplate()))) &&
+            ((this.treatTargetObjectAsRecipient==null && other.getTreatTargetObjectAsRecipient()==null) || 
+             (this.treatTargetObjectAsRecipient!=null &&
+              this.treatTargetObjectAsRecipient.equals(other.getTreatTargetObjectAsRecipient()))) &&
             ((this.whatId==null && other.getWhatId()==null) || 
              (this.whatId!=null &&
               this.whatId.equals(other.getWhatId())));
@@ -506,11 +622,16 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
                 }
             }
         }
-        if (getHtmlBody() != null) {
-            _hashCode += getHtmlBody().hashCode();
-        }
-        if (getInReplyTo() != null) {
-            _hashCode += getInReplyTo().hashCode();
+        if (getEntityAttachments() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getEntityAttachments());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getEntityAttachments(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getFileAttachments() != null) {
             for (int i=0;
@@ -522,6 +643,15 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
                     _hashCode += obj.hashCode();
                 }
             }
+        }
+        if (getHtmlBody() != null) {
+            _hashCode += getHtmlBody().hashCode();
+        }
+        if (getInReplyTo() != null) {
+            _hashCode += getInReplyTo().hashCode();
+        }
+        if (getOptOutPolicy() != null) {
+            _hashCode += getOptOutPolicy().hashCode();
         }
         if (getOrgWideEmailAddressId() != null) {
             _hashCode += getOrgWideEmailAddressId().hashCode();
@@ -548,6 +678,12 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
                     _hashCode += obj.hashCode();
                 }
             }
+        }
+        if (getTreatBodiesAsTemplate() != null) {
+            _hashCode += getTreatBodiesAsTemplate().hashCode();
+        }
+        if (getTreatTargetObjectAsRecipient() != null) {
+            _hashCode += getTreatTargetObjectAsRecipient().hashCode();
         }
         if (getWhatId() != null) {
             _hashCode += getWhatId().hashCode();
@@ -591,6 +727,22 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
         elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("entityAttachments");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "entityAttachments"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "ID"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("fileAttachments");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "fileAttachments"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "EmailFileAttachment"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("htmlBody");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "htmlBody"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -604,12 +756,10 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("fileAttachments");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "fileAttachments"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "EmailFileAttachment"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
+        elemField.setFieldName("optOutPolicy");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "optOutPolicy"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "SendEmailOptOutPolicy"));
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("orgWideEmailAddressId");
@@ -648,6 +798,18 @@ public class SingleEmailMessage  extends com.sforce.soap.partner.Email  implemen
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "toAddresses"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("treatBodiesAsTemplate");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "treatBodiesAsTemplate"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("treatTargetObjectAsRecipient");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "treatTargetObjectAsRecipient"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

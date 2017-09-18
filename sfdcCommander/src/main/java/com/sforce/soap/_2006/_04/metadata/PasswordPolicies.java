@@ -20,7 +20,7 @@ public class PasswordPolicies  implements java.io.Serializable {
 
     private com.sforce.soap._2006._04.metadata.MaxLoginAttempts maxLoginAttempts;
 
-    private com.sforce.soap._2006._04.metadata.MinPasswordLength minPasswordLength;
+    private java.lang.String minimumPasswordLength;
 
     private java.lang.Boolean minimumPasswordLifetime;
 
@@ -42,7 +42,7 @@ public class PasswordPolicies  implements java.io.Serializable {
            java.lang.String historyRestriction,
            com.sforce.soap._2006._04.metadata.LockoutInterval lockoutInterval,
            com.sforce.soap._2006._04.metadata.MaxLoginAttempts maxLoginAttempts,
-           com.sforce.soap._2006._04.metadata.MinPasswordLength minPasswordLength,
+           java.lang.String minimumPasswordLength,
            java.lang.Boolean minimumPasswordLifetime,
            java.lang.Boolean obscureSecretAnswer,
            java.lang.String passwordAssistanceMessage,
@@ -54,7 +54,7 @@ public class PasswordPolicies  implements java.io.Serializable {
            this.historyRestriction = historyRestriction;
            this.lockoutInterval = lockoutInterval;
            this.maxLoginAttempts = maxLoginAttempts;
-           this.minPasswordLength = minPasswordLength;
+           this.minimumPasswordLength = minimumPasswordLength;
            this.minimumPasswordLifetime = minimumPasswordLifetime;
            this.obscureSecretAnswer = obscureSecretAnswer;
            this.passwordAssistanceMessage = passwordAssistanceMessage;
@@ -184,22 +184,22 @@ public class PasswordPolicies  implements java.io.Serializable {
 
 
     /**
-     * Gets the minPasswordLength value for this PasswordPolicies.
+     * Gets the minimumPasswordLength value for this PasswordPolicies.
      * 
-     * @return minPasswordLength
+     * @return minimumPasswordLength
      */
-    public com.sforce.soap._2006._04.metadata.MinPasswordLength getMinPasswordLength() {
-        return minPasswordLength;
+    public java.lang.String getMinimumPasswordLength() {
+        return minimumPasswordLength;
     }
 
 
     /**
-     * Sets the minPasswordLength value for this PasswordPolicies.
+     * Sets the minimumPasswordLength value for this PasswordPolicies.
      * 
-     * @param minPasswordLength
+     * @param minimumPasswordLength
      */
-    public void setMinPasswordLength(com.sforce.soap._2006._04.metadata.MinPasswordLength minPasswordLength) {
-        this.minPasswordLength = minPasswordLength;
+    public void setMinimumPasswordLength(java.lang.String minimumPasswordLength) {
+        this.minimumPasswordLength = minimumPasswordLength;
     }
 
 
@@ -332,9 +332,9 @@ public class PasswordPolicies  implements java.io.Serializable {
             ((this.maxLoginAttempts==null && other.getMaxLoginAttempts()==null) || 
              (this.maxLoginAttempts!=null &&
               this.maxLoginAttempts.equals(other.getMaxLoginAttempts()))) &&
-            ((this.minPasswordLength==null && other.getMinPasswordLength()==null) || 
-             (this.minPasswordLength!=null &&
-              this.minPasswordLength.equals(other.getMinPasswordLength()))) &&
+            ((this.minimumPasswordLength==null && other.getMinimumPasswordLength()==null) || 
+             (this.minimumPasswordLength!=null &&
+              this.minimumPasswordLength.equals(other.getMinimumPasswordLength()))) &&
             ((this.minimumPasswordLifetime==null && other.getMinimumPasswordLifetime()==null) || 
              (this.minimumPasswordLifetime!=null &&
               this.minimumPasswordLifetime.equals(other.getMinimumPasswordLifetime()))) &&
@@ -379,8 +379,8 @@ public class PasswordPolicies  implements java.io.Serializable {
         if (getMaxLoginAttempts() != null) {
             _hashCode += getMaxLoginAttempts().hashCode();
         }
-        if (getMinPasswordLength() != null) {
-            _hashCode += getMinPasswordLength().hashCode();
+        if (getMinimumPasswordLength() != null) {
+            _hashCode += getMinimumPasswordLength().hashCode();
         }
         if (getMinimumPasswordLifetime() != null) {
             _hashCode += getMinimumPasswordLifetime().hashCode();
@@ -450,9 +450,9 @@ public class PasswordPolicies  implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("minPasswordLength");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "minPasswordLength"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "MinPasswordLength"));
+        elemField.setFieldName("minimumPasswordLength");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "minimumPasswordLength"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

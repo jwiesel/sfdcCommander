@@ -14,6 +14,8 @@ public class ActionOverride  implements java.io.Serializable {
 
     private java.lang.String content;
 
+    private com.sforce.soap._2006._04.metadata.FormFactor formFactor;
+
     private java.lang.Boolean skipRecordTypeSelect;
 
     private com.sforce.soap._2006._04.metadata.ActionOverrideType type;
@@ -25,11 +27,13 @@ public class ActionOverride  implements java.io.Serializable {
            java.lang.String actionName,
            java.lang.String comment,
            java.lang.String content,
+           com.sforce.soap._2006._04.metadata.FormFactor formFactor,
            java.lang.Boolean skipRecordTypeSelect,
            com.sforce.soap._2006._04.metadata.ActionOverrideType type) {
            this.actionName = actionName;
            this.comment = comment;
            this.content = content;
+           this.formFactor = formFactor;
            this.skipRecordTypeSelect = skipRecordTypeSelect;
            this.type = type;
     }
@@ -96,6 +100,26 @@ public class ActionOverride  implements java.io.Serializable {
 
 
     /**
+     * Gets the formFactor value for this ActionOverride.
+     * 
+     * @return formFactor
+     */
+    public com.sforce.soap._2006._04.metadata.FormFactor getFormFactor() {
+        return formFactor;
+    }
+
+
+    /**
+     * Sets the formFactor value for this ActionOverride.
+     * 
+     * @param formFactor
+     */
+    public void setFormFactor(com.sforce.soap._2006._04.metadata.FormFactor formFactor) {
+        this.formFactor = formFactor;
+    }
+
+
+    /**
      * Gets the skipRecordTypeSelect value for this ActionOverride.
      * 
      * @return skipRecordTypeSelect
@@ -155,6 +179,9 @@ public class ActionOverride  implements java.io.Serializable {
             ((this.content==null && other.getContent()==null) || 
              (this.content!=null &&
               this.content.equals(other.getContent()))) &&
+            ((this.formFactor==null && other.getFormFactor()==null) || 
+             (this.formFactor!=null &&
+              this.formFactor.equals(other.getFormFactor()))) &&
             ((this.skipRecordTypeSelect==null && other.getSkipRecordTypeSelect()==null) || 
              (this.skipRecordTypeSelect!=null &&
               this.skipRecordTypeSelect.equals(other.getSkipRecordTypeSelect()))) &&
@@ -180,6 +207,9 @@ public class ActionOverride  implements java.io.Serializable {
         }
         if (getContent() != null) {
             _hashCode += getContent().hashCode();
+        }
+        if (getFormFactor() != null) {
+            _hashCode += getFormFactor().hashCode();
         }
         if (getSkipRecordTypeSelect() != null) {
             _hashCode += getSkipRecordTypeSelect().hashCode();
@@ -215,6 +245,13 @@ public class ActionOverride  implements java.io.Serializable {
         elemField.setFieldName("content");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "content"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("formFactor");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "formFactor"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FormFactor"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

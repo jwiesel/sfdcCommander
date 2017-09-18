@@ -22,6 +22,8 @@ public class LiveChatAgentConfig  extends com.sforce.soap._2006._04.metadata.Met
 
     private java.lang.Boolean enableAgentSneakPeek;
 
+    private java.lang.Boolean enableAssistanceFlag;
+
     private java.lang.Boolean enableAutoAwayOnDecline;
 
     private java.lang.Boolean enableAutoAwayOnPushTimeout;
@@ -30,7 +32,11 @@ public class LiveChatAgentConfig  extends com.sforce.soap._2006._04.metadata.Met
 
     private java.lang.Boolean enableChatMonitoring;
 
-    private java.lang.Boolean enableChatTransfer;
+    private java.lang.Boolean enableChatTransferToAgent;
+
+    private java.lang.Boolean enableChatTransferToButton;
+
+    private java.lang.Boolean enableChatTransferToSkill;
 
     private java.lang.Boolean enableLogoutSound;
 
@@ -70,11 +76,14 @@ public class LiveChatAgentConfig  extends com.sforce.soap._2006._04.metadata.Met
            java.lang.String customAgentName,
            java.lang.Boolean enableAgentFileTransfer,
            java.lang.Boolean enableAgentSneakPeek,
+           java.lang.Boolean enableAssistanceFlag,
            java.lang.Boolean enableAutoAwayOnDecline,
            java.lang.Boolean enableAutoAwayOnPushTimeout,
            java.lang.Boolean enableChatConferencing,
            java.lang.Boolean enableChatMonitoring,
-           java.lang.Boolean enableChatTransfer,
+           java.lang.Boolean enableChatTransferToAgent,
+           java.lang.Boolean enableChatTransferToButton,
+           java.lang.Boolean enableChatTransferToSkill,
            java.lang.Boolean enableLogoutSound,
            java.lang.Boolean enableNotifications,
            java.lang.Boolean enableRequestSound,
@@ -97,11 +106,14 @@ public class LiveChatAgentConfig  extends com.sforce.soap._2006._04.metadata.Met
         this.customAgentName = customAgentName;
         this.enableAgentFileTransfer = enableAgentFileTransfer;
         this.enableAgentSneakPeek = enableAgentSneakPeek;
+        this.enableAssistanceFlag = enableAssistanceFlag;
         this.enableAutoAwayOnDecline = enableAutoAwayOnDecline;
         this.enableAutoAwayOnPushTimeout = enableAutoAwayOnPushTimeout;
         this.enableChatConferencing = enableChatConferencing;
         this.enableChatMonitoring = enableChatMonitoring;
-        this.enableChatTransfer = enableChatTransfer;
+        this.enableChatTransferToAgent = enableChatTransferToAgent;
+        this.enableChatTransferToButton = enableChatTransferToButton;
+        this.enableChatTransferToSkill = enableChatTransferToSkill;
         this.enableLogoutSound = enableLogoutSound;
         this.enableNotifications = enableNotifications;
         this.enableRequestSound = enableRequestSound;
@@ -259,6 +271,26 @@ public class LiveChatAgentConfig  extends com.sforce.soap._2006._04.metadata.Met
 
 
     /**
+     * Gets the enableAssistanceFlag value for this LiveChatAgentConfig.
+     * 
+     * @return enableAssistanceFlag
+     */
+    public java.lang.Boolean getEnableAssistanceFlag() {
+        return enableAssistanceFlag;
+    }
+
+
+    /**
+     * Sets the enableAssistanceFlag value for this LiveChatAgentConfig.
+     * 
+     * @param enableAssistanceFlag
+     */
+    public void setEnableAssistanceFlag(java.lang.Boolean enableAssistanceFlag) {
+        this.enableAssistanceFlag = enableAssistanceFlag;
+    }
+
+
+    /**
      * Gets the enableAutoAwayOnDecline value for this LiveChatAgentConfig.
      * 
      * @return enableAutoAwayOnDecline
@@ -339,22 +371,62 @@ public class LiveChatAgentConfig  extends com.sforce.soap._2006._04.metadata.Met
 
 
     /**
-     * Gets the enableChatTransfer value for this LiveChatAgentConfig.
+     * Gets the enableChatTransferToAgent value for this LiveChatAgentConfig.
      * 
-     * @return enableChatTransfer
+     * @return enableChatTransferToAgent
      */
-    public java.lang.Boolean getEnableChatTransfer() {
-        return enableChatTransfer;
+    public java.lang.Boolean getEnableChatTransferToAgent() {
+        return enableChatTransferToAgent;
     }
 
 
     /**
-     * Sets the enableChatTransfer value for this LiveChatAgentConfig.
+     * Sets the enableChatTransferToAgent value for this LiveChatAgentConfig.
      * 
-     * @param enableChatTransfer
+     * @param enableChatTransferToAgent
      */
-    public void setEnableChatTransfer(java.lang.Boolean enableChatTransfer) {
-        this.enableChatTransfer = enableChatTransfer;
+    public void setEnableChatTransferToAgent(java.lang.Boolean enableChatTransferToAgent) {
+        this.enableChatTransferToAgent = enableChatTransferToAgent;
+    }
+
+
+    /**
+     * Gets the enableChatTransferToButton value for this LiveChatAgentConfig.
+     * 
+     * @return enableChatTransferToButton
+     */
+    public java.lang.Boolean getEnableChatTransferToButton() {
+        return enableChatTransferToButton;
+    }
+
+
+    /**
+     * Sets the enableChatTransferToButton value for this LiveChatAgentConfig.
+     * 
+     * @param enableChatTransferToButton
+     */
+    public void setEnableChatTransferToButton(java.lang.Boolean enableChatTransferToButton) {
+        this.enableChatTransferToButton = enableChatTransferToButton;
+    }
+
+
+    /**
+     * Gets the enableChatTransferToSkill value for this LiveChatAgentConfig.
+     * 
+     * @return enableChatTransferToSkill
+     */
+    public java.lang.Boolean getEnableChatTransferToSkill() {
+        return enableChatTransferToSkill;
+    }
+
+
+    /**
+     * Sets the enableChatTransferToSkill value for this LiveChatAgentConfig.
+     * 
+     * @param enableChatTransferToSkill
+     */
+    public void setEnableChatTransferToSkill(java.lang.Boolean enableChatTransferToSkill) {
+        this.enableChatTransferToSkill = enableChatTransferToSkill;
     }
 
 
@@ -650,6 +722,9 @@ public class LiveChatAgentConfig  extends com.sforce.soap._2006._04.metadata.Met
             ((this.enableAgentSneakPeek==null && other.getEnableAgentSneakPeek()==null) || 
              (this.enableAgentSneakPeek!=null &&
               this.enableAgentSneakPeek.equals(other.getEnableAgentSneakPeek()))) &&
+            ((this.enableAssistanceFlag==null && other.getEnableAssistanceFlag()==null) || 
+             (this.enableAssistanceFlag!=null &&
+              this.enableAssistanceFlag.equals(other.getEnableAssistanceFlag()))) &&
             ((this.enableAutoAwayOnDecline==null && other.getEnableAutoAwayOnDecline()==null) || 
              (this.enableAutoAwayOnDecline!=null &&
               this.enableAutoAwayOnDecline.equals(other.getEnableAutoAwayOnDecline()))) &&
@@ -662,9 +737,15 @@ public class LiveChatAgentConfig  extends com.sforce.soap._2006._04.metadata.Met
             ((this.enableChatMonitoring==null && other.getEnableChatMonitoring()==null) || 
              (this.enableChatMonitoring!=null &&
               this.enableChatMonitoring.equals(other.getEnableChatMonitoring()))) &&
-            ((this.enableChatTransfer==null && other.getEnableChatTransfer()==null) || 
-             (this.enableChatTransfer!=null &&
-              this.enableChatTransfer.equals(other.getEnableChatTransfer()))) &&
+            ((this.enableChatTransferToAgent==null && other.getEnableChatTransferToAgent()==null) || 
+             (this.enableChatTransferToAgent!=null &&
+              this.enableChatTransferToAgent.equals(other.getEnableChatTransferToAgent()))) &&
+            ((this.enableChatTransferToButton==null && other.getEnableChatTransferToButton()==null) || 
+             (this.enableChatTransferToButton!=null &&
+              this.enableChatTransferToButton.equals(other.getEnableChatTransferToButton()))) &&
+            ((this.enableChatTransferToSkill==null && other.getEnableChatTransferToSkill()==null) || 
+             (this.enableChatTransferToSkill!=null &&
+              this.enableChatTransferToSkill.equals(other.getEnableChatTransferToSkill()))) &&
             ((this.enableLogoutSound==null && other.getEnableLogoutSound()==null) || 
              (this.enableLogoutSound!=null &&
               this.enableLogoutSound.equals(other.getEnableLogoutSound()))) &&
@@ -736,6 +817,9 @@ public class LiveChatAgentConfig  extends com.sforce.soap._2006._04.metadata.Met
         if (getEnableAgentSneakPeek() != null) {
             _hashCode += getEnableAgentSneakPeek().hashCode();
         }
+        if (getEnableAssistanceFlag() != null) {
+            _hashCode += getEnableAssistanceFlag().hashCode();
+        }
         if (getEnableAutoAwayOnDecline() != null) {
             _hashCode += getEnableAutoAwayOnDecline().hashCode();
         }
@@ -748,8 +832,14 @@ public class LiveChatAgentConfig  extends com.sforce.soap._2006._04.metadata.Met
         if (getEnableChatMonitoring() != null) {
             _hashCode += getEnableChatMonitoring().hashCode();
         }
-        if (getEnableChatTransfer() != null) {
-            _hashCode += getEnableChatTransfer().hashCode();
+        if (getEnableChatTransferToAgent() != null) {
+            _hashCode += getEnableChatTransferToAgent().hashCode();
+        }
+        if (getEnableChatTransferToButton() != null) {
+            _hashCode += getEnableChatTransferToButton().hashCode();
+        }
+        if (getEnableChatTransferToSkill() != null) {
+            _hashCode += getEnableChatTransferToSkill().hashCode();
         }
         if (getEnableLogoutSound() != null) {
             _hashCode += getEnableLogoutSound().hashCode();
@@ -874,6 +964,13 @@ public class LiveChatAgentConfig  extends com.sforce.soap._2006._04.metadata.Met
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("enableAssistanceFlag");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableAssistanceFlag"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("enableAutoAwayOnDecline");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableAutoAwayOnDecline"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
@@ -902,8 +999,22 @@ public class LiveChatAgentConfig  extends com.sforce.soap._2006._04.metadata.Met
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("enableChatTransfer");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableChatTransfer"));
+        elemField.setFieldName("enableChatTransferToAgent");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableChatTransferToAgent"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("enableChatTransferToButton");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableChatTransferToButton"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("enableChatTransferToSkill");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableChatTransferToSkill"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);

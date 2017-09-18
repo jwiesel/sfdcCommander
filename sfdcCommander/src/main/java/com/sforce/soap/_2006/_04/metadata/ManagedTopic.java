@@ -12,6 +12,8 @@ public class ManagedTopic  extends com.sforce.soap._2006._04.metadata.Metadata  
 
     private java.lang.String name;
 
+    private java.lang.String parentName;
+
     private int position;
 
     private java.lang.String topicDescription;
@@ -23,12 +25,14 @@ public class ManagedTopic  extends com.sforce.soap._2006._04.metadata.Metadata  
            java.lang.String fullName,
            java.lang.String managedTopicType,
            java.lang.String name,
+           java.lang.String parentName,
            int position,
            java.lang.String topicDescription) {
         super(
             fullName);
         this.managedTopicType = managedTopicType;
         this.name = name;
+        this.parentName = parentName;
         this.position = position;
         this.topicDescription = topicDescription;
     }
@@ -71,6 +75,26 @@ public class ManagedTopic  extends com.sforce.soap._2006._04.metadata.Metadata  
      */
     public void setName(java.lang.String name) {
         this.name = name;
+    }
+
+
+    /**
+     * Gets the parentName value for this ManagedTopic.
+     * 
+     * @return parentName
+     */
+    public java.lang.String getParentName() {
+        return parentName;
+    }
+
+
+    /**
+     * Sets the parentName value for this ManagedTopic.
+     * 
+     * @param parentName
+     */
+    public void setParentName(java.lang.String parentName) {
+        this.parentName = parentName;
     }
 
 
@@ -131,6 +155,9 @@ public class ManagedTopic  extends com.sforce.soap._2006._04.metadata.Metadata  
             ((this.name==null && other.getName()==null) || 
              (this.name!=null &&
               this.name.equals(other.getName()))) &&
+            ((this.parentName==null && other.getParentName()==null) || 
+             (this.parentName!=null &&
+              this.parentName.equals(other.getParentName()))) &&
             this.position == other.getPosition() &&
             ((this.topicDescription==null && other.getTopicDescription()==null) || 
              (this.topicDescription!=null &&
@@ -151,6 +178,9 @@ public class ManagedTopic  extends com.sforce.soap._2006._04.metadata.Metadata  
         }
         if (getName() != null) {
             _hashCode += getName().hashCode();
+        }
+        if (getParentName() != null) {
+            _hashCode += getParentName().hashCode();
         }
         _hashCode += getPosition();
         if (getTopicDescription() != null) {
@@ -175,6 +205,12 @@ public class ManagedTopic  extends com.sforce.soap._2006._04.metadata.Metadata  
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("name");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "name"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("parentName");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "parentName"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

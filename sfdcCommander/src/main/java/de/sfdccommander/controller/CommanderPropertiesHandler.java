@@ -115,7 +115,6 @@ public class CommanderPropertiesHandler {
 
     private void validateSystemName(String aSystemName)
             throws CommanderException {
-        // TODO Auto-generated method stub
         char[] illegalChars = { '/', '\n', '\r', '\t', '\0', '\f', '`', '?',
                 '*', '\\', '<', '>', '|', '\"', ':' };
         for (char illegal : illegalChars) {

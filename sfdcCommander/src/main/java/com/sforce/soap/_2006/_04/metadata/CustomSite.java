@@ -18,6 +18,8 @@ public class CustomSite  extends com.sforce.soap._2006._04.metadata.Metadata  im
 
     private boolean allowStandardLookups;
 
+    private boolean allowStandardPortalPages;
+
     private boolean allowStandardSearch;
 
     private java.lang.String analyticsTrackingCode;
@@ -100,6 +102,7 @@ public class CustomSite  extends com.sforce.soap._2006._04.metadata.Metadata  im
            java.lang.Boolean allowStandardAnswersPages,
            boolean allowStandardIdeasPages,
            boolean allowStandardLookups,
+           boolean allowStandardPortalPages,
            boolean allowStandardSearch,
            java.lang.String analyticsTrackingCode,
            java.lang.String authorizationRequiredPage,
@@ -143,6 +146,7 @@ public class CustomSite  extends com.sforce.soap._2006._04.metadata.Metadata  im
         this.allowStandardAnswersPages = allowStandardAnswersPages;
         this.allowStandardIdeasPages = allowStandardIdeasPages;
         this.allowStandardLookups = allowStandardLookups;
+        this.allowStandardPortalPages = allowStandardPortalPages;
         this.allowStandardSearch = allowStandardSearch;
         this.analyticsTrackingCode = analyticsTrackingCode;
         this.authorizationRequiredPage = authorizationRequiredPage;
@@ -279,6 +283,26 @@ public class CustomSite  extends com.sforce.soap._2006._04.metadata.Metadata  im
      */
     public void setAllowStandardLookups(boolean allowStandardLookups) {
         this.allowStandardLookups = allowStandardLookups;
+    }
+
+
+    /**
+     * Gets the allowStandardPortalPages value for this CustomSite.
+     * 
+     * @return allowStandardPortalPages
+     */
+    public boolean isAllowStandardPortalPages() {
+        return allowStandardPortalPages;
+    }
+
+
+    /**
+     * Sets the allowStandardPortalPages value for this CustomSite.
+     * 
+     * @param allowStandardPortalPages
+     */
+    public void setAllowStandardPortalPages(boolean allowStandardPortalPages) {
+        this.allowStandardPortalPages = allowStandardPortalPages;
     }
 
 
@@ -1036,6 +1060,7 @@ public class CustomSite  extends com.sforce.soap._2006._04.metadata.Metadata  im
               this.allowStandardAnswersPages.equals(other.getAllowStandardAnswersPages()))) &&
             this.allowStandardIdeasPages == other.isAllowStandardIdeasPages() &&
             this.allowStandardLookups == other.isAllowStandardLookups() &&
+            this.allowStandardPortalPages == other.isAllowStandardPortalPages() &&
             this.allowStandardSearch == other.isAllowStandardSearch() &&
             ((this.analyticsTrackingCode==null && other.getAnalyticsTrackingCode()==null) || 
              (this.analyticsTrackingCode!=null &&
@@ -1156,6 +1181,7 @@ public class CustomSite  extends com.sforce.soap._2006._04.metadata.Metadata  im
         }
         _hashCode += (isAllowStandardIdeasPages() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += (isAllowStandardLookups() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isAllowStandardPortalPages() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += (isAllowStandardSearch() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getAnalyticsTrackingCode() != null) {
             _hashCode += getAnalyticsTrackingCode().hashCode();
@@ -1312,6 +1338,12 @@ public class CustomSite  extends com.sforce.soap._2006._04.metadata.Metadata  im
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("allowStandardLookups");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "allowStandardLookups"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("allowStandardPortalPages");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "allowStandardPortalPages"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

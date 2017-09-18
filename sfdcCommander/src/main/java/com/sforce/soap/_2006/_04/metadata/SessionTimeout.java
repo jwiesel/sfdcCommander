@@ -17,6 +17,7 @@ public class SessionTimeout implements java.io.Serializable {
         _table_.put(_value_,this);
     }
 
+    public static final java.lang.String _TwentyFourHours = "TwentyFourHours";
     public static final java.lang.String _TwelveHours = "TwelveHours";
     public static final java.lang.String _EightHours = "EightHours";
     public static final java.lang.String _FourHours = "FourHours";
@@ -24,6 +25,7 @@ public class SessionTimeout implements java.io.Serializable {
     public static final java.lang.String _SixtyMinutes = "SixtyMinutes";
     public static final java.lang.String _ThirtyMinutes = "ThirtyMinutes";
     public static final java.lang.String _FifteenMinutes = "FifteenMinutes";
+    public static final SessionTimeout TwentyFourHours = new SessionTimeout(_TwentyFourHours);
     public static final SessionTimeout TwelveHours = new SessionTimeout(_TwelveHours);
     public static final SessionTimeout EightHours = new SessionTimeout(_EightHours);
     public static final SessionTimeout FourHours = new SessionTimeout(_FourHours);

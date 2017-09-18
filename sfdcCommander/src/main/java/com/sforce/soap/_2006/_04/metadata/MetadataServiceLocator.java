@@ -26,7 +26,7 @@ public class MetadataServiceLocator extends org.apache.axis.client.Service imple
     }
 
     // Use to get a proxy class for Metadata
-    private java.lang.String Metadata_address = "https://na9.salesforce.com/services/Soap/m/34.0";
+    private java.lang.String Metadata_address = "https://login.salesforce.com/services/Soap/m/39.0";
 
     public java.lang.String getMetadataAddress() {
         return Metadata_address;

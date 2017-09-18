@@ -46,7 +46,6 @@ public class Tasks {
     public static void compare(CommanderConfig aConfig)
             throws CommanderException {
         // XmlComparer comparer = new XmlComparer();
-        // // TODO Test only
         // try {
         // comparer.compareXml(new FileReader("AccountOld.object"),
         // new FileReader("AccountNew.object"));

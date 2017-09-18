@@ -8,37 +8,37 @@
 package com.sforce.soap._2006._04.metadata;
 
 public class PathAssistantSettings  extends com.sforce.soap._2006._04.metadata.Metadata  implements java.io.Serializable {
-    private boolean pathAssistantForOpportunityEnabled;
+    private java.lang.Boolean pathAssistantEnabled;
 
     public PathAssistantSettings() {
     }
 
     public PathAssistantSettings(
            java.lang.String fullName,
-           boolean pathAssistantForOpportunityEnabled) {
+           java.lang.Boolean pathAssistantEnabled) {
         super(
             fullName);
-        this.pathAssistantForOpportunityEnabled = pathAssistantForOpportunityEnabled;
+        this.pathAssistantEnabled = pathAssistantEnabled;
     }
 
 
     /**
-     * Gets the pathAssistantForOpportunityEnabled value for this PathAssistantSettings.
+     * Gets the pathAssistantEnabled value for this PathAssistantSettings.
      * 
-     * @return pathAssistantForOpportunityEnabled
+     * @return pathAssistantEnabled
      */
-    public boolean isPathAssistantForOpportunityEnabled() {
-        return pathAssistantForOpportunityEnabled;
+    public java.lang.Boolean getPathAssistantEnabled() {
+        return pathAssistantEnabled;
     }
 
 
     /**
-     * Sets the pathAssistantForOpportunityEnabled value for this PathAssistantSettings.
+     * Sets the pathAssistantEnabled value for this PathAssistantSettings.
      * 
-     * @param pathAssistantForOpportunityEnabled
+     * @param pathAssistantEnabled
      */
-    public void setPathAssistantForOpportunityEnabled(boolean pathAssistantForOpportunityEnabled) {
-        this.pathAssistantForOpportunityEnabled = pathAssistantForOpportunityEnabled;
+    public void setPathAssistantEnabled(java.lang.Boolean pathAssistantEnabled) {
+        this.pathAssistantEnabled = pathAssistantEnabled;
     }
 
     private java.lang.Object __equalsCalc = null;
@@ -53,7 +53,9 @@ public class PathAssistantSettings  extends com.sforce.soap._2006._04.metadata.M
         __equalsCalc = obj;
         boolean _equals;
         _equals = super.equals(obj) && 
-            this.pathAssistantForOpportunityEnabled == other.isPathAssistantForOpportunityEnabled();
+            ((this.pathAssistantEnabled==null && other.getPathAssistantEnabled()==null) || 
+             (this.pathAssistantEnabled!=null &&
+              this.pathAssistantEnabled.equals(other.getPathAssistantEnabled())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +67,9 @@ public class PathAssistantSettings  extends com.sforce.soap._2006._04.metadata.M
         }
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
-        _hashCode += (isPathAssistantForOpportunityEnabled() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getPathAssistantEnabled() != null) {
+            _hashCode += getPathAssistantEnabled().hashCode();
+        }
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -77,9 +81,10 @@ public class PathAssistantSettings  extends com.sforce.soap._2006._04.metadata.M
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "PathAssistantSettings"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("pathAssistantForOpportunityEnabled");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "pathAssistantForOpportunityEnabled"));
+        elemField.setFieldName("pathAssistantEnabled");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "pathAssistantEnabled"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

@@ -13,10 +13,12 @@ public class InvalidQueryLocatorFault  extends com.sforce.soap.partner.fault.Api
 
     public InvalidQueryLocatorFault(
            com.sforce.soap.partner.fault.ExceptionCode exceptionCode,
-           java.lang.String exceptionMessage) {
+           java.lang.String exceptionMessage,
+           com.sforce.soap.partner.ExtendedErrorDetails[] extendedErrorDetails) {
         super(
             exceptionCode,
-            exceptionMessage);
+            exceptionMessage,
+            extendedErrorDetails);
     }
 
     private java.lang.Object __equalsCalc = null;

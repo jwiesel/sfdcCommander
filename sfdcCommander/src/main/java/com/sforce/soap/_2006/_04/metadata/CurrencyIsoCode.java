@@ -59,6 +59,8 @@ public class CurrencyIsoCode implements java.io.Serializable {
     public static final java.lang.String _CNY = "CNY";
     public static final java.lang.String _COP = "COP";
     public static final java.lang.String _CRC = "CRC";
+    public static final java.lang.String _CSD = "CSD";
+    public static final java.lang.String _CUC = "CUC";
     public static final java.lang.String _CUP = "CUP";
     public static final java.lang.String _CVE = "CVE";
     public static final java.lang.String _CYP = "CYP";
@@ -92,6 +94,7 @@ public class CurrencyIsoCode implements java.io.Serializable {
     public static final java.lang.String _GYD = "GYD";
     public static final java.lang.String _HKD = "HKD";
     public static final java.lang.String _HNL = "HNL";
+    public static final java.lang.String _HRD = "HRD";
     public static final java.lang.String _HRK = "HRK";
     public static final java.lang.String _HTG = "HTG";
     public static final java.lang.String _HUF = "HUF";
@@ -182,6 +185,7 @@ public class CurrencyIsoCode implements java.io.Serializable {
     public static final java.lang.String _SRG = "SRG";
     public static final java.lang.String _SSP = "SSP";
     public static final java.lang.String _STD = "STD";
+    public static final java.lang.String _SUR = "SUR";
     public static final java.lang.String _SVC = "SVC";
     public static final java.lang.String _SYP = "SYP";
     public static final java.lang.String _SZL = "SZL";
@@ -261,6 +265,8 @@ public class CurrencyIsoCode implements java.io.Serializable {
     public static final CurrencyIsoCode CNY = new CurrencyIsoCode(_CNY);
     public static final CurrencyIsoCode COP = new CurrencyIsoCode(_COP);
     public static final CurrencyIsoCode CRC = new CurrencyIsoCode(_CRC);
+    public static final CurrencyIsoCode CSD = new CurrencyIsoCode(_CSD);
+    public static final CurrencyIsoCode CUC = new CurrencyIsoCode(_CUC);
     public static final CurrencyIsoCode CUP = new CurrencyIsoCode(_CUP);
     public static final CurrencyIsoCode CVE = new CurrencyIsoCode(_CVE);
     public static final CurrencyIsoCode CYP = new CurrencyIsoCode(_CYP);
@@ -294,6 +300,7 @@ public class CurrencyIsoCode implements java.io.Serializable {
     public static final CurrencyIsoCode GYD = new CurrencyIsoCode(_GYD);
     public static final CurrencyIsoCode HKD = new CurrencyIsoCode(_HKD);
     public static final CurrencyIsoCode HNL = new CurrencyIsoCode(_HNL);
+    public static final CurrencyIsoCode HRD = new CurrencyIsoCode(_HRD);
     public static final CurrencyIsoCode HRK = new CurrencyIsoCode(_HRK);
     public static final CurrencyIsoCode HTG = new CurrencyIsoCode(_HTG);
     public static final CurrencyIsoCode HUF = new CurrencyIsoCode(_HUF);
@@ -384,6 +391,7 @@ public class CurrencyIsoCode implements java.io.Serializable {
     public static final CurrencyIsoCode SRG = new CurrencyIsoCode(_SRG);
     public static final CurrencyIsoCode SSP = new CurrencyIsoCode(_SSP);
     public static final CurrencyIsoCode STD = new CurrencyIsoCode(_STD);
+    public static final CurrencyIsoCode SUR = new CurrencyIsoCode(_SUR);
     public static final CurrencyIsoCode SVC = new CurrencyIsoCode(_SVC);
     public static final CurrencyIsoCode SYP = new CurrencyIsoCode(_SYP);
     public static final CurrencyIsoCode SZL = new CurrencyIsoCode(_SZL);

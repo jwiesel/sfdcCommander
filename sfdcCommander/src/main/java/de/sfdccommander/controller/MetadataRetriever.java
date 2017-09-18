@@ -52,7 +52,7 @@ public class MetadataRetriever {
     // maximum number of attempts to retrieve the results
     private static final int MAX_NUM_POLL_REQUESTS = 100;
 
-    private static final int MAX_PACKAGE_MEMBERS = 5000;
+    private static final int MAX_PACKAGE_MEMBERS = 2000;
 
     private final SfdcCommander commander;
 

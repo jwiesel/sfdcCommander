@@ -18,11 +18,23 @@ public class ForecastingTypeSettings  implements java.io.Serializable {
 
     private java.lang.String[] forecastedCategoryApiNames;
 
+    private boolean isAmount;
+
+    private boolean isAvailable;
+
+    private boolean isQuantity;
+
     private java.lang.String[] managerAdjustableCategoryApiNames;
+
+    private java.lang.String masterLabel;
 
     private java.lang.String name;
 
+    private com.sforce.soap._2006._04.metadata.OpportunityListFieldsLabelMapping[] opportunityListFieldsLabelMappings;
+
     private java.lang.String[] opportunityListFieldsSelectedSettings;
+
+    private java.lang.String[] opportunityListFieldsUnselectedSettings;
 
     private java.lang.String[] ownerAdjustableCategoryApiNames;
 
@@ -37,9 +49,15 @@ public class ForecastingTypeSettings  implements java.io.Serializable {
            java.lang.String[] displayedCategoryApiNames,
            com.sforce.soap._2006._04.metadata.ForecastRangeSettings forecastRangeSettings,
            java.lang.String[] forecastedCategoryApiNames,
+           boolean isAmount,
+           boolean isAvailable,
+           boolean isQuantity,
            java.lang.String[] managerAdjustableCategoryApiNames,
+           java.lang.String masterLabel,
            java.lang.String name,
+           com.sforce.soap._2006._04.metadata.OpportunityListFieldsLabelMapping[] opportunityListFieldsLabelMappings,
            java.lang.String[] opportunityListFieldsSelectedSettings,
+           java.lang.String[] opportunityListFieldsUnselectedSettings,
            java.lang.String[] ownerAdjustableCategoryApiNames,
            com.sforce.soap._2006._04.metadata.QuotasSettings quotasSettings) {
            this.active = active;
@@ -47,9 +65,15 @@ public class ForecastingTypeSettings  implements java.io.Serializable {
            this.displayedCategoryApiNames = displayedCategoryApiNames;
            this.forecastRangeSettings = forecastRangeSettings;
            this.forecastedCategoryApiNames = forecastedCategoryApiNames;
+           this.isAmount = isAmount;
+           this.isAvailable = isAvailable;
+           this.isQuantity = isQuantity;
            this.managerAdjustableCategoryApiNames = managerAdjustableCategoryApiNames;
+           this.masterLabel = masterLabel;
            this.name = name;
+           this.opportunityListFieldsLabelMappings = opportunityListFieldsLabelMappings;
            this.opportunityListFieldsSelectedSettings = opportunityListFieldsSelectedSettings;
+           this.opportunityListFieldsUnselectedSettings = opportunityListFieldsUnselectedSettings;
            this.ownerAdjustableCategoryApiNames = ownerAdjustableCategoryApiNames;
            this.quotasSettings = quotasSettings;
     }
@@ -172,6 +196,66 @@ public class ForecastingTypeSettings  implements java.io.Serializable {
 
 
     /**
+     * Gets the isAmount value for this ForecastingTypeSettings.
+     * 
+     * @return isAmount
+     */
+    public boolean isIsAmount() {
+        return isAmount;
+    }
+
+
+    /**
+     * Sets the isAmount value for this ForecastingTypeSettings.
+     * 
+     * @param isAmount
+     */
+    public void setIsAmount(boolean isAmount) {
+        this.isAmount = isAmount;
+    }
+
+
+    /**
+     * Gets the isAvailable value for this ForecastingTypeSettings.
+     * 
+     * @return isAvailable
+     */
+    public boolean isIsAvailable() {
+        return isAvailable;
+    }
+
+
+    /**
+     * Sets the isAvailable value for this ForecastingTypeSettings.
+     * 
+     * @param isAvailable
+     */
+    public void setIsAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
+    }
+
+
+    /**
+     * Gets the isQuantity value for this ForecastingTypeSettings.
+     * 
+     * @return isQuantity
+     */
+    public boolean isIsQuantity() {
+        return isQuantity;
+    }
+
+
+    /**
+     * Sets the isQuantity value for this ForecastingTypeSettings.
+     * 
+     * @param isQuantity
+     */
+    public void setIsQuantity(boolean isQuantity) {
+        this.isQuantity = isQuantity;
+    }
+
+
+    /**
      * Gets the managerAdjustableCategoryApiNames value for this ForecastingTypeSettings.
      * 
      * @return managerAdjustableCategoryApiNames
@@ -200,6 +284,26 @@ public class ForecastingTypeSettings  implements java.io.Serializable {
 
 
     /**
+     * Gets the masterLabel value for this ForecastingTypeSettings.
+     * 
+     * @return masterLabel
+     */
+    public java.lang.String getMasterLabel() {
+        return masterLabel;
+    }
+
+
+    /**
+     * Sets the masterLabel value for this ForecastingTypeSettings.
+     * 
+     * @param masterLabel
+     */
+    public void setMasterLabel(java.lang.String masterLabel) {
+        this.masterLabel = masterLabel;
+    }
+
+
+    /**
      * Gets the name value for this ForecastingTypeSettings.
      * 
      * @return name
@@ -220,6 +324,34 @@ public class ForecastingTypeSettings  implements java.io.Serializable {
 
 
     /**
+     * Gets the opportunityListFieldsLabelMappings value for this ForecastingTypeSettings.
+     * 
+     * @return opportunityListFieldsLabelMappings
+     */
+    public com.sforce.soap._2006._04.metadata.OpportunityListFieldsLabelMapping[] getOpportunityListFieldsLabelMappings() {
+        return opportunityListFieldsLabelMappings;
+    }
+
+
+    /**
+     * Sets the opportunityListFieldsLabelMappings value for this ForecastingTypeSettings.
+     * 
+     * @param opportunityListFieldsLabelMappings
+     */
+    public void setOpportunityListFieldsLabelMappings(com.sforce.soap._2006._04.metadata.OpportunityListFieldsLabelMapping[] opportunityListFieldsLabelMappings) {
+        this.opportunityListFieldsLabelMappings = opportunityListFieldsLabelMappings;
+    }
+
+    public com.sforce.soap._2006._04.metadata.OpportunityListFieldsLabelMapping getOpportunityListFieldsLabelMappings(int i) {
+        return this.opportunityListFieldsLabelMappings[i];
+    }
+
+    public void setOpportunityListFieldsLabelMappings(int i, com.sforce.soap._2006._04.metadata.OpportunityListFieldsLabelMapping _value) {
+        this.opportunityListFieldsLabelMappings[i] = _value;
+    }
+
+
+    /**
      * Gets the opportunityListFieldsSelectedSettings value for this ForecastingTypeSettings.
      * 
      * @return opportunityListFieldsSelectedSettings
@@ -236,6 +368,26 @@ public class ForecastingTypeSettings  implements java.io.Serializable {
      */
     public void setOpportunityListFieldsSelectedSettings(java.lang.String[] opportunityListFieldsSelectedSettings) {
         this.opportunityListFieldsSelectedSettings = opportunityListFieldsSelectedSettings;
+    }
+
+
+    /**
+     * Gets the opportunityListFieldsUnselectedSettings value for this ForecastingTypeSettings.
+     * 
+     * @return opportunityListFieldsUnselectedSettings
+     */
+    public java.lang.String[] getOpportunityListFieldsUnselectedSettings() {
+        return opportunityListFieldsUnselectedSettings;
+    }
+
+
+    /**
+     * Sets the opportunityListFieldsUnselectedSettings value for this ForecastingTypeSettings.
+     * 
+     * @param opportunityListFieldsUnselectedSettings
+     */
+    public void setOpportunityListFieldsUnselectedSettings(java.lang.String[] opportunityListFieldsUnselectedSettings) {
+        this.opportunityListFieldsUnselectedSettings = opportunityListFieldsUnselectedSettings;
     }
 
 
@@ -311,15 +463,27 @@ public class ForecastingTypeSettings  implements java.io.Serializable {
             ((this.forecastedCategoryApiNames==null && other.getForecastedCategoryApiNames()==null) || 
              (this.forecastedCategoryApiNames!=null &&
               java.util.Arrays.equals(this.forecastedCategoryApiNames, other.getForecastedCategoryApiNames()))) &&
+            this.isAmount == other.isIsAmount() &&
+            this.isAvailable == other.isIsAvailable() &&
+            this.isQuantity == other.isIsQuantity() &&
             ((this.managerAdjustableCategoryApiNames==null && other.getManagerAdjustableCategoryApiNames()==null) || 
              (this.managerAdjustableCategoryApiNames!=null &&
               java.util.Arrays.equals(this.managerAdjustableCategoryApiNames, other.getManagerAdjustableCategoryApiNames()))) &&
+            ((this.masterLabel==null && other.getMasterLabel()==null) || 
+             (this.masterLabel!=null &&
+              this.masterLabel.equals(other.getMasterLabel()))) &&
             ((this.name==null && other.getName()==null) || 
              (this.name!=null &&
               this.name.equals(other.getName()))) &&
+            ((this.opportunityListFieldsLabelMappings==null && other.getOpportunityListFieldsLabelMappings()==null) || 
+             (this.opportunityListFieldsLabelMappings!=null &&
+              java.util.Arrays.equals(this.opportunityListFieldsLabelMappings, other.getOpportunityListFieldsLabelMappings()))) &&
             ((this.opportunityListFieldsSelectedSettings==null && other.getOpportunityListFieldsSelectedSettings()==null) || 
              (this.opportunityListFieldsSelectedSettings!=null &&
               java.util.Arrays.equals(this.opportunityListFieldsSelectedSettings, other.getOpportunityListFieldsSelectedSettings()))) &&
+            ((this.opportunityListFieldsUnselectedSettings==null && other.getOpportunityListFieldsUnselectedSettings()==null) || 
+             (this.opportunityListFieldsUnselectedSettings!=null &&
+              java.util.Arrays.equals(this.opportunityListFieldsUnselectedSettings, other.getOpportunityListFieldsUnselectedSettings()))) &&
             ((this.ownerAdjustableCategoryApiNames==null && other.getOwnerAdjustableCategoryApiNames()==null) || 
              (this.ownerAdjustableCategoryApiNames!=null &&
               java.util.Arrays.equals(this.ownerAdjustableCategoryApiNames, other.getOwnerAdjustableCategoryApiNames()))) &&
@@ -366,6 +530,9 @@ public class ForecastingTypeSettings  implements java.io.Serializable {
                 }
             }
         }
+        _hashCode += (isIsAmount() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isIsAvailable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isIsQuantity() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getManagerAdjustableCategoryApiNames() != null) {
             for (int i=0;
                  i<java.lang.reflect.Array.getLength(getManagerAdjustableCategoryApiNames());
@@ -377,14 +544,39 @@ public class ForecastingTypeSettings  implements java.io.Serializable {
                 }
             }
         }
+        if (getMasterLabel() != null) {
+            _hashCode += getMasterLabel().hashCode();
+        }
         if (getName() != null) {
             _hashCode += getName().hashCode();
+        }
+        if (getOpportunityListFieldsLabelMappings() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getOpportunityListFieldsLabelMappings());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getOpportunityListFieldsLabelMappings(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getOpportunityListFieldsSelectedSettings() != null) {
             for (int i=0;
                  i<java.lang.reflect.Array.getLength(getOpportunityListFieldsSelectedSettings());
                  i++) {
                 java.lang.Object obj = java.lang.reflect.Array.get(getOpportunityListFieldsSelectedSettings(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        if (getOpportunityListFieldsUnselectedSettings() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getOpportunityListFieldsUnselectedSettings());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getOpportunityListFieldsUnselectedSettings(), i);
                 if (obj != null &&
                     !obj.getClass().isArray()) {
                     _hashCode += obj.hashCode();
@@ -450,6 +642,24 @@ public class ForecastingTypeSettings  implements java.io.Serializable {
         elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("isAmount");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "isAmount"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("isAvailable");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "isAvailable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("isQuantity");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "isQuantity"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("managerAdjustableCategoryApiNames");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "managerAdjustableCategoryApiNames"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -458,14 +668,35 @@ public class ForecastingTypeSettings  implements java.io.Serializable {
         elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("masterLabel");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "masterLabel"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("name");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "name"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("opportunityListFieldsLabelMappings");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "opportunityListFieldsLabelMappings"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "OpportunityListFieldsLabelMapping"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("opportunityListFieldsSelectedSettings");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "opportunityListFieldsSelectedSettings"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "field"));
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("opportunityListFieldsUnselectedSettings");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "opportunityListFieldsUnselectedSettings"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         elemField.setItemQName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "field"));

@@ -12,6 +12,8 @@ public class RecordTypeInfo  implements java.io.Serializable {
 
     private boolean defaultRecordTypeMapping;
 
+    private boolean master;
+
     private java.lang.String name;
 
     private java.lang.String recordTypeId;
@@ -22,10 +24,12 @@ public class RecordTypeInfo  implements java.io.Serializable {
     public RecordTypeInfo(
            boolean available,
            boolean defaultRecordTypeMapping,
+           boolean master,
            java.lang.String name,
            java.lang.String recordTypeId) {
            this.available = available;
            this.defaultRecordTypeMapping = defaultRecordTypeMapping;
+           this.master = master;
            this.name = name;
            this.recordTypeId = recordTypeId;
     }
@@ -68,6 +72,26 @@ public class RecordTypeInfo  implements java.io.Serializable {
      */
     public void setDefaultRecordTypeMapping(boolean defaultRecordTypeMapping) {
         this.defaultRecordTypeMapping = defaultRecordTypeMapping;
+    }
+
+
+    /**
+     * Gets the master value for this RecordTypeInfo.
+     * 
+     * @return master
+     */
+    public boolean isMaster() {
+        return master;
+    }
+
+
+    /**
+     * Sets the master value for this RecordTypeInfo.
+     * 
+     * @param master
+     */
+    public void setMaster(boolean master) {
+        this.master = master;
     }
 
 
@@ -124,6 +148,7 @@ public class RecordTypeInfo  implements java.io.Serializable {
         _equals = true && 
             this.available == other.isAvailable() &&
             this.defaultRecordTypeMapping == other.isDefaultRecordTypeMapping() &&
+            this.master == other.isMaster() &&
             ((this.name==null && other.getName()==null) || 
              (this.name!=null &&
               this.name.equals(other.getName()))) &&
@@ -143,6 +168,7 @@ public class RecordTypeInfo  implements java.io.Serializable {
         int _hashCode = 1;
         _hashCode += (isAvailable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += (isDefaultRecordTypeMapping() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isMaster() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getName() != null) {
             _hashCode += getName().hashCode();
         }
@@ -168,6 +194,12 @@ public class RecordTypeInfo  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("defaultRecordTypeMapping");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "defaultRecordTypeMapping"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("master");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "master"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

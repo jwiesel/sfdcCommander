@@ -14,6 +14,8 @@ public class RecordTypeMapping  implements java.io.Serializable {
 
     private java.lang.String layoutId;
 
+    private boolean master;
+
     private java.lang.String name;
 
     private com.sforce.soap.partner.PicklistForRecordType[] picklistsForRecordType;
@@ -27,12 +29,14 @@ public class RecordTypeMapping  implements java.io.Serializable {
            boolean available,
            boolean defaultRecordTypeMapping,
            java.lang.String layoutId,
+           boolean master,
            java.lang.String name,
            com.sforce.soap.partner.PicklistForRecordType[] picklistsForRecordType,
            java.lang.String recordTypeId) {
            this.available = available;
            this.defaultRecordTypeMapping = defaultRecordTypeMapping;
            this.layoutId = layoutId;
+           this.master = master;
            this.name = name;
            this.picklistsForRecordType = picklistsForRecordType;
            this.recordTypeId = recordTypeId;
@@ -96,6 +100,26 @@ public class RecordTypeMapping  implements java.io.Serializable {
      */
     public void setLayoutId(java.lang.String layoutId) {
         this.layoutId = layoutId;
+    }
+
+
+    /**
+     * Gets the master value for this RecordTypeMapping.
+     * 
+     * @return master
+     */
+    public boolean isMaster() {
+        return master;
+    }
+
+
+    /**
+     * Sets the master value for this RecordTypeMapping.
+     * 
+     * @param master
+     */
+    public void setMaster(boolean master) {
+        this.master = master;
     }
 
 
@@ -183,6 +207,7 @@ public class RecordTypeMapping  implements java.io.Serializable {
             ((this.layoutId==null && other.getLayoutId()==null) || 
              (this.layoutId!=null &&
               this.layoutId.equals(other.getLayoutId()))) &&
+            this.master == other.isMaster() &&
             ((this.name==null && other.getName()==null) || 
              (this.name!=null &&
               this.name.equals(other.getName()))) &&
@@ -208,6 +233,7 @@ public class RecordTypeMapping  implements java.io.Serializable {
         if (getLayoutId() != null) {
             _hashCode += getLayoutId().hashCode();
         }
+        _hashCode += (isMaster() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getName() != null) {
             _hashCode += getName().hashCode();
         }
@@ -251,6 +277,12 @@ public class RecordTypeMapping  implements java.io.Serializable {
         elemField.setFieldName("layoutId");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "layoutId"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("master");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "master"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

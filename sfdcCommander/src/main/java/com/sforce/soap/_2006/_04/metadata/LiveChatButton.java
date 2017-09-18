@@ -12,6 +12,10 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
 
     private java.lang.String autoGreeting;
 
+    private java.lang.Integer chasitorIdleTimeout;
+
+    private java.lang.Integer chasitorIdleTimeoutWarning;
+
     private java.lang.String chatPage;
 
     private java.lang.String customAgentName;
@@ -37,6 +41,8 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
     private java.lang.String onlineImage;
 
     private java.lang.Boolean optionsCustomRoutingIsEnabled;
+
+    private boolean optionsHasChasitorIdleTimeout;
 
     private java.lang.Boolean optionsHasInviteAfterAccept;
 
@@ -81,6 +87,8 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
            java.lang.String fullName,
            com.sforce.soap._2006._04.metadata.LiveChatButtonPresentation animation,
            java.lang.String autoGreeting,
+           java.lang.Integer chasitorIdleTimeout,
+           java.lang.Integer chasitorIdleTimeoutWarning,
            java.lang.String chatPage,
            java.lang.String customAgentName,
            java.lang.String[] deployments,
@@ -94,6 +102,7 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
            java.lang.String offlineImage,
            java.lang.String onlineImage,
            java.lang.Boolean optionsCustomRoutingIsEnabled,
+           boolean optionsHasChasitorIdleTimeout,
            java.lang.Boolean optionsHasInviteAfterAccept,
            java.lang.Boolean optionsHasInviteAfterReject,
            java.lang.Boolean optionsHasRerouteDeclinedRequest,
@@ -116,6 +125,8 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
             fullName);
         this.animation = animation;
         this.autoGreeting = autoGreeting;
+        this.chasitorIdleTimeout = chasitorIdleTimeout;
+        this.chasitorIdleTimeoutWarning = chasitorIdleTimeoutWarning;
         this.chatPage = chatPage;
         this.customAgentName = customAgentName;
         this.deployments = deployments;
@@ -129,6 +140,7 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
         this.offlineImage = offlineImage;
         this.onlineImage = onlineImage;
         this.optionsCustomRoutingIsEnabled = optionsCustomRoutingIsEnabled;
+        this.optionsHasChasitorIdleTimeout = optionsHasChasitorIdleTimeout;
         this.optionsHasInviteAfterAccept = optionsHasInviteAfterAccept;
         this.optionsHasInviteAfterReject = optionsHasInviteAfterReject;
         this.optionsHasRerouteDeclinedRequest = optionsHasRerouteDeclinedRequest;
@@ -187,6 +199,46 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
      */
     public void setAutoGreeting(java.lang.String autoGreeting) {
         this.autoGreeting = autoGreeting;
+    }
+
+
+    /**
+     * Gets the chasitorIdleTimeout value for this LiveChatButton.
+     * 
+     * @return chasitorIdleTimeout
+     */
+    public java.lang.Integer getChasitorIdleTimeout() {
+        return chasitorIdleTimeout;
+    }
+
+
+    /**
+     * Sets the chasitorIdleTimeout value for this LiveChatButton.
+     * 
+     * @param chasitorIdleTimeout
+     */
+    public void setChasitorIdleTimeout(java.lang.Integer chasitorIdleTimeout) {
+        this.chasitorIdleTimeout = chasitorIdleTimeout;
+    }
+
+
+    /**
+     * Gets the chasitorIdleTimeoutWarning value for this LiveChatButton.
+     * 
+     * @return chasitorIdleTimeoutWarning
+     */
+    public java.lang.Integer getChasitorIdleTimeoutWarning() {
+        return chasitorIdleTimeoutWarning;
+    }
+
+
+    /**
+     * Sets the chasitorIdleTimeoutWarning value for this LiveChatButton.
+     * 
+     * @param chasitorIdleTimeoutWarning
+     */
+    public void setChasitorIdleTimeoutWarning(java.lang.Integer chasitorIdleTimeoutWarning) {
+        this.chasitorIdleTimeoutWarning = chasitorIdleTimeoutWarning;
     }
 
 
@@ -447,6 +499,26 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
      */
     public void setOptionsCustomRoutingIsEnabled(java.lang.Boolean optionsCustomRoutingIsEnabled) {
         this.optionsCustomRoutingIsEnabled = optionsCustomRoutingIsEnabled;
+    }
+
+
+    /**
+     * Gets the optionsHasChasitorIdleTimeout value for this LiveChatButton.
+     * 
+     * @return optionsHasChasitorIdleTimeout
+     */
+    public boolean isOptionsHasChasitorIdleTimeout() {
+        return optionsHasChasitorIdleTimeout;
+    }
+
+
+    /**
+     * Sets the optionsHasChasitorIdleTimeout value for this LiveChatButton.
+     * 
+     * @param optionsHasChasitorIdleTimeout
+     */
+    public void setOptionsHasChasitorIdleTimeout(boolean optionsHasChasitorIdleTimeout) {
+        this.optionsHasChasitorIdleTimeout = optionsHasChasitorIdleTimeout;
     }
 
 
@@ -827,6 +899,12 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
             ((this.autoGreeting==null && other.getAutoGreeting()==null) || 
              (this.autoGreeting!=null &&
               this.autoGreeting.equals(other.getAutoGreeting()))) &&
+            ((this.chasitorIdleTimeout==null && other.getChasitorIdleTimeout()==null) || 
+             (this.chasitorIdleTimeout!=null &&
+              this.chasitorIdleTimeout.equals(other.getChasitorIdleTimeout()))) &&
+            ((this.chasitorIdleTimeoutWarning==null && other.getChasitorIdleTimeoutWarning()==null) || 
+             (this.chasitorIdleTimeoutWarning!=null &&
+              this.chasitorIdleTimeoutWarning.equals(other.getChasitorIdleTimeoutWarning()))) &&
             ((this.chatPage==null && other.getChatPage()==null) || 
              (this.chatPage!=null &&
               this.chatPage.equals(other.getChatPage()))) &&
@@ -866,6 +944,7 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
             ((this.optionsCustomRoutingIsEnabled==null && other.getOptionsCustomRoutingIsEnabled()==null) || 
              (this.optionsCustomRoutingIsEnabled!=null &&
               this.optionsCustomRoutingIsEnabled.equals(other.getOptionsCustomRoutingIsEnabled()))) &&
+            this.optionsHasChasitorIdleTimeout == other.isOptionsHasChasitorIdleTimeout() &&
             ((this.optionsHasInviteAfterAccept==null && other.getOptionsHasInviteAfterAccept()==null) || 
              (this.optionsHasInviteAfterAccept!=null &&
               this.optionsHasInviteAfterAccept.equals(other.getOptionsHasInviteAfterAccept()))) &&
@@ -937,6 +1016,12 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
         if (getAutoGreeting() != null) {
             _hashCode += getAutoGreeting().hashCode();
         }
+        if (getChasitorIdleTimeout() != null) {
+            _hashCode += getChasitorIdleTimeout().hashCode();
+        }
+        if (getChasitorIdleTimeoutWarning() != null) {
+            _hashCode += getChasitorIdleTimeoutWarning().hashCode();
+        }
         if (getChatPage() != null) {
             _hashCode += getChatPage().hashCode();
         }
@@ -984,6 +1069,7 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
         if (getOptionsCustomRoutingIsEnabled() != null) {
             _hashCode += getOptionsCustomRoutingIsEnabled().hashCode();
         }
+        _hashCode += (isOptionsHasChasitorIdleTimeout() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getOptionsHasInviteAfterAccept() != null) {
             _hashCode += getOptionsHasInviteAfterAccept().hashCode();
         }
@@ -1067,6 +1153,20 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
         elemField.setFieldName("autoGreeting");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "autoGreeting"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("chasitorIdleTimeout");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "chasitorIdleTimeout"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("chasitorIdleTimeoutWarning");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "chasitorIdleTimeoutWarning"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
@@ -1159,6 +1259,12 @@ public class LiveChatButton  extends com.sforce.soap._2006._04.metadata.Metadata
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "optionsCustomRoutingIsEnabled"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("optionsHasChasitorIdleTimeout");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "optionsHasChasitorIdleTimeout"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

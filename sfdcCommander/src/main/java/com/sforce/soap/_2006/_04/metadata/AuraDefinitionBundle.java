@@ -10,7 +10,11 @@ package com.sforce.soap._2006._04.metadata;
 public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Metadata  implements java.io.Serializable {
     private byte[] SVGContent;
 
+    private java.lang.Double apiVersion;
+
     private byte[] controllerContent;
+
+    private java.lang.String description;
 
     private byte[] designContent;
 
@@ -21,6 +25,8 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
     private byte[] markup;
 
     private byte[] modelContent;
+
+    private com.sforce.soap._2006._04.metadata.PackageVersion[] packageVersions;
 
     private byte[] rendererContent;
 
@@ -36,12 +42,15 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
     public AuraDefinitionBundle(
            java.lang.String fullName,
            byte[] SVGContent,
+           java.lang.Double apiVersion,
            byte[] controllerContent,
+           java.lang.String description,
            byte[] designContent,
            byte[] documentationContent,
            byte[] helperContent,
            byte[] markup,
            byte[] modelContent,
+           com.sforce.soap._2006._04.metadata.PackageVersion[] packageVersions,
            byte[] rendererContent,
            byte[] styleContent,
            byte[] testsuiteContent,
@@ -49,12 +58,15 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
         super(
             fullName);
         this.SVGContent = SVGContent;
+        this.apiVersion = apiVersion;
         this.controllerContent = controllerContent;
+        this.description = description;
         this.designContent = designContent;
         this.documentationContent = documentationContent;
         this.helperContent = helperContent;
         this.markup = markup;
         this.modelContent = modelContent;
+        this.packageVersions = packageVersions;
         this.rendererContent = rendererContent;
         this.styleContent = styleContent;
         this.testsuiteContent = testsuiteContent;
@@ -83,6 +95,26 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
 
 
     /**
+     * Gets the apiVersion value for this AuraDefinitionBundle.
+     * 
+     * @return apiVersion
+     */
+    public java.lang.Double getApiVersion() {
+        return apiVersion;
+    }
+
+
+    /**
+     * Sets the apiVersion value for this AuraDefinitionBundle.
+     * 
+     * @param apiVersion
+     */
+    public void setApiVersion(java.lang.Double apiVersion) {
+        this.apiVersion = apiVersion;
+    }
+
+
+    /**
      * Gets the controllerContent value for this AuraDefinitionBundle.
      * 
      * @return controllerContent
@@ -99,6 +131,26 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
      */
     public void setControllerContent(byte[] controllerContent) {
         this.controllerContent = controllerContent;
+    }
+
+
+    /**
+     * Gets the description value for this AuraDefinitionBundle.
+     * 
+     * @return description
+     */
+    public java.lang.String getDescription() {
+        return description;
+    }
+
+
+    /**
+     * Sets the description value for this AuraDefinitionBundle.
+     * 
+     * @param description
+     */
+    public void setDescription(java.lang.String description) {
+        this.description = description;
     }
 
 
@@ -203,6 +255,34 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
 
 
     /**
+     * Gets the packageVersions value for this AuraDefinitionBundle.
+     * 
+     * @return packageVersions
+     */
+    public com.sforce.soap._2006._04.metadata.PackageVersion[] getPackageVersions() {
+        return packageVersions;
+    }
+
+
+    /**
+     * Sets the packageVersions value for this AuraDefinitionBundle.
+     * 
+     * @param packageVersions
+     */
+    public void setPackageVersions(com.sforce.soap._2006._04.metadata.PackageVersion[] packageVersions) {
+        this.packageVersions = packageVersions;
+    }
+
+    public com.sforce.soap._2006._04.metadata.PackageVersion getPackageVersions(int i) {
+        return this.packageVersions[i];
+    }
+
+    public void setPackageVersions(int i, com.sforce.soap._2006._04.metadata.PackageVersion _value) {
+        this.packageVersions[i] = _value;
+    }
+
+
+    /**
      * Gets the rendererContent value for this AuraDefinitionBundle.
      * 
      * @return rendererContent
@@ -296,9 +376,15 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
             ((this.SVGContent==null && other.getSVGContent()==null) || 
              (this.SVGContent!=null &&
               java.util.Arrays.equals(this.SVGContent, other.getSVGContent()))) &&
+            ((this.apiVersion==null && other.getApiVersion()==null) || 
+             (this.apiVersion!=null &&
+              this.apiVersion.equals(other.getApiVersion()))) &&
             ((this.controllerContent==null && other.getControllerContent()==null) || 
              (this.controllerContent!=null &&
               java.util.Arrays.equals(this.controllerContent, other.getControllerContent()))) &&
+            ((this.description==null && other.getDescription()==null) || 
+             (this.description!=null &&
+              this.description.equals(other.getDescription()))) &&
             ((this.designContent==null && other.getDesignContent()==null) || 
              (this.designContent!=null &&
               java.util.Arrays.equals(this.designContent, other.getDesignContent()))) &&
@@ -314,6 +400,9 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
             ((this.modelContent==null && other.getModelContent()==null) || 
              (this.modelContent!=null &&
               java.util.Arrays.equals(this.modelContent, other.getModelContent()))) &&
+            ((this.packageVersions==null && other.getPackageVersions()==null) || 
+             (this.packageVersions!=null &&
+              java.util.Arrays.equals(this.packageVersions, other.getPackageVersions()))) &&
             ((this.rendererContent==null && other.getRendererContent()==null) || 
              (this.rendererContent!=null &&
               java.util.Arrays.equals(this.rendererContent, other.getRendererContent()))) &&
@@ -348,6 +437,9 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
                 }
             }
         }
+        if (getApiVersion() != null) {
+            _hashCode += getApiVersion().hashCode();
+        }
         if (getControllerContent() != null) {
             for (int i=0;
                  i<java.lang.reflect.Array.getLength(getControllerContent());
@@ -358,6 +450,9 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
                     _hashCode += obj.hashCode();
                 }
             }
+        }
+        if (getDescription() != null) {
+            _hashCode += getDescription().hashCode();
         }
         if (getDesignContent() != null) {
             for (int i=0;
@@ -408,6 +503,17 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
                  i<java.lang.reflect.Array.getLength(getModelContent());
                  i++) {
                 java.lang.Object obj = java.lang.reflect.Array.get(getModelContent(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        if (getPackageVersions() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPackageVersions());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPackageVersions(), i);
                 if (obj != null &&
                     !obj.getClass().isArray()) {
                     _hashCode += obj.hashCode();
@@ -468,9 +574,23 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("apiVersion");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "apiVersion"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "double"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("controllerContent");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "controllerContent"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("description");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "description"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
@@ -499,6 +619,7 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
         elemField.setFieldName("markup");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "markup"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
@@ -507,6 +628,14 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("packageVersions");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "packageVersions"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "PackageVersion"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("rendererContent");
@@ -533,6 +662,7 @@ public class AuraDefinitionBundle  extends com.sforce.soap._2006._04.metadata.Me
         elemField.setFieldName("type");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "type"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "AuraBundleType"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

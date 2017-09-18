@@ -14,6 +14,8 @@ public class Address  extends com.sforce.soap.partner.Location  implements java.
 
     private java.lang.String countryCode;
 
+    private java.lang.String geocodeAccuracy;
+
     private java.lang.String postalCode;
 
     private java.lang.String state;
@@ -31,6 +33,7 @@ public class Address  extends com.sforce.soap.partner.Location  implements java.
            java.lang.String city,
            java.lang.String country,
            java.lang.String countryCode,
+           java.lang.String geocodeAccuracy,
            java.lang.String postalCode,
            java.lang.String state,
            java.lang.String stateCode,
@@ -41,6 +44,7 @@ public class Address  extends com.sforce.soap.partner.Location  implements java.
         this.city = city;
         this.country = country;
         this.countryCode = countryCode;
+        this.geocodeAccuracy = geocodeAccuracy;
         this.postalCode = postalCode;
         this.state = state;
         this.stateCode = stateCode;
@@ -105,6 +109,26 @@ public class Address  extends com.sforce.soap.partner.Location  implements java.
      */
     public void setCountryCode(java.lang.String countryCode) {
         this.countryCode = countryCode;
+    }
+
+
+    /**
+     * Gets the geocodeAccuracy value for this Address.
+     * 
+     * @return geocodeAccuracy
+     */
+    public java.lang.String getGeocodeAccuracy() {
+        return geocodeAccuracy;
+    }
+
+
+    /**
+     * Sets the geocodeAccuracy value for this Address.
+     * 
+     * @param geocodeAccuracy
+     */
+    public void setGeocodeAccuracy(java.lang.String geocodeAccuracy) {
+        this.geocodeAccuracy = geocodeAccuracy;
     }
 
 
@@ -208,6 +232,9 @@ public class Address  extends com.sforce.soap.partner.Location  implements java.
             ((this.countryCode==null && other.getCountryCode()==null) || 
              (this.countryCode!=null &&
               this.countryCode.equals(other.getCountryCode()))) &&
+            ((this.geocodeAccuracy==null && other.getGeocodeAccuracy()==null) || 
+             (this.geocodeAccuracy!=null &&
+              this.geocodeAccuracy.equals(other.getGeocodeAccuracy()))) &&
             ((this.postalCode==null && other.getPostalCode()==null) || 
              (this.postalCode!=null &&
               this.postalCode.equals(other.getPostalCode()))) &&
@@ -239,6 +266,9 @@ public class Address  extends com.sforce.soap.partner.Location  implements java.
         }
         if (getCountryCode() != null) {
             _hashCode += getCountryCode().hashCode();
+        }
+        if (getGeocodeAccuracy() != null) {
+            _hashCode += getGeocodeAccuracy().hashCode();
         }
         if (getPostalCode() != null) {
             _hashCode += getPostalCode().hashCode();
@@ -277,6 +307,12 @@ public class Address  extends com.sforce.soap.partner.Location  implements java.
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("countryCode");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "countryCode"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("geocodeAccuracy");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "geocodeAccuracy"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);

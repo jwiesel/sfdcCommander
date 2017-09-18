@@ -23,8 +23,6 @@ import com.sforce.soap.partner.DescribeGlobalSObjectResult;
 import com.sforce.soap.partner.DescribeSObjectResult;
 import com.sforce.soap.partner.Field;
 import com.sforce.soap.partner.SoapBindingStub;
-import com.sforce.soap.partner.fault.InvalidSObjectFault;
-import com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
 import de.sfdccommander.controller.connection.SfdcConnectionPool;
 import de.sfdccommander.controller.helper.CommanderException;
@@ -117,10 +115,6 @@ public class XlsRenderer {
                 renderObjectXls(objectGlobalResult, outputFolder);
             }
             commander.info("XLS output successfully generated.");
-        } catch (UnexpectedErrorFault e) {
-            throw new CommanderException(
-                    "Could not describe salesforce metadata to render object-schema as xls-file.",
-                    e);
         } catch (RemoteException e) {
             throw new CommanderException(
                     "Could not describe salesforce metadata to render object-schema as xls-file.",
@@ -139,92 +133,88 @@ public class XlsRenderer {
 
         commander.info("Generating xls for object: " + aObject.getName());
 
-        DescribeSObjectResult tmpDescribeSObject;
+        DescribeSObjectResult[] tmpDescribeSObjects;
         try {
-            tmpDescribeSObject = binding.describeSObject(aObject.getName());
+            tmpDescribeSObjects = binding
+                    .describeSObjects(new String[] { aObject.getName() });
+            for (DescribeSObjectResult tmpDescribeSObject : tmpDescribeSObjects) {
+                // This block is only called, if the sobject has been retrieved
 
-            HSSFWorkbook wb = new HSSFWorkbook();
+                HSSFWorkbook wb = new HSSFWorkbook();
 
-            HSSFFont fontHeading1;
-            HSSFFont fontHeading2;
-            HSSFFont fontHeading3;
-            fontHeading1 = wb.createFont();
-            fontHeading2 = wb.createFont();
-            fontHeading3 = wb.createFont();
+                HSSFFont fontHeading1;
+                HSSFFont fontHeading2;
+                HSSFFont fontHeading3;
+                fontHeading1 = wb.createFont();
+                fontHeading2 = wb.createFont();
+                fontHeading3 = wb.createFont();
 
-            heading1Cs = wb.createCellStyle();
-            heading2Cs = wb.createCellStyle();
-            heading3Cs = wb.createCellStyle();
+                heading1Cs = wb.createCellStyle();
+                heading2Cs = wb.createCellStyle();
+                heading3Cs = wb.createCellStyle();
 
-            fontHeading1.setFontHeightInPoints(H1_SIZE);
-            fontHeading1.setItalic(true);
-            fontHeading1.setBoldweight(Font.BOLDWEIGHT_BOLD);
-            fontHeading1.setColor(IndexedColors.DARK_BLUE.getIndex());
-            heading1Cs.setFont(fontHeading1);
+                fontHeading1.setFontHeightInPoints(H1_SIZE);
+                fontHeading1.setItalic(true);
+                fontHeading1.setBoldweight(Font.BOLDWEIGHT_BOLD);
+                fontHeading1.setColor(IndexedColors.DARK_BLUE.getIndex());
+                heading1Cs.setFont(fontHeading1);
 
-            fontHeading2.setFontHeightInPoints(H2_SIZE);
-            fontHeading2.setItalic(true);
-            heading2Cs.setFont(fontHeading2);
+                fontHeading2.setFontHeightInPoints(H2_SIZE);
+                fontHeading2.setItalic(true);
+                heading2Cs.setFont(fontHeading2);
 
-            fontHeading3.setFontHeightInPoints(H3_SIZE);
-            fontHeading3.setBoldweight(Font.BOLDWEIGHT_BOLD);
-            heading3Cs.setFont(fontHeading3);
-            heading3Cs.setBorderBottom((short) 1);
+                fontHeading3.setFontHeightInPoints(H3_SIZE);
+                fontHeading3.setBoldweight(Font.BOLDWEIGHT_BOLD);
+                heading3Cs.setFont(fontHeading3);
+                heading3Cs.setBorderBottom((short) 1);
 
-            HSSFSheet sheet = wb.createSheet("SCHEMA");
-            HSSFRow row;
-            HSSFCell cell;
+                HSSFSheet sheet = wb.createSheet("SCHEMA");
+                HSSFRow row;
+                HSSFCell cell;
 
-            createSheetTitle(sheet, "Salesforce.com Object Field List");
+                createSheetTitle(sheet, "Salesforce.com Object Field List");
 
-            createSheetHeaderLine(sheet, SHEET_HEADER,
-                    tmpDescribeSObject.getName());
+                createSheetHeaderLine(sheet, SHEET_HEADER,
+                        tmpDescribeSObject.getName());
 
-            createContentHeader(sheet, "Name", "Label", "Required?", "Unique?",
-                    "External Id?", "Case Sensitive?", "Type", "Length",
-                    "Precision", "Scale");
+                createContentHeader(sheet, "Name", "Label", "Required?",
+                        "Unique?", "External Id?", "Case Sensitive?", "Type",
+                        "Length", "Precision", "Scale");
 
-            // fe
-            for (int i = 0; i < tmpDescribeSObject.getFields().length; i++) {
-                row = sheet.createRow((short) i + CONTENT_HEADER + 1);
-                Field currentField = tmpDescribeSObject.getFields()[i];
-                row.createCell(0).setCellValue(currentField.getName());
-                row.createCell(1).setCellValue(currentField.getLabel());
-                boolean required = false;
-                if (!currentField.isNillable()) {
-                    required = true;
+                // fe
+                for (int i = 0; i < tmpDescribeSObject
+                        .getFields().length; i++) {
+                    row = sheet.createRow((short) i + CONTENT_HEADER + 1);
+                    Field currentField = tmpDescribeSObject.getFields()[i];
+                    row.createCell(0).setCellValue(currentField.getName());
+                    row.createCell(1).setCellValue(currentField.getLabel());
+                    boolean required = false;
+                    if (!currentField.isNillable()) {
+                        required = true;
+                    }
+                    Boolean externalId = new Boolean(false);
+                    if (currentField.getExternalId() != null) {
+                        externalId = currentField.getExternalId();
+                    }
+                    row.createCell(2)
+                            .setCellValue(new Boolean(required).toString());
+                    row.createCell(3).setCellValue(
+                            new Boolean(currentField.isUnique()).toString());
+                    row.createCell(4).setCellValue(externalId.toString());
+                    row.createCell(5).setCellValue(
+                            new Boolean(currentField.isCaseSensitive())
+                                    .toString());
+                    row.createCell(6)
+                            .setCellValue(currentField.getType().toString());
+                    row.createCell(7).setCellValue(currentField.getLength());
+                    row.createCell(8).setCellValue(currentField.getPrecision());
+                    row.createCell(9).setCellValue(currentField.getScale());
                 }
-                Boolean externalId = new Boolean(false);
-                if (currentField.getExternalId() != null) {
-                    externalId = currentField.getExternalId();
-                }
-                row.createCell(2)
-                        .setCellValue(new Boolean(required).toString());
-                row.createCell(3).setCellValue(
-                        new Boolean(currentField.isUnique()).toString());
-                row.createCell(4).setCellValue(externalId.toString());
-                row.createCell(5).setCellValue(
-                        new Boolean(currentField.isCaseSensitive()).toString());
-                row.createCell(6)
-                        .setCellValue(currentField.getType().toString());
-                row.createCell(7).setCellValue(currentField.getLength());
-                row.createCell(8).setCellValue(currentField.getPrecision());
-                row.createCell(9).setCellValue(currentField.getScale());
+                autoSizeColumns(sheet, 0, 9);
+
+                saveFile(wb, outputFolder.getAbsolutePath() + "/"
+                        + tmpDescribeSObject.getName() + ".xls");
             }
-            autoSizeColumns(sheet, 0, 9);
-
-            saveFile(wb, outputFolder.getAbsolutePath() + "/"
-                    + tmpDescribeSObject.getName() + ".xls");
-        } catch (InvalidSObjectFault e) {
-            throw new CommanderException(
-                    "Could not describe salesforce object as it seems to be invalid: "
-                            + aObject.getName(),
-                    e);
-        } catch (UnexpectedErrorFault e) {
-            throw new CommanderException(
-                    "Could not describe salesforce object: "
-                            + aObject.getName(),
-                    e);
         } catch (RemoteException e) {
             throw new CommanderException(
                     "Could not describe salesforce object: "

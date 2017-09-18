@@ -14,11 +14,13 @@ public class MalformedSearchFault  extends com.sforce.soap.partner.fault.ApiQuer
     public MalformedSearchFault(
            com.sforce.soap.partner.fault.ExceptionCode exceptionCode,
            java.lang.String exceptionMessage,
+           com.sforce.soap.partner.ExtendedErrorDetails[] extendedErrorDetails,
            int row,
            int column) {
         super(
             exceptionCode,
             exceptionMessage,
+            extendedErrorDetails,
             row,
             column);
     }

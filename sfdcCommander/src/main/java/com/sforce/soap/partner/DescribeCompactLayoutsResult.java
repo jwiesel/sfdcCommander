@@ -186,6 +186,7 @@ public class DescribeCompactLayoutsResult  implements java.io.Serializable {
         elemField.setFieldName("recordTypeCompactLayoutMappings");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "recordTypeCompactLayoutMappings"));
         elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "RecordTypeCompactLayoutMapping"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);

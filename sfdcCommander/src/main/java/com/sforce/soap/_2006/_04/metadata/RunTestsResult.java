@@ -8,6 +8,8 @@
 package com.sforce.soap._2006._04.metadata;
 
 public class RunTestsResult  implements java.io.Serializable {
+    private java.lang.String apexLogId;
+
     private com.sforce.soap._2006._04.metadata.CodeCoverageResult[] codeCoverage;
 
     private com.sforce.soap._2006._04.metadata.CodeCoverageWarning[] codeCoverageWarnings;
@@ -26,6 +28,7 @@ public class RunTestsResult  implements java.io.Serializable {
     }
 
     public RunTestsResult(
+           java.lang.String apexLogId,
            com.sforce.soap._2006._04.metadata.CodeCoverageResult[] codeCoverage,
            com.sforce.soap._2006._04.metadata.CodeCoverageWarning[] codeCoverageWarnings,
            com.sforce.soap._2006._04.metadata.RunTestFailure[] failures,
@@ -33,6 +36,7 @@ public class RunTestsResult  implements java.io.Serializable {
            int numTestsRun,
            com.sforce.soap._2006._04.metadata.RunTestSuccess[] successes,
            double totalTime) {
+           this.apexLogId = apexLogId;
            this.codeCoverage = codeCoverage;
            this.codeCoverageWarnings = codeCoverageWarnings;
            this.failures = failures;
@@ -40,6 +44,26 @@ public class RunTestsResult  implements java.io.Serializable {
            this.numTestsRun = numTestsRun;
            this.successes = successes;
            this.totalTime = totalTime;
+    }
+
+
+    /**
+     * Gets the apexLogId value for this RunTestsResult.
+     * 
+     * @return apexLogId
+     */
+    public java.lang.String getApexLogId() {
+        return apexLogId;
+    }
+
+
+    /**
+     * Sets the apexLogId value for this RunTestsResult.
+     * 
+     * @param apexLogId
+     */
+    public void setApexLogId(java.lang.String apexLogId) {
+        this.apexLogId = apexLogId;
     }
 
 
@@ -226,6 +250,9 @@ public class RunTestsResult  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.apexLogId==null && other.getApexLogId()==null) || 
+             (this.apexLogId!=null &&
+              this.apexLogId.equals(other.getApexLogId()))) &&
             ((this.codeCoverage==null && other.getCodeCoverage()==null) || 
              (this.codeCoverage!=null &&
               java.util.Arrays.equals(this.codeCoverage, other.getCodeCoverage()))) &&
@@ -252,6 +279,9 @@ public class RunTestsResult  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getApexLogId() != null) {
+            _hashCode += getApexLogId().hashCode();
+        }
         if (getCodeCoverage() != null) {
             for (int i=0;
                  i<java.lang.reflect.Array.getLength(getCodeCoverage());
@@ -310,6 +340,13 @@ public class RunTestsResult  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "RunTestsResult"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("apexLogId");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "apexLogId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("codeCoverage");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "codeCoverage"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CodeCoverageResult"));

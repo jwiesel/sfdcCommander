@@ -22,11 +22,19 @@ public class QuickAction  extends com.sforce.soap._2006._04.metadata.Metadata  i
 
     private java.lang.String label;
 
+    private java.lang.String lightningComponent;
+
+    private boolean optionsCreateFeedItem;
+
     private java.lang.String page;
 
     private com.sforce.soap._2006._04.metadata.QuickActionLayout quickActionLayout;
 
+    private com.sforce.soap._2006._04.metadata.QuickActionSendEmailOptions quickActionSendEmailOptions;
+
     private com.sforce.soap._2006._04.metadata.QuickActionLabel standardLabel;
+
+    private java.lang.String successMessage;
 
     private java.lang.String targetObject;
 
@@ -50,9 +58,13 @@ public class QuickAction  extends com.sforce.soap._2006._04.metadata.Metadata  i
            java.lang.String icon,
            java.lang.Boolean isProtected,
            java.lang.String label,
+           java.lang.String lightningComponent,
+           boolean optionsCreateFeedItem,
            java.lang.String page,
            com.sforce.soap._2006._04.metadata.QuickActionLayout quickActionLayout,
+           com.sforce.soap._2006._04.metadata.QuickActionSendEmailOptions quickActionSendEmailOptions,
            com.sforce.soap._2006._04.metadata.QuickActionLabel standardLabel,
+           java.lang.String successMessage,
            java.lang.String targetObject,
            java.lang.String targetParentField,
            java.lang.String targetRecordType,
@@ -67,9 +79,13 @@ public class QuickAction  extends com.sforce.soap._2006._04.metadata.Metadata  i
         this.icon = icon;
         this.isProtected = isProtected;
         this.label = label;
+        this.lightningComponent = lightningComponent;
+        this.optionsCreateFeedItem = optionsCreateFeedItem;
         this.page = page;
         this.quickActionLayout = quickActionLayout;
+        this.quickActionSendEmailOptions = quickActionSendEmailOptions;
         this.standardLabel = standardLabel;
+        this.successMessage = successMessage;
         this.targetObject = targetObject;
         this.targetParentField = targetParentField;
         this.targetRecordType = targetRecordType;
@@ -227,6 +243,46 @@ public class QuickAction  extends com.sforce.soap._2006._04.metadata.Metadata  i
 
 
     /**
+     * Gets the lightningComponent value for this QuickAction.
+     * 
+     * @return lightningComponent
+     */
+    public java.lang.String getLightningComponent() {
+        return lightningComponent;
+    }
+
+
+    /**
+     * Sets the lightningComponent value for this QuickAction.
+     * 
+     * @param lightningComponent
+     */
+    public void setLightningComponent(java.lang.String lightningComponent) {
+        this.lightningComponent = lightningComponent;
+    }
+
+
+    /**
+     * Gets the optionsCreateFeedItem value for this QuickAction.
+     * 
+     * @return optionsCreateFeedItem
+     */
+    public boolean isOptionsCreateFeedItem() {
+        return optionsCreateFeedItem;
+    }
+
+
+    /**
+     * Sets the optionsCreateFeedItem value for this QuickAction.
+     * 
+     * @param optionsCreateFeedItem
+     */
+    public void setOptionsCreateFeedItem(boolean optionsCreateFeedItem) {
+        this.optionsCreateFeedItem = optionsCreateFeedItem;
+    }
+
+
+    /**
      * Gets the page value for this QuickAction.
      * 
      * @return page
@@ -267,6 +323,26 @@ public class QuickAction  extends com.sforce.soap._2006._04.metadata.Metadata  i
 
 
     /**
+     * Gets the quickActionSendEmailOptions value for this QuickAction.
+     * 
+     * @return quickActionSendEmailOptions
+     */
+    public com.sforce.soap._2006._04.metadata.QuickActionSendEmailOptions getQuickActionSendEmailOptions() {
+        return quickActionSendEmailOptions;
+    }
+
+
+    /**
+     * Sets the quickActionSendEmailOptions value for this QuickAction.
+     * 
+     * @param quickActionSendEmailOptions
+     */
+    public void setQuickActionSendEmailOptions(com.sforce.soap._2006._04.metadata.QuickActionSendEmailOptions quickActionSendEmailOptions) {
+        this.quickActionSendEmailOptions = quickActionSendEmailOptions;
+    }
+
+
+    /**
      * Gets the standardLabel value for this QuickAction.
      * 
      * @return standardLabel
@@ -283,6 +359,26 @@ public class QuickAction  extends com.sforce.soap._2006._04.metadata.Metadata  i
      */
     public void setStandardLabel(com.sforce.soap._2006._04.metadata.QuickActionLabel standardLabel) {
         this.standardLabel = standardLabel;
+    }
+
+
+    /**
+     * Gets the successMessage value for this QuickAction.
+     * 
+     * @return successMessage
+     */
+    public java.lang.String getSuccessMessage() {
+        return successMessage;
+    }
+
+
+    /**
+     * Sets the successMessage value for this QuickAction.
+     * 
+     * @param successMessage
+     */
+    public void setSuccessMessage(java.lang.String successMessage) {
+        this.successMessage = successMessage;
     }
 
 
@@ -418,15 +514,25 @@ public class QuickAction  extends com.sforce.soap._2006._04.metadata.Metadata  i
             ((this.label==null && other.getLabel()==null) || 
              (this.label!=null &&
               this.label.equals(other.getLabel()))) &&
+            ((this.lightningComponent==null && other.getLightningComponent()==null) || 
+             (this.lightningComponent!=null &&
+              this.lightningComponent.equals(other.getLightningComponent()))) &&
+            this.optionsCreateFeedItem == other.isOptionsCreateFeedItem() &&
             ((this.page==null && other.getPage()==null) || 
              (this.page!=null &&
               this.page.equals(other.getPage()))) &&
             ((this.quickActionLayout==null && other.getQuickActionLayout()==null) || 
              (this.quickActionLayout!=null &&
               this.quickActionLayout.equals(other.getQuickActionLayout()))) &&
+            ((this.quickActionSendEmailOptions==null && other.getQuickActionSendEmailOptions()==null) || 
+             (this.quickActionSendEmailOptions!=null &&
+              this.quickActionSendEmailOptions.equals(other.getQuickActionSendEmailOptions()))) &&
             ((this.standardLabel==null && other.getStandardLabel()==null) || 
              (this.standardLabel!=null &&
               this.standardLabel.equals(other.getStandardLabel()))) &&
+            ((this.successMessage==null && other.getSuccessMessage()==null) || 
+             (this.successMessage!=null &&
+              this.successMessage.equals(other.getSuccessMessage()))) &&
             ((this.targetObject==null && other.getTargetObject()==null) || 
              (this.targetObject!=null &&
               this.targetObject.equals(other.getTargetObject()))) &&
@@ -482,14 +588,24 @@ public class QuickAction  extends com.sforce.soap._2006._04.metadata.Metadata  i
         if (getLabel() != null) {
             _hashCode += getLabel().hashCode();
         }
+        if (getLightningComponent() != null) {
+            _hashCode += getLightningComponent().hashCode();
+        }
+        _hashCode += (isOptionsCreateFeedItem() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getPage() != null) {
             _hashCode += getPage().hashCode();
         }
         if (getQuickActionLayout() != null) {
             _hashCode += getQuickActionLayout().hashCode();
         }
+        if (getQuickActionSendEmailOptions() != null) {
+            _hashCode += getQuickActionSendEmailOptions().hashCode();
+        }
         if (getStandardLabel() != null) {
             _hashCode += getStandardLabel().hashCode();
+        }
+        if (getSuccessMessage() != null) {
+            _hashCode += getSuccessMessage().hashCode();
         }
         if (getTargetObject() != null) {
             _hashCode += getTargetObject().hashCode();
@@ -567,6 +683,19 @@ public class QuickAction  extends com.sforce.soap._2006._04.metadata.Metadata  i
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("lightningComponent");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "lightningComponent"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("optionsCreateFeedItem");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "optionsCreateFeedItem"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("page");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "page"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -581,9 +710,23 @@ public class QuickAction  extends com.sforce.soap._2006._04.metadata.Metadata  i
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("quickActionSendEmailOptions");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "quickActionSendEmailOptions"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "QuickActionSendEmailOptions"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("standardLabel");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "standardLabel"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "QuickActionLabel"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("successMessage");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "successMessage"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

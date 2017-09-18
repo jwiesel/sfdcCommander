@@ -20,6 +20,8 @@ public class AnalyticsCloudComponentLayoutItem  implements java.io.Serializable 
 
     private java.lang.Boolean hideOnError;
 
+    private java.lang.Boolean showSharing;
+
     private java.lang.Boolean showTitle;
 
     private java.lang.String width;
@@ -34,6 +36,7 @@ public class AnalyticsCloudComponentLayoutItem  implements java.io.Serializable 
            java.lang.String filter,
            java.lang.Integer height,
            java.lang.Boolean hideOnError,
+           java.lang.Boolean showSharing,
            java.lang.Boolean showTitle,
            java.lang.String width) {
            this.assetType = assetType;
@@ -42,6 +45,7 @@ public class AnalyticsCloudComponentLayoutItem  implements java.io.Serializable 
            this.filter = filter;
            this.height = height;
            this.hideOnError = hideOnError;
+           this.showSharing = showSharing;
            this.showTitle = showTitle;
            this.width = width;
     }
@@ -168,6 +172,26 @@ public class AnalyticsCloudComponentLayoutItem  implements java.io.Serializable 
 
 
     /**
+     * Gets the showSharing value for this AnalyticsCloudComponentLayoutItem.
+     * 
+     * @return showSharing
+     */
+    public java.lang.Boolean getShowSharing() {
+        return showSharing;
+    }
+
+
+    /**
+     * Sets the showSharing value for this AnalyticsCloudComponentLayoutItem.
+     * 
+     * @param showSharing
+     */
+    public void setShowSharing(java.lang.Boolean showSharing) {
+        this.showSharing = showSharing;
+    }
+
+
+    /**
      * Gets the showTitle value for this AnalyticsCloudComponentLayoutItem.
      * 
      * @return showTitle
@@ -236,6 +260,9 @@ public class AnalyticsCloudComponentLayoutItem  implements java.io.Serializable 
             ((this.hideOnError==null && other.getHideOnError()==null) || 
              (this.hideOnError!=null &&
               this.hideOnError.equals(other.getHideOnError()))) &&
+            ((this.showSharing==null && other.getShowSharing()==null) || 
+             (this.showSharing!=null &&
+              this.showSharing.equals(other.getShowSharing()))) &&
             ((this.showTitle==null && other.getShowTitle()==null) || 
              (this.showTitle!=null &&
               this.showTitle.equals(other.getShowTitle()))) &&
@@ -270,6 +297,9 @@ public class AnalyticsCloudComponentLayoutItem  implements java.io.Serializable 
         }
         if (getHideOnError() != null) {
             _hashCode += getHideOnError().hashCode();
+        }
+        if (getShowSharing() != null) {
+            _hashCode += getShowSharing().hashCode();
         }
         if (getShowTitle() != null) {
             _hashCode += getShowTitle().hashCode();
@@ -323,6 +353,13 @@ public class AnalyticsCloudComponentLayoutItem  implements java.io.Serializable 
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("hideOnError");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "hideOnError"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("showSharing");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "showSharing"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);

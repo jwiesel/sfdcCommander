@@ -8,6 +8,8 @@
 package com.sforce.soap._2006._04.metadata;
 
 public class FeedLayoutFilter  implements java.io.Serializable {
+    private java.lang.String feedFilterName;
+
     private com.sforce.soap._2006._04.metadata.FeedLayoutFilterType feedFilterType;
 
     private com.sforce.soap._2006._04.metadata.FeedItemType feedItemType;
@@ -16,10 +18,32 @@ public class FeedLayoutFilter  implements java.io.Serializable {
     }
 
     public FeedLayoutFilter(
+           java.lang.String feedFilterName,
            com.sforce.soap._2006._04.metadata.FeedLayoutFilterType feedFilterType,
            com.sforce.soap._2006._04.metadata.FeedItemType feedItemType) {
+           this.feedFilterName = feedFilterName;
            this.feedFilterType = feedFilterType;
            this.feedItemType = feedItemType;
+    }
+
+
+    /**
+     * Gets the feedFilterName value for this FeedLayoutFilter.
+     * 
+     * @return feedFilterName
+     */
+    public java.lang.String getFeedFilterName() {
+        return feedFilterName;
+    }
+
+
+    /**
+     * Sets the feedFilterName value for this FeedLayoutFilter.
+     * 
+     * @param feedFilterName
+     */
+    public void setFeedFilterName(java.lang.String feedFilterName) {
+        this.feedFilterName = feedFilterName;
     }
 
 
@@ -74,6 +98,9 @@ public class FeedLayoutFilter  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.feedFilterName==null && other.getFeedFilterName()==null) || 
+             (this.feedFilterName!=null &&
+              this.feedFilterName.equals(other.getFeedFilterName()))) &&
             ((this.feedFilterType==null && other.getFeedFilterType()==null) || 
              (this.feedFilterType!=null &&
               this.feedFilterType.equals(other.getFeedFilterType()))) &&
@@ -91,6 +118,9 @@ public class FeedLayoutFilter  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getFeedFilterName() != null) {
+            _hashCode += getFeedFilterName().hashCode();
+        }
         if (getFeedFilterType() != null) {
             _hashCode += getFeedFilterType().hashCode();
         }
@@ -108,6 +138,13 @@ public class FeedLayoutFilter  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FeedLayoutFilter"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("feedFilterName");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "feedFilterName"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("feedFilterType");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "feedFilterType"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FeedLayoutFilterType"));

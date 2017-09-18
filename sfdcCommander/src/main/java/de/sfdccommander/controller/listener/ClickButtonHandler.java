@@ -36,7 +36,6 @@ public class ClickButtonHandler implements KeyListener {
      */
     @Override
     public void keyTyped(final KeyEvent e) {
-        // TODO Auto-generated method stub
 
     }
 
@@ -61,7 +60,6 @@ public class ClickButtonHandler implements KeyListener {
      */
     @Override
     public void keyReleased(final KeyEvent e) {
-        // TODO Auto-generated method stub
 
     }
 

@@ -32,6 +32,8 @@ public class KnowledgeSettings  extends com.sforce.soap._2006._04.metadata.Metad
 
     private java.lang.Boolean showValidationStatusField;
 
+    private com.sforce.soap._2006._04.metadata.KnowledgeSuggestedArticlesSettings suggestedArticles;
+
     public KnowledgeSettings() {
     }
 
@@ -48,7 +50,8 @@ public class KnowledgeSettings  extends com.sforce.soap._2006._04.metadata.Metad
            java.lang.Boolean showArticleSummariesCustomerPortal,
            java.lang.Boolean showArticleSummariesInternalApp,
            java.lang.Boolean showArticleSummariesPartnerPortal,
-           java.lang.Boolean showValidationStatusField) {
+           java.lang.Boolean showValidationStatusField,
+           com.sforce.soap._2006._04.metadata.KnowledgeSuggestedArticlesSettings suggestedArticles) {
         super(
             fullName);
         this.answers = answers;
@@ -63,6 +66,7 @@ public class KnowledgeSettings  extends com.sforce.soap._2006._04.metadata.Metad
         this.showArticleSummariesInternalApp = showArticleSummariesInternalApp;
         this.showArticleSummariesPartnerPortal = showArticleSummariesPartnerPortal;
         this.showValidationStatusField = showValidationStatusField;
+        this.suggestedArticles = suggestedArticles;
     }
 
 
@@ -305,6 +309,26 @@ public class KnowledgeSettings  extends com.sforce.soap._2006._04.metadata.Metad
         this.showValidationStatusField = showValidationStatusField;
     }
 
+
+    /**
+     * Gets the suggestedArticles value for this KnowledgeSettings.
+     * 
+     * @return suggestedArticles
+     */
+    public com.sforce.soap._2006._04.metadata.KnowledgeSuggestedArticlesSettings getSuggestedArticles() {
+        return suggestedArticles;
+    }
+
+
+    /**
+     * Sets the suggestedArticles value for this KnowledgeSettings.
+     * 
+     * @param suggestedArticles
+     */
+    public void setSuggestedArticles(com.sforce.soap._2006._04.metadata.KnowledgeSuggestedArticlesSettings suggestedArticles) {
+        this.suggestedArticles = suggestedArticles;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof KnowledgeSettings)) return false;
@@ -352,7 +376,10 @@ public class KnowledgeSettings  extends com.sforce.soap._2006._04.metadata.Metad
               this.showArticleSummariesPartnerPortal.equals(other.getShowArticleSummariesPartnerPortal()))) &&
             ((this.showValidationStatusField==null && other.getShowValidationStatusField()==null) || 
              (this.showValidationStatusField!=null &&
-              this.showValidationStatusField.equals(other.getShowValidationStatusField())));
+              this.showValidationStatusField.equals(other.getShowValidationStatusField()))) &&
+            ((this.suggestedArticles==null && other.getSuggestedArticles()==null) || 
+             (this.suggestedArticles!=null &&
+              this.suggestedArticles.equals(other.getSuggestedArticles())));
         __equalsCalc = null;
         return _equals;
     }
@@ -407,6 +434,9 @@ public class KnowledgeSettings  extends com.sforce.soap._2006._04.metadata.Metad
         }
         if (getShowValidationStatusField() != null) {
             _hashCode += getShowValidationStatusField().hashCode();
+        }
+        if (getSuggestedArticles() != null) {
+            _hashCode += getSuggestedArticles().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -500,6 +530,13 @@ public class KnowledgeSettings  extends com.sforce.soap._2006._04.metadata.Metad
         elemField.setFieldName("showValidationStatusField");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "showValidationStatusField"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("suggestedArticles");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "suggestedArticles"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeSuggestedArticlesSettings"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

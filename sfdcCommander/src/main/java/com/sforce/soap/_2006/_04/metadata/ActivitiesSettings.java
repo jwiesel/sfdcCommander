@@ -18,8 +18,6 @@ public class ActivitiesSettings  extends com.sforce.soap._2006._04.metadata.Meta
 
     private java.lang.Boolean enableEmailTracking;
 
-    private java.lang.Boolean enableEventScheduler;
-
     private java.lang.Boolean enableGroupTasks;
 
     private java.lang.Boolean enableListViewScheduling;
@@ -60,7 +58,6 @@ public class ActivitiesSettings  extends com.sforce.soap._2006._04.metadata.Meta
            java.lang.Boolean enableClickCreateEvents,
            java.lang.Boolean enableDragAndDropScheduling,
            java.lang.Boolean enableEmailTracking,
-           java.lang.Boolean enableEventScheduler,
            java.lang.Boolean enableGroupTasks,
            java.lang.Boolean enableListViewScheduling,
            java.lang.Boolean enableLogNote,
@@ -83,7 +80,6 @@ public class ActivitiesSettings  extends com.sforce.soap._2006._04.metadata.Meta
         this.enableClickCreateEvents = enableClickCreateEvents;
         this.enableDragAndDropScheduling = enableDragAndDropScheduling;
         this.enableEmailTracking = enableEmailTracking;
-        this.enableEventScheduler = enableEventScheduler;
         this.enableGroupTasks = enableGroupTasks;
         this.enableListViewScheduling = enableListViewScheduling;
         this.enableLogNote = enableLogNote;
@@ -199,26 +195,6 @@ public class ActivitiesSettings  extends com.sforce.soap._2006._04.metadata.Meta
      */
     public void setEnableEmailTracking(java.lang.Boolean enableEmailTracking) {
         this.enableEmailTracking = enableEmailTracking;
-    }
-
-
-    /**
-     * Gets the enableEventScheduler value for this ActivitiesSettings.
-     * 
-     * @return enableEventScheduler
-     */
-    public java.lang.Boolean getEnableEventScheduler() {
-        return enableEventScheduler;
-    }
-
-
-    /**
-     * Sets the enableEventScheduler value for this ActivitiesSettings.
-     * 
-     * @param enableEventScheduler
-     */
-    public void setEnableEventScheduler(java.lang.Boolean enableEventScheduler) {
-        this.enableEventScheduler = enableEventScheduler;
     }
 
 
@@ -548,9 +524,6 @@ public class ActivitiesSettings  extends com.sforce.soap._2006._04.metadata.Meta
             ((this.enableEmailTracking==null && other.getEnableEmailTracking()==null) || 
              (this.enableEmailTracking!=null &&
               this.enableEmailTracking.equals(other.getEnableEmailTracking()))) &&
-            ((this.enableEventScheduler==null && other.getEnableEventScheduler()==null) || 
-             (this.enableEventScheduler!=null &&
-              this.enableEventScheduler.equals(other.getEnableEventScheduler()))) &&
             ((this.enableGroupTasks==null && other.getEnableGroupTasks()==null) || 
              (this.enableGroupTasks!=null &&
               this.enableGroupTasks.equals(other.getEnableGroupTasks()))) &&
@@ -621,9 +594,6 @@ public class ActivitiesSettings  extends com.sforce.soap._2006._04.metadata.Meta
         }
         if (getEnableEmailTracking() != null) {
             _hashCode += getEnableEmailTracking().hashCode();
-        }
-        if (getEnableEventScheduler() != null) {
-            _hashCode += getEnableEventScheduler().hashCode();
         }
         if (getEnableGroupTasks() != null) {
             _hashCode += getEnableGroupTasks().hashCode();
@@ -711,13 +681,6 @@ public class ActivitiesSettings  extends com.sforce.soap._2006._04.metadata.Meta
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("enableEmailTracking");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableEmailTracking"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("enableEventScheduler");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableEventScheduler"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);

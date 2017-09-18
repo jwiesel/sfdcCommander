@@ -10,6 +10,10 @@ package com.sforce.soap._2006._04.metadata;
 public class LiveChatDeployment  extends com.sforce.soap._2006._04.metadata.Metadata  implements java.io.Serializable {
     private java.lang.String brandingImage;
 
+    private java.lang.Integer connectionTimeoutDuration;
+
+    private java.lang.Integer connectionWarningDuration;
+
     private java.lang.Boolean displayQueuePosition;
 
     private java.lang.String[] domainWhiteList;
@@ -32,6 +36,8 @@ public class LiveChatDeployment  extends com.sforce.soap._2006._04.metadata.Meta
     public LiveChatDeployment(
            java.lang.String fullName,
            java.lang.String brandingImage,
+           java.lang.Integer connectionTimeoutDuration,
+           java.lang.Integer connectionWarningDuration,
            java.lang.Boolean displayQueuePosition,
            java.lang.String[] domainWhiteList,
            java.lang.Boolean enablePrechatApi,
@@ -43,6 +49,8 @@ public class LiveChatDeployment  extends com.sforce.soap._2006._04.metadata.Meta
         super(
             fullName);
         this.brandingImage = brandingImage;
+        this.connectionTimeoutDuration = connectionTimeoutDuration;
+        this.connectionWarningDuration = connectionWarningDuration;
         this.displayQueuePosition = displayQueuePosition;
         this.domainWhiteList = domainWhiteList;
         this.enablePrechatApi = enablePrechatApi;
@@ -71,6 +79,46 @@ public class LiveChatDeployment  extends com.sforce.soap._2006._04.metadata.Meta
      */
     public void setBrandingImage(java.lang.String brandingImage) {
         this.brandingImage = brandingImage;
+    }
+
+
+    /**
+     * Gets the connectionTimeoutDuration value for this LiveChatDeployment.
+     * 
+     * @return connectionTimeoutDuration
+     */
+    public java.lang.Integer getConnectionTimeoutDuration() {
+        return connectionTimeoutDuration;
+    }
+
+
+    /**
+     * Sets the connectionTimeoutDuration value for this LiveChatDeployment.
+     * 
+     * @param connectionTimeoutDuration
+     */
+    public void setConnectionTimeoutDuration(java.lang.Integer connectionTimeoutDuration) {
+        this.connectionTimeoutDuration = connectionTimeoutDuration;
+    }
+
+
+    /**
+     * Gets the connectionWarningDuration value for this LiveChatDeployment.
+     * 
+     * @return connectionWarningDuration
+     */
+    public java.lang.Integer getConnectionWarningDuration() {
+        return connectionWarningDuration;
+    }
+
+
+    /**
+     * Sets the connectionWarningDuration value for this LiveChatDeployment.
+     * 
+     * @param connectionWarningDuration
+     */
+    public void setConnectionWarningDuration(java.lang.Integer connectionWarningDuration) {
+        this.connectionWarningDuration = connectionWarningDuration;
     }
 
 
@@ -248,6 +296,12 @@ public class LiveChatDeployment  extends com.sforce.soap._2006._04.metadata.Meta
             ((this.brandingImage==null && other.getBrandingImage()==null) || 
              (this.brandingImage!=null &&
               this.brandingImage.equals(other.getBrandingImage()))) &&
+            ((this.connectionTimeoutDuration==null && other.getConnectionTimeoutDuration()==null) || 
+             (this.connectionTimeoutDuration!=null &&
+              this.connectionTimeoutDuration.equals(other.getConnectionTimeoutDuration()))) &&
+            ((this.connectionWarningDuration==null && other.getConnectionWarningDuration()==null) || 
+             (this.connectionWarningDuration!=null &&
+              this.connectionWarningDuration.equals(other.getConnectionWarningDuration()))) &&
             ((this.displayQueuePosition==null && other.getDisplayQueuePosition()==null) || 
              (this.displayQueuePosition!=null &&
               this.displayQueuePosition.equals(other.getDisplayQueuePosition()))) &&
@@ -285,6 +339,12 @@ public class LiveChatDeployment  extends com.sforce.soap._2006._04.metadata.Meta
         int _hashCode = super.hashCode();
         if (getBrandingImage() != null) {
             _hashCode += getBrandingImage().hashCode();
+        }
+        if (getConnectionTimeoutDuration() != null) {
+            _hashCode += getConnectionTimeoutDuration().hashCode();
+        }
+        if (getConnectionWarningDuration() != null) {
+            _hashCode += getConnectionWarningDuration().hashCode();
         }
         if (getDisplayQueuePosition() != null) {
             _hashCode += getDisplayQueuePosition().hashCode();
@@ -332,6 +392,20 @@ public class LiveChatDeployment  extends com.sforce.soap._2006._04.metadata.Meta
         elemField.setFieldName("brandingImage");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "brandingImage"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("connectionTimeoutDuration");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "connectionTimeoutDuration"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("connectionWarningDuration");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "connectionWarningDuration"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

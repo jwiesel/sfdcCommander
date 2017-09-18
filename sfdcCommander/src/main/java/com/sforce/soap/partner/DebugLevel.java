@@ -20,9 +20,15 @@ public class DebugLevel implements java.io.Serializable {
     public static final java.lang.String _None = "None";
     public static final java.lang.String _DebugOnly = "DebugOnly";
     public static final java.lang.String _Db = "Db";
+    public static final java.lang.String _Profiling = "Profiling";
+    public static final java.lang.String _Callout = "Callout";
+    public static final java.lang.String _Detail = "Detail";
     public static final DebugLevel None = new DebugLevel(_None);
     public static final DebugLevel DebugOnly = new DebugLevel(_DebugOnly);
     public static final DebugLevel Db = new DebugLevel(_Db);
+    public static final DebugLevel Profiling = new DebugLevel(_Profiling);
+    public static final DebugLevel Callout = new DebugLevel(_Callout);
+    public static final DebugLevel Detail = new DebugLevel(_Detail);
     public java.lang.String getValue() { return _value_;}
     public static DebugLevel fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

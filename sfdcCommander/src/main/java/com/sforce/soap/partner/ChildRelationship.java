@@ -16,7 +16,7 @@ public class ChildRelationship  implements java.io.Serializable {
 
     private java.lang.String field;
 
-    private java.lang.String junctionIdListName;
+    private java.lang.String[] junctionIdListNames;
 
     private java.lang.String[] junctionReferenceTo;
 
@@ -32,7 +32,7 @@ public class ChildRelationship  implements java.io.Serializable {
            java.lang.String childSObject,
            boolean deprecatedAndHidden,
            java.lang.String field,
-           java.lang.String junctionIdListName,
+           java.lang.String[] junctionIdListNames,
            java.lang.String[] junctionReferenceTo,
            java.lang.String relationshipName,
            java.lang.Boolean restrictedDelete) {
@@ -40,7 +40,7 @@ public class ChildRelationship  implements java.io.Serializable {
            this.childSObject = childSObject;
            this.deprecatedAndHidden = deprecatedAndHidden;
            this.field = field;
-           this.junctionIdListName = junctionIdListName;
+           this.junctionIdListNames = junctionIdListNames;
            this.junctionReferenceTo = junctionReferenceTo;
            this.relationshipName = relationshipName;
            this.restrictedDelete = restrictedDelete;
@@ -128,22 +128,30 @@ public class ChildRelationship  implements java.io.Serializable {
 
 
     /**
-     * Gets the junctionIdListName value for this ChildRelationship.
+     * Gets the junctionIdListNames value for this ChildRelationship.
      * 
-     * @return junctionIdListName
+     * @return junctionIdListNames
      */
-    public java.lang.String getJunctionIdListName() {
-        return junctionIdListName;
+    public java.lang.String[] getJunctionIdListNames() {
+        return junctionIdListNames;
     }
 
 
     /**
-     * Sets the junctionIdListName value for this ChildRelationship.
+     * Sets the junctionIdListNames value for this ChildRelationship.
      * 
-     * @param junctionIdListName
+     * @param junctionIdListNames
      */
-    public void setJunctionIdListName(java.lang.String junctionIdListName) {
-        this.junctionIdListName = junctionIdListName;
+    public void setJunctionIdListNames(java.lang.String[] junctionIdListNames) {
+        this.junctionIdListNames = junctionIdListNames;
+    }
+
+    public java.lang.String getJunctionIdListNames(int i) {
+        return this.junctionIdListNames[i];
+    }
+
+    public void setJunctionIdListNames(int i, java.lang.String _value) {
+        this.junctionIdListNames[i] = _value;
     }
 
 
@@ -234,9 +242,9 @@ public class ChildRelationship  implements java.io.Serializable {
             ((this.field==null && other.getField()==null) || 
              (this.field!=null &&
               this.field.equals(other.getField()))) &&
-            ((this.junctionIdListName==null && other.getJunctionIdListName()==null) || 
-             (this.junctionIdListName!=null &&
-              this.junctionIdListName.equals(other.getJunctionIdListName()))) &&
+            ((this.junctionIdListNames==null && other.getJunctionIdListNames()==null) || 
+             (this.junctionIdListNames!=null &&
+              java.util.Arrays.equals(this.junctionIdListNames, other.getJunctionIdListNames()))) &&
             ((this.junctionReferenceTo==null && other.getJunctionReferenceTo()==null) || 
              (this.junctionReferenceTo!=null &&
               java.util.Arrays.equals(this.junctionReferenceTo, other.getJunctionReferenceTo()))) &&
@@ -265,8 +273,16 @@ public class ChildRelationship  implements java.io.Serializable {
         if (getField() != null) {
             _hashCode += getField().hashCode();
         }
-        if (getJunctionIdListName() != null) {
-            _hashCode += getJunctionIdListName().hashCode();
+        if (getJunctionIdListNames() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getJunctionIdListNames());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getJunctionIdListNames(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getJunctionReferenceTo() != null) {
             for (int i=0;
@@ -320,11 +336,12 @@ public class ChildRelationship  implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("junctionIdListName");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "junctionIdListName"));
+        elemField.setFieldName("junctionIdListNames");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "junctionIdListNames"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
-        elemField.setNillable(false);
+        elemField.setNillable(true);
+        elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("junctionReferenceTo");

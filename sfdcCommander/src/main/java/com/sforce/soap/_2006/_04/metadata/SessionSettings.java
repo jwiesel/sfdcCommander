@@ -10,6 +10,8 @@ package com.sforce.soap._2006._04.metadata;
 public class SessionSettings  implements java.io.Serializable {
     private java.lang.Boolean disableTimeoutWarning;
 
+    private java.lang.Boolean enableCSPOnEmail;
+
     private java.lang.Boolean enableCSRFOnGet;
 
     private java.lang.Boolean enableCSRFOnPost;
@@ -24,9 +26,13 @@ public class SessionSettings  implements java.io.Serializable {
 
     private java.lang.Boolean enableClickjackSetup;
 
+    private java.lang.Boolean enableContentSniffingProtection;
+
     private java.lang.Boolean enablePostForSessions;
 
     private java.lang.Boolean enableSMSIdentity;
+
+    private java.lang.Boolean enableXssProtection;
 
     private java.lang.Boolean enforceIpRangesEveryRequest;
 
@@ -40,6 +46,8 @@ public class SessionSettings  implements java.io.Serializable {
 
     private java.lang.String logoutURL;
 
+    private java.lang.Boolean securityCentralKillSession;
+
     private com.sforce.soap._2006._04.metadata.SessionTimeout sessionTimeout;
 
     public SessionSettings() {
@@ -47,6 +55,7 @@ public class SessionSettings  implements java.io.Serializable {
 
     public SessionSettings(
            java.lang.Boolean disableTimeoutWarning,
+           java.lang.Boolean enableCSPOnEmail,
            java.lang.Boolean enableCSRFOnGet,
            java.lang.Boolean enableCSRFOnPost,
            java.lang.Boolean enableCacheAndAutocomplete,
@@ -54,16 +63,20 @@ public class SessionSettings  implements java.io.Serializable {
            java.lang.Boolean enableClickjackNonsetupUser,
            java.lang.Boolean enableClickjackNonsetupUserHeaderless,
            java.lang.Boolean enableClickjackSetup,
+           java.lang.Boolean enableContentSniffingProtection,
            java.lang.Boolean enablePostForSessions,
            java.lang.Boolean enableSMSIdentity,
+           java.lang.Boolean enableXssProtection,
            java.lang.Boolean enforceIpRangesEveryRequest,
            java.lang.Boolean forceLogoutOnSessionTimeout,
            java.lang.Boolean forceRelogin,
            java.lang.Boolean lockSessionsToDomain,
            java.lang.Boolean lockSessionsToIp,
            java.lang.String logoutURL,
+           java.lang.Boolean securityCentralKillSession,
            com.sforce.soap._2006._04.metadata.SessionTimeout sessionTimeout) {
            this.disableTimeoutWarning = disableTimeoutWarning;
+           this.enableCSPOnEmail = enableCSPOnEmail;
            this.enableCSRFOnGet = enableCSRFOnGet;
            this.enableCSRFOnPost = enableCSRFOnPost;
            this.enableCacheAndAutocomplete = enableCacheAndAutocomplete;
@@ -71,14 +84,17 @@ public class SessionSettings  implements java.io.Serializable {
            this.enableClickjackNonsetupUser = enableClickjackNonsetupUser;
            this.enableClickjackNonsetupUserHeaderless = enableClickjackNonsetupUserHeaderless;
            this.enableClickjackSetup = enableClickjackSetup;
+           this.enableContentSniffingProtection = enableContentSniffingProtection;
            this.enablePostForSessions = enablePostForSessions;
            this.enableSMSIdentity = enableSMSIdentity;
+           this.enableXssProtection = enableXssProtection;
            this.enforceIpRangesEveryRequest = enforceIpRangesEveryRequest;
            this.forceLogoutOnSessionTimeout = forceLogoutOnSessionTimeout;
            this.forceRelogin = forceRelogin;
            this.lockSessionsToDomain = lockSessionsToDomain;
            this.lockSessionsToIp = lockSessionsToIp;
            this.logoutURL = logoutURL;
+           this.securityCentralKillSession = securityCentralKillSession;
            this.sessionTimeout = sessionTimeout;
     }
 
@@ -100,6 +116,26 @@ public class SessionSettings  implements java.io.Serializable {
      */
     public void setDisableTimeoutWarning(java.lang.Boolean disableTimeoutWarning) {
         this.disableTimeoutWarning = disableTimeoutWarning;
+    }
+
+
+    /**
+     * Gets the enableCSPOnEmail value for this SessionSettings.
+     * 
+     * @return enableCSPOnEmail
+     */
+    public java.lang.Boolean getEnableCSPOnEmail() {
+        return enableCSPOnEmail;
+    }
+
+
+    /**
+     * Sets the enableCSPOnEmail value for this SessionSettings.
+     * 
+     * @param enableCSPOnEmail
+     */
+    public void setEnableCSPOnEmail(java.lang.Boolean enableCSPOnEmail) {
+        this.enableCSPOnEmail = enableCSPOnEmail;
     }
 
 
@@ -244,6 +280,26 @@ public class SessionSettings  implements java.io.Serializable {
 
 
     /**
+     * Gets the enableContentSniffingProtection value for this SessionSettings.
+     * 
+     * @return enableContentSniffingProtection
+     */
+    public java.lang.Boolean getEnableContentSniffingProtection() {
+        return enableContentSniffingProtection;
+    }
+
+
+    /**
+     * Sets the enableContentSniffingProtection value for this SessionSettings.
+     * 
+     * @param enableContentSniffingProtection
+     */
+    public void setEnableContentSniffingProtection(java.lang.Boolean enableContentSniffingProtection) {
+        this.enableContentSniffingProtection = enableContentSniffingProtection;
+    }
+
+
+    /**
      * Gets the enablePostForSessions value for this SessionSettings.
      * 
      * @return enablePostForSessions
@@ -280,6 +336,26 @@ public class SessionSettings  implements java.io.Serializable {
      */
     public void setEnableSMSIdentity(java.lang.Boolean enableSMSIdentity) {
         this.enableSMSIdentity = enableSMSIdentity;
+    }
+
+
+    /**
+     * Gets the enableXssProtection value for this SessionSettings.
+     * 
+     * @return enableXssProtection
+     */
+    public java.lang.Boolean getEnableXssProtection() {
+        return enableXssProtection;
+    }
+
+
+    /**
+     * Sets the enableXssProtection value for this SessionSettings.
+     * 
+     * @param enableXssProtection
+     */
+    public void setEnableXssProtection(java.lang.Boolean enableXssProtection) {
+        this.enableXssProtection = enableXssProtection;
     }
 
 
@@ -404,6 +480,26 @@ public class SessionSettings  implements java.io.Serializable {
 
 
     /**
+     * Gets the securityCentralKillSession value for this SessionSettings.
+     * 
+     * @return securityCentralKillSession
+     */
+    public java.lang.Boolean getSecurityCentralKillSession() {
+        return securityCentralKillSession;
+    }
+
+
+    /**
+     * Sets the securityCentralKillSession value for this SessionSettings.
+     * 
+     * @param securityCentralKillSession
+     */
+    public void setSecurityCentralKillSession(java.lang.Boolean securityCentralKillSession) {
+        this.securityCentralKillSession = securityCentralKillSession;
+    }
+
+
+    /**
      * Gets the sessionTimeout value for this SessionSettings.
      * 
      * @return sessionTimeout
@@ -437,6 +533,9 @@ public class SessionSettings  implements java.io.Serializable {
             ((this.disableTimeoutWarning==null && other.getDisableTimeoutWarning()==null) || 
              (this.disableTimeoutWarning!=null &&
               this.disableTimeoutWarning.equals(other.getDisableTimeoutWarning()))) &&
+            ((this.enableCSPOnEmail==null && other.getEnableCSPOnEmail()==null) || 
+             (this.enableCSPOnEmail!=null &&
+              this.enableCSPOnEmail.equals(other.getEnableCSPOnEmail()))) &&
             ((this.enableCSRFOnGet==null && other.getEnableCSRFOnGet()==null) || 
              (this.enableCSRFOnGet!=null &&
               this.enableCSRFOnGet.equals(other.getEnableCSRFOnGet()))) &&
@@ -458,12 +557,18 @@ public class SessionSettings  implements java.io.Serializable {
             ((this.enableClickjackSetup==null && other.getEnableClickjackSetup()==null) || 
              (this.enableClickjackSetup!=null &&
               this.enableClickjackSetup.equals(other.getEnableClickjackSetup()))) &&
+            ((this.enableContentSniffingProtection==null && other.getEnableContentSniffingProtection()==null) || 
+             (this.enableContentSniffingProtection!=null &&
+              this.enableContentSniffingProtection.equals(other.getEnableContentSniffingProtection()))) &&
             ((this.enablePostForSessions==null && other.getEnablePostForSessions()==null) || 
              (this.enablePostForSessions!=null &&
               this.enablePostForSessions.equals(other.getEnablePostForSessions()))) &&
             ((this.enableSMSIdentity==null && other.getEnableSMSIdentity()==null) || 
              (this.enableSMSIdentity!=null &&
               this.enableSMSIdentity.equals(other.getEnableSMSIdentity()))) &&
+            ((this.enableXssProtection==null && other.getEnableXssProtection()==null) || 
+             (this.enableXssProtection!=null &&
+              this.enableXssProtection.equals(other.getEnableXssProtection()))) &&
             ((this.enforceIpRangesEveryRequest==null && other.getEnforceIpRangesEveryRequest()==null) || 
              (this.enforceIpRangesEveryRequest!=null &&
               this.enforceIpRangesEveryRequest.equals(other.getEnforceIpRangesEveryRequest()))) &&
@@ -482,6 +587,9 @@ public class SessionSettings  implements java.io.Serializable {
             ((this.logoutURL==null && other.getLogoutURL()==null) || 
              (this.logoutURL!=null &&
               this.logoutURL.equals(other.getLogoutURL()))) &&
+            ((this.securityCentralKillSession==null && other.getSecurityCentralKillSession()==null) || 
+             (this.securityCentralKillSession!=null &&
+              this.securityCentralKillSession.equals(other.getSecurityCentralKillSession()))) &&
             ((this.sessionTimeout==null && other.getSessionTimeout()==null) || 
              (this.sessionTimeout!=null &&
               this.sessionTimeout.equals(other.getSessionTimeout())));
@@ -498,6 +606,9 @@ public class SessionSettings  implements java.io.Serializable {
         int _hashCode = 1;
         if (getDisableTimeoutWarning() != null) {
             _hashCode += getDisableTimeoutWarning().hashCode();
+        }
+        if (getEnableCSPOnEmail() != null) {
+            _hashCode += getEnableCSPOnEmail().hashCode();
         }
         if (getEnableCSRFOnGet() != null) {
             _hashCode += getEnableCSRFOnGet().hashCode();
@@ -520,11 +631,17 @@ public class SessionSettings  implements java.io.Serializable {
         if (getEnableClickjackSetup() != null) {
             _hashCode += getEnableClickjackSetup().hashCode();
         }
+        if (getEnableContentSniffingProtection() != null) {
+            _hashCode += getEnableContentSniffingProtection().hashCode();
+        }
         if (getEnablePostForSessions() != null) {
             _hashCode += getEnablePostForSessions().hashCode();
         }
         if (getEnableSMSIdentity() != null) {
             _hashCode += getEnableSMSIdentity().hashCode();
+        }
+        if (getEnableXssProtection() != null) {
+            _hashCode += getEnableXssProtection().hashCode();
         }
         if (getEnforceIpRangesEveryRequest() != null) {
             _hashCode += getEnforceIpRangesEveryRequest().hashCode();
@@ -544,6 +661,9 @@ public class SessionSettings  implements java.io.Serializable {
         if (getLogoutURL() != null) {
             _hashCode += getLogoutURL().hashCode();
         }
+        if (getSecurityCentralKillSession() != null) {
+            _hashCode += getSecurityCentralKillSession().hashCode();
+        }
         if (getSessionTimeout() != null) {
             _hashCode += getSessionTimeout().hashCode();
         }
@@ -560,6 +680,13 @@ public class SessionSettings  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("disableTimeoutWarning");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "disableTimeoutWarning"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("enableCSPOnEmail");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableCSPOnEmail"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
@@ -614,6 +741,13 @@ public class SessionSettings  implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("enableContentSniffingProtection");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableContentSniffingProtection"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("enablePostForSessions");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enablePostForSessions"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
@@ -623,6 +757,13 @@ public class SessionSettings  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("enableSMSIdentity");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableSMSIdentity"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("enableXssProtection");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableXssProtection"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
@@ -666,6 +807,13 @@ public class SessionSettings  implements java.io.Serializable {
         elemField.setFieldName("logoutURL");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "logoutURL"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("securityCentralKillSession");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "securityCentralKillSession"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

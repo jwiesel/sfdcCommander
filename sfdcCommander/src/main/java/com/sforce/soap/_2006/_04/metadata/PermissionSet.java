@@ -20,7 +20,11 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
 
     private com.sforce.soap._2006._04.metadata.PermissionSetFieldPermissions[] fieldPermissions;
 
+    private java.lang.Boolean hasActivationRequired;
+
     private java.lang.String label;
+
+    private java.lang.String license;
 
     private com.sforce.soap._2006._04.metadata.PermissionSetObjectPermissions[] objectPermissions;
 
@@ -29,8 +33,6 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
     private com.sforce.soap._2006._04.metadata.PermissionSetRecordTypeVisibility[] recordTypeVisibilities;
 
     private com.sforce.soap._2006._04.metadata.PermissionSetTabSetting[] tabSettings;
-
-    private java.lang.String userLicense;
 
     private com.sforce.soap._2006._04.metadata.PermissionSetUserPermission[] userPermissions;
 
@@ -45,12 +47,13 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
            java.lang.String description,
            com.sforce.soap._2006._04.metadata.PermissionSetExternalDataSourceAccess[] externalDataSourceAccesses,
            com.sforce.soap._2006._04.metadata.PermissionSetFieldPermissions[] fieldPermissions,
+           java.lang.Boolean hasActivationRequired,
            java.lang.String label,
+           java.lang.String license,
            com.sforce.soap._2006._04.metadata.PermissionSetObjectPermissions[] objectPermissions,
            com.sforce.soap._2006._04.metadata.PermissionSetApexPageAccess[] pageAccesses,
            com.sforce.soap._2006._04.metadata.PermissionSetRecordTypeVisibility[] recordTypeVisibilities,
            com.sforce.soap._2006._04.metadata.PermissionSetTabSetting[] tabSettings,
-           java.lang.String userLicense,
            com.sforce.soap._2006._04.metadata.PermissionSetUserPermission[] userPermissions) {
         super(
             fullName);
@@ -60,12 +63,13 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
         this.description = description;
         this.externalDataSourceAccesses = externalDataSourceAccesses;
         this.fieldPermissions = fieldPermissions;
+        this.hasActivationRequired = hasActivationRequired;
         this.label = label;
+        this.license = license;
         this.objectPermissions = objectPermissions;
         this.pageAccesses = pageAccesses;
         this.recordTypeVisibilities = recordTypeVisibilities;
         this.tabSettings = tabSettings;
-        this.userLicense = userLicense;
         this.userPermissions = userPermissions;
     }
 
@@ -231,6 +235,26 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
 
 
     /**
+     * Gets the hasActivationRequired value for this PermissionSet.
+     * 
+     * @return hasActivationRequired
+     */
+    public java.lang.Boolean getHasActivationRequired() {
+        return hasActivationRequired;
+    }
+
+
+    /**
+     * Sets the hasActivationRequired value for this PermissionSet.
+     * 
+     * @param hasActivationRequired
+     */
+    public void setHasActivationRequired(java.lang.Boolean hasActivationRequired) {
+        this.hasActivationRequired = hasActivationRequired;
+    }
+
+
+    /**
      * Gets the label value for this PermissionSet.
      * 
      * @return label
@@ -247,6 +271,26 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
      */
     public void setLabel(java.lang.String label) {
         this.label = label;
+    }
+
+
+    /**
+     * Gets the license value for this PermissionSet.
+     * 
+     * @return license
+     */
+    public java.lang.String getLicense() {
+        return license;
+    }
+
+
+    /**
+     * Sets the license value for this PermissionSet.
+     * 
+     * @param license
+     */
+    public void setLicense(java.lang.String license) {
+        this.license = license;
     }
 
 
@@ -363,26 +407,6 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
 
 
     /**
-     * Gets the userLicense value for this PermissionSet.
-     * 
-     * @return userLicense
-     */
-    public java.lang.String getUserLicense() {
-        return userLicense;
-    }
-
-
-    /**
-     * Sets the userLicense value for this PermissionSet.
-     * 
-     * @param userLicense
-     */
-    public void setUserLicense(java.lang.String userLicense) {
-        this.userLicense = userLicense;
-    }
-
-
-    /**
      * Gets the userPermissions value for this PermissionSet.
      * 
      * @return userPermissions
@@ -439,9 +463,15 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
             ((this.fieldPermissions==null && other.getFieldPermissions()==null) || 
              (this.fieldPermissions!=null &&
               java.util.Arrays.equals(this.fieldPermissions, other.getFieldPermissions()))) &&
+            ((this.hasActivationRequired==null && other.getHasActivationRequired()==null) || 
+             (this.hasActivationRequired!=null &&
+              this.hasActivationRequired.equals(other.getHasActivationRequired()))) &&
             ((this.label==null && other.getLabel()==null) || 
              (this.label!=null &&
               this.label.equals(other.getLabel()))) &&
+            ((this.license==null && other.getLicense()==null) || 
+             (this.license!=null &&
+              this.license.equals(other.getLicense()))) &&
             ((this.objectPermissions==null && other.getObjectPermissions()==null) || 
              (this.objectPermissions!=null &&
               java.util.Arrays.equals(this.objectPermissions, other.getObjectPermissions()))) &&
@@ -454,9 +484,6 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
             ((this.tabSettings==null && other.getTabSettings()==null) || 
              (this.tabSettings!=null &&
               java.util.Arrays.equals(this.tabSettings, other.getTabSettings()))) &&
-            ((this.userLicense==null && other.getUserLicense()==null) || 
-             (this.userLicense!=null &&
-              this.userLicense.equals(other.getUserLicense()))) &&
             ((this.userPermissions==null && other.getUserPermissions()==null) || 
              (this.userPermissions!=null &&
               java.util.Arrays.equals(this.userPermissions, other.getUserPermissions())));
@@ -529,8 +556,14 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
                 }
             }
         }
+        if (getHasActivationRequired() != null) {
+            _hashCode += getHasActivationRequired().hashCode();
+        }
         if (getLabel() != null) {
             _hashCode += getLabel().hashCode();
+        }
+        if (getLicense() != null) {
+            _hashCode += getLicense().hashCode();
         }
         if (getObjectPermissions() != null) {
             for (int i=0;
@@ -575,9 +608,6 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
                     _hashCode += obj.hashCode();
                 }
             }
-        }
-        if (getUserLicense() != null) {
-            _hashCode += getUserLicense().hashCode();
         }
         if (getUserPermissions() != null) {
             for (int i=0;
@@ -648,8 +678,21 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
         elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("hasActivationRequired");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "hasActivationRequired"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("label");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "label"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("license");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "license"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
@@ -685,13 +728,6 @@ public class PermissionSet  extends com.sforce.soap._2006._04.metadata.Metadata 
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("userLicense");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "userLicense"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("userPermissions");

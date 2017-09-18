@@ -10,7 +10,11 @@ package com.sforce.soap._2006._04.metadata;
 public class Community  extends com.sforce.soap._2006._04.metadata.Metadata  implements java.io.Serializable {
     private java.lang.Boolean active;
 
+    private java.lang.String chatterAnswersFacebookSsoUrl;
+
     private java.lang.String communityFeedPage;
+
+    private java.lang.String dataCategoryName;
 
     private java.lang.String description;
 
@@ -40,7 +44,9 @@ public class Community  extends com.sforce.soap._2006._04.metadata.Metadata  imp
     public Community(
            java.lang.String fullName,
            java.lang.Boolean active,
+           java.lang.String chatterAnswersFacebookSsoUrl,
            java.lang.String communityFeedPage,
+           java.lang.String dataCategoryName,
            java.lang.String description,
            java.lang.String emailFooterDocument,
            java.lang.String emailHeaderDocument,
@@ -55,7 +61,9 @@ public class Community  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         super(
             fullName);
         this.active = active;
+        this.chatterAnswersFacebookSsoUrl = chatterAnswersFacebookSsoUrl;
         this.communityFeedPage = communityFeedPage;
+        this.dataCategoryName = dataCategoryName;
         this.description = description;
         this.emailFooterDocument = emailFooterDocument;
         this.emailHeaderDocument = emailHeaderDocument;
@@ -91,6 +99,26 @@ public class Community  extends com.sforce.soap._2006._04.metadata.Metadata  imp
 
 
     /**
+     * Gets the chatterAnswersFacebookSsoUrl value for this Community.
+     * 
+     * @return chatterAnswersFacebookSsoUrl
+     */
+    public java.lang.String getChatterAnswersFacebookSsoUrl() {
+        return chatterAnswersFacebookSsoUrl;
+    }
+
+
+    /**
+     * Sets the chatterAnswersFacebookSsoUrl value for this Community.
+     * 
+     * @param chatterAnswersFacebookSsoUrl
+     */
+    public void setChatterAnswersFacebookSsoUrl(java.lang.String chatterAnswersFacebookSsoUrl) {
+        this.chatterAnswersFacebookSsoUrl = chatterAnswersFacebookSsoUrl;
+    }
+
+
+    /**
      * Gets the communityFeedPage value for this Community.
      * 
      * @return communityFeedPage
@@ -107,6 +135,26 @@ public class Community  extends com.sforce.soap._2006._04.metadata.Metadata  imp
      */
     public void setCommunityFeedPage(java.lang.String communityFeedPage) {
         this.communityFeedPage = communityFeedPage;
+    }
+
+
+    /**
+     * Gets the dataCategoryName value for this Community.
+     * 
+     * @return dataCategoryName
+     */
+    public java.lang.String getDataCategoryName() {
+        return dataCategoryName;
+    }
+
+
+    /**
+     * Sets the dataCategoryName value for this Community.
+     * 
+     * @param dataCategoryName
+     */
+    public void setDataCategoryName(java.lang.String dataCategoryName) {
+        this.dataCategoryName = dataCategoryName;
     }
 
 
@@ -344,9 +392,15 @@ public class Community  extends com.sforce.soap._2006._04.metadata.Metadata  imp
             ((this.active==null && other.getActive()==null) || 
              (this.active!=null &&
               this.active.equals(other.getActive()))) &&
+            ((this.chatterAnswersFacebookSsoUrl==null && other.getChatterAnswersFacebookSsoUrl()==null) || 
+             (this.chatterAnswersFacebookSsoUrl!=null &&
+              this.chatterAnswersFacebookSsoUrl.equals(other.getChatterAnswersFacebookSsoUrl()))) &&
             ((this.communityFeedPage==null && other.getCommunityFeedPage()==null) || 
              (this.communityFeedPage!=null &&
               this.communityFeedPage.equals(other.getCommunityFeedPage()))) &&
+            ((this.dataCategoryName==null && other.getDataCategoryName()==null) || 
+             (this.dataCategoryName!=null &&
+              this.dataCategoryName.equals(other.getDataCategoryName()))) &&
             ((this.description==null && other.getDescription()==null) || 
              (this.description!=null &&
               this.description.equals(other.getDescription()))) &&
@@ -394,8 +448,14 @@ public class Community  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         if (getActive() != null) {
             _hashCode += getActive().hashCode();
         }
+        if (getChatterAnswersFacebookSsoUrl() != null) {
+            _hashCode += getChatterAnswersFacebookSsoUrl().hashCode();
+        }
         if (getCommunityFeedPage() != null) {
             _hashCode += getCommunityFeedPage().hashCode();
+        }
+        if (getDataCategoryName() != null) {
+            _hashCode += getDataCategoryName().hashCode();
         }
         if (getDescription() != null) {
             _hashCode += getDescription().hashCode();
@@ -448,8 +508,22 @@ public class Community  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("chatterAnswersFacebookSsoUrl");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "chatterAnswersFacebookSsoUrl"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("communityFeedPage");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "communityFeedPage"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("dataCategoryName");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "dataCategoryName"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);

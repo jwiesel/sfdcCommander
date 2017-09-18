@@ -14,11 +14,13 @@ public class DuplicateError  extends com.sforce.soap.partner.Error  implements j
     }
 
     public DuplicateError(
+           com.sforce.soap.partner.ExtendedErrorDetails[] extendedErrorDetails,
            java.lang.String[] fields,
            java.lang.String message,
            com.sforce.soap.partner.StatusCode statusCode,
            com.sforce.soap.partner.DuplicateResult duplicateResult) {
         super(
+            extendedErrorDetails,
             fields,
             message,
             statusCode);

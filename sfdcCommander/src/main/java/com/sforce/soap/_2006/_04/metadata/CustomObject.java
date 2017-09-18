@@ -46,6 +46,8 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
 
     private java.lang.Boolean enableReports;
 
+    private java.lang.Boolean enableSearch;
+
     private java.lang.Boolean enableSharing;
 
     private java.lang.Boolean enableStreamingApi;
@@ -67,6 +69,8 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
     private com.sforce.soap._2006._04.metadata.HistoryRetentionPolicy historyRetentionPolicy;
 
     private java.lang.Boolean household;
+
+    private com.sforce.soap._2006._04.metadata.Index[] indexes;
 
     private java.lang.String label;
 
@@ -122,6 +126,7 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
            java.lang.Boolean enableFeeds,
            java.lang.Boolean enableHistory,
            java.lang.Boolean enableReports,
+           java.lang.Boolean enableSearch,
            java.lang.Boolean enableSharing,
            java.lang.Boolean enableStreamingApi,
            java.lang.String externalDataSource,
@@ -133,6 +138,7 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
            com.sforce.soap._2006._04.metadata.Gender gender,
            com.sforce.soap._2006._04.metadata.HistoryRetentionPolicy historyRetentionPolicy,
            java.lang.Boolean household,
+           com.sforce.soap._2006._04.metadata.Index[] indexes,
            java.lang.String label,
            com.sforce.soap._2006._04.metadata.ListView[] listViews,
            com.sforce.soap._2006._04.metadata.CustomField nameField,
@@ -169,6 +175,7 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
         this.enableFeeds = enableFeeds;
         this.enableHistory = enableHistory;
         this.enableReports = enableReports;
+        this.enableSearch = enableSearch;
         this.enableSharing = enableSharing;
         this.enableStreamingApi = enableStreamingApi;
         this.externalDataSource = externalDataSource;
@@ -180,6 +187,7 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
         this.gender = gender;
         this.historyRetentionPolicy = historyRetentionPolicy;
         this.household = household;
+        this.indexes = indexes;
         this.label = label;
         this.listViews = listViews;
         this.nameField = nameField;
@@ -603,6 +611,26 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
 
 
     /**
+     * Gets the enableSearch value for this CustomObject.
+     * 
+     * @return enableSearch
+     */
+    public java.lang.Boolean getEnableSearch() {
+        return enableSearch;
+    }
+
+
+    /**
+     * Sets the enableSearch value for this CustomObject.
+     * 
+     * @param enableSearch
+     */
+    public void setEnableSearch(java.lang.Boolean enableSearch) {
+        this.enableSearch = enableSearch;
+    }
+
+
+    /**
      * Gets the enableSharing value for this CustomObject.
      * 
      * @return enableSharing
@@ -835,6 +863,34 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
      */
     public void setHousehold(java.lang.Boolean household) {
         this.household = household;
+    }
+
+
+    /**
+     * Gets the indexes value for this CustomObject.
+     * 
+     * @return indexes
+     */
+    public com.sforce.soap._2006._04.metadata.Index[] getIndexes() {
+        return indexes;
+    }
+
+
+    /**
+     * Sets the indexes value for this CustomObject.
+     * 
+     * @param indexes
+     */
+    public void setIndexes(com.sforce.soap._2006._04.metadata.Index[] indexes) {
+        this.indexes = indexes;
+    }
+
+    public com.sforce.soap._2006._04.metadata.Index getIndexes(int i) {
+        return this.indexes[i];
+    }
+
+    public void setIndexes(int i, com.sforce.soap._2006._04.metadata.Index _value) {
+        this.indexes[i] = _value;
     }
 
 
@@ -1254,6 +1310,9 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
             ((this.enableReports==null && other.getEnableReports()==null) || 
              (this.enableReports!=null &&
               this.enableReports.equals(other.getEnableReports()))) &&
+            ((this.enableSearch==null && other.getEnableSearch()==null) || 
+             (this.enableSearch!=null &&
+              this.enableSearch.equals(other.getEnableSearch()))) &&
             ((this.enableSharing==null && other.getEnableSharing()==null) || 
              (this.enableSharing!=null &&
               this.enableSharing.equals(other.getEnableSharing()))) &&
@@ -1287,6 +1346,9 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
             ((this.household==null && other.getHousehold()==null) || 
              (this.household!=null &&
               this.household.equals(other.getHousehold()))) &&
+            ((this.indexes==null && other.getIndexes()==null) || 
+             (this.indexes!=null &&
+              java.util.Arrays.equals(this.indexes, other.getIndexes()))) &&
             ((this.label==null && other.getLabel()==null) || 
              (this.label!=null &&
               this.label.equals(other.getLabel()))) &&
@@ -1432,6 +1494,9 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
         if (getEnableReports() != null) {
             _hashCode += getEnableReports().hashCode();
         }
+        if (getEnableSearch() != null) {
+            _hashCode += getEnableSearch().hashCode();
+        }
         if (getEnableSharing() != null) {
             _hashCode += getEnableSharing().hashCode();
         }
@@ -1480,6 +1545,17 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
         }
         if (getHousehold() != null) {
             _hashCode += getHousehold().hashCode();
+        }
+        if (getIndexes() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getIndexes());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getIndexes(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getLabel() != null) {
             _hashCode += getLabel().hashCode();
@@ -1722,6 +1798,13 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("enableSearch");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableSearch"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("enableSharing");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "enableSharing"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
@@ -1799,6 +1882,14 @@ public class CustomObject  extends com.sforce.soap._2006._04.metadata.Metadata  
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("indexes");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "indexes"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Index"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("label");

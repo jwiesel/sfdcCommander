@@ -8,11 +8,17 @@
 package com.sforce.soap.partner;
 
 public class DescribeLayoutSection  implements java.io.Serializable {
+    private boolean collapsed;
+
     private int columns;
 
     private java.lang.String heading;
 
     private com.sforce.soap.partner.DescribeLayoutRow[] layoutRows;
+
+    private java.lang.String layoutSectionId;
+
+    private java.lang.String parentLayoutId;
 
     private int rows;
 
@@ -26,20 +32,46 @@ public class DescribeLayoutSection  implements java.io.Serializable {
     }
 
     public DescribeLayoutSection(
+           boolean collapsed,
            int columns,
            java.lang.String heading,
            com.sforce.soap.partner.DescribeLayoutRow[] layoutRows,
+           java.lang.String layoutSectionId,
+           java.lang.String parentLayoutId,
            int rows,
            com.sforce.soap.partner.TabOrderType tabOrder,
            boolean useCollapsibleSection,
            boolean useHeading) {
+           this.collapsed = collapsed;
            this.columns = columns;
            this.heading = heading;
            this.layoutRows = layoutRows;
+           this.layoutSectionId = layoutSectionId;
+           this.parentLayoutId = parentLayoutId;
            this.rows = rows;
            this.tabOrder = tabOrder;
            this.useCollapsibleSection = useCollapsibleSection;
            this.useHeading = useHeading;
+    }
+
+
+    /**
+     * Gets the collapsed value for this DescribeLayoutSection.
+     * 
+     * @return collapsed
+     */
+    public boolean isCollapsed() {
+        return collapsed;
+    }
+
+
+    /**
+     * Sets the collapsed value for this DescribeLayoutSection.
+     * 
+     * @param collapsed
+     */
+    public void setCollapsed(boolean collapsed) {
+        this.collapsed = collapsed;
     }
 
 
@@ -108,6 +140,46 @@ public class DescribeLayoutSection  implements java.io.Serializable {
 
     public void setLayoutRows(int i, com.sforce.soap.partner.DescribeLayoutRow _value) {
         this.layoutRows[i] = _value;
+    }
+
+
+    /**
+     * Gets the layoutSectionId value for this DescribeLayoutSection.
+     * 
+     * @return layoutSectionId
+     */
+    public java.lang.String getLayoutSectionId() {
+        return layoutSectionId;
+    }
+
+
+    /**
+     * Sets the layoutSectionId value for this DescribeLayoutSection.
+     * 
+     * @param layoutSectionId
+     */
+    public void setLayoutSectionId(java.lang.String layoutSectionId) {
+        this.layoutSectionId = layoutSectionId;
+    }
+
+
+    /**
+     * Gets the parentLayoutId value for this DescribeLayoutSection.
+     * 
+     * @return parentLayoutId
+     */
+    public java.lang.String getParentLayoutId() {
+        return parentLayoutId;
+    }
+
+
+    /**
+     * Sets the parentLayoutId value for this DescribeLayoutSection.
+     * 
+     * @param parentLayoutId
+     */
+    public void setParentLayoutId(java.lang.String parentLayoutId) {
+        this.parentLayoutId = parentLayoutId;
     }
 
 
@@ -202,6 +274,7 @@ public class DescribeLayoutSection  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            this.collapsed == other.isCollapsed() &&
             this.columns == other.getColumns() &&
             ((this.heading==null && other.getHeading()==null) || 
              (this.heading!=null &&
@@ -209,6 +282,12 @@ public class DescribeLayoutSection  implements java.io.Serializable {
             ((this.layoutRows==null && other.getLayoutRows()==null) || 
              (this.layoutRows!=null &&
               java.util.Arrays.equals(this.layoutRows, other.getLayoutRows()))) &&
+            ((this.layoutSectionId==null && other.getLayoutSectionId()==null) || 
+             (this.layoutSectionId!=null &&
+              this.layoutSectionId.equals(other.getLayoutSectionId()))) &&
+            ((this.parentLayoutId==null && other.getParentLayoutId()==null) || 
+             (this.parentLayoutId!=null &&
+              this.parentLayoutId.equals(other.getParentLayoutId()))) &&
             this.rows == other.getRows() &&
             ((this.tabOrder==null && other.getTabOrder()==null) || 
              (this.tabOrder!=null &&
@@ -226,6 +305,7 @@ public class DescribeLayoutSection  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        _hashCode += (isCollapsed() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += getColumns();
         if (getHeading() != null) {
             _hashCode += getHeading().hashCode();
@@ -240,6 +320,12 @@ public class DescribeLayoutSection  implements java.io.Serializable {
                     _hashCode += obj.hashCode();
                 }
             }
+        }
+        if (getLayoutSectionId() != null) {
+            _hashCode += getLayoutSectionId().hashCode();
+        }
+        if (getParentLayoutId() != null) {
+            _hashCode += getParentLayoutId().hashCode();
         }
         _hashCode += getRows();
         if (getTabOrder() != null) {
@@ -258,6 +344,12 @@ public class DescribeLayoutSection  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeLayoutSection"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("collapsed");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "collapsed"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("columns");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "columns"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
@@ -275,6 +367,18 @@ public class DescribeLayoutSection  implements java.io.Serializable {
         elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeLayoutRow"));
         elemField.setNillable(false);
         elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("layoutSectionId");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "layoutSectionId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("parentLayoutId");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "parentLayoutId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("rows");

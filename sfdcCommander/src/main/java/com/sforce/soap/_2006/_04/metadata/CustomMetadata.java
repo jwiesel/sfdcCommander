@@ -12,6 +12,8 @@ public class CustomMetadata  extends com.sforce.soap._2006._04.metadata.Metadata
 
     private java.lang.String label;
 
+    private java.lang.Boolean _protected;
+
     private com.sforce.soap._2006._04.metadata.CustomMetadataValue[] values;
 
     public CustomMetadata() {
@@ -21,11 +23,13 @@ public class CustomMetadata  extends com.sforce.soap._2006._04.metadata.Metadata
            java.lang.String fullName,
            java.lang.String description,
            java.lang.String label,
+           java.lang.Boolean _protected,
            com.sforce.soap._2006._04.metadata.CustomMetadataValue[] values) {
         super(
             fullName);
         this.description = description;
         this.label = label;
+        this._protected = _protected;
         this.values = values;
     }
 
@@ -67,6 +71,26 @@ public class CustomMetadata  extends com.sforce.soap._2006._04.metadata.Metadata
      */
     public void setLabel(java.lang.String label) {
         this.label = label;
+    }
+
+
+    /**
+     * Gets the _protected value for this CustomMetadata.
+     * 
+     * @return _protected
+     */
+    public java.lang.Boolean get_protected() {
+        return _protected;
+    }
+
+
+    /**
+     * Sets the _protected value for this CustomMetadata.
+     * 
+     * @param _protected
+     */
+    public void set_protected(java.lang.Boolean _protected) {
+        this._protected = _protected;
     }
 
 
@@ -115,6 +139,9 @@ public class CustomMetadata  extends com.sforce.soap._2006._04.metadata.Metadata
             ((this.label==null && other.getLabel()==null) || 
              (this.label!=null &&
               this.label.equals(other.getLabel()))) &&
+            ((this._protected==null && other.get_protected()==null) || 
+             (this._protected!=null &&
+              this._protected.equals(other.get_protected()))) &&
             ((this.values==null && other.getValues()==null) || 
              (this.values!=null &&
               java.util.Arrays.equals(this.values, other.getValues())));
@@ -134,6 +161,9 @@ public class CustomMetadata  extends com.sforce.soap._2006._04.metadata.Metadata
         }
         if (getLabel() != null) {
             _hashCode += getLabel().hashCode();
+        }
+        if (get_protected() != null) {
+            _hashCode += get_protected().hashCode();
         }
         if (getValues() != null) {
             for (int i=0;
@@ -167,6 +197,13 @@ public class CustomMetadata  extends com.sforce.soap._2006._04.metadata.Metadata
         elemField.setFieldName("label");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "label"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("_protected");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "protected"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

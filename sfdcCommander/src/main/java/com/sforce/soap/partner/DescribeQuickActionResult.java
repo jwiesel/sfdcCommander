@@ -10,6 +10,8 @@ package com.sforce.soap.partner;
 public class DescribeQuickActionResult  implements java.io.Serializable {
     private com.sforce.soap.partner.ShareAccessLevel accessLevelRequired;
 
+    private java.lang.String actionEnumOrId;
+
     private java.lang.String canvasApplicationId;
 
     private java.lang.String canvasApplicationName;
@@ -32,9 +34,19 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
 
     private com.sforce.soap.partner.DescribeLayoutSection layout;
 
+    private java.lang.String lightningComponentBundleId;
+
+    private java.lang.String lightningComponentBundleName;
+
+    private java.lang.String lightningComponentQualifiedName;
+
     private java.lang.String miniIconUrl;
 
     private java.lang.String name;
+
+    private boolean showQuickActionLcHeader;
+
+    private boolean showQuickActionVfHeader;
 
     private java.lang.String targetParentField;
 
@@ -46,6 +58,8 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
 
     private java.lang.String visualforcePageName;
 
+    private java.lang.String visualforcePageUrl;
+
     private java.lang.Integer width;
 
     public DescribeQuickActionResult() {
@@ -53,6 +67,7 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
 
     public DescribeQuickActionResult(
            com.sforce.soap.partner.ShareAccessLevel accessLevelRequired,
+           java.lang.String actionEnumOrId,
            java.lang.String canvasApplicationId,
            java.lang.String canvasApplicationName,
            com.sforce.soap.partner.DescribeColor[] colors,
@@ -64,15 +79,22 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
            com.sforce.soap.partner.DescribeIcon[] icons,
            java.lang.String label,
            com.sforce.soap.partner.DescribeLayoutSection layout,
+           java.lang.String lightningComponentBundleId,
+           java.lang.String lightningComponentBundleName,
+           java.lang.String lightningComponentQualifiedName,
            java.lang.String miniIconUrl,
            java.lang.String name,
+           boolean showQuickActionLcHeader,
+           boolean showQuickActionVfHeader,
            java.lang.String targetParentField,
            java.lang.String targetRecordTypeId,
            java.lang.String targetSobjectType,
            java.lang.String type,
            java.lang.String visualforcePageName,
+           java.lang.String visualforcePageUrl,
            java.lang.Integer width) {
            this.accessLevelRequired = accessLevelRequired;
+           this.actionEnumOrId = actionEnumOrId;
            this.canvasApplicationId = canvasApplicationId;
            this.canvasApplicationName = canvasApplicationName;
            this.colors = colors;
@@ -84,13 +106,19 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
            this.icons = icons;
            this.label = label;
            this.layout = layout;
+           this.lightningComponentBundleId = lightningComponentBundleId;
+           this.lightningComponentBundleName = lightningComponentBundleName;
+           this.lightningComponentQualifiedName = lightningComponentQualifiedName;
            this.miniIconUrl = miniIconUrl;
            this.name = name;
+           this.showQuickActionLcHeader = showQuickActionLcHeader;
+           this.showQuickActionVfHeader = showQuickActionVfHeader;
            this.targetParentField = targetParentField;
            this.targetRecordTypeId = targetRecordTypeId;
            this.targetSobjectType = targetSobjectType;
            this.type = type;
            this.visualforcePageName = visualforcePageName;
+           this.visualforcePageUrl = visualforcePageUrl;
            this.width = width;
     }
 
@@ -112,6 +140,26 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
      */
     public void setAccessLevelRequired(com.sforce.soap.partner.ShareAccessLevel accessLevelRequired) {
         this.accessLevelRequired = accessLevelRequired;
+    }
+
+
+    /**
+     * Gets the actionEnumOrId value for this DescribeQuickActionResult.
+     * 
+     * @return actionEnumOrId
+     */
+    public java.lang.String getActionEnumOrId() {
+        return actionEnumOrId;
+    }
+
+
+    /**
+     * Sets the actionEnumOrId value for this DescribeQuickActionResult.
+     * 
+     * @param actionEnumOrId
+     */
+    public void setActionEnumOrId(java.lang.String actionEnumOrId) {
+        this.actionEnumOrId = actionEnumOrId;
     }
 
 
@@ -360,6 +408,66 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
 
 
     /**
+     * Gets the lightningComponentBundleId value for this DescribeQuickActionResult.
+     * 
+     * @return lightningComponentBundleId
+     */
+    public java.lang.String getLightningComponentBundleId() {
+        return lightningComponentBundleId;
+    }
+
+
+    /**
+     * Sets the lightningComponentBundleId value for this DescribeQuickActionResult.
+     * 
+     * @param lightningComponentBundleId
+     */
+    public void setLightningComponentBundleId(java.lang.String lightningComponentBundleId) {
+        this.lightningComponentBundleId = lightningComponentBundleId;
+    }
+
+
+    /**
+     * Gets the lightningComponentBundleName value for this DescribeQuickActionResult.
+     * 
+     * @return lightningComponentBundleName
+     */
+    public java.lang.String getLightningComponentBundleName() {
+        return lightningComponentBundleName;
+    }
+
+
+    /**
+     * Sets the lightningComponentBundleName value for this DescribeQuickActionResult.
+     * 
+     * @param lightningComponentBundleName
+     */
+    public void setLightningComponentBundleName(java.lang.String lightningComponentBundleName) {
+        this.lightningComponentBundleName = lightningComponentBundleName;
+    }
+
+
+    /**
+     * Gets the lightningComponentQualifiedName value for this DescribeQuickActionResult.
+     * 
+     * @return lightningComponentQualifiedName
+     */
+    public java.lang.String getLightningComponentQualifiedName() {
+        return lightningComponentQualifiedName;
+    }
+
+
+    /**
+     * Sets the lightningComponentQualifiedName value for this DescribeQuickActionResult.
+     * 
+     * @param lightningComponentQualifiedName
+     */
+    public void setLightningComponentQualifiedName(java.lang.String lightningComponentQualifiedName) {
+        this.lightningComponentQualifiedName = lightningComponentQualifiedName;
+    }
+
+
+    /**
      * Gets the miniIconUrl value for this DescribeQuickActionResult.
      * 
      * @return miniIconUrl
@@ -396,6 +504,46 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
      */
     public void setName(java.lang.String name) {
         this.name = name;
+    }
+
+
+    /**
+     * Gets the showQuickActionLcHeader value for this DescribeQuickActionResult.
+     * 
+     * @return showQuickActionLcHeader
+     */
+    public boolean isShowQuickActionLcHeader() {
+        return showQuickActionLcHeader;
+    }
+
+
+    /**
+     * Sets the showQuickActionLcHeader value for this DescribeQuickActionResult.
+     * 
+     * @param showQuickActionLcHeader
+     */
+    public void setShowQuickActionLcHeader(boolean showQuickActionLcHeader) {
+        this.showQuickActionLcHeader = showQuickActionLcHeader;
+    }
+
+
+    /**
+     * Gets the showQuickActionVfHeader value for this DescribeQuickActionResult.
+     * 
+     * @return showQuickActionVfHeader
+     */
+    public boolean isShowQuickActionVfHeader() {
+        return showQuickActionVfHeader;
+    }
+
+
+    /**
+     * Sets the showQuickActionVfHeader value for this DescribeQuickActionResult.
+     * 
+     * @param showQuickActionVfHeader
+     */
+    public void setShowQuickActionVfHeader(boolean showQuickActionVfHeader) {
+        this.showQuickActionVfHeader = showQuickActionVfHeader;
     }
 
 
@@ -500,6 +648,26 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
 
 
     /**
+     * Gets the visualforcePageUrl value for this DescribeQuickActionResult.
+     * 
+     * @return visualforcePageUrl
+     */
+    public java.lang.String getVisualforcePageUrl() {
+        return visualforcePageUrl;
+    }
+
+
+    /**
+     * Sets the visualforcePageUrl value for this DescribeQuickActionResult.
+     * 
+     * @param visualforcePageUrl
+     */
+    public void setVisualforcePageUrl(java.lang.String visualforcePageUrl) {
+        this.visualforcePageUrl = visualforcePageUrl;
+    }
+
+
+    /**
      * Gets the width value for this DescribeQuickActionResult.
      * 
      * @return width
@@ -533,6 +701,9 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
             ((this.accessLevelRequired==null && other.getAccessLevelRequired()==null) || 
              (this.accessLevelRequired!=null &&
               this.accessLevelRequired.equals(other.getAccessLevelRequired()))) &&
+            ((this.actionEnumOrId==null && other.getActionEnumOrId()==null) || 
+             (this.actionEnumOrId!=null &&
+              this.actionEnumOrId.equals(other.getActionEnumOrId()))) &&
             ((this.canvasApplicationId==null && other.getCanvasApplicationId()==null) || 
              (this.canvasApplicationId!=null &&
               this.canvasApplicationId.equals(other.getCanvasApplicationId()))) &&
@@ -566,12 +737,23 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
             ((this.layout==null && other.getLayout()==null) || 
              (this.layout!=null &&
               this.layout.equals(other.getLayout()))) &&
+            ((this.lightningComponentBundleId==null && other.getLightningComponentBundleId()==null) || 
+             (this.lightningComponentBundleId!=null &&
+              this.lightningComponentBundleId.equals(other.getLightningComponentBundleId()))) &&
+            ((this.lightningComponentBundleName==null && other.getLightningComponentBundleName()==null) || 
+             (this.lightningComponentBundleName!=null &&
+              this.lightningComponentBundleName.equals(other.getLightningComponentBundleName()))) &&
+            ((this.lightningComponentQualifiedName==null && other.getLightningComponentQualifiedName()==null) || 
+             (this.lightningComponentQualifiedName!=null &&
+              this.lightningComponentQualifiedName.equals(other.getLightningComponentQualifiedName()))) &&
             ((this.miniIconUrl==null && other.getMiniIconUrl()==null) || 
              (this.miniIconUrl!=null &&
               this.miniIconUrl.equals(other.getMiniIconUrl()))) &&
             ((this.name==null && other.getName()==null) || 
              (this.name!=null &&
               this.name.equals(other.getName()))) &&
+            this.showQuickActionLcHeader == other.isShowQuickActionLcHeader() &&
+            this.showQuickActionVfHeader == other.isShowQuickActionVfHeader() &&
             ((this.targetParentField==null && other.getTargetParentField()==null) || 
              (this.targetParentField!=null &&
               this.targetParentField.equals(other.getTargetParentField()))) &&
@@ -587,6 +769,9 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
             ((this.visualforcePageName==null && other.getVisualforcePageName()==null) || 
              (this.visualforcePageName!=null &&
               this.visualforcePageName.equals(other.getVisualforcePageName()))) &&
+            ((this.visualforcePageUrl==null && other.getVisualforcePageUrl()==null) || 
+             (this.visualforcePageUrl!=null &&
+              this.visualforcePageUrl.equals(other.getVisualforcePageUrl()))) &&
             ((this.width==null && other.getWidth()==null) || 
              (this.width!=null &&
               this.width.equals(other.getWidth())));
@@ -603,6 +788,9 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
         int _hashCode = 1;
         if (getAccessLevelRequired() != null) {
             _hashCode += getAccessLevelRequired().hashCode();
+        }
+        if (getActionEnumOrId() != null) {
+            _hashCode += getActionEnumOrId().hashCode();
         }
         if (getCanvasApplicationId() != null) {
             _hashCode += getCanvasApplicationId().hashCode();
@@ -661,12 +849,23 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
         if (getLayout() != null) {
             _hashCode += getLayout().hashCode();
         }
+        if (getLightningComponentBundleId() != null) {
+            _hashCode += getLightningComponentBundleId().hashCode();
+        }
+        if (getLightningComponentBundleName() != null) {
+            _hashCode += getLightningComponentBundleName().hashCode();
+        }
+        if (getLightningComponentQualifiedName() != null) {
+            _hashCode += getLightningComponentQualifiedName().hashCode();
+        }
         if (getMiniIconUrl() != null) {
             _hashCode += getMiniIconUrl().hashCode();
         }
         if (getName() != null) {
             _hashCode += getName().hashCode();
         }
+        _hashCode += (isShowQuickActionLcHeader() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isShowQuickActionVfHeader() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getTargetParentField() != null) {
             _hashCode += getTargetParentField().hashCode();
         }
@@ -681,6 +880,9 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
         }
         if (getVisualforcePageName() != null) {
             _hashCode += getVisualforcePageName().hashCode();
+        }
+        if (getVisualforcePageUrl() != null) {
+            _hashCode += getVisualforcePageUrl().hashCode();
         }
         if (getWidth() != null) {
             _hashCode += getWidth().hashCode();
@@ -700,6 +902,12 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "accessLevelRequired"));
         elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "ShareAccessLevel"));
         elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("actionEnumOrId");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "actionEnumOrId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("canvasApplicationId");
@@ -774,6 +982,24 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("lightningComponentBundleId");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "lightningComponentBundleId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("lightningComponentBundleName");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "lightningComponentBundleName"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("lightningComponentQualifiedName");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "lightningComponentQualifiedName"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("miniIconUrl");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "miniIconUrl"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -783,6 +1009,18 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
         elemField.setFieldName("name");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "name"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("showQuickActionLcHeader");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "showQuickActionLcHeader"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("showQuickActionVfHeader");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "showQuickActionVfHeader"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
@@ -812,6 +1050,12 @@ public class DescribeQuickActionResult  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("visualforcePageName");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "visualforcePageName"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("visualforcePageUrl");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "visualforcePageUrl"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);

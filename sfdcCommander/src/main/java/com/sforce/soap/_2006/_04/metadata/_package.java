@@ -16,6 +16,8 @@ public class _package  extends com.sforce.soap._2006._04.metadata.Metadata  impl
 
     private com.sforce.soap._2006._04.metadata.ProfileObjectPermissions[] objectPermissions;
 
+    private java.lang.String packageType;
+
     private java.lang.String postInstallClass;
 
     private java.lang.String setupWeblink;
@@ -35,6 +37,7 @@ public class _package  extends com.sforce.soap._2006._04.metadata.Metadata  impl
            java.lang.String description,
            java.lang.String namespacePrefix,
            com.sforce.soap._2006._04.metadata.ProfileObjectPermissions[] objectPermissions,
+           java.lang.String packageType,
            java.lang.String postInstallClass,
            java.lang.String setupWeblink,
            com.sforce.soap._2006._04.metadata.PackageTypeMembers[] types,
@@ -46,6 +49,7 @@ public class _package  extends com.sforce.soap._2006._04.metadata.Metadata  impl
         this.description = description;
         this.namespacePrefix = namespacePrefix;
         this.objectPermissions = objectPermissions;
+        this.packageType = packageType;
         this.postInstallClass = postInstallClass;
         this.setupWeblink = setupWeblink;
         this.types = types;
@@ -139,6 +143,26 @@ public class _package  extends com.sforce.soap._2006._04.metadata.Metadata  impl
 
     public void setObjectPermissions(int i, com.sforce.soap._2006._04.metadata.ProfileObjectPermissions _value) {
         this.objectPermissions[i] = _value;
+    }
+
+
+    /**
+     * Gets the packageType value for this _package.
+     * 
+     * @return packageType
+     */
+    public java.lang.String getPackageType() {
+        return packageType;
+    }
+
+
+    /**
+     * Sets the packageType value for this _package.
+     * 
+     * @param packageType
+     */
+    public void setPackageType(java.lang.String packageType) {
+        this.packageType = packageType;
     }
 
 
@@ -273,6 +297,9 @@ public class _package  extends com.sforce.soap._2006._04.metadata.Metadata  impl
             ((this.objectPermissions==null && other.getObjectPermissions()==null) || 
              (this.objectPermissions!=null &&
               java.util.Arrays.equals(this.objectPermissions, other.getObjectPermissions()))) &&
+            ((this.packageType==null && other.getPackageType()==null) || 
+             (this.packageType!=null &&
+              this.packageType.equals(other.getPackageType()))) &&
             ((this.postInstallClass==null && other.getPostInstallClass()==null) || 
              (this.postInstallClass!=null &&
               this.postInstallClass.equals(other.getPostInstallClass()))) &&
@@ -318,6 +345,9 @@ public class _package  extends com.sforce.soap._2006._04.metadata.Metadata  impl
                     _hashCode += obj.hashCode();
                 }
             }
+        }
+        if (getPackageType() != null) {
+            _hashCode += getPackageType().hashCode();
         }
         if (getPostInstallClass() != null) {
             _hashCode += getPostInstallClass().hashCode();
@@ -380,6 +410,13 @@ public class _package  extends com.sforce.soap._2006._04.metadata.Metadata  impl
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("packageType");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "packageType"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("postInstallClass");

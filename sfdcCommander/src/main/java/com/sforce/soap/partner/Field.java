@@ -8,6 +8,8 @@
 package com.sforce.soap.partner;
 
 public class Field  implements java.io.Serializable {
+    private boolean aggregatable;
+
     private boolean autoNumber;
 
     private int byteLength;
@@ -20,11 +22,15 @@ public class Field  implements java.io.Serializable {
 
     private boolean caseSensitive;
 
+    private java.lang.String compoundFieldName;
+
     private java.lang.String controllerName;
 
     private boolean createable;
 
     private boolean custom;
+
+    private java.lang.Object defaultValue;
 
     private java.lang.String defaultValueFormula;
 
@@ -112,15 +118,18 @@ public class Field  implements java.io.Serializable {
     }
 
     public Field(
+           boolean aggregatable,
            boolean autoNumber,
            int byteLength,
            boolean calculated,
            java.lang.String calculatedFormula,
            java.lang.Boolean cascadeDelete,
            boolean caseSensitive,
+           java.lang.String compoundFieldName,
            java.lang.String controllerName,
            boolean createable,
            boolean custom,
+           java.lang.Object defaultValue,
            java.lang.String defaultValueFormula,
            boolean defaultedOnCreate,
            java.lang.Boolean dependentPicklist,
@@ -162,15 +171,18 @@ public class Field  implements java.io.Serializable {
            boolean unique,
            boolean updateable,
            java.lang.Boolean writeRequiresMasterRead) {
+           this.aggregatable = aggregatable;
            this.autoNumber = autoNumber;
            this.byteLength = byteLength;
            this.calculated = calculated;
            this.calculatedFormula = calculatedFormula;
            this.cascadeDelete = cascadeDelete;
            this.caseSensitive = caseSensitive;
+           this.compoundFieldName = compoundFieldName;
            this.controllerName = controllerName;
            this.createable = createable;
            this.custom = custom;
+           this.defaultValue = defaultValue;
            this.defaultValueFormula = defaultValueFormula;
            this.defaultedOnCreate = defaultedOnCreate;
            this.dependentPicklist = dependentPicklist;
@@ -212,6 +224,26 @@ public class Field  implements java.io.Serializable {
            this.unique = unique;
            this.updateable = updateable;
            this.writeRequiresMasterRead = writeRequiresMasterRead;
+    }
+
+
+    /**
+     * Gets the aggregatable value for this Field.
+     * 
+     * @return aggregatable
+     */
+    public boolean isAggregatable() {
+        return aggregatable;
+    }
+
+
+    /**
+     * Sets the aggregatable value for this Field.
+     * 
+     * @param aggregatable
+     */
+    public void setAggregatable(boolean aggregatable) {
+        this.aggregatable = aggregatable;
     }
 
 
@@ -336,6 +368,26 @@ public class Field  implements java.io.Serializable {
 
 
     /**
+     * Gets the compoundFieldName value for this Field.
+     * 
+     * @return compoundFieldName
+     */
+    public java.lang.String getCompoundFieldName() {
+        return compoundFieldName;
+    }
+
+
+    /**
+     * Sets the compoundFieldName value for this Field.
+     * 
+     * @param compoundFieldName
+     */
+    public void setCompoundFieldName(java.lang.String compoundFieldName) {
+        this.compoundFieldName = compoundFieldName;
+    }
+
+
+    /**
      * Gets the controllerName value for this Field.
      * 
      * @return controllerName
@@ -392,6 +444,26 @@ public class Field  implements java.io.Serializable {
      */
     public void setCustom(boolean custom) {
         this.custom = custom;
+    }
+
+
+    /**
+     * Gets the defaultValue value for this Field.
+     * 
+     * @return defaultValue
+     */
+    public java.lang.Object getDefaultValue() {
+        return defaultValue;
+    }
+
+
+    /**
+     * Sets the defaultValue value for this Field.
+     * 
+     * @param defaultValue
+     */
+    public void setDefaultValue(java.lang.Object defaultValue) {
+        this.defaultValue = defaultValue;
     }
 
 
@@ -1242,6 +1314,7 @@ public class Field  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            this.aggregatable == other.isAggregatable() &&
             this.autoNumber == other.isAutoNumber() &&
             this.byteLength == other.getByteLength() &&
             this.calculated == other.isCalculated() &&
@@ -1252,11 +1325,17 @@ public class Field  implements java.io.Serializable {
              (this.cascadeDelete!=null &&
               this.cascadeDelete.equals(other.getCascadeDelete()))) &&
             this.caseSensitive == other.isCaseSensitive() &&
+            ((this.compoundFieldName==null && other.getCompoundFieldName()==null) || 
+             (this.compoundFieldName!=null &&
+              this.compoundFieldName.equals(other.getCompoundFieldName()))) &&
             ((this.controllerName==null && other.getControllerName()==null) || 
              (this.controllerName!=null &&
               this.controllerName.equals(other.getControllerName()))) &&
             this.createable == other.isCreateable() &&
             this.custom == other.isCustom() &&
+            ((this.defaultValue==null && other.getDefaultValue()==null) || 
+             (this.defaultValue!=null &&
+              this.defaultValue.equals(other.getDefaultValue()))) &&
             ((this.defaultValueFormula==null && other.getDefaultValueFormula()==null) || 
              (this.defaultValueFormula!=null &&
               this.defaultValueFormula.equals(other.getDefaultValueFormula()))) &&
@@ -1359,6 +1438,7 @@ public class Field  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        _hashCode += (isAggregatable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += (isAutoNumber() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += getByteLength();
         _hashCode += (isCalculated() ? Boolean.TRUE : Boolean.FALSE).hashCode();
@@ -1369,11 +1449,17 @@ public class Field  implements java.io.Serializable {
             _hashCode += getCascadeDelete().hashCode();
         }
         _hashCode += (isCaseSensitive() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getCompoundFieldName() != null) {
+            _hashCode += getCompoundFieldName().hashCode();
+        }
         if (getControllerName() != null) {
             _hashCode += getControllerName().hashCode();
         }
         _hashCode += (isCreateable() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += (isCustom() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getDefaultValue() != null) {
+            _hashCode += getDefaultValue().hashCode();
+        }
         if (getDefaultValueFormula() != null) {
             _hashCode += getDefaultValueFormula().hashCode();
         }
@@ -1492,6 +1578,12 @@ public class Field  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "Field"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("aggregatable");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "aggregatable"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("autoNumber");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "autoNumber"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
@@ -1530,6 +1622,13 @@ public class Field  implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("compoundFieldName");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "compoundFieldName"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("controllerName");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "controllerName"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -1546,6 +1645,13 @@ public class Field  implements java.io.Serializable {
         elemField.setFieldName("custom");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "custom"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("defaultValue");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "defaultValue"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

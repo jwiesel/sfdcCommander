@@ -8,6 +8,8 @@
 package com.sforce.soap.partner;
 
 public class ActionOverride  implements java.io.Serializable {
+    private java.lang.String formFactor;
+
     private boolean isAvailableInTouch;
 
     private java.lang.String name;
@@ -20,14 +22,36 @@ public class ActionOverride  implements java.io.Serializable {
     }
 
     public ActionOverride(
+           java.lang.String formFactor,
            boolean isAvailableInTouch,
            java.lang.String name,
            java.lang.String pageId,
            java.lang.String url) {
+           this.formFactor = formFactor;
            this.isAvailableInTouch = isAvailableInTouch;
            this.name = name;
            this.pageId = pageId;
            this.url = url;
+    }
+
+
+    /**
+     * Gets the formFactor value for this ActionOverride.
+     * 
+     * @return formFactor
+     */
+    public java.lang.String getFormFactor() {
+        return formFactor;
+    }
+
+
+    /**
+     * Sets the formFactor value for this ActionOverride.
+     * 
+     * @param formFactor
+     */
+    public void setFormFactor(java.lang.String formFactor) {
+        this.formFactor = formFactor;
     }
 
 
@@ -122,6 +146,9 @@ public class ActionOverride  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.formFactor==null && other.getFormFactor()==null) || 
+             (this.formFactor!=null &&
+              this.formFactor.equals(other.getFormFactor()))) &&
             this.isAvailableInTouch == other.isIsAvailableInTouch() &&
             ((this.name==null && other.getName()==null) || 
              (this.name!=null &&
@@ -143,6 +170,9 @@ public class ActionOverride  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getFormFactor() != null) {
+            _hashCode += getFormFactor().hashCode();
+        }
         _hashCode += (isIsAvailableInTouch() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getName() != null) {
             _hashCode += getName().hashCode();
@@ -164,6 +194,12 @@ public class ActionOverride  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "ActionOverride"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("formFactor");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "formFactor"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("isAvailableInTouch");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "isAvailableInTouch"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));

@@ -26,6 +26,8 @@ public class DescribeLayout  implements java.io.Serializable {
 
     private com.sforce.soap.partner.RelatedList[] relatedLists;
 
+    private com.sforce.soap.partner.DescribeLayoutSaveOption[] saveOptions;
+
     public DescribeLayout() {
     }
 
@@ -38,7 +40,8 @@ public class DescribeLayout  implements java.io.Serializable {
            java.lang.String id,
            com.sforce.soap.partner.DescribeQuickActionListItemResult[] quickActionList,
            com.sforce.soap.partner.DescribeRelatedContentItem[] relatedContent,
-           com.sforce.soap.partner.RelatedList[] relatedLists) {
+           com.sforce.soap.partner.RelatedList[] relatedLists,
+           com.sforce.soap.partner.DescribeLayoutSaveOption[] saveOptions) {
            this.buttonLayoutSection = buttonLayoutSection;
            this.detailLayoutSections = detailLayoutSections;
            this.editLayoutSections = editLayoutSections;
@@ -48,6 +51,7 @@ public class DescribeLayout  implements java.io.Serializable {
            this.quickActionList = quickActionList;
            this.relatedContent = relatedContent;
            this.relatedLists = relatedLists;
+           this.saveOptions = saveOptions;
     }
 
 
@@ -254,6 +258,34 @@ public class DescribeLayout  implements java.io.Serializable {
         this.relatedLists[i] = _value;
     }
 
+
+    /**
+     * Gets the saveOptions value for this DescribeLayout.
+     * 
+     * @return saveOptions
+     */
+    public com.sforce.soap.partner.DescribeLayoutSaveOption[] getSaveOptions() {
+        return saveOptions;
+    }
+
+
+    /**
+     * Sets the saveOptions value for this DescribeLayout.
+     * 
+     * @param saveOptions
+     */
+    public void setSaveOptions(com.sforce.soap.partner.DescribeLayoutSaveOption[] saveOptions) {
+        this.saveOptions = saveOptions;
+    }
+
+    public com.sforce.soap.partner.DescribeLayoutSaveOption getSaveOptions(int i) {
+        return this.saveOptions[i];
+    }
+
+    public void setSaveOptions(int i, com.sforce.soap.partner.DescribeLayoutSaveOption _value) {
+        this.saveOptions[i] = _value;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof DescribeLayout)) return false;
@@ -292,7 +324,10 @@ public class DescribeLayout  implements java.io.Serializable {
               java.util.Arrays.equals(this.relatedContent, other.getRelatedContent()))) &&
             ((this.relatedLists==null && other.getRelatedLists()==null) || 
              (this.relatedLists!=null &&
-              java.util.Arrays.equals(this.relatedLists, other.getRelatedLists())));
+              java.util.Arrays.equals(this.relatedLists, other.getRelatedLists()))) &&
+            ((this.saveOptions==null && other.getSaveOptions()==null) || 
+             (this.saveOptions!=null &&
+              java.util.Arrays.equals(this.saveOptions, other.getSaveOptions())));
         __equalsCalc = null;
         return _equals;
     }
@@ -387,6 +422,17 @@ public class DescribeLayout  implements java.io.Serializable {
                 }
             }
         }
+        if (getSaveOptions() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getSaveOptions());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getSaveOptions(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -462,6 +508,14 @@ public class DescribeLayout  implements java.io.Serializable {
         elemField.setFieldName("relatedLists");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "relatedLists"));
         elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "RelatedList"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("saveOptions");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "saveOptions"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeLayoutSaveOption"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         elemField.setMaxOccursUnbounded(true);

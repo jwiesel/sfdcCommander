@@ -32,6 +32,8 @@ public class Profile  extends com.sforce.soap._2006._04.metadata.Metadata  imple
 
     private com.sforce.soap._2006._04.metadata.ProfileApexPageAccess[] pageAccesses;
 
+    private com.sforce.soap._2006._04.metadata.ProfileActionOverride[] profileActionOverrides;
+
     private com.sforce.soap._2006._04.metadata.ProfileRecordTypeVisibility[] recordTypeVisibilities;
 
     private com.sforce.soap._2006._04.metadata.ProfileTabVisibility[] tabVisibilities;
@@ -57,6 +59,7 @@ public class Profile  extends com.sforce.soap._2006._04.metadata.Metadata  imple
            com.sforce.soap._2006._04.metadata.ProfileLoginIpRange[] loginIpRanges,
            com.sforce.soap._2006._04.metadata.ProfileObjectPermissions[] objectPermissions,
            com.sforce.soap._2006._04.metadata.ProfileApexPageAccess[] pageAccesses,
+           com.sforce.soap._2006._04.metadata.ProfileActionOverride[] profileActionOverrides,
            com.sforce.soap._2006._04.metadata.ProfileRecordTypeVisibility[] recordTypeVisibilities,
            com.sforce.soap._2006._04.metadata.ProfileTabVisibility[] tabVisibilities,
            java.lang.String userLicense,
@@ -75,6 +78,7 @@ public class Profile  extends com.sforce.soap._2006._04.metadata.Metadata  imple
         this.loginIpRanges = loginIpRanges;
         this.objectPermissions = objectPermissions;
         this.pageAccesses = pageAccesses;
+        this.profileActionOverrides = profileActionOverrides;
         this.recordTypeVisibilities = recordTypeVisibilities;
         this.tabVisibilities = tabVisibilities;
         this.userLicense = userLicense;
@@ -395,6 +399,34 @@ public class Profile  extends com.sforce.soap._2006._04.metadata.Metadata  imple
 
 
     /**
+     * Gets the profileActionOverrides value for this Profile.
+     * 
+     * @return profileActionOverrides
+     */
+    public com.sforce.soap._2006._04.metadata.ProfileActionOverride[] getProfileActionOverrides() {
+        return profileActionOverrides;
+    }
+
+
+    /**
+     * Sets the profileActionOverrides value for this Profile.
+     * 
+     * @param profileActionOverrides
+     */
+    public void setProfileActionOverrides(com.sforce.soap._2006._04.metadata.ProfileActionOverride[] profileActionOverrides) {
+        this.profileActionOverrides = profileActionOverrides;
+    }
+
+    public com.sforce.soap._2006._04.metadata.ProfileActionOverride getProfileActionOverrides(int i) {
+        return this.profileActionOverrides[i];
+    }
+
+    public void setProfileActionOverrides(int i, com.sforce.soap._2006._04.metadata.ProfileActionOverride _value) {
+        this.profileActionOverrides[i] = _value;
+    }
+
+
+    /**
      * Gets the recordTypeVisibilities value for this Profile.
      * 
      * @return recordTypeVisibilities
@@ -545,6 +577,9 @@ public class Profile  extends com.sforce.soap._2006._04.metadata.Metadata  imple
             ((this.pageAccesses==null && other.getPageAccesses()==null) || 
              (this.pageAccesses!=null &&
               java.util.Arrays.equals(this.pageAccesses, other.getPageAccesses()))) &&
+            ((this.profileActionOverrides==null && other.getProfileActionOverrides()==null) || 
+             (this.profileActionOverrides!=null &&
+              java.util.Arrays.equals(this.profileActionOverrides, other.getProfileActionOverrides()))) &&
             ((this.recordTypeVisibilities==null && other.getRecordTypeVisibilities()==null) || 
              (this.recordTypeVisibilities!=null &&
               java.util.Arrays.equals(this.recordTypeVisibilities, other.getRecordTypeVisibilities()))) &&
@@ -670,6 +705,17 @@ public class Profile  extends com.sforce.soap._2006._04.metadata.Metadata  imple
                  i<java.lang.reflect.Array.getLength(getPageAccesses());
                  i++) {
                 java.lang.Object obj = java.lang.reflect.Array.get(getPageAccesses(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        if (getProfileActionOverrides() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getProfileActionOverrides());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getProfileActionOverrides(), i);
                 if (obj != null &&
                     !obj.getClass().isArray()) {
                     _hashCode += obj.hashCode();
@@ -811,6 +857,14 @@ public class Profile  extends com.sforce.soap._2006._04.metadata.Metadata  imple
         elemField.setFieldName("pageAccesses");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "pageAccesses"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ProfileApexPageAccess"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("profileActionOverrides");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "profileActionOverrides"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ProfileActionOverride"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         elemField.setMaxOccursUnbounded(true);

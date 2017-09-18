@@ -34,6 +34,8 @@ public class Report  extends com.sforce.soap._2006._04.metadata.Metadata  implem
 
     private com.sforce.soap._2006._04.metadata.ReportFilter filter;
 
+    private java.lang.String folderName;
+
     private com.sforce.soap._2006._04.metadata.ReportFormat format;
 
     private com.sforce.soap._2006._04.metadata.ReportGrouping[] groupingsAcross;
@@ -43,6 +45,8 @@ public class Report  extends com.sforce.soap._2006._04.metadata.Metadata  implem
     private java.lang.String[] historicalSelector;
 
     private java.lang.String name;
+
+    private java.lang.Integer numSubscriptions;
 
     private com.sforce.soap._2006._04.metadata.ReportParam[] params;
 
@@ -86,11 +90,13 @@ public class Report  extends com.sforce.soap._2006._04.metadata.Metadata  implem
            java.lang.String description,
            java.lang.String division,
            com.sforce.soap._2006._04.metadata.ReportFilter filter,
+           java.lang.String folderName,
            com.sforce.soap._2006._04.metadata.ReportFormat format,
            com.sforce.soap._2006._04.metadata.ReportGrouping[] groupingsAcross,
            com.sforce.soap._2006._04.metadata.ReportGrouping[] groupingsDown,
            java.lang.String[] historicalSelector,
            java.lang.String name,
+           java.lang.Integer numSubscriptions,
            com.sforce.soap._2006._04.metadata.ReportParam[] params,
            java.lang.String reportType,
            java.lang.String roleHierarchyFilter,
@@ -118,11 +124,13 @@ public class Report  extends com.sforce.soap._2006._04.metadata.Metadata  implem
         this.description = description;
         this.division = division;
         this.filter = filter;
+        this.folderName = folderName;
         this.format = format;
         this.groupingsAcross = groupingsAcross;
         this.groupingsDown = groupingsDown;
         this.historicalSelector = historicalSelector;
         this.name = name;
+        this.numSubscriptions = numSubscriptions;
         this.params = params;
         this.reportType = reportType;
         this.roleHierarchyFilter = roleHierarchyFilter;
@@ -455,6 +463,26 @@ public class Report  extends com.sforce.soap._2006._04.metadata.Metadata  implem
 
 
     /**
+     * Gets the folderName value for this Report.
+     * 
+     * @return folderName
+     */
+    public java.lang.String getFolderName() {
+        return folderName;
+    }
+
+
+    /**
+     * Sets the folderName value for this Report.
+     * 
+     * @param folderName
+     */
+    public void setFolderName(java.lang.String folderName) {
+        this.folderName = folderName;
+    }
+
+
+    /**
      * Gets the format value for this Report.
      * 
      * @return format
@@ -567,6 +595,26 @@ public class Report  extends com.sforce.soap._2006._04.metadata.Metadata  implem
      */
     public void setName(java.lang.String name) {
         this.name = name;
+    }
+
+
+    /**
+     * Gets the numSubscriptions value for this Report.
+     * 
+     * @return numSubscriptions
+     */
+    public java.lang.Integer getNumSubscriptions() {
+        return numSubscriptions;
+    }
+
+
+    /**
+     * Sets the numSubscriptions value for this Report.
+     * 
+     * @param numSubscriptions
+     */
+    public void setNumSubscriptions(java.lang.Integer numSubscriptions) {
+        this.numSubscriptions = numSubscriptions;
     }
 
 
@@ -868,6 +916,9 @@ public class Report  extends com.sforce.soap._2006._04.metadata.Metadata  implem
             ((this.filter==null && other.getFilter()==null) || 
              (this.filter!=null &&
               this.filter.equals(other.getFilter()))) &&
+            ((this.folderName==null && other.getFolderName()==null) || 
+             (this.folderName!=null &&
+              this.folderName.equals(other.getFolderName()))) &&
             ((this.format==null && other.getFormat()==null) || 
              (this.format!=null &&
               this.format.equals(other.getFormat()))) &&
@@ -883,6 +934,9 @@ public class Report  extends com.sforce.soap._2006._04.metadata.Metadata  implem
             ((this.name==null && other.getName()==null) || 
              (this.name!=null &&
               this.name.equals(other.getName()))) &&
+            ((this.numSubscriptions==null && other.getNumSubscriptions()==null) || 
+             (this.numSubscriptions!=null &&
+              this.numSubscriptions.equals(other.getNumSubscriptions()))) &&
             ((this.params==null && other.getParams()==null) || 
              (this.params!=null &&
               java.util.Arrays.equals(this.params, other.getParams()))) &&
@@ -1025,6 +1079,9 @@ public class Report  extends com.sforce.soap._2006._04.metadata.Metadata  implem
         if (getFilter() != null) {
             _hashCode += getFilter().hashCode();
         }
+        if (getFolderName() != null) {
+            _hashCode += getFolderName().hashCode();
+        }
         if (getFormat() != null) {
             _hashCode += getFormat().hashCode();
         }
@@ -1063,6 +1120,9 @@ public class Report  extends com.sforce.soap._2006._04.metadata.Metadata  implem
         }
         if (getName() != null) {
             _hashCode += getName().hashCode();
+        }
+        if (getNumSubscriptions() != null) {
+            _hashCode += getNumSubscriptions().hashCode();
         }
         if (getParams() != null) {
             for (int i=0;
@@ -1217,6 +1277,13 @@ public class Report  extends com.sforce.soap._2006._04.metadata.Metadata  implem
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("folderName");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "folderName"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("format");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "format"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ReportFormat"));
@@ -1250,6 +1317,13 @@ public class Report  extends com.sforce.soap._2006._04.metadata.Metadata  implem
         elemField.setFieldName("name");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "name"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("numSubscriptions");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "numSubscriptions"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

@@ -8,6 +8,8 @@
 package com.sforce.soap.partner;
 
 public class DescribeTabSetResult  implements java.io.Serializable {
+    private java.lang.String description;
+
     private java.lang.String label;
 
     private java.lang.String logoUrl;
@@ -24,18 +26,40 @@ public class DescribeTabSetResult  implements java.io.Serializable {
     }
 
     public DescribeTabSetResult(
+           java.lang.String description,
            java.lang.String label,
            java.lang.String logoUrl,
            java.lang.String namespace,
            boolean selected,
            java.lang.String tabSetId,
            com.sforce.soap.partner.DescribeTab[] tabs) {
+           this.description = description;
            this.label = label;
            this.logoUrl = logoUrl;
            this.namespace = namespace;
            this.selected = selected;
            this.tabSetId = tabSetId;
            this.tabs = tabs;
+    }
+
+
+    /**
+     * Gets the description value for this DescribeTabSetResult.
+     * 
+     * @return description
+     */
+    public java.lang.String getDescription() {
+        return description;
+    }
+
+
+    /**
+     * Sets the description value for this DescribeTabSetResult.
+     * 
+     * @param description
+     */
+    public void setDescription(java.lang.String description) {
+        this.description = description;
     }
 
 
@@ -178,6 +202,9 @@ public class DescribeTabSetResult  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.description==null && other.getDescription()==null) || 
+             (this.description!=null &&
+              this.description.equals(other.getDescription()))) &&
             ((this.label==null && other.getLabel()==null) || 
              (this.label!=null &&
               this.label.equals(other.getLabel()))) &&
@@ -205,6 +232,9 @@ public class DescribeTabSetResult  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getDescription() != null) {
+            _hashCode += getDescription().hashCode();
+        }
         if (getLabel() != null) {
             _hashCode += getLabel().hashCode();
         }
@@ -240,6 +270,12 @@ public class DescribeTabSetResult  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DescribeTabSetResult"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("description");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "description"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("label");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "label"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));

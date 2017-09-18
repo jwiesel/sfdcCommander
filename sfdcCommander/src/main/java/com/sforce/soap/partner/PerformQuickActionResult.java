@@ -20,6 +20,8 @@ public class PerformQuickActionResult  implements java.io.Serializable {
 
     private boolean success;
 
+    private java.lang.String successMessage;
+
     public PerformQuickActionResult() {
     }
 
@@ -29,13 +31,15 @@ public class PerformQuickActionResult  implements java.io.Serializable {
            com.sforce.soap.partner.Error[] errors,
            java.lang.String[] feedItemIds,
            java.lang.String[] ids,
-           boolean success) {
+           boolean success,
+           java.lang.String successMessage) {
            this.contextId = contextId;
            this.created = created;
            this.errors = errors;
            this.feedItemIds = feedItemIds;
            this.ids = ids;
            this.success = success;
+           this.successMessage = successMessage;
     }
 
 
@@ -182,6 +186,26 @@ public class PerformQuickActionResult  implements java.io.Serializable {
         this.success = success;
     }
 
+
+    /**
+     * Gets the successMessage value for this PerformQuickActionResult.
+     * 
+     * @return successMessage
+     */
+    public java.lang.String getSuccessMessage() {
+        return successMessage;
+    }
+
+
+    /**
+     * Sets the successMessage value for this PerformQuickActionResult.
+     * 
+     * @param successMessage
+     */
+    public void setSuccessMessage(java.lang.String successMessage) {
+        this.successMessage = successMessage;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof PerformQuickActionResult)) return false;
@@ -207,7 +231,10 @@ public class PerformQuickActionResult  implements java.io.Serializable {
             ((this.ids==null && other.getIds()==null) || 
              (this.ids!=null &&
               java.util.Arrays.equals(this.ids, other.getIds()))) &&
-            this.success == other.isSuccess();
+            this.success == other.isSuccess() &&
+            ((this.successMessage==null && other.getSuccessMessage()==null) || 
+             (this.successMessage!=null &&
+              this.successMessage.equals(other.getSuccessMessage())));
         __equalsCalc = null;
         return _equals;
     }
@@ -257,6 +284,9 @@ public class PerformQuickActionResult  implements java.io.Serializable {
             }
         }
         _hashCode += (isSuccess() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getSuccessMessage() != null) {
+            _hashCode += getSuccessMessage().hashCode();
+        }
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -309,6 +339,13 @@ public class PerformQuickActionResult  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "success"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("successMessage");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "successMessage"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
     }
 

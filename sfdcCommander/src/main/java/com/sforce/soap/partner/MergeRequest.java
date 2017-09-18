@@ -8,6 +8,8 @@
 package com.sforce.soap.partner;
 
 public class MergeRequest  implements java.io.Serializable {
+    private com.sforce.soap.partner.AdditionalInformationMap[] additionalInformationMap;
+
     private com.sforce.soap.partner.sobject.SObject masterRecord;
 
     private java.lang.String[] recordToMergeIds;
@@ -16,10 +18,40 @@ public class MergeRequest  implements java.io.Serializable {
     }
 
     public MergeRequest(
+           com.sforce.soap.partner.AdditionalInformationMap[] additionalInformationMap,
            com.sforce.soap.partner.sobject.SObject masterRecord,
            java.lang.String[] recordToMergeIds) {
+           this.additionalInformationMap = additionalInformationMap;
            this.masterRecord = masterRecord;
            this.recordToMergeIds = recordToMergeIds;
+    }
+
+
+    /**
+     * Gets the additionalInformationMap value for this MergeRequest.
+     * 
+     * @return additionalInformationMap
+     */
+    public com.sforce.soap.partner.AdditionalInformationMap[] getAdditionalInformationMap() {
+        return additionalInformationMap;
+    }
+
+
+    /**
+     * Sets the additionalInformationMap value for this MergeRequest.
+     * 
+     * @param additionalInformationMap
+     */
+    public void setAdditionalInformationMap(com.sforce.soap.partner.AdditionalInformationMap[] additionalInformationMap) {
+        this.additionalInformationMap = additionalInformationMap;
+    }
+
+    public com.sforce.soap.partner.AdditionalInformationMap getAdditionalInformationMap(int i) {
+        return this.additionalInformationMap[i];
+    }
+
+    public void setAdditionalInformationMap(int i, com.sforce.soap.partner.AdditionalInformationMap _value) {
+        this.additionalInformationMap[i] = _value;
     }
 
 
@@ -82,6 +114,9 @@ public class MergeRequest  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.additionalInformationMap==null && other.getAdditionalInformationMap()==null) || 
+             (this.additionalInformationMap!=null &&
+              java.util.Arrays.equals(this.additionalInformationMap, other.getAdditionalInformationMap()))) &&
             ((this.masterRecord==null && other.getMasterRecord()==null) || 
              (this.masterRecord!=null &&
               this.masterRecord.equals(other.getMasterRecord()))) &&
@@ -99,6 +134,17 @@ public class MergeRequest  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getAdditionalInformationMap() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdditionalInformationMap());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdditionalInformationMap(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
         if (getMasterRecord() != null) {
             _hashCode += getMasterRecord().hashCode();
         }
@@ -124,6 +170,14 @@ public class MergeRequest  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "MergeRequest"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("additionalInformationMap");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "additionalInformationMap"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "AdditionalInformationMap"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("masterRecord");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "masterRecord"));
         elemField.setXmlType(new javax.xml.namespace.QName("urn:sobject.partner.soap.sforce.com", "sObject"));

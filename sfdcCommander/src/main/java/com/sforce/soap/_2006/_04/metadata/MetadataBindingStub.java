@@ -127,10 +127,8 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "type"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DescribeValueTypeResult"));
-        oper.setReturnClass(com.sforce.soap._2006._04.metadata.ValueTypeField[].class);
+        oper.setReturnClass(com.sforce.soap._2006._04.metadata.DescribeValueTypeResult.class);
         oper.setReturnQName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "result"));
-        param = oper.getReturnParamDesc();
-        param.setItemQName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "valueTypeFields"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[8] = oper;
@@ -258,6 +256,8 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
         addBindings4();
         addBindings5();
         addBindings6();
+        addBindings7();
+        addBindings8();
     }
 
     private void addBindings0() {
@@ -563,13 +563,6 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Action");
-            cachedSerQNames.add(qName);
-            cls = com.sforce.soap._2006._04.metadata.Action.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ActionEmailRecipientTypes");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.ActionEmailRecipientTypes.class;
@@ -760,6 +753,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ApexTestSuite");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ApexTestSuite.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ApexTrigger");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.ApexTrigger.class;
@@ -774,6 +774,20 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "AppActionOverride");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.AppActionOverride.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "AppBrand");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.AppBrand.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "AppMenu");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.AppMenu.class;
@@ -784,6 +798,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "AppMenuItem");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.AppMenuItem.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "AppProfileActionOverride");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.AppProfileActionOverride.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -899,6 +920,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "AssistantRecommendationType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.AssistantRecommendationType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "AsyncRequestState");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.AsyncRequestState.class;
@@ -976,6 +1004,21 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
+    }
+    private void addBindings1() {
+            java.lang.Class cls;
+            javax.xml.namespace.QName qName;
+            javax.xml.namespace.QName qName2;
+            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Branding");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.Branding.class;
@@ -1004,21 +1047,6 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
-    }
-    private void addBindings1() {
-            java.lang.Class cls;
-            javax.xml.namespace.QName qName;
-            javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "BusinessProcess");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.BusinessProcess.class;
@@ -1043,6 +1071,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CallCenterSection");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.CallCenterSection.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CampaignInfluenceModel");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CampaignInfluenceModel.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -1081,6 +1116,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Certificate");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.Certificate.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Channel");
             cachedSerQNames.add(qName);
@@ -1180,6 +1222,27 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CleanDataService");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CleanDataService.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CleanRule");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CleanRule.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CleanRuleStatus");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CleanRuleStatus.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CodeCoverageResult");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.CodeCoverageResult.class;
@@ -1204,6 +1267,69 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Community");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.Community.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CommunityCustomThemeLayoutType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CommunityCustomThemeLayoutType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CommunityTemplateBundleInfo");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CommunityTemplateBundleInfo.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CommunityTemplateBundleInfoType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CommunityTemplateBundleInfoType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CommunityTemplateCategory");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CommunityTemplateCategory.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CommunityTemplateDefinition");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CommunityTemplateDefinition.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CommunityTemplatePageSetting");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CommunityTemplatePageSetting.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CommunityThemeDefinition");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CommunityThemeDefinition.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CommunityThemeLayoutType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CommunityThemeLayoutType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CommunityThemeSetting");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CommunityThemeSetting.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -1242,6 +1368,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ComponentInstancePropertyTypeEnum");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ComponentInstancePropertyTypeEnum.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ConnectedApp");
             cachedSerQNames.add(qName);
@@ -1306,6 +1439,57 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ContentAsset");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ContentAsset.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ContentAssetAccess");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ContentAssetAccess.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ContentAssetFormat");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ContentAssetFormat.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ContentAssetLink");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ContentAssetLink.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ContentAssetRelationships");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ContentAssetRelationships.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ContentAssetVersion");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ContentAssetVersion.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ContentAssetVersions");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ContentAssetVersion[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ContentAssetVersion");
+            qName2 = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "version");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ContractSettings");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.ContractSettings.class;
@@ -1332,6 +1516,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Country");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.Country.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CspTrustedSite");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CspTrustedSite.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -1402,6 +1593,34 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CustomDataTypeTranslation");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.CustomDataTypeTranslation.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CustomExperience");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CustomExperience.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CustomExperienceBranding");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CustomExperienceBranding.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CustomExperienceTabSet");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CustomExperienceTabSet.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CustomFeedFilter");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CustomFeedFilter.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -1504,6 +1723,21 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
+    }
+    private void addBindings2() {
+            java.lang.Class cls;
+            javax.xml.namespace.QName qName;
+            javax.xml.namespace.QName qName2;
+            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CustomShortcut");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.CustomShortcut.class;
@@ -1528,6 +1762,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CustomTabTranslation");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.CustomTabTranslation.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CustomValue");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.CustomValue.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -1609,6 +1850,20 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DashboardGridComponent");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.DashboardGridComponent.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DashboardGridLayout");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.DashboardGridLayout.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DashboardMobileSettings");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.DashboardMobileSettings.class;
@@ -1672,6 +1927,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DelegateGroup");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.DelegateGroup.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DeleteConstraint");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.DeleteConstraint.class;
@@ -1721,21 +1983,6 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
-    }
-    private void addBindings2() {
-            java.lang.Class cls;
-            javax.xml.namespace.QName qName;
-            javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DeployResult");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.DeployResult.class;
@@ -1766,12 +2013,10 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DescribeValueTypeResult");
             cachedSerQNames.add(qName);
-            cls = com.sforce.soap._2006._04.metadata.ValueTypeField[].class;
+            cls = com.sforce.soap._2006._04.metadata.DescribeValueTypeResult.class;
             cachedSerClasses.add(cls);
-            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ValueTypeField");
-            qName2 = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "valueTypeFields");
-            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
-            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DevicePlatformType");
             cachedSerQNames.add(qName);
@@ -1816,6 +2061,62 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName2 = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "domain");
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DupeActionType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.DupeActionType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DupeSecurityOptionType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.DupeSecurityOptionType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DuplicateRule");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.DuplicateRule.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DuplicateRuleFilter");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.DuplicateRuleFilter.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DuplicateRuleFilterItem");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.DuplicateRuleFilterItem.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "DuplicateRuleMatchRule");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.DuplicateRuleMatchRule.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EclairGeoData");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EclairGeoData.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EclairMap");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EclairMap.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EmailFolder");
             cachedSerQNames.add(qName);
@@ -1872,6 +2173,41 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EmbeddedServiceBranding");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EmbeddedServiceBranding.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EmbeddedServiceConfig");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EmbeddedServiceConfig.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EmbeddedServiceLiveAgent");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EmbeddedServiceLiveAgent.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EmbeddedServiceQuickAction");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EmbeddedServiceQuickAction.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EmbeddedServiceScenario");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EmbeddedServiceScenario.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Encoding");
             cachedSerQNames.add(qName);
@@ -1964,12 +2300,68 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EventDelivery");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EventDelivery.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EventDeliveryType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EventDeliveryType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EventParameterMap");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EventParameterMap.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EventSubscription");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EventSubscription.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EventType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EventType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "EventTypeParameter");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.EventTypeParameter.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Expiration");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.Expiration.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ExtendedErrorCode");
+            cachedSerQNames.add(qName);
+            cls = java.lang.String.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(org.apache.axis.encoding.ser.BaseSerializerFactory.createFactory(org.apache.axis.encoding.ser.SimpleSerializerFactory.class, cls, qName));
+            cachedDeserFactories.add(org.apache.axis.encoding.ser.BaseDeserializerFactory.createFactory(org.apache.axis.encoding.ser.SimpleDeserializerFactory.class, cls, qName));
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ExtendedErrorDetails");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ExtendedErrorDetails.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ExternalDataSource");
             cachedSerQNames.add(qName);
@@ -1992,6 +2384,20 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ExternalServiceRegistration");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ExternalServiceRegistration.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FeedFilterCriterion");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FeedFilterCriterion.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FeedItemDisplayFormat");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.FeedItemDisplayFormat.class;
@@ -2013,6 +2419,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FeedItemVisibility");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FeedItemVisibility.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FeedLayout");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.FeedLayout.class;
@@ -2027,6 +2440,21 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+    }
+    private void addBindings3() {
+            java.lang.Class cls;
+            javax.xml.namespace.QName qName;
+            javax.xml.namespace.QName qName2;
+            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FeedLayoutComponentType");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.FeedLayoutComponentType.class;
@@ -2054,6 +2482,34 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FieldManageability");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FieldManageability.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FieldMapping");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FieldMapping.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FieldMappingField");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FieldMappingField.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FieldMappingRow");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FieldMappingRow.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FieldOverride");
             cachedSerQNames.add(qName);
@@ -2097,9 +2553,37 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FileDownloadBehavior");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FileDownloadBehavior.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FileProperties");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.FileProperties.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FileType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FileType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FileTypeDispositionAssignmentBean");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FileTypeDispositionAssignmentBean.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FileUploadAndDownloadSecuritySettings");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FileUploadAndDownloadSecuritySettings.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -2149,6 +2633,27 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FlexiPageRegion");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.FlexiPageRegion.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FlexiPageRegionMode");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FlexiPageRegionMode.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FlexiPageRegionType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FlexiPageRegionType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FlexiPageTemplateInstance");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FlexiPageTemplateInstance.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -2442,27 +2947,26 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-    }
-    private void addBindings3() {
-            java.lang.Class cls;
-            javax.xml.namespace.QName qName;
-            javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FlowScreenFieldType");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.FlowScreenFieldType.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FlowScreenRule");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FlowScreenRule.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FlowScreenRuleAction");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FlowScreenRuleAction.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FlowStep");
             cachedSerQNames.add(qName);
@@ -2604,6 +3108,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "FormFactor");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.FormFactor.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Gender");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.Gender.class;
@@ -2611,9 +3122,30 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "GlobalPicklistValue");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.GlobalPicklistValue.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "GlobalQuickActionTranslation");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.GlobalQuickActionTranslation.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "GlobalValueSet");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.GlobalValueSet.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "GlobalValueSetTranslation");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.GlobalValueSetTranslation.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -2625,6 +3157,21 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+    }
+    private void addBindings4() {
+            java.lang.Class cls;
+            javax.xml.namespace.QName qName;
+            javax.xml.namespace.QName qName2;
+            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "HistoryRetentionPolicy");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.HistoryRetentionPolicy.class;
@@ -2674,6 +3221,41 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Index");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.Index.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "IndexField");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.IndexField.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "InsightParentType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.InsightParentType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "InsightTrendType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.InsightTrendType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "InsightType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.InsightType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "InstalledPackage");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.InstalledPackage.class;
@@ -2709,6 +3291,20 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Keyword");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.Keyword.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KeywordList");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.KeywordList.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeAnswerSettings");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.KnowledgeAnswerSettings.class;
@@ -2723,12 +3319,37 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeCaseField");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.KnowledgeCaseField.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeCaseFieldsSettings");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.KnowledgeCaseField[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeCaseField");
+            qName2 = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "field");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeCaseSettings");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.KnowledgeCaseSettings.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeCommunitiesSettings");
+            cachedSerQNames.add(qName);
+            cls = java.lang.String[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string");
+            qName2 = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "community");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeLanguage");
             cachedSerQNames.add(qName);
@@ -2769,12 +3390,51 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeSuggestedArticlesSettings");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.KnowledgeSuggestedArticlesSettings.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeWorkflowAction");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.KnowledgeWorkflowAction.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeWorkOrderField");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.KnowledgeWorkOrderField.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeWorkOrderFieldsSettings");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.KnowledgeWorkOrderField[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeWorkOrderField");
+            qName2 = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "field");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeWorkOrderLineItemField");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.KnowledgeWorkOrderLineItemField.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeWorkOrderLineItemFieldsSettings");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.KnowledgeWorkOrderLineItemField[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "KnowledgeWorkOrderLineItemField");
+            qName2 = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "field");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Language");
             cachedSerQNames.add(qName);
@@ -2835,6 +3495,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "LayoutTranslation");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.LayoutTranslation.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "LeadConvertSettings");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.LeadConvertSettings.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -3013,6 +3680,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "LiveChatSensitiveDataRule");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.LiveChatSensitiveDataRule.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "LockoutInterval");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.LockoutInterval.class;
@@ -3069,6 +3743,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "MacroSettings");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.MacroSettings.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ManageableState");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.ManageableState.class;
@@ -3089,6 +3770,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "MappingOperation");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.MappingOperation.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "MarketingActionSettings");
             cachedSerQNames.add(qName);
@@ -3167,21 +3855,6 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
-    }
-    private void addBindings4() {
-            java.lang.Class cls;
-            javax.xml.namespace.QName qName;
-            javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "MilestoneType");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.MilestoneType.class;
@@ -3203,19 +3876,55 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "MinPasswordLength");
-            cachedSerQNames.add(qName);
-            cls = com.sforce.soap._2006._04.metadata.MinPasswordLength.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(enumsf);
-            cachedDeserFactories.add(enumdf);
-
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "MobileSettings");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.MobileSettings.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ModeratedEntityField");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ModeratedEntityField.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+    }
+    private void addBindings5() {
+            java.lang.Class cls;
+            javax.xml.namespace.QName qName;
+            javax.xml.namespace.QName qName2;
+            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ModerationRule");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ModerationRule.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ModerationRuleAction");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ModerationRuleAction.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ModerationRuleType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ModerationRuleType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "MonitoredEvents");
             cachedSerQNames.add(qName);
@@ -3237,6 +3946,38 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "NavigationLinkSet");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.NavigationMenuItem[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "NavigationMenuItem");
+            qName2 = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "navigationMenuItem");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "NavigationMenuItem");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.NavigationMenuItem.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "NavigationSubMenu");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.NavigationMenuItem[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "NavigationMenuItem");
+            qName2 = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "navigationMenuItem");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "NavType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.NavType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Network");
             cachedSerQNames.add(qName);
@@ -3275,6 +4016,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "NetworkUserType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.NetworkUserType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "NextAutomatedApprover");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.NextAutomatedApprover.class;
@@ -3289,19 +4037,26 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
-            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Notification");
-            cachedSerQNames.add(qName);
-            cls = com.sforce.soap._2006._04.metadata.Notification.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ObjectFilterOperator");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.ObjectFilterOperator.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ObjectMapping");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ObjectMapping.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ObjectMappingField");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ObjectMappingField.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ObjectNameCaseValue");
             cachedSerQNames.add(qName);
@@ -3317,6 +4072,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ObjectSearchSetting");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ObjectSearchSetting.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ObjectUsage");
             cachedSerQNames.add(qName);
             cls = java.lang.String[].class;
@@ -3326,7 +4088,23 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "OpportunityListFieldsLabelMapping");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.OpportunityListFieldsLabelMapping.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "OpportunityListFieldsSelectedSettings");
+            cachedSerQNames.add(qName);
+            cls = java.lang.String[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string");
+            qName2 = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "field");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "OpportunityListFieldsUnselectedSettings");
             cachedSerQNames.add(qName);
             cls = java.lang.String[].class;
             cachedSerClasses.add(cls);
@@ -3345,6 +4123,20 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "OrderSettings");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.OrderSettings.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "OrganizationSettingsDetail");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.OrganizationSettingsDetail.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "OrgPreferenceSettings");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.OrgPreferenceSettings.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -3526,13 +4318,6 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Picklist");
-            cachedSerQNames.add(qName);
-            cls = com.sforce.soap._2006._04.metadata.Picklist.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "PicklistEntry");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.PicklistEntry.class;
@@ -3585,6 +4370,27 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "PlatformActionType");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.PlatformActionType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "PlatformCachePartition");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.PlatformCachePartition.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "PlatformCachePartitionType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.PlatformCachePartitionType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "PlatformCacheType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.PlatformCacheType.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
@@ -3650,6 +4456,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Profile");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.Profile.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ProfileActionOverride");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ProfileActionOverride.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -3810,6 +4623,21 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+    }
+    private void addBindings6() {
+            java.lang.Class cls;
+            javax.xml.namespace.QName qName;
+            javax.xml.namespace.QName qName2;
+            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "QuickActionLayoutColumn");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.QuickActionLayoutItem[].class;
@@ -3842,6 +4670,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "QuickActionSendEmailOptions");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.QuickActionSendEmailOptions.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "QuickActionTranslation");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.QuickActionTranslation.class;
@@ -3869,6 +4704,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "RateLimitTimePeriod");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.RateLimitTimePeriod.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ReadResult");
             cachedSerQNames.add(qName);
@@ -3900,27 +4742,19 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-    }
-    private void addBindings5() {
-            java.lang.Class cls;
-            javax.xml.namespace.QName qName;
-            javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "RecordTypeTranslation");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.RecordTypeTranslation.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "RegionFlagStatus");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.RegionFlagStatus.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "RelatedContent");
             cachedSerQNames.add(qName);
@@ -4434,6 +5268,22 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "SearchSettings");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.SearchSettings.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "SearchSettingsByObject");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ObjectSearchSetting[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ObjectSearchSetting");
+            qName2 = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "searchSettingsByObject");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "SecuritySettings");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.SecuritySettings.class;
@@ -4444,6 +5294,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "SendAction");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.SendAction.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "SensitiveDataActionType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.SensitiveDataActionType.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
@@ -4497,6 +5354,21 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+    }
+    private void addBindings7() {
+            java.lang.Class cls;
+            javax.xml.namespace.QName qName;
+            javax.xml.namespace.QName qName2;
+            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "SharingModel");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.SharingModel.class;
@@ -4625,21 +5497,6 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    }
-    private void addBindings6() {
-            java.lang.Class cls;
-            javax.xml.namespace.QName qName;
-            javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "SkillUserAssignments");
             cachedSerQNames.add(qName);
             cls = java.lang.String[].class;
@@ -4659,6 +5516,27 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "StandardFieldTranslation");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.StandardFieldTranslation.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "StandardValue");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.StandardValue.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "StandardValueSet");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.StandardValueSet.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "StandardValueSetTranslation");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.StandardValueSetTranslation.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -4779,6 +5657,13 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "TabLimitConfig");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.TabLimitConfig.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "TabVisibility");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.TabVisibility.class;
@@ -4870,6 +5755,20 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "TransactionSecurityAction");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.TransactionSecurityAction.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "TransactionSecurityNotification");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.TransactionSecurityNotification.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "TransactionSecurityPolicy");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.TransactionSecurityPolicy.class;
@@ -4905,9 +5804,23 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "UiType");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.UiType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "UpsertResult");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.UpsertResult.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "UserCriteria");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.UserCriteria.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -4940,12 +5853,47 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ValueSet");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ValueSet.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ValueSettings");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ValueSettings.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ValueSetValuesDefinition");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ValueSetValuesDefinition.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ValueTranslation");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.ValueTranslation.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ValueTypeField");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.ValueTypeField.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "VisibleOrRequired");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.VisibleOrRequired.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "VisualizationPlugin");
             cachedSerQNames.add(qName);
@@ -4971,6 +5919,111 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "VisualizationType");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.VisualizationType.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveApplication");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveApplication.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveDashboard");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveDashboard.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveDataflow");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveDataflow.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveDataset");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveDataset.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveLens");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveLens.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveTemplateBundle");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveTemplateBundle.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveXmd");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveXmd.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveXmdDate");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveXmdDate.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveXmdDimension");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveXmdDimension.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveXmdDimensionCustomAction");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveXmdDimensionCustomAction.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveXmdDimensionMember");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveXmdDimensionMember.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveXmdDimensionSalesforceAction");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveXmdDimensionSalesforceAction.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveXmdMeasure");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveXmdMeasure.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveXmdOrganization");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveXmdOrganization.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WaveXmdRecordDisplayLookup");
+            cachedSerQNames.add(qName);
+            cls = com.sforce.soap._2006._04.metadata.WaveXmdRecordDisplayLookup.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -5024,6 +6077,21 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
+    }
+    private void addBindings8() {
+            java.lang.Class cls;
+            javax.xml.namespace.QName qName;
+            javax.xml.namespace.QName qName2;
+            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "WebToCaseSettings");
             cachedSerQNames.add(qName);
             cls = com.sforce.soap._2006._04.metadata.WebToCaseSettings.class;
@@ -5532,7 +6600,7 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public com.sforce.soap._2006._04.metadata.ValueTypeField[] describeValueType(java.lang.String type) throws java.rmi.RemoteException {
+    public com.sforce.soap._2006._04.metadata.DescribeValueTypeResult describeValueType(java.lang.String type) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -5556,9 +6624,9 @@ public class MetadataBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return (com.sforce.soap._2006._04.metadata.ValueTypeField[]) _resp;
+                return (com.sforce.soap._2006._04.metadata.DescribeValueTypeResult) _resp;
             } catch (java.lang.Exception _exception) {
-                return (com.sforce.soap._2006._04.metadata.ValueTypeField[]) org.apache.axis.utils.JavaUtils.convert(_resp, com.sforce.soap._2006._04.metadata.ValueTypeField[].class);
+                return (com.sforce.soap._2006._04.metadata.DescribeValueTypeResult) org.apache.axis.utils.JavaUtils.convert(_resp, com.sforce.soap._2006._04.metadata.DescribeValueTypeResult.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {

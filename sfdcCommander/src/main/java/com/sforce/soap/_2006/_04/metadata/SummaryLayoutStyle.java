@@ -20,17 +20,23 @@ public class SummaryLayoutStyle implements java.io.Serializable {
     public static final java.lang.String _Default = "Default";
     public static final java.lang.String _QuoteTemplate = "QuoteTemplate";
     public static final java.lang.String _DefaultQuoteTemplate = "DefaultQuoteTemplate";
+    public static final java.lang.String _ServiceReportTemplate = "ServiceReportTemplate";
+    public static final java.lang.String _ChildServiceReportTemplateStyle = "ChildServiceReportTemplateStyle";
+    public static final java.lang.String _DefaultServiceReportTemplate = "DefaultServiceReportTemplate";
     public static final java.lang.String _CaseInteraction = "CaseInteraction";
     public static final java.lang.String _QuickActionLayoutLeftRight = "QuickActionLayoutLeftRight";
     public static final java.lang.String _QuickActionLayoutTopDown = "QuickActionLayoutTopDown";
-    public static final java.lang.String _ProcessAssistant = "ProcessAssistant";
+    public static final java.lang.String _PathAssistant = "PathAssistant";
     public static final SummaryLayoutStyle Default = new SummaryLayoutStyle(_Default);
     public static final SummaryLayoutStyle QuoteTemplate = new SummaryLayoutStyle(_QuoteTemplate);
     public static final SummaryLayoutStyle DefaultQuoteTemplate = new SummaryLayoutStyle(_DefaultQuoteTemplate);
+    public static final SummaryLayoutStyle ServiceReportTemplate = new SummaryLayoutStyle(_ServiceReportTemplate);
+    public static final SummaryLayoutStyle ChildServiceReportTemplateStyle = new SummaryLayoutStyle(_ChildServiceReportTemplateStyle);
+    public static final SummaryLayoutStyle DefaultServiceReportTemplate = new SummaryLayoutStyle(_DefaultServiceReportTemplate);
     public static final SummaryLayoutStyle CaseInteraction = new SummaryLayoutStyle(_CaseInteraction);
     public static final SummaryLayoutStyle QuickActionLayoutLeftRight = new SummaryLayoutStyle(_QuickActionLayoutLeftRight);
     public static final SummaryLayoutStyle QuickActionLayoutTopDown = new SummaryLayoutStyle(_QuickActionLayoutTopDown);
-    public static final SummaryLayoutStyle ProcessAssistant = new SummaryLayoutStyle(_ProcessAssistant);
+    public static final SummaryLayoutStyle PathAssistant = new SummaryLayoutStyle(_PathAssistant);
     public java.lang.String getValue() { return _value_;}
     public static SummaryLayoutStyle fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

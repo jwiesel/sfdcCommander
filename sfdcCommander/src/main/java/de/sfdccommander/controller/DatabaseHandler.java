@@ -10,7 +10,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import org.apache.commons.collections4.ListUtils;
 
 import com.sforce.soap.partner.DescribeGlobalResult;
 import com.sforce.soap.partner.DescribeGlobalSObjectResult;
@@ -33,6 +37,8 @@ import de.sfdccommander.viewer.SfdcCommander;
  * 
  */
 public class DatabaseHandler {
+
+    private static final int MAX_SOBJECTS = 100;
 
     /**
      * 
@@ -100,46 +106,60 @@ public class DatabaseHandler {
             String insertStatement;
             Statement tmpStatement = dbConnection.createStatement();
             tmpStatement.setQueryTimeout(30);
-            for (DescribeGlobalSObjectResult objectGlobalResult : global
-                    .getSobjects()) {
-                // create tables and download data
-                DescribeSObjectResult tmpDescribeSObject = sfBinding
-                        .describeSObject(objectGlobalResult.getName());
-                if (tmpDescribeSObject.isQueryable()) {
-                    if (!unsupportedSObjects
-                            .contains(tmpDescribeSObject.getName())) {
-                        commander.info(
-                                "Object: " + tmpDescribeSObject.getName());
-                        commander.info("Preparing database table.");
-                        Field[] fields = tmpDescribeSObject.getFields();
-                        dropTableStatement = generateDropTableStatement(
-                                tmpDescribeSObject.getName());
-                        tmpStatement.execute(dropTableStatement);
-                        createTableStatement = generateCreateTableStatement(
-                                tmpDescribeSObject.getName(), fields);
-                        tmpStatement.execute(createTableStatement);
-                        soqlSelect = generateSOQLSelectQuery(
-                                tmpDescribeSObject.getName(), fields);
-                        commander.info("Downloading data...");
-                        commander.info("");
-                        QueryResult queryResults = sfBinding
-                                .queryAll(soqlSelect);
-                        boolean done = false;
-                        if (queryResults.getSize() > 0) {
-                            while (!done) {
-                                for (SObject tmpSObject : queryResults
-                                        .getRecords()) {
-                                    insertStatement = generateInsertStatementForSObject(
-                                            tmpSObject,
-                                            tmpDescribeSObject.getName(),
-                                            fields);
-                                    tmpStatement.execute(insertStatement);
-                                }
-                                if (queryResults.isDone()) {
-                                    done = true;
-                                } else {
-                                    queryResults = sfBinding.queryMore(
-                                            queryResults.getQueryLocator());
+            DescribeGlobalSObjectResult[] tmpSobjects = global.getSobjects();
+            List<String> allSObjectNames = createStringArrayOfSobjectNames(
+                    tmpSobjects);
+            List<List<String>> sObjectNameLists = ListUtils
+                    .partition(allSObjectNames, MAX_SOBJECTS);
+            for (List<String> tmpSObjectList : sObjectNameLists) {
+                String[] partSObjectNames = null;
+                partSObjectNames = new String[tmpSObjectList.size()];
+                tmpSObjectList.toArray(partSObjectNames);
+
+                DescribeSObjectResult[] tmpDescribeSObjects = sfBinding
+                        .describeSObjects(partSObjectNames);
+
+                for (DescribeSObjectResult tmpDescribeSObject : tmpDescribeSObjects) {
+                    // create tables and download data
+                    if (tmpDescribeSObject.isQueryable()) {
+                        // TODO: Find a better solution than individual
+                        // unsupported objects. e.g. evaluate SF-Exception to
+                        // skip object.
+                        if (!unsupportedSObjects
+                                .contains(tmpDescribeSObject.getName())) {
+                            commander.info(
+                                    "Object: " + tmpDescribeSObject.getName());
+                            commander.info("Preparing database table.");
+                            Field[] fields = tmpDescribeSObject.getFields();
+                            dropTableStatement = generateDropTableStatement(
+                                    tmpDescribeSObject.getName());
+                            tmpStatement.execute(dropTableStatement);
+                            createTableStatement = generateCreateTableStatement(
+                                    tmpDescribeSObject.getName(), fields);
+                            tmpStatement.execute(createTableStatement);
+                            soqlSelect = generateSOQLSelectQuery(
+                                    tmpDescribeSObject.getName(), fields);
+                            commander.info("Downloading data...");
+                            commander.info("");
+                            QueryResult queryResults = sfBinding
+                                    .queryAll(soqlSelect);
+                            boolean done = false;
+                            if (queryResults.getSize() > 0) {
+                                while (!done) {
+                                    for (SObject tmpSObject : queryResults
+                                            .getRecords()) {
+                                        insertStatement = generateInsertStatementForSObject(
+                                                tmpSObject,
+                                                tmpDescribeSObject.getName(),
+                                                fields);
+                                        tmpStatement.execute(insertStatement);
+                                    }
+                                    if (queryResults.isDone()) {
+                                        done = true;
+                                    } else {
+                                        queryResults = sfBinding.queryMore(
+                                                queryResults.getQueryLocator());
+                                    }
                                 }
                             }
                         }
@@ -162,6 +182,15 @@ public class DatabaseHandler {
         } catch (RemoteException e) {
             throw new CommanderException(e);
         }
+    }
+
+    private List<String> createStringArrayOfSobjectNames(
+            DescribeGlobalSObjectResult[] aSobjects) {
+        List<String> sObjectNameList = new ArrayList<String>();
+        for (DescribeGlobalSObjectResult aSobject : aSobjects) {
+            sObjectNameList.add(aSobject.getName());
+        }
+        return sObjectNameList;
     }
 
     private String generateCreateTableStatement(String aObjectName,

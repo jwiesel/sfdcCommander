@@ -8,6 +8,8 @@
 package com.sforce.soap._2006._04.metadata;
 
 public class Error  implements java.io.Serializable {
+    private com.sforce.soap._2006._04.metadata.ExtendedErrorDetails[] extendedErrorDetails;
+
     private java.lang.String[] fields;
 
     private java.lang.String message;
@@ -18,12 +20,42 @@ public class Error  implements java.io.Serializable {
     }
 
     public Error(
+           com.sforce.soap._2006._04.metadata.ExtendedErrorDetails[] extendedErrorDetails,
            java.lang.String[] fields,
            java.lang.String message,
            com.sforce.soap._2006._04.metadata.StatusCode statusCode) {
+           this.extendedErrorDetails = extendedErrorDetails;
            this.fields = fields;
            this.message = message;
            this.statusCode = statusCode;
+    }
+
+
+    /**
+     * Gets the extendedErrorDetails value for this Error.
+     * 
+     * @return extendedErrorDetails
+     */
+    public com.sforce.soap._2006._04.metadata.ExtendedErrorDetails[] getExtendedErrorDetails() {
+        return extendedErrorDetails;
+    }
+
+
+    /**
+     * Sets the extendedErrorDetails value for this Error.
+     * 
+     * @param extendedErrorDetails
+     */
+    public void setExtendedErrorDetails(com.sforce.soap._2006._04.metadata.ExtendedErrorDetails[] extendedErrorDetails) {
+        this.extendedErrorDetails = extendedErrorDetails;
+    }
+
+    public com.sforce.soap._2006._04.metadata.ExtendedErrorDetails getExtendedErrorDetails(int i) {
+        return this.extendedErrorDetails[i];
+    }
+
+    public void setExtendedErrorDetails(int i, com.sforce.soap._2006._04.metadata.ExtendedErrorDetails _value) {
+        this.extendedErrorDetails[i] = _value;
     }
 
 
@@ -106,6 +138,9 @@ public class Error  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.extendedErrorDetails==null && other.getExtendedErrorDetails()==null) || 
+             (this.extendedErrorDetails!=null &&
+              java.util.Arrays.equals(this.extendedErrorDetails, other.getExtendedErrorDetails()))) &&
             ((this.fields==null && other.getFields()==null) || 
              (this.fields!=null &&
               java.util.Arrays.equals(this.fields, other.getFields()))) &&
@@ -126,6 +161,17 @@ public class Error  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getExtendedErrorDetails() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getExtendedErrorDetails());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getExtendedErrorDetails(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
         if (getFields() != null) {
             for (int i=0;
                  i<java.lang.reflect.Array.getLength(getFields());
@@ -154,6 +200,14 @@ public class Error  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "Error"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("extendedErrorDetails");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "extendedErrorDetails"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ExtendedErrorDetails"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("fields");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "fields"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));

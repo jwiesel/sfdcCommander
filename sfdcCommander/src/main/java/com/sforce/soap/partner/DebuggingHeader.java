@@ -8,14 +8,46 @@
 package com.sforce.soap.partner;
 
 public class DebuggingHeader  implements java.io.Serializable {
+    private com.sforce.soap.partner.LogInfo[] categories;
+
     private com.sforce.soap.partner.DebugLevel debugLevel;
 
     public DebuggingHeader() {
     }
 
     public DebuggingHeader(
+           com.sforce.soap.partner.LogInfo[] categories,
            com.sforce.soap.partner.DebugLevel debugLevel) {
+           this.categories = categories;
            this.debugLevel = debugLevel;
+    }
+
+
+    /**
+     * Gets the categories value for this DebuggingHeader.
+     * 
+     * @return categories
+     */
+    public com.sforce.soap.partner.LogInfo[] getCategories() {
+        return categories;
+    }
+
+
+    /**
+     * Sets the categories value for this DebuggingHeader.
+     * 
+     * @param categories
+     */
+    public void setCategories(com.sforce.soap.partner.LogInfo[] categories) {
+        this.categories = categories;
+    }
+
+    public com.sforce.soap.partner.LogInfo getCategories(int i) {
+        return this.categories[i];
+    }
+
+    public void setCategories(int i, com.sforce.soap.partner.LogInfo _value) {
+        this.categories[i] = _value;
     }
 
 
@@ -50,6 +82,9 @@ public class DebuggingHeader  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.categories==null && other.getCategories()==null) || 
+             (this.categories!=null &&
+              java.util.Arrays.equals(this.categories, other.getCategories()))) &&
             ((this.debugLevel==null && other.getDebugLevel()==null) || 
              (this.debugLevel!=null &&
               this.debugLevel.equals(other.getDebugLevel())));
@@ -64,6 +99,17 @@ public class DebuggingHeader  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getCategories() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getCategories());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getCategories(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
         if (getDebugLevel() != null) {
             _hashCode += getDebugLevel().hashCode();
         }
@@ -78,6 +124,14 @@ public class DebuggingHeader  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", ">DebuggingHeader"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("categories");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "categories"));
+        elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "LogInfo"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("debugLevel");
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "debugLevel"));
         elemField.setXmlType(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "DebugLevel"));

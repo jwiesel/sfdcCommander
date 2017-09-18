@@ -10,6 +10,8 @@ package com.sforce.soap.partner;
 public class RelatedListColumn  implements java.io.Serializable {
     private java.lang.String field;
 
+    private java.lang.String fieldApiName;
+
     private java.lang.String format;
 
     private java.lang.String label;
@@ -23,11 +25,13 @@ public class RelatedListColumn  implements java.io.Serializable {
 
     public RelatedListColumn(
            java.lang.String field,
+           java.lang.String fieldApiName,
            java.lang.String format,
            java.lang.String label,
            java.lang.String lookupId,
            java.lang.String name) {
            this.field = field;
+           this.fieldApiName = fieldApiName;
            this.format = format;
            this.label = label;
            this.lookupId = lookupId;
@@ -52,6 +56,26 @@ public class RelatedListColumn  implements java.io.Serializable {
      */
     public void setField(java.lang.String field) {
         this.field = field;
+    }
+
+
+    /**
+     * Gets the fieldApiName value for this RelatedListColumn.
+     * 
+     * @return fieldApiName
+     */
+    public java.lang.String getFieldApiName() {
+        return fieldApiName;
+    }
+
+
+    /**
+     * Sets the fieldApiName value for this RelatedListColumn.
+     * 
+     * @param fieldApiName
+     */
+    public void setFieldApiName(java.lang.String fieldApiName) {
+        this.fieldApiName = fieldApiName;
     }
 
 
@@ -149,6 +173,9 @@ public class RelatedListColumn  implements java.io.Serializable {
             ((this.field==null && other.getField()==null) || 
              (this.field!=null &&
               this.field.equals(other.getField()))) &&
+            ((this.fieldApiName==null && other.getFieldApiName()==null) || 
+             (this.fieldApiName!=null &&
+              this.fieldApiName.equals(other.getFieldApiName()))) &&
             ((this.format==null && other.getFormat()==null) || 
              (this.format!=null &&
               this.format.equals(other.getFormat()))) &&
@@ -174,6 +201,9 @@ public class RelatedListColumn  implements java.io.Serializable {
         int _hashCode = 1;
         if (getField() != null) {
             _hashCode += getField().hashCode();
+        }
+        if (getFieldApiName() != null) {
+            _hashCode += getFieldApiName().hashCode();
         }
         if (getFormat() != null) {
             _hashCode += getFormat().hashCode();
@@ -202,6 +232,12 @@ public class RelatedListColumn  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "field"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("fieldApiName");
+        elemField.setXmlName(new javax.xml.namespace.QName("urn:partner.soap.sforce.com", "fieldApiName"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("format");

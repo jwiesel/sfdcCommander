@@ -25,6 +25,8 @@ public class AuthProviderType implements java.io.Serializable {
     public static final java.lang.String _LinkedIn = "LinkedIn";
     public static final java.lang.String _Twitter = "Twitter";
     public static final java.lang.String _Google = "Google";
+    public static final java.lang.String _GitHub = "GitHub";
+    public static final java.lang.String _Custom = "Custom";
     public static final AuthProviderType Facebook = new AuthProviderType(_Facebook);
     public static final AuthProviderType Janrain = new AuthProviderType(_Janrain);
     public static final AuthProviderType Salesforce = new AuthProviderType(_Salesforce);
@@ -33,6 +35,8 @@ public class AuthProviderType implements java.io.Serializable {
     public static final AuthProviderType LinkedIn = new AuthProviderType(_LinkedIn);
     public static final AuthProviderType Twitter = new AuthProviderType(_Twitter);
     public static final AuthProviderType Google = new AuthProviderType(_Google);
+    public static final AuthProviderType GitHub = new AuthProviderType(_GitHub);
+    public static final AuthProviderType Custom = new AuthProviderType(_Custom);
     public java.lang.String getValue() { return _value_;}
     public static AuthProviderType fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

@@ -52,7 +52,7 @@ public interface MetadataPortType extends java.rmi.Remote {
     /**
      * Describe a complex value type
      */
-    public com.sforce.soap._2006._04.metadata.ValueTypeField[] describeValueType(java.lang.String type) throws java.rmi.RemoteException;
+    public com.sforce.soap._2006._04.metadata.DescribeValueTypeResult describeValueType(java.lang.String type) throws java.rmi.RemoteException;
 
     /**
      * Lists the available metadata components.

@@ -10,6 +10,8 @@ package com.sforce.soap._2006._04.metadata;
 public class ComponentInstanceProperty  implements java.io.Serializable {
     private java.lang.String name;
 
+    private com.sforce.soap._2006._04.metadata.ComponentInstancePropertyTypeEnum type;
+
     private java.lang.String value;
 
     public ComponentInstanceProperty() {
@@ -17,8 +19,10 @@ public class ComponentInstanceProperty  implements java.io.Serializable {
 
     public ComponentInstanceProperty(
            java.lang.String name,
+           com.sforce.soap._2006._04.metadata.ComponentInstancePropertyTypeEnum type,
            java.lang.String value) {
            this.name = name;
+           this.type = type;
            this.value = value;
     }
 
@@ -40,6 +44,26 @@ public class ComponentInstanceProperty  implements java.io.Serializable {
      */
     public void setName(java.lang.String name) {
         this.name = name;
+    }
+
+
+    /**
+     * Gets the type value for this ComponentInstanceProperty.
+     * 
+     * @return type
+     */
+    public com.sforce.soap._2006._04.metadata.ComponentInstancePropertyTypeEnum getType() {
+        return type;
+    }
+
+
+    /**
+     * Sets the type value for this ComponentInstanceProperty.
+     * 
+     * @param type
+     */
+    public void setType(com.sforce.soap._2006._04.metadata.ComponentInstancePropertyTypeEnum type) {
+        this.type = type;
     }
 
 
@@ -77,6 +101,9 @@ public class ComponentInstanceProperty  implements java.io.Serializable {
             ((this.name==null && other.getName()==null) || 
              (this.name!=null &&
               this.name.equals(other.getName()))) &&
+            ((this.type==null && other.getType()==null) || 
+             (this.type!=null &&
+              this.type.equals(other.getType()))) &&
             ((this.value==null && other.getValue()==null) || 
              (this.value!=null &&
               this.value.equals(other.getValue())));
@@ -93,6 +120,9 @@ public class ComponentInstanceProperty  implements java.io.Serializable {
         int _hashCode = 1;
         if (getName() != null) {
             _hashCode += getName().hashCode();
+        }
+        if (getType() != null) {
+            _hashCode += getType().hashCode();
         }
         if (getValue() != null) {
             _hashCode += getValue().hashCode();
@@ -111,6 +141,13 @@ public class ComponentInstanceProperty  implements java.io.Serializable {
         elemField.setFieldName("name");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "name"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("type");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "type"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ComponentInstancePropertyTypeEnum"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

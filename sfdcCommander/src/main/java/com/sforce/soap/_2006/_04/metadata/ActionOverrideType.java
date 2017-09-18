@@ -21,10 +21,12 @@ public class ActionOverrideType implements java.io.Serializable {
     public static final java.lang.String _Standard = "Standard";
     public static final java.lang.String _Scontrol = "Scontrol";
     public static final java.lang.String _Visualforce = "Visualforce";
+    public static final java.lang.String _Flexipage = "Flexipage";
     public static final ActionOverrideType Default = new ActionOverrideType(_Default);
     public static final ActionOverrideType Standard = new ActionOverrideType(_Standard);
     public static final ActionOverrideType Scontrol = new ActionOverrideType(_Scontrol);
     public static final ActionOverrideType Visualforce = new ActionOverrideType(_Visualforce);
+    public static final ActionOverrideType Flexipage = new ActionOverrideType(_Flexipage);
     public java.lang.String getValue() { return _value_;}
     public static ActionOverrideType fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

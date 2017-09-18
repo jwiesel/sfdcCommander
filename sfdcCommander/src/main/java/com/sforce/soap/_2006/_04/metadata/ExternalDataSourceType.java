@@ -17,14 +17,22 @@ public class ExternalDataSourceType implements java.io.Serializable {
         _table_.put(_value_,this);
     }
 
+    public static final java.lang.String _Datajourney = "Datajourney";
     public static final java.lang.String _Identity = "Identity";
-    public static final java.lang.String _OData = "OData";
+    public static final java.lang.String _outgoingemail = "outgoingemail";
     public static final java.lang.String _SfdcOrg = "SfdcOrg";
+    public static final java.lang.String _OData = "OData";
+    public static final java.lang.String _OData4 = "OData4";
     public static final java.lang.String _SimpleURL = "SimpleURL";
+    public static final java.lang.String _Wrapper = "Wrapper";
+    public static final ExternalDataSourceType Datajourney = new ExternalDataSourceType(_Datajourney);
     public static final ExternalDataSourceType Identity = new ExternalDataSourceType(_Identity);
-    public static final ExternalDataSourceType OData = new ExternalDataSourceType(_OData);
+    public static final ExternalDataSourceType outgoingemail = new ExternalDataSourceType(_outgoingemail);
     public static final ExternalDataSourceType SfdcOrg = new ExternalDataSourceType(_SfdcOrg);
+    public static final ExternalDataSourceType OData = new ExternalDataSourceType(_OData);
+    public static final ExternalDataSourceType OData4 = new ExternalDataSourceType(_OData4);
     public static final ExternalDataSourceType SimpleURL = new ExternalDataSourceType(_SimpleURL);
+    public static final ExternalDataSourceType Wrapper = new ExternalDataSourceType(_Wrapper);
     public java.lang.String getValue() { return _value_;}
     public static ExternalDataSourceType fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

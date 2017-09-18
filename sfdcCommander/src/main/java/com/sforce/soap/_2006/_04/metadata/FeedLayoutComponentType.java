@@ -24,6 +24,7 @@ public class FeedLayoutComponentType implements java.io.Serializable {
     public static final java.lang.String _CustomLinks = "CustomLinks";
     public static final java.lang.String _Milestones = "Milestones";
     public static final java.lang.String _Topics = "Topics";
+    public static final java.lang.String _CaseUnifiedFiles = "CaseUnifiedFiles";
     public static final java.lang.String _Visualforce = "Visualforce";
     public static final FeedLayoutComponentType HelpAndToolLinks = new FeedLayoutComponentType(_HelpAndToolLinks);
     public static final FeedLayoutComponentType CustomButtons = new FeedLayoutComponentType(_CustomButtons);
@@ -32,6 +33,7 @@ public class FeedLayoutComponentType implements java.io.Serializable {
     public static final FeedLayoutComponentType CustomLinks = new FeedLayoutComponentType(_CustomLinks);
     public static final FeedLayoutComponentType Milestones = new FeedLayoutComponentType(_Milestones);
     public static final FeedLayoutComponentType Topics = new FeedLayoutComponentType(_Topics);
+    public static final FeedLayoutComponentType CaseUnifiedFiles = new FeedLayoutComponentType(_CaseUnifiedFiles);
     public static final FeedLayoutComponentType Visualforce = new FeedLayoutComponentType(_Visualforce);
     public java.lang.String getValue() { return _value_;}
     public static FeedLayoutComponentType fromValue(java.lang.String value)

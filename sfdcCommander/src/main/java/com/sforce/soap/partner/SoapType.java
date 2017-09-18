@@ -26,10 +26,16 @@ public class SoapType implements java.io.Serializable {
     public static final java.lang.String _value7 = "xsd:date";
     public static final java.lang.String _value8 = "xsd:dateTime";
     public static final java.lang.String _value9 = "xsd:time";
-    public static final java.lang.String _value10 = "urn:location";
-    public static final java.lang.String _value11 = "urn:address";
+    public static final java.lang.String _value10 = "tns:location";
+    public static final java.lang.String _value11 = "tns:address";
     public static final java.lang.String _value12 = "xsd:anyType";
     public static final java.lang.String _value13 = "urn:RelationshipReferenceTo";
+    public static final java.lang.String _value14 = "urn:JunctionIdListNames";
+    public static final java.lang.String _value15 = "urn:SearchLayoutFieldsDisplayed";
+    public static final java.lang.String _value16 = "urn:SearchLayoutField";
+    public static final java.lang.String _value17 = "urn:SearchLayoutButtonsDisplayed";
+    public static final java.lang.String _value18 = "urn:SearchLayoutButton";
+    public static final java.lang.String _value19 = "urn:RecordTypesSupported";
     public static final SoapType value1 = new SoapType(_value1);
     public static final SoapType value2 = new SoapType(_value2);
     public static final SoapType value3 = new SoapType(_value3);
@@ -43,6 +49,12 @@ public class SoapType implements java.io.Serializable {
     public static final SoapType value11 = new SoapType(_value11);
     public static final SoapType value12 = new SoapType(_value12);
     public static final SoapType value13 = new SoapType(_value13);
+    public static final SoapType value14 = new SoapType(_value14);
+    public static final SoapType value15 = new SoapType(_value15);
+    public static final SoapType value16 = new SoapType(_value16);
+    public static final SoapType value17 = new SoapType(_value17);
+    public static final SoapType value18 = new SoapType(_value18);
+    public static final SoapType value19 = new SoapType(_value19);
     public java.lang.String getValue() { return _value_;}
     public static SoapType fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {

@@ -20,7 +20,7 @@ public interface Soap extends java.rmi.Remote {
     public com.sforce.soap.partner.DescribeSObjectResult describeSObject(java.lang.String sObjectType) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.InvalidSObjectFault, com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
     /**
-     * Describe a number sObjects
+     * Describe multiple sObjects (upto 100)
      */
     public com.sforce.soap.partner.DescribeSObjectResult[] describeSObjects(java.lang.String[] sObjectType) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.InvalidSObjectFault, com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
@@ -48,14 +48,9 @@ public interface Soap extends java.rmi.Remote {
     public com.sforce.soap.partner.KnowledgeSettings describeKnowledgeSettings() throws java.rmi.RemoteException, com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
     /**
-     * Describe a list of FlexiPage and their contents
-     */
-    public com.sforce.soap.partner.DescribeFlexiPageResult[] describeFlexiPages(java.lang.String[] flexiPages) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.UnexpectedErrorFault, com.sforce.soap.partner.fault.InvalidIdFault;
-
-    /**
      * Describe the items in an AppMenu
      */
-    public com.sforce.soap.partner.DescribeAppMenuItem[] describeAppMenu(com.sforce.soap.partner.AppMenuType appMenuType) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.UnexpectedErrorFault;
+    public com.sforce.soap.partner.DescribeAppMenuItem[] describeAppMenu(com.sforce.soap.partner.AppMenuType appMenuType, java.lang.String networkId) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
     /**
      * Describe Gloal and Themes
@@ -84,6 +79,12 @@ public interface Soap extends java.rmi.Remote {
     public com.sforce.soap.partner.DescribeSearchLayoutResult[] describeSearchLayouts(java.lang.String[] sObjectType) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.InvalidSObjectFault, com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
     /**
+     * Describe a list of entity names that reflects the current user's
+     * searchable entities
+     */
+    public com.sforce.soap.partner.DescribeSearchableEntityResult[] describeSearchableEntities(boolean includeOnlyEntitiesWithTabs) throws java.rmi.RemoteException;
+
+    /**
      * Describe a list of objects representing the order and scope
      * of objects on a users search result page
      */
@@ -93,6 +94,12 @@ public interface Soap extends java.rmi.Remote {
      * Describe the compact layouts of the given sObject
      */
     public com.sforce.soap.partner.DescribeCompactLayoutsResult describeCompactLayouts(java.lang.String sObjectType, java.lang.String[] recordTypeIds) throws java.rmi.RemoteException;
+
+    /**
+     * Describe the Path Assistants for the given sObject and optionally
+     * RecordTypes
+     */
+    public com.sforce.soap.partner.DescribePathAssistant[] describePathAssistants(java.lang.String sObjectType, java.lang.String picklistValue, java.lang.String[] recordTypeIds) throws java.rmi.RemoteException;
 
     /**
      * Describe the approval layouts of the given sObject
@@ -253,6 +260,11 @@ public interface Soap extends java.rmi.Remote {
     public com.sforce.soap.partner.SendEmailResult[] sendEmail(com.sforce.soap.partner.Email[] messages) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
     /**
+     * Perform a template merge on one or more blocks of text.
+     */
+    public com.sforce.soap.partner.RenderEmailTemplateResult[] renderEmailTemplate(com.sforce.soap.partner.RenderEmailTemplateRequest[] renderRequests) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.UnexpectedErrorFault;
+
+    /**
      * Perform a series of predefined actions such as quick create
      * or log a task
      */
@@ -274,6 +286,16 @@ public interface Soap extends java.rmi.Remote {
      * quick action names in a given context
      */
     public com.sforce.soap.partner.QuickActionTemplateResult[] retrieveQuickActionTemplates(java.lang.String[] quickActionNames, java.lang.String contextId) throws java.rmi.RemoteException;
+
+    /**
+     * Describe visualforce for an org
+     */
+    public com.sforce.soap.partner.DescribeVisualForceResult describeVisualForce(boolean includeAllDetails, java.lang.String namespacePrefix) throws java.rmi.RemoteException;
+
+    /**
+     * Find duplicates for a set of sObjects
+     */
+    public com.sforce.soap.partner.FindDuplicatesResult[] findDuplicates(com.sforce.soap.partner.sobject.SObject[] sObjects) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.InvalidSObjectFault, com.sforce.soap.partner.fault.InvalidFieldFault, com.sforce.soap.partner.fault.UnexpectedErrorFault;
 
     /**
      * Return the renameable nouns from the server for use in presentation

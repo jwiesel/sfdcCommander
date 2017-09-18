@@ -86,16 +86,10 @@ public class SoapProxy implements com.sforce.soap.partner.Soap {
     return soap.describeKnowledgeSettings();
   }
   
-  public com.sforce.soap.partner.DescribeFlexiPageResult[] describeFlexiPages(java.lang.String[] flexiPages) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.UnexpectedErrorFault, com.sforce.soap.partner.fault.InvalidIdFault{
+  public com.sforce.soap.partner.DescribeAppMenuItem[] describeAppMenu(com.sforce.soap.partner.AppMenuType appMenuType, java.lang.String networkId) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.UnexpectedErrorFault{
     if (soap == null)
       _initSoapProxy();
-    return soap.describeFlexiPages(flexiPages);
-  }
-  
-  public com.sforce.soap.partner.DescribeAppMenuItem[] describeAppMenu(com.sforce.soap.partner.AppMenuType appMenuType) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.UnexpectedErrorFault{
-    if (soap == null)
-      _initSoapProxy();
-    return soap.describeAppMenu(appMenuType);
+    return soap.describeAppMenu(appMenuType, networkId);
   }
   
   public com.sforce.soap.partner.DescribeGlobalTheme describeGlobalTheme() throws java.rmi.RemoteException, com.sforce.soap.partner.fault.UnexpectedErrorFault{
@@ -128,6 +122,12 @@ public class SoapProxy implements com.sforce.soap.partner.Soap {
     return soap.describeSearchLayouts(sObjectType);
   }
   
+  public com.sforce.soap.partner.DescribeSearchableEntityResult[] describeSearchableEntities(boolean includeOnlyEntitiesWithTabs) throws java.rmi.RemoteException{
+    if (soap == null)
+      _initSoapProxy();
+    return soap.describeSearchableEntities(includeOnlyEntitiesWithTabs);
+  }
+  
   public com.sforce.soap.partner.DescribeSearchScopeOrderResult[] describeSearchScopeOrder() throws java.rmi.RemoteException{
     if (soap == null)
       _initSoapProxy();
@@ -138,6 +138,12 @@ public class SoapProxy implements com.sforce.soap.partner.Soap {
     if (soap == null)
       _initSoapProxy();
     return soap.describeCompactLayouts(sObjectType, recordTypeIds);
+  }
+  
+  public com.sforce.soap.partner.DescribePathAssistant[] describePathAssistants(java.lang.String sObjectType, java.lang.String picklistValue, java.lang.String[] recordTypeIds) throws java.rmi.RemoteException{
+    if (soap == null)
+      _initSoapProxy();
+    return soap.describePathAssistants(sObjectType, picklistValue, recordTypeIds);
   }
   
   public com.sforce.soap.partner.DescribeApprovalLayout[] describeApprovalLayout(java.lang.String sObjectType, java.lang.String[] approvalProcessNames) throws java.rmi.RemoteException{
@@ -326,6 +332,12 @@ public class SoapProxy implements com.sforce.soap.partner.Soap {
     return soap.sendEmail(messages);
   }
   
+  public com.sforce.soap.partner.RenderEmailTemplateResult[] renderEmailTemplate(com.sforce.soap.partner.RenderEmailTemplateRequest[] renderRequests) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.UnexpectedErrorFault{
+    if (soap == null)
+      _initSoapProxy();
+    return soap.renderEmailTemplate(renderRequests);
+  }
+  
   public com.sforce.soap.partner.PerformQuickActionResult[] performQuickActions(com.sforce.soap.partner.PerformQuickActionRequest[] quickActions) throws java.rmi.RemoteException{
     if (soap == null)
       _initSoapProxy();
@@ -348,6 +360,18 @@ public class SoapProxy implements com.sforce.soap.partner.Soap {
     if (soap == null)
       _initSoapProxy();
     return soap.retrieveQuickActionTemplates(quickActionNames, contextId);
+  }
+  
+  public com.sforce.soap.partner.DescribeVisualForceResult describeVisualForce(boolean includeAllDetails, java.lang.String namespacePrefix) throws java.rmi.RemoteException{
+    if (soap == null)
+      _initSoapProxy();
+    return soap.describeVisualForce(includeAllDetails, namespacePrefix);
+  }
+  
+  public com.sforce.soap.partner.FindDuplicatesResult[] findDuplicates(com.sforce.soap.partner.sobject.SObject[] sObjects) throws java.rmi.RemoteException, com.sforce.soap.partner.fault.InvalidSObjectFault, com.sforce.soap.partner.fault.InvalidFieldFault, com.sforce.soap.partner.fault.UnexpectedErrorFault{
+    if (soap == null)
+      _initSoapProxy();
+    return soap.findDuplicates(sObjects);
   }
   
   public com.sforce.soap.partner.DescribeNounResult[] describeNouns(java.lang.String[] nouns, boolean onlyRenamed, boolean includeFields) throws java.rmi.RemoteException{

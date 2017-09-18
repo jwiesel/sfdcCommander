@@ -8,6 +8,8 @@
 package com.sforce.soap._2006._04.metadata;
 
 public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  implements java.io.Serializable {
+    private com.sforce.soap._2006._04.metadata.ActionOverride[] actionOverrides;
+
     private java.lang.String auraComponent;
 
     private java.lang.Boolean customObject;
@@ -24,7 +26,7 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
 
     private java.lang.String label;
 
-    private boolean mobileReady;
+    private java.lang.Boolean mobileReady;
 
     private java.lang.String motif;
 
@@ -43,6 +45,7 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
 
     public CustomTab(
            java.lang.String fullName,
+           com.sforce.soap._2006._04.metadata.ActionOverride[] actionOverrides,
            java.lang.String auraComponent,
            java.lang.Boolean customObject,
            java.lang.String description,
@@ -51,7 +54,7 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
            java.lang.Boolean hasSidebar,
            java.lang.String icon,
            java.lang.String label,
-           boolean mobileReady,
+           java.lang.Boolean mobileReady,
            java.lang.String motif,
            java.lang.String page,
            java.lang.String scontrol,
@@ -60,6 +63,7 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
            com.sforce.soap._2006._04.metadata.Encoding urlEncodingKey) {
         super(
             fullName);
+        this.actionOverrides = actionOverrides;
         this.auraComponent = auraComponent;
         this.customObject = customObject;
         this.description = description;
@@ -75,6 +79,34 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         this.splashPageLink = splashPageLink;
         this.url = url;
         this.urlEncodingKey = urlEncodingKey;
+    }
+
+
+    /**
+     * Gets the actionOverrides value for this CustomTab.
+     * 
+     * @return actionOverrides
+     */
+    public com.sforce.soap._2006._04.metadata.ActionOverride[] getActionOverrides() {
+        return actionOverrides;
+    }
+
+
+    /**
+     * Sets the actionOverrides value for this CustomTab.
+     * 
+     * @param actionOverrides
+     */
+    public void setActionOverrides(com.sforce.soap._2006._04.metadata.ActionOverride[] actionOverrides) {
+        this.actionOverrides = actionOverrides;
+    }
+
+    public com.sforce.soap._2006._04.metadata.ActionOverride getActionOverrides(int i) {
+        return this.actionOverrides[i];
+    }
+
+    public void setActionOverrides(int i, com.sforce.soap._2006._04.metadata.ActionOverride _value) {
+        this.actionOverrides[i] = _value;
     }
 
 
@@ -243,7 +275,7 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
      * 
      * @return mobileReady
      */
-    public boolean isMobileReady() {
+    public java.lang.Boolean getMobileReady() {
         return mobileReady;
     }
 
@@ -253,7 +285,7 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
      * 
      * @param mobileReady
      */
-    public void setMobileReady(boolean mobileReady) {
+    public void setMobileReady(java.lang.Boolean mobileReady) {
         this.mobileReady = mobileReady;
     }
 
@@ -389,6 +421,9 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         __equalsCalc = obj;
         boolean _equals;
         _equals = super.equals(obj) && 
+            ((this.actionOverrides==null && other.getActionOverrides()==null) || 
+             (this.actionOverrides!=null &&
+              java.util.Arrays.equals(this.actionOverrides, other.getActionOverrides()))) &&
             ((this.auraComponent==null && other.getAuraComponent()==null) || 
              (this.auraComponent!=null &&
               this.auraComponent.equals(other.getAuraComponent()))) &&
@@ -413,7 +448,9 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
             ((this.label==null && other.getLabel()==null) || 
              (this.label!=null &&
               this.label.equals(other.getLabel()))) &&
-            this.mobileReady == other.isMobileReady() &&
+            ((this.mobileReady==null && other.getMobileReady()==null) || 
+             (this.mobileReady!=null &&
+              this.mobileReady.equals(other.getMobileReady()))) &&
             ((this.motif==null && other.getMotif()==null) || 
              (this.motif!=null &&
               this.motif.equals(other.getMotif()))) &&
@@ -443,6 +480,17 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         }
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
+        if (getActionOverrides() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getActionOverrides());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getActionOverrides(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
         if (getAuraComponent() != null) {
             _hashCode += getAuraComponent().hashCode();
         }
@@ -467,7 +515,9 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         if (getLabel() != null) {
             _hashCode += getLabel().hashCode();
         }
-        _hashCode += (isMobileReady() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        if (getMobileReady() != null) {
+            _hashCode += getMobileReady().hashCode();
+        }
         if (getMotif() != null) {
             _hashCode += getMotif().hashCode();
         }
@@ -497,6 +547,14 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "CustomTab"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("actionOverrides");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "actionOverrides"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "ActionOverride"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("auraComponent");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "auraComponent"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -556,12 +614,14 @@ public class CustomTab  extends com.sforce.soap._2006._04.metadata.Metadata  imp
         elemField.setFieldName("mobileReady");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "mobileReady"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("motif");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "motif"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

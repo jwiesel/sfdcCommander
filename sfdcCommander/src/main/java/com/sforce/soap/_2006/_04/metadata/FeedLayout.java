@@ -26,6 +26,8 @@ public class FeedLayout  implements java.io.Serializable {
 
     private com.sforce.soap._2006._04.metadata.FeedLayoutComponent[] rightComponents;
 
+    private java.lang.Boolean useInlineFiltersInConsole;
+
     public FeedLayout() {
     }
 
@@ -38,7 +40,8 @@ public class FeedLayout  implements java.io.Serializable {
            java.lang.Boolean hideSidebar,
            java.lang.Boolean highlightExternalFeedItems,
            com.sforce.soap._2006._04.metadata.FeedLayoutComponent[] leftComponents,
-           com.sforce.soap._2006._04.metadata.FeedLayoutComponent[] rightComponents) {
+           com.sforce.soap._2006._04.metadata.FeedLayoutComponent[] rightComponents,
+           java.lang.Boolean useInlineFiltersInConsole) {
            this.autocollapsePublisher = autocollapsePublisher;
            this.compactFeed = compactFeed;
            this.feedFilterPosition = feedFilterPosition;
@@ -48,6 +51,7 @@ public class FeedLayout  implements java.io.Serializable {
            this.highlightExternalFeedItems = highlightExternalFeedItems;
            this.leftComponents = leftComponents;
            this.rightComponents = rightComponents;
+           this.useInlineFiltersInConsole = useInlineFiltersInConsole;
     }
 
 
@@ -254,6 +258,26 @@ public class FeedLayout  implements java.io.Serializable {
         this.rightComponents[i] = _value;
     }
 
+
+    /**
+     * Gets the useInlineFiltersInConsole value for this FeedLayout.
+     * 
+     * @return useInlineFiltersInConsole
+     */
+    public java.lang.Boolean getUseInlineFiltersInConsole() {
+        return useInlineFiltersInConsole;
+    }
+
+
+    /**
+     * Sets the useInlineFiltersInConsole value for this FeedLayout.
+     * 
+     * @param useInlineFiltersInConsole
+     */
+    public void setUseInlineFiltersInConsole(java.lang.Boolean useInlineFiltersInConsole) {
+        this.useInlineFiltersInConsole = useInlineFiltersInConsole;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof FeedLayout)) return false;
@@ -292,7 +316,10 @@ public class FeedLayout  implements java.io.Serializable {
               java.util.Arrays.equals(this.leftComponents, other.getLeftComponents()))) &&
             ((this.rightComponents==null && other.getRightComponents()==null) || 
              (this.rightComponents!=null &&
-              java.util.Arrays.equals(this.rightComponents, other.getRightComponents())));
+              java.util.Arrays.equals(this.rightComponents, other.getRightComponents()))) &&
+            ((this.useInlineFiltersInConsole==null && other.getUseInlineFiltersInConsole()==null) || 
+             (this.useInlineFiltersInConsole!=null &&
+              this.useInlineFiltersInConsole.equals(other.getUseInlineFiltersInConsole())));
         __equalsCalc = null;
         return _equals;
     }
@@ -354,6 +381,9 @@ public class FeedLayout  implements java.io.Serializable {
                     _hashCode += obj.hashCode();
                 }
             }
+        }
+        if (getUseInlineFiltersInConsole() != null) {
+            _hashCode += getUseInlineFiltersInConsole().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -430,6 +460,13 @@ public class FeedLayout  implements java.io.Serializable {
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("useInlineFiltersInConsole");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "useInlineFiltersInConsole"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
 

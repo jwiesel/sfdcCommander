@@ -12,6 +12,8 @@ public class ReportFilterItem  implements java.io.Serializable {
 
     private java.lang.Boolean columnToColumn;
 
+    private java.lang.Boolean isUnlocked;
+
     private com.sforce.soap._2006._04.metadata.FilterOperation operator;
 
     private java.lang.String snapshot;
@@ -24,11 +26,13 @@ public class ReportFilterItem  implements java.io.Serializable {
     public ReportFilterItem(
            java.lang.String column,
            java.lang.Boolean columnToColumn,
+           java.lang.Boolean isUnlocked,
            com.sforce.soap._2006._04.metadata.FilterOperation operator,
            java.lang.String snapshot,
            java.lang.String value) {
            this.column = column;
            this.columnToColumn = columnToColumn;
+           this.isUnlocked = isUnlocked;
            this.operator = operator;
            this.snapshot = snapshot;
            this.value = value;
@@ -72,6 +76,26 @@ public class ReportFilterItem  implements java.io.Serializable {
      */
     public void setColumnToColumn(java.lang.Boolean columnToColumn) {
         this.columnToColumn = columnToColumn;
+    }
+
+
+    /**
+     * Gets the isUnlocked value for this ReportFilterItem.
+     * 
+     * @return isUnlocked
+     */
+    public java.lang.Boolean getIsUnlocked() {
+        return isUnlocked;
+    }
+
+
+    /**
+     * Sets the isUnlocked value for this ReportFilterItem.
+     * 
+     * @param isUnlocked
+     */
+    public void setIsUnlocked(java.lang.Boolean isUnlocked) {
+        this.isUnlocked = isUnlocked;
     }
 
 
@@ -152,6 +176,9 @@ public class ReportFilterItem  implements java.io.Serializable {
             ((this.columnToColumn==null && other.getColumnToColumn()==null) || 
              (this.columnToColumn!=null &&
               this.columnToColumn.equals(other.getColumnToColumn()))) &&
+            ((this.isUnlocked==null && other.getIsUnlocked()==null) || 
+             (this.isUnlocked!=null &&
+              this.isUnlocked.equals(other.getIsUnlocked()))) &&
             ((this.operator==null && other.getOperator()==null) || 
              (this.operator!=null &&
               this.operator.equals(other.getOperator()))) &&
@@ -177,6 +204,9 @@ public class ReportFilterItem  implements java.io.Serializable {
         }
         if (getColumnToColumn() != null) {
             _hashCode += getColumnToColumn().hashCode();
+        }
+        if (getIsUnlocked() != null) {
+            _hashCode += getIsUnlocked().hashCode();
         }
         if (getOperator() != null) {
             _hashCode += getOperator().hashCode();
@@ -206,6 +236,13 @@ public class ReportFilterItem  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("columnToColumn");
         elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "columnToColumn"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("isUnlocked");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://soap.sforce.com/2006/04/metadata", "isUnlocked"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
