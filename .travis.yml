@@ -4,3 +4,11 @@ script: mvn install -Dgpg.skip=true -f sfdcCommander/pom.xml
 
 jdk:
   - oraclejdk8
+
+deploy:
+  provider: releases
+  api_key: "90a971193cfa89881156858faaf37a60e078ae20"
+  file: "jwiesel/sfdcCommander/sfdcCommander/target/sfdcCommander-0.5.0-SNAPSHOT.jar"
+  skip_cleanup: true
+  on:
+    tags: true

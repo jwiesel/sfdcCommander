@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
 	<Product Id="638122ea-d6ac-4a15-a11f-7e691fcf0e44" Name="sfdcCommander"
-		Language="1033" Version="0.4" Manufacturer="jwiesel"
+		Language="1033" Version="0.5" Manufacturer="jwiesel"
 		UpgradeCode="638122ea-d6ac-4a15-a11f-7e691fcf0e44">
 		<Package Description="sfdcCommander installer package"
 			Comments="First version of the Windows Installer package"

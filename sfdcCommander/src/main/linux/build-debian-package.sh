@@ -4,7 +4,7 @@ TARGET="../../../target"
 PACKAGE="${TARGET}/debian-package"
 echo Cleaning up build-folder
 rm -rf ${PACKAGE}
-rm -f ${TARGET}/sfdcCommander_0.4.deb
+rm -f ${TARGET}/sfdcCommander_0.5.deb
 echo Creating new build-folder and package structure
 cp -r debian-package/ ${TARGET}
 sudo chown root:root ${PACKAGE}/DEBIAN/*
@@ -19,4 +19,4 @@ find . -type f ! -regex '.*.hg.*' ! -regex '.*?debian-binary.*' ! -regex '.*?DEB
 chmod g-w DEBIAN/md5sums
 echo Compiling .deb package
 cd ..
-fakeroot dpkg -b debian-package sfdcCommander_0.4.deb
+fakeroot dpkg -b debian-package sfdcCommander_0.5.deb

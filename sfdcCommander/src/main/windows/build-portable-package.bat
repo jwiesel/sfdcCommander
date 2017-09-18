@@ -7,7 +7,7 @@ set PACKAGE=%TARGET%\portable-package
 
 echo Cleaning up files from last package build.
 rmdir /S /Q %PACKAGE%
-del %TARGET%\sfdcCommander-0.4-Portable.zip
+del %TARGET%\sfdcCommander-0.5-Portable.zip
 
 echo Preparing package structure
 mkdir %PACKAGE%
@@ -17,4 +17,4 @@ copy %CFG%\SampleOrg.properties %PACKAGE%\config\
 xcopy /S %CFG%\transformer\* %PACKAGE%\config\transformer\
 
 echo Compressing package
-7z a %TARGET%\sfdcCommander-0.4-Portable.zip %PACKAGE%\*
+7z a %TARGET%\sfdcCommander-0.5-Portable.zip %PACKAGE%\*
