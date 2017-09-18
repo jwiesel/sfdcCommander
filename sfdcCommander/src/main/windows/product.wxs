@@ -33,7 +33,7 @@
 		<DirectoryRef Id="SFDCDIR">
 			<Component Id="sfdcCommander.jar" Guid="638122ea-d6ac-4a15-a11f-7e691fcf0e44">
 				<File Id="sfdcCommander.jar" Name="sfdcCommander.jar" DiskId="1"
-					Source="..\..\..\target\sfdcCommander-0.0.1-SNAPSHOT.jar" KeyPath="yes"
+					Source="..\..\..\target\sfdcCommander-0.5.0-SNAPSHOT.jar" KeyPath="yes"
 					Checksum="yes" />
 			</Component>
 		</DirectoryRef>

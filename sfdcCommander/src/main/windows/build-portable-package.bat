@@ -12,7 +12,7 @@ del %TARGET%\sfdcCommander-0.5-Portable.zip
 echo Preparing package structure
 mkdir %PACKAGE%
 mkdir %PACKAGE%\config
-copy %TARGET%\sfdcCommander-0.0.1-SNAPSHOT.jar %PACKAGE%\sfdcCommander.jar
+copy %TARGET%\sfdcCommander-0.5.0-SNAPSHOT.jar %PACKAGE%\sfdcCommander.jar
 copy %CFG%\SampleOrg.properties %PACKAGE%\config\
 xcopy /S %CFG%\transformer\* %PACKAGE%\config\transformer\
 
